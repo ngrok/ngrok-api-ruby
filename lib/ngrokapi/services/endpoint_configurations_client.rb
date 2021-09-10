@@ -8,9 +8,9 @@ module NgrokAPI
     # https://ngrok.com/docs/api#api-endpoint-configurations
     class EndpointConfigurationsClient
       # The List Property from the resulting API for list calls
-      LIST_PROPERTY = 'endpoint_configurations'.freeze
+      LIST_PROPERTY = 'endpoint_configurations'
       # The API path for endpoint configurations
-      PATH = '/endpoint_configurations'.freeze
+      PATH = '/endpoint_configurations'
 
       attr_reader :client
 
@@ -21,6 +21,7 @@ module NgrokAPI
       ##
       # Create a new endpoint configuration
       #
+      # rubocop:disable LineLength
       # @param [string] description human-readable description of what this endpoint configuration will be do when applied or what traffic it will be applied to. Optional, max 255 bytes
       # @param [string] metadata arbitrary user-defined machine-readable data of this endpoint configuration. Optional, max 4096 bytes.
       # @param [string] type they type of traffic this endpoint configuration can be applied to. one of: ``http``, ``https``, ``tcp``
@@ -37,6 +38,7 @@ module NgrokAPI
       # @param [string] saml saml module configuration
       # @param [string] oidc oidc module configuration
       # @return [NgrokAPI::Models::EndpointConfiguration] result from create request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-create
       def create(
@@ -78,7 +80,9 @@ module NgrokAPI
       end
 
       ##
-      # Delete an endpoint configuration. This operation will fail if the endpoint configuration is still referenced by any reserved domain or reserved address.
+      # Delete an endpoint configuration.
+      # This operation will fail if the endpoint configuration is still referenced by
+      # any reserved domain or reserved address.
       #
       # @param [string] id a resource identifier
       # @return [nil] result from delete request
@@ -120,6 +124,7 @@ module NgrokAPI
       end
 
       ##
+      # rubocop:disable LineLength
       # Updates an endpoint configuration. If a module is not specified in the update, it will not be modified.
       # However, each module configuration that is specified will completely replace the existing value.
       # There is no way to delete an existing module via this API, instead use the delete module API.
@@ -140,6 +145,7 @@ module NgrokAPI
       # @param [string] saml saml module configuration
       # @param [string] oidc oidc module configuration
       # @return [NgrokAPI::Models::EndpointConfiguration] result from update request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-update
       def update(

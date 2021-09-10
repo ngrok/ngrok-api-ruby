@@ -60,6 +60,7 @@ module NgrokAPI
       ##
       # Update the attributes of this reserved domain.
       #
+      # rubocop:disable LineLength
       # @param [string] description human-readable description of what this reserved domain will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
       # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
@@ -67,6 +68,7 @@ module NgrokAPI
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [string] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
       # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
       def update(

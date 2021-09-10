@@ -44,9 +44,11 @@ module NgrokAPI
       ##
       # Update the attributes of this TLS Certificate.
       #
+      # rubocop:disable LineLength
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
       # @return [NgrokAPI::Models::TlsCertificate] result from update request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-tls-certificates-update
       def update(description: nil, metadata: nil)

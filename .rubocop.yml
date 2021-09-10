@@ -1,63 +1,12 @@
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/StringLiterals:
+inherit_from:
+  - .rubocop_airbnb.yml
+  - .rubocop_todo.yml
+
+Airbnb/ClassOrModuleDeclaredInWrongFile:
   Enabled: false
 
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.
-Layout/SpaceInsideHashLiteralBraces:
+Airbnb/ConstAssignedInWrongFile:
   Enabled: false
 
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-Layout/SpaceInsideBlockBraces:
-  Enabled: false
-
-# Cop supports --auto-correct.
-Layout/SpaceBeforeSemicolon:
-  Enabled: false
-
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/SignalException:
-  Enabled: false
-
-# Configuration parameters: Methods.
-Style/SingleLineBlockParams:
-  Enabled: false
-
-# Cop supports --auto-correct.
-Style/PerlBackrefs:
-  Enabled: false
-
-# Cop supports --auto-correct.
-# Configuration parameters: AllowAsExpressionSeparator.
-Style/Semicolon:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
-Style/RegexpLiteral:
-  Enabled: false
-
-# Cop supports --auto-correct.
-Style/NumericLiterals:
-  MinDigits: 6
-
-# Cop supports --auto-correct.
-Lint/UnusedMethodArgument:
-  Enabled: false
-
-# Cop supports --auto-correct.
-Lint/UnusedBlockArgument:
-  Enabled: false
-
-Lint/Void:
-  Enabled: false
-
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Enabled: false
+Layout/AlignArguments:
+  EnforcedStyle: with_fixed_indentation

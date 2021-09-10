@@ -20,8 +20,8 @@ module NgrokAPI
         @list_property = list_property
         @next_page_uri = @result['next_page_uri']
         @uri = @result['uri']
-        @items = @result[list_property].map do |result|
-          klass.new(client: client, result: result)
+        @items = @result[list_property].map do |item|
+          klass.new(client: client, result: item)
         end
         @iter = NgrokAPI::PagedIterator.new(
           client: client,

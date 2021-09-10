@@ -117,6 +117,7 @@ module NgrokAPI
     end
 
     private
+
     def headers
       {
         'Authorization': "Bearer #{@api_key}",
@@ -140,8 +141,8 @@ module NgrokAPI
     end
 
     def get_uri(path, data: nil)
-      data = data != nil ? "?#{URI.encode_www_form(data)}" : ""
-      uri = URI("#{url(path)}#{data}")
+      data = !data.nil? ? "?#{URI.encode_www_form(data)}" : ""
+      URI("#{url(path)}#{data}")
     end
 
     def url(path)

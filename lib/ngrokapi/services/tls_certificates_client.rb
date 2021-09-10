@@ -8,9 +8,9 @@ module NgrokAPI
     # https://ngrok.com/docs/api#api-tls-certificates
     class TlsCertificatesClient
       # The List Property from the resulting API for list calls
-      LIST_PROPERTY = 'tls_certificates'.freeze
+      LIST_PROPERTY = 'tls_certificates'
       # The API path for tls certificates
-      PATH = '/tls_certificates'.freeze
+      PATH = '/tls_certificates'
 
       attr_reader :client
 
@@ -21,11 +21,13 @@ module NgrokAPI
       ##
       # Upload a new TLS certificate.
       #
+      # rubocop:disable LineLength
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
       # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles` <https://ngrok.com/docs/api#tls-certificates-pem>`_.
       # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys` <https://ngrok.com/docs/ngrok-link#tls-certificates-key>`_.
       # @return [NgrokAPI::Models::TlsCertificate] result from create request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-tls-certificates-create
       def create(
@@ -89,10 +91,12 @@ module NgrokAPI
       ##
       # Update attributes of a TLS Certificate by ID.
       #
+      # rubocop:disable LineLength
       # @param [string] id
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
       # @return [NgrokAPI::Models::TlsCertificate] result from update request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-tls-certificates-update
       def update(

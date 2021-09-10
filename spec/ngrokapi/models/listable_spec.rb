@@ -54,13 +54,13 @@ RSpec.describe NgrokAPI::Models::Listable do
   end
 
   describe "keys" do
-    it "should consistent of ApiKeys" do
+    it "consistent of ApiKeys" do
       expect(@listable.items.size).to eq @result['keys'].size
     end
   end
 
   describe "iter" do
-    it "should be a PagedIterator" do
+    it "is a PagedIterator" do
       expect(@listable.iter.class).to eq NgrokAPI::PagedIterator
     end
   end

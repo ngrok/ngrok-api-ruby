@@ -8,9 +8,9 @@ module NgrokAPI
     # https://ngrok.com/docs/api#api-reserved-domains
     class ReservedDomainsClient
       # The List Property from the resulting API for list calls
-      LIST_PROPERTY = 'reserved_domains'.freeze
+      LIST_PROPERTY = 'reserved_domains'
       # The API path for reserved domains
-      PATH = '/reserved_domains'.freeze
+      PATH = '/reserved_domains'
 
       attr_reader :client
 
@@ -21,6 +21,7 @@ module NgrokAPI
       ##
       # Create a new reserved domain.
       #
+      # rubocop:disable LineLength
       # @param [string] name the domain name to reserve. It may be a full domain name like app.example.com. If the name does not contain a '.' it will reserve that subdomain on ngrok.io.
       # @param [string] region reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)
       # @param [string] description human-readable description of what this reserved domain will be used for
@@ -30,6 +31,7 @@ module NgrokAPI
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [string] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
       # @return [NgrokAPI::Models::ReservedDomain] result from create request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
       def create(
@@ -101,6 +103,7 @@ module NgrokAPI
       ##
       # Update the attributes of a reserved domain.
       #
+      # rubocop:disable LineLength
       # @param [string] id
       # @param [string] description human-readable description of what this reserved domain will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
@@ -109,6 +112,7 @@ module NgrokAPI
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [string] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
       # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
       def update(
