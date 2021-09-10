@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::PagedIterator do
   before(:each) do
     client = class_double("ApiKeysClient")
-    page = class_double("ApiKeyList")
+    result = class_double("Listable")
     @paged_iterator = NgrokAPI::PagedIterator.new(client: client, result: result)
   end
 

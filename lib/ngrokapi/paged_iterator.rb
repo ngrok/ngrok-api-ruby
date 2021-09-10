@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module NgrokAPI
+  ##
+  # Low level class which allows the user to iterate through the results of a list API call
   class PagedIterator
     attr_accessor :page, :n
     attr_reader :client, :list_property
@@ -16,6 +18,11 @@ module NgrokAPI
       @page = page
     end
 
+    ##
+    # Iterate through the result set, returning the next instance if we already have one, or make
+    # a new API call to next_page_uri to get more results and return the next one from that call.
+    #
+    # @return [object] Returns an instance of a class.
     def get_next
       begin
         item = @page.result[@list_property][@n]

@@ -24,4 +24,6 @@ end
 group :development, :test do
   # https://github.com/pry/pry
   gem 'pry'
+  # https://github.com/lsegal/yard
+  gem 'yard'
 end

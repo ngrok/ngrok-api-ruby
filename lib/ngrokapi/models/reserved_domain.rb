@@ -2,6 +2,8 @@
 
 module NgrokAPI
   module Models
+    ##
+    # A resource representing data from the reserved_domains API
     class ReservedDomain
       attr_reader :id,
         :certificate,
@@ -45,10 +47,28 @@ module NgrokAPI
       def to_s
       end
 
+      ##
+      # Delete this reserved domain.
+      #
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete
       def delete
         @client.delete(id: @id)
       end
 
+      ##
+      # Update the attributes of this reserved domain.
+      #
+      # @param [string] description human-readable description of what this reserved domain will be used for
+      # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
+      # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
+      # @param [string] https_endpoint_configuration_id ID of an endpoint configuration of type https that will be used to handle inbound https traffic to this domain
+      # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
+      # @param [string] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-update
       def update(
         certificate_id: nil,
         certificate_management_policy: nil,
@@ -80,32 +100,70 @@ module NgrokAPI
         )
       end
 
-      def delete_certificate(id: nil)
+      ##
+      # Detach the certificate attached from this reserved domain.
+      #
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
+      def delete_certificate
         @certificate = nil
         @client.delete_certificate(id: @id)
       end
 
-      def delete_certificate_management_policy(id: nil)
+      ##
+      # Detach the certificate management policy attached from this reserved domain.
+      #
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate-management-policy
+      def delete_certificate_management_policy
         @certificate_management_policy = nil
         @certificate_management_status = nil
         @client.delete_certificate_management_policy(id: @id)
       end
 
-      def delete_http_endpoint_config(id: nil)
+      ##
+      # Detach the http endpoint configuration attached from this reserved domain.
+      #
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
+      def delete_http_endpoint_config
         @http_endpoint_configuration = nil
         @client.delete_http_endpoint_config(id: @id)
       end
 
-      def delete_https_endpoint_config(id: nil)
+      ##
+      # Detach the https endpoint configuration attached from this reserved domain.
+      #
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
+      def delete_https_endpoint_config
         @https_endpoint_configuration = nil
         @client.delete_https_endpoint_config(id: @id)
       end
 
+      ##
+      # Restore the certificate attached to this reserved domain.
+      # Only works if the @result is still present from a previous action
+      #
+      # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-update
       def restore_certificate
         @certificate = @result['certificate']
         @client.update(id: @id, certificate_id: @result['certificate']['id'])
       end
 
+      ##
+      # Restore the certificate management policy attached to this reserved domain.
+      # Only works if the @result is still present from a previous action
+      #
+      # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-update
       def restore_certificate_management_policy
         @certificate_management_policy = @result['certificate_management_policy']
         @certificate_management_status = @result['certificate_management_status']
@@ -115,6 +173,13 @@ module NgrokAPI
         )
       end
 
+      ##
+      # Restore the http endpoint configuration attached to this reserved domain.
+      # Only works if the @result is still present from a previous action
+      #
+      # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-update
       def restore_http_endpoint_config
         @http_endpoint_configuration = @result['http_endpoint_configuration']
         @client.update(
@@ -123,6 +188,13 @@ module NgrokAPI
         )
       end
 
+      ##
+      # Restore the https endpoint configuration attached to this reserved domain.
+      # Only works if the @result is still present from a previous action
+      #
+      # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-update
       def restore_https_endpoint_config
         @https_endpoint_configuration = @result['https_endpoint_configuration']
         @client.update(

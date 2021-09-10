@@ -2,6 +2,8 @@
 
 module NgrokAPI
   module Models
+    ##
+    # A resource representing multiple instances from a given "list" API call
     class Listable
       attr_reader :client,
         :klass,
@@ -18,7 +20,7 @@ module NgrokAPI
         @list_property = list_property
         @next_page_uri = @result['next_page_uri']
         @uri = @result['uri']
-        @items = @result[list_property].each do |result|
+        @items = @result[list_property].map do |result|
           klass.new(client: client, result: result)
         end
         @iter = NgrokAPI::PagedIterator.new(

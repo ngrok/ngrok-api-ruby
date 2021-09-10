@@ -7,5 +7,7 @@ Dir[File.join('.', 'lib', '**/*.rb')].each do |f|
   require f
 end
 
+##
+# The Module which contains the Ngrok API gem
 module NgrokAPI
 end

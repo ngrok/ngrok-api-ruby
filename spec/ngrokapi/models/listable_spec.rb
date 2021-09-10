@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe NgrokAPI::Models::ApiKeyList do
+RSpec.describe NgrokAPI::Models::Listable do
   before(:each) do
     client = class_double("ApiKeysClient")
     @result = {
@@ -33,7 +33,12 @@ RSpec.describe NgrokAPI::Models::ApiKeyList do
       "uri" => "https://api.ngrok.com/api_keys",
       "next_page_uri" => nil
     }
-    @api_keys = NgrokAPI::Models::ApiKeyList.new(client: client, result: @result)
+    @listable = NgrokAPI::Models::Listable.new(
+      client: client,
+      result: @result,
+      list_property: 'keys',
+      klass: NgrokAPI::Models::ApiKey
+    )
   end
 
   describe "#==" do
@@ -50,14 +55,13 @@ RSpec.describe NgrokAPI::Models::ApiKeyList do
 
   describe "keys" do
     it "should consistent of ApiKeys" do
-      expect(@api_keys.keys.size).to eq @result['keys'].size
-      expect(true).to eq true
+      expect(@listable.items.size).to eq @result['keys'].size
     end
   end
 
   describe "iter" do
     it "should be a PagedIterator" do
-      expect(@api_keys.iter.class).to eq NgrokAPI::PagedIterator
+      expect(@listable.iter.class).to eq NgrokAPI::PagedIterator
     end
   end
 end
