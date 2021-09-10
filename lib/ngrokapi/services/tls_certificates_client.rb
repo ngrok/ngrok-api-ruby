@@ -2,9 +2,9 @@
 
 module NgrokAPI
   module Services
-    class ApiKeysClient
-      LIST_PROPERTY = 'keys'.freeze
-      PATH = '/api_keys'.freeze
+    class TlsCertificatesClient
+      LIST_PROPERTY = 'tls_certificates'.freeze
+      PATH = '/tls_certificates'.freeze
 
       attr_reader :client
 
@@ -12,12 +12,20 @@ module NgrokAPI
         @client = client
       end
 
-      def create(description: nil, metadata: nil)
-        data = {}
-        data[:description] = description if description
-        data[:metadata] = metadata if metadata
+      def create(
+        certificate_pem: '',
+        description: '',
+        metadata: '',
+        private_key_pem: ''
+      )
+        data = {
+          certificate_pem: certificate_pem,
+          description: description,
+          metadata: metadata,
+          private_key_pem: private_key_pem,
+        }
         result = @client.post(PATH, data: data)
-        NgrokAPI::Models::ApiKey.new(client: self, result: result)
+        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
       end
 
       def delete(id: nil)
@@ -26,7 +34,7 @@ module NgrokAPI
 
       def get(id: nil)
         result = @client.get("#{PATH}/#{id}")
-        NgrokAPI::Models::ApiKey.new(client: self, result: result)
+        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
       end
 
       def list(before_id: nil, limit: nil, url: nil)
@@ -42,16 +50,20 @@ module NgrokAPI
           client: self,
           result: result,
           list_property: LIST_PROPERTY,
-          klass: NgrokAPI::Models::ApiKey
+          klass: NgrokAPI::Models::TlsCertificate
         )
       end
 
-      def update(id: nil, description: nil, metadata: nil)
+      def update(
+        id: nil,
+        description: nil,
+        metadata: nil
+      )
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch("#{PATH}/#{id}", data: data)
-        NgrokAPI::Models::ApiKey.new(client: self, result: result)
+        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
       end
     end
   end

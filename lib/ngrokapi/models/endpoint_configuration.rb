@@ -2,14 +2,13 @@
 
 module NgrokAPI
   module Models
-    class ApiKey
+    class EndpointConfiguration
       attr_reader :id,
         :client,
         :created_at,
         :description,
         :metadata,
         :result,
-        :token,
         :uri
 
       def initialize(client:, result:)
@@ -19,7 +18,6 @@ module NgrokAPI
         @id = @result['id']
         @description = @result['description']
         @metadata = @result['metadata']
-        @token = @result['token']
         @uri = @result['uri']
       end
 

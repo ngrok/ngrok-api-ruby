@@ -2,23 +2,30 @@
 
 module NgrokAPI
   module Models
-    class ApiKeyList
+    class Listable
       attr_reader :client,
-        :keys,
+        :klass,
         :iter,
+        :items,
+        :list_property,
         :next_page_uri,
         :result,
         :uri
 
-      def initialize(client:, result:)
+      def initialize(client:, result:, list_property:, klass:)
         @client = client
         @result = result
+        @list_property = list_property
         @next_page_uri = @result['next_page_uri']
         @uri = @result['uri']
-        @keys = @result['keys'].each do |result|
-          NgrokAPI::Models::ApiKey.new(client: client, result: result)
+        @items = @result[list_property].each do |result|
+          klass.new(client: client, result: result)
         end
-        @iter = NgrokAPI::PagedIterator.new(client: client, page: self, list_property: 'keys')
+        @iter = NgrokAPI::PagedIterator.new(
+          client: client,
+          page: self,
+          list_property: list_property
+        )
       end
 
       # TODO: equality
