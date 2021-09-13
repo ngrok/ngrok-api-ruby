@@ -2,11 +2,25 @@ inherit_from:
   - .rubocop_airbnb.yml
   - .rubocop_todo.yml
 
+Metrics/LineLength:
+  Max: 100
+
+# Ignore Rails-y Airbnb recommendation
 Airbnb/ClassOrModuleDeclaredInWrongFile:
   Enabled: false
 
+# Ignore Rails-y Airbnb recommendation
 Airbnb/ConstAssignedInWrongFile:
   Enabled: false
 
+# Allow empty examples to stub out specs
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+# Allow fake tests to stub out specs
+RSpec/ExpectActual:
+  Enabled: false
+
+# It just looks nicer
 Layout/AlignArguments:
   EnforcedStyle: with_fixed_indentation

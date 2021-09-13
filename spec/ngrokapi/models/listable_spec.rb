@@ -4,14 +4,14 @@ RSpec.describe NgrokAPI::Models::Listable do
   before(:each) do
     client = class_double("ApiKeysClient")
     @result = {
-      "keys"=> [
+      "keys" => [
         {
           "id" => "ak_1xSR6lmGzdXyfOsubPGwnuaBUfN",
           "uri" => "https://api.ngrok.com/api_keys/ak_1xSR6lmGzdXyfOsubPGwnuaBUfN",
           "description" => "testkey",
           "metadata" => "Cool",
           "created_at" => "2021-08-30T17:58:49Z",
-          "token" => nil
+          "token" => nil,
         },
         {
           "id" => "ak_1xrqAsg8fMHBgD71MSbtr6a0pA2",
@@ -19,7 +19,7 @@ RSpec.describe NgrokAPI::Models::Listable do
           "description" => "",
           "metadata" => "",
           "created_at" => "2021-09-08T17:50:14Z",
-          "token" => nil
+          "token" => nil,
         },
         {
           "id" => "ak_1xrq9HdabkhmGN4It9Lx7zuSUF2",
@@ -27,11 +27,11 @@ RSpec.describe NgrokAPI::Models::Listable do
           "description" => "",
           "metadata" => "",
           "created_at" => "2021-09-08T17:50:01Z",
-          "token" => nil
-        }
+          "token" => nil,
+        },
       ],
       "uri" => "https://api.ngrok.com/api_keys",
-      "next_page_uri" => nil
+      "next_page_uri" => nil,
     }
     @listable = NgrokAPI::Models::Listable.new(
       client: client,

@@ -9,7 +9,7 @@ RSpec.describe NgrokAPI::Models::ApiKey do
       "description" => "",
       "metadata" => "",
       "created_at" => "2021-09-08T17:49:56Z",
-      "token" => nil
+      "token" => nil,
     }
     @api_key = NgrokAPI::Models::ApiKey.new(client: client, result: result)
   end
@@ -27,19 +27,22 @@ RSpec.describe NgrokAPI::Models::ApiKey do
   end
 
   describe "#delete" do
-    it "should call delete on the client" do
+    it "calls delete on the client" do
       expect(@api_key.client).to receive(:delete)
       @api_key.delete
     end
   end
 
   describe "#update" do
-    it "should update the instance's description and metadata and call update on the client" do
+    it "updates instance's description and metadata and call update on the client" do
       new_description = 'new description'
       new_metadata = 'new metadata'
       expect(@api_key.client).to receive(:update)
 
-      @api_key.update(description: new_description, metadata: new_metadata)
+      @api_key.update(
+        description: new_description,
+        metadata: new_metadata,
+      )
       expect(@api_key.description).to eq new_description
       expect(@api_key.metadata).to eq new_metadata
     end

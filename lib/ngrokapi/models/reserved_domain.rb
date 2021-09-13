@@ -79,17 +79,10 @@ module NgrokAPI
         https_endpoint_configuration_id: nil,
         metadata: ''
       )
-        @certificate_id = certificate_id if certificate_id
         if certificate_management_policy
           @certificate_management_policy = certificate_management_policy
         end
         @description = description if description
-        if http_endpoint_configuration_id
-          @http_endpoint_configuration_id = http_endpoint_configuration_id
-        end
-        if https_endpoint_configuration_id
-          @https_endpoint_configuration_id = https_endpoint_configuration_id
-        end
         @metadata = metadata if metadata
         @client.update(
           id: @id,
@@ -100,6 +93,14 @@ module NgrokAPI
           certificate_id: certificate_id,
           certificate_management_policy: certificate_management_policy
         )
+        # TODO: update @certificate, etc?
+        # @certificate = new_result['certificate'] if certificate_id && new_result['certificate']
+        # if http_endpoint_configuration_id
+        #   @http_endpoint_configuration_id = http_endpoint_configuration_id
+        # end
+        # if https_endpoint_configuration_id
+        #   @https_endpoint_configuration_id = https_endpoint_configuration_id
+        # end
       end
 
       ##

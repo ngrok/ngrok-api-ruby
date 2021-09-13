@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "simplecov"
 SimpleCov.start
 require 'pry'
@@ -6,7 +7,9 @@ require 'pry'
 require 'webmock/rspec'
 require './lib/ngrokapi'
 
-Dir[File.expand_path(File.join(File.dirname(__FILE__), 'support', '**', '*.rb'))].each {|f| require f}
+Dir[File.expand_path(File.join(File.dirname(__FILE__), 'support', '**', '*.rb'))].each do |f|
+  require f
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'ngrokapi/version'
 
@@ -13,12 +14,12 @@ Gem::Specification.new do |s|
   s.summary     = 'Summary of the Ngrok Ruby API.'
   s.description = 'Description of the Ngrok Ruby API.'
 
-  s.required_ruby_version     = '>= 3.0.0'
+  s.required_ruby_version = '>= 3.0.0'
 
   all_files = `git ls-files`.split("\n")
   test_files = `git ls-files -- {test,spec,features}/*`.split('\n')
 
-  s.files         = all_files - test_files
-  s.executables   = `git ls-files -- bin/*`.split('\n').map { |f| File.basename(f) }
+  s.files = all_files - test_files
+  s.executables = `git ls-files -- bin/*`.split('\n').map { |f| File.basename(f) }
   s.require_paths = ['lib']
 end
