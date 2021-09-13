@@ -69,11 +69,7 @@ module NgrokAPI
       #
       # https://ngrok.com/docs/api#api-api-keys-list
       def list(before_id: nil, limit: nil, url: nil)
-        result = if url
-          @client.list(url: url)
-        else
-          @client.list(before_id: before_id, limit: limit, path: PATH)
-        end
+        result = @client.list(before_id: before_id, limit: limit, url: url, path: PATH)
         NgrokAPI::Models::Listable.new(
           client: self,
           result: result,

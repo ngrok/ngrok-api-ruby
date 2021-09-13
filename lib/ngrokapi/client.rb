@@ -82,13 +82,13 @@ module NgrokAPI
     # @param [string] url Full URL of the resource, mutually exclusive with path
     # @return [json] response body
     def list(before_id: nil, limit: nil, path: nil, url: nil)
-      if path
+      if url
+        get(url)
+      else
         data = {}
         data[:before_id] = before_id if before_id
         data[:limit] = limit if limit
         get(path, data: data)
-      else
-        get(url)
       end
     end
 
