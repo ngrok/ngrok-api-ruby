@@ -17,7 +17,7 @@ A quickstart guide and a full API reference are included in the [ngrok Ruby API 
 
 ## Quickstart
 
-Please consult the [documentation](https://python-api.docs.ngrok.com) for additional examples.
+Please consult the [documentation](https://ruby-api.docs.ngrok.com) for additional examples.
 
 ```ruby
 require 'ngrokapi/client'

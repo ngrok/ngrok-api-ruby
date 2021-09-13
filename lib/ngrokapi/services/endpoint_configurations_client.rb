@@ -114,7 +114,11 @@ module NgrokAPI
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-list
       def list(before_id: nil, limit: nil, url: nil)
-        result = @client.list(before_id: before_id, limit: limit, url: url, path: PATH)
+        result = if url
+          @client.list(url: url)
+        else
+          @client.list(before_id: before_id, limit: limit, path: PATH)
+        end
         NgrokAPI::Models::Listable.new(
           client: self,
           result: result,

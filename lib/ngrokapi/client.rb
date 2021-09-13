@@ -141,7 +141,7 @@ module NgrokAPI
     end
 
     def get_uri(path, data: nil)
-      data = !data.nil? ? "?#{URI.encode_www_form(data)}" : ""
+      data = (!data.nil? && data != {}) ? "?#{URI.encode_www_form(data)}" : ""
       URI("#{url(path)}#{data}")
     end
 

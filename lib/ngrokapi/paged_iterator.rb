@@ -29,9 +29,7 @@ module NgrokAPI
       self.n += 1
       item
     rescue
-      if @page.next_page_uri.nil?
-        # Handle / raise exception
-      else
+      if @page.next_page_uri
         res = @client.list(url: @page.next_page_uri)
         self.n = 0
         self.page = res
