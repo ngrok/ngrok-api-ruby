@@ -26,6 +26,8 @@ group :development, :test do
   gem 'pry'
   # https://github.com/lsegal/yard
   gem 'yard'
+  # https://github.com/airbnb/ruby/tree/master/rubocop
+  gem 'rubocop'
   # https://github.com/airbnb/ruby/tree/master/rubocop-airbnb
   gem 'rubocop-airbnb'
 end
