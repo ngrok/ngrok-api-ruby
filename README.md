@@ -32,8 +32,8 @@ keys.list
 
 Documentation can be generated with the command:
 
-```sh
-yard doc 'lib/**/*.rb'
+```ruby
+bundle exec yard doc 'lib/**/*.rb'
 ```
 
 This will generate a documentation which can be viewed within the doc folder.
@@ -42,7 +42,7 @@ This will generate a documentation which can be viewed within the doc folder.
 
 Specs can be run with the command:
 
-```sh
+```ruby
 bundle exec rake
 ```
 
@@ -54,8 +54,8 @@ Rubocop can be run with the command:
 
 ```ruby
 # Run rubocop on lib folder
-rubocop 'lib'
+bundle exec rubocop 'lib'
 
 # Run rubcop on all files
-rubocop
+bundle exec rubocop
 ```
