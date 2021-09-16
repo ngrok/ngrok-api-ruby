@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-ngrok+API+client+library+for+Ruby">ngrok API client library for Ruby</h1>
+
+<p>This library wraps the <a href="https://ngrok.com/docs/api">ngrok HTTP API</a> to make it easier to consume in Ruby.</p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>This library is published on <a href="https://rubygems.org/gems/ngrok-api">Rubygems</a></p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_ngrok'>ngrok</span><span class='op'>-</span><span class='id identifier rubyid_api'>api</span>
+</code></pre>
+
+<h2 id="label-Documentation">Documentation</h2>
+
+<p>A quickstart guide and a full API reference are included in the <a href="https://ruby-api.docs.ngrok.com">ngrok Ruby API documentation</a></p>
+
+<h2 id="label-Quickstart">Quickstart</h2>
+
+<p>Please consult the <a href="https://ruby-api.docs.ngrok.com">documentation</a> for additional examples.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ngrokapi/client</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="NgrokAPI/Client.html" title="NgrokAPI::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="NgrokAPI/Client.html#initialize-instance_method" title="NgrokAPI::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>api_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;API KEY&gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='comment'># Get an instance of the api_keys client and list all API keys
+</span><span class='id identifier rubyid_keys'>keys</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_api_keys'>api_keys</span>
+<span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span>
+</code></pre>
+
+<h2 id="label-Local+Documentation">Local Documentation</h2>
+
+<p>Documentation can be generated with the command:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_yard'>yard</span> <span class='id identifier rubyid_doc'>doc</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lib/**/*.rb</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>This will generate documentation which can be viewed within the doc folder.</p>
+
+<h2 id="label-Specs">Specs</h2>
+
+<p>Specs can be run with the command:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rake'>rake</span>
+</code></pre>
+
+<p>This will generate a coverage report which can be viewed within the coverage folder.</p>
+
+<h2 id="label-Rubocop">Rubocop</h2>
+
+<p>Rubocop can be run with the command:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># Run rubocop on lib folder
+</span><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rubocop'>rubocop</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lib</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='comment'># Run rubcop on all files
+</span><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rubocop'>rubocop</span>
+</code></pre>
+</div></div>
+
+      <div id="footer">
+  Generated on Thu Sep 16 09:16:37 2021 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-3.0.2).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,7 +1,6 @@
 Gemfile.lock
 .DS_Store
 .yardoc/
-doc/
 tmp/
 log/
 pkg/

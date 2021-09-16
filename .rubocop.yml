@@ -1,6 +1,5 @@
 inherit_from:
   - .rubocop_airbnb.yml
-  - .rubocop_todo.yml
 
 Metrics/LineLength:
   Max: 100

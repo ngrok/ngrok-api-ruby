@@ -8,11 +8,13 @@ Gem::Specification.new do |s|
   s.version     = NgrokAPI::VERSION
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
-  s.authors     = ['A name']
-  s.email       = ['support@ngrok.com']
+  s.authors     = ['']
+  s.email       = ['']
   s.homepage    = 'https://github.com/ngrok/ngrok-api-ruby'
-  s.summary     = 'Summary of the Ngrok Ruby API.'
-  s.description = 'Description of the Ngrok Ruby API.'
+  s.summary     = 'This library wraps the [ngrok HTTP API](https://ngrok.com/docs/api) to make
+    it easier to consume in Ruby.'
+  s.description = 'This library wraps the [ngrok HTTP API](https://ngrok.com/docs/api) to make
+    it easier to consume in Ruby.'
 
   s.required_ruby_version = '>= 3.0.0'
 

@@ -5,10 +5,10 @@ easier to consume in Ruby.
 
 ## Installation
 
-This library is published on [Rubygems](https://rubygems.org/gems/TODO)
+This library is published on [Rubygems](https://rubygems.org/gems/ngrok-api)
 
 ```ruby
-gem install TODO
+gem install ngrok-api
 ```
 
 ## Documentation
@@ -36,7 +36,7 @@ Documentation can be generated with the command:
 bundle exec yard doc 'lib/**/*.rb'
 ```
 
-This will generate a documentation which can be viewed within the doc folder.
+This will generate documentation which can be viewed within the doc folder.
 
 ## Specs
 
