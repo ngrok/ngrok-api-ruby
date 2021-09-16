@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::Models::Listable do
-  before(:each) do
-    client = class_double("ApiKeysClient")
-    @result = {
+  let(:result) do
+    {
       "keys" => [
         {
           "id" => "ak_1xSR6lmGzdXyfOsubPGwnuaBUfN",
@@ -33,29 +32,39 @@ RSpec.describe NgrokAPI::Models::Listable do
       "uri" => "https://api.ngrok.com/api_keys",
       "next_page_uri" => nil,
     }
+  end
+
+  before(:each) do
+    @client = class_double("ApiKeysClient")
     @listable = NgrokAPI::Models::Listable.new(
-      client: client,
-      result: @result,
+      client: @client,
+      result: result,
       list_property: 'keys',
       klass: NgrokAPI::Models::ApiKey
     )
   end
 
   describe "#==" do
-    pending "should be equal if X" do
-      expect(1).to eq 2
+    it "is equal if the results are the same" do
+      listable2 = NgrokAPI::Models::Listable.new(
+        client: @client,
+        result: result,
+        list_property: 'keys',
+        klass: NgrokAPI::Models::ApiKey
+      )
+      expect(@listable == listable2).to eq true
     end
   end
 
   describe "#to_s" do
-    pending "should stringify with X" do
-      expect(1).to eq 2
+    it "stringifies as result.to_s" do
+      expect(@listable.to_s).to eq result.to_s
     end
   end
 
   describe "keys" do
     it "consistent of ApiKeys" do
-      expect(@listable.items.size).to eq @result['keys'].size
+      expect(@listable.items.size).to eq result['keys'].size
     end
   end
 

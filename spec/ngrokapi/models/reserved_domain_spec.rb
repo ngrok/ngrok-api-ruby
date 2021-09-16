@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::Models::ReservedDomain do
-  before(:each) do
-    client = class_double("ReservedDomainsClient")
-    result = {
+  let(:result) do
+    {
       "id" => "rd_1xxLksFRG6o5MoAKX8UrtPnXbmz",
       "uri" => "https://api.ngrok.com/reserved_domains/rd_1xxLksFRG6o5MoAKX8UrtPnXbmz",
       "created_at" => "2021-09-10T16:38:58Z",
@@ -21,18 +20,23 @@ RSpec.describe NgrokAPI::Models::ReservedDomain do
       "certificate_management_policy" => nil,
       "certificate_management_status" => nil,
     }
-    @domain = NgrokAPI::Models::ReservedDomain.new(client: client, result: result)
+  end
+
+  before(:each) do
+    @client = class_double("ReservedDomainsClient")
+    @domain = NgrokAPI::Models::ReservedDomain.new(client: @client, result: result)
   end
 
   describe "#==" do
-    pending "should be equal if X" do
-      expect(1).to eq 2
+    it "is equal if the results are the same" do
+      domain2 = NgrokAPI::Models::ReservedDomain.new(client: @client, result: result)
+      expect(@domain == domain2).to eq true
     end
   end
 
   describe "#to_s" do
-    pending "should stringify with X" do
-      expect(1).to eq 2
+    it "stringifies as result.to_s" do
+      expect(@domain.to_s).to eq result.to_s
     end
   end
 

@@ -582,9 +582,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>TODO: equality.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -848,9 +846,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>TODO: to_s.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -1620,30 +1616,21 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>TODO: equality</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+42
 43
 44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/reserved_domain.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/reserved_domain.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
+  <span class='ivar'>@result</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_result'>result</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2246,30 +2233,21 @@
   
 
   
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>TODO: to_s</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+46
 47
 48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/reserved_domain.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/reserved_domain.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='ivar'>@result</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2512,7 +2490,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Sep 16 09:16:37 2021 by
+  Generated on Thu Sep 16 09:57:31 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

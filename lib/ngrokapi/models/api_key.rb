@@ -25,12 +25,12 @@ module NgrokAPI
         @uri = @result['uri']
       end
 
-      # TODO: equality
       def ==(other)
+        @result == other.result
       end
 
-      # TODO: to_s
       def to_s
+        @result.to_s
       end
 
       ##

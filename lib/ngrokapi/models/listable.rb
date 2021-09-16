@@ -30,12 +30,12 @@ module NgrokAPI
         )
       end
 
-      # TODO: equality
       def ==(other)
+        @result == other.result
       end
 
-      # TODO: to_s
       def to_s
+        @result.to_s
       end
     end
   end
