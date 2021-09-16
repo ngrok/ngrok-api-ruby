@@ -99,7 +99,9 @@ module NgrokAPI
       resp = Net::HTTP.start(uri.hostname, uri.port, req_options(uri)) do |http|
         http.request(req, data)
       end
-      JSON.parse(resp.body) if resp.body
+      if resp.body && resp.body != ''
+        JSON.parse(resp.body)
+      end
     end
 
     def req_options(uri)
