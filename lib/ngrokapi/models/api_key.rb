@@ -43,14 +43,14 @@ module NgrokAPI
         @client.delete(id: @id)
       end
 
+      # rubocop:disable LineLength
+
       ##
       # Update the attributes of this API key.
       #
-      # rubocop:disable LineLength
       # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
       # @return [NgrokAPI::Models::ApiKey] result from update request
-      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-api-keys-update
       def update(description: nil, metadata: nil)
@@ -58,6 +58,7 @@ module NgrokAPI
         @metadata = metadata if metadata
         @client.update(id: @id, description: description, metadata: metadata)
       end
+      # rubocop:enable LineLength
     end
   end
 end

@@ -2,7 +2,7 @@ inherit_from:
   - .rubocop_airbnb.yml
 
 Metrics/LineLength:
-  Max: 100
+  Max: 120
 
 # Ignore Rails-y Airbnb recommendation
 Airbnb/ClassOrModuleDeclaredInWrongFile:

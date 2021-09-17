@@ -24,8 +24,8 @@ require 'ngrokapi/client'
 client = NgrokAPI::Client.new(api_key: '<API KEY>')
 
 # Get an instance of the api_keys client and list all API keys
-keys = client.api_keys
-keys.list
+keys_client = client.api_keys
+keys_client.list
 ```
 
 ## Local Documentation

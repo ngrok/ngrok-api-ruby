@@ -18,14 +18,14 @@ module NgrokAPI
         @client = client
       end
 
+      # rubocop:disable LineLength
+
       ##
       # Create a new API key. The generated API key can be used to authenticate to the ngrok API.
       #
-      # rubocop:disable LineLength
       # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
       # @return [NgrokAPI::Models::ApiKey] result from create request
-      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-api-keys-create
       def create(description: nil, metadata: nil)
@@ -35,6 +35,7 @@ module NgrokAPI
         result = @client.post(PATH, data: data)
         NgrokAPI::Models::ApiKey.new(client: self, result: result)
       end
+      # rubocop:enable LineLength
 
       ##
       # Delete an API key by ID.
@@ -78,15 +79,15 @@ module NgrokAPI
         )
       end
 
+      # rubocop:disable LineLength
+
       ##
       # Update attributes of an API key by ID.
       #
-      # rubocop:disable LineLength
       # @param [string] id
       # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
       # @return [NgrokAPI::Models::ApiKey] result from update request
-      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-api-keys-update
       def update(id: nil, description: nil, metadata: nil)
@@ -96,6 +97,7 @@ module NgrokAPI
         result = @client.patch("#{PATH}/#{id}", data: data)
         NgrokAPI::Models::ApiKey.new(client: self, result: result)
       end
+      # rubocop:enable LineLength
     end
   end
 end

@@ -466,8 +466,6 @@
     
 <p>Create a new API key. The generated API key can be used to authenticate to the ngrok API.</p>
 
-<p>rubocop:disable LineLength rubocop:enable LineLength</p>
-
 <p><a href="https://ngrok.com/docs/api#api-api-keys-create">ngrok.com/docs/api#api-api-keys-create</a></p>
 
 
@@ -631,12 +629,12 @@
       <pre class="lines">
 
 
-46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::ApiKeysClient::PATH (constant)">PATH</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -714,13 +712,13 @@
       <pre class="lines">
 
 
-57
 58
 59
-60</pre>
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::ApiKeysClient::PATH (constant)">PATH</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -825,7 +823,6 @@
       <pre class="lines">
 
 
-71
 72
 73
 74
@@ -833,10 +830,11 @@
 76
 77
 78
-79</pre>
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::ApiKeysClient::PATH (constant)">PATH</a></span></span><span class='rparen'>)</span>
@@ -865,8 +863,6 @@
   <div class="discussion">
     
 <p>Update attributes of an API key by ID.</p>
-
-<p>rubocop:disable LineLength rubocop:enable LineLength</p>
 
 <p><a href="https://ngrok.com/docs/api#api-api-keys-update">ngrok.com/docs/api#api-api-keys-update</a></p>
 
@@ -953,16 +949,16 @@
       <pre class="lines">
 
 
-92
 93
 94
 95
 96
 97
-98</pre>
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/api_keys_client.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -981,7 +977,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Sep 16 09:57:31 2021 by
+  Generated on Fri Sep 17 09:53:56 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

@@ -344,7 +344,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>rubocop:disable LineLength Updates an endpoint configuration.</p>
+<p>Updates an endpoint configuration.</p>
 </div></span>
   
 </li>
@@ -465,8 +465,6 @@
   <div class="discussion">
     
 <p>Create a new endpoint configuration</p>
-
-<p>rubocop:disable LineLength rubocop:enable LineLength</p>
 
 <p><a href="https://ngrok.com/docs/api#api-endpoint-configurations-create">ngrok.com/docs/api#api-endpoint-configurations-create</a></p>
 
@@ -925,12 +923,12 @@
       <pre class="lines">
 
 
-91
 92
-93</pre>
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::EndpointConfigurationsClient::PATH (constant)">PATH</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1008,13 +1006,13 @@
       <pre class="lines">
 
 
-102
 103
 104
-105</pre>
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::EndpointConfigurationsClient::PATH (constant)">PATH</a></span></span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1119,7 +1117,6 @@
       <pre class="lines">
 
 
-116
 117
 118
 119
@@ -1127,10 +1124,11 @@
 121
 122
 123
-124</pre>
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::EndpointConfigurationsClient::PATH (constant)">PATH</a></span></span><span class='rparen'>)</span>
@@ -1158,9 +1156,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>rubocop:disable LineLength Updates an endpoint configuration. If a module is not specified in the update, it will not be modified. However, each module configuration that is specified will completely replace the existing value. There is no way to delete an existing module via this API, instead use the delete module API.</p>
-
-<p>rubocop:enable LineLength</p>
+<p>Updates an endpoint configuration. If a module is not specified in the update, it will not be modified. However, each module configuration that is specified will completely replace the existing value. There is no way to delete an existing module via this API, instead use the delete module API.</p>
 
 <p><a href="https://ngrok.com/docs/api#api-endpoint-configurations-update">ngrok.com/docs/api#api-endpoint-configurations-update</a></p>
 
@@ -1468,7 +1464,6 @@
       <pre class="lines">
 
 
-151
 152
 153
 154
@@ -1502,10 +1497,11 @@
 182
 183
 184
-185</pre>
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
   <span class='label'>id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
@@ -1552,7 +1548,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Sep 16 09:57:32 2021 by
+  Generated on Fri Sep 17 09:53:57 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

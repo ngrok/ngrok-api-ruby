@@ -18,16 +18,16 @@ module NgrokAPI
         @client = client
       end
 
+      # rubocop:disable LineLength
+
       ##
       # Upload a new TLS certificate.
       #
-      # rubocop:disable LineLength
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
       # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles` <https://ngrok.com/docs/api#tls-certificates-pem>`_.
       # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys` <https://ngrok.com/docs/ngrok-link#tls-certificates-key>`_.
       # @return [NgrokAPI::Models::TlsCertificate] result from create request
-      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-tls-certificates-create
       def create(
@@ -45,6 +45,7 @@ module NgrokAPI
         result = @client.post(PATH, data: data)
         NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
       end
+      # rubocop:enable LineLength
 
       ##
       # Delete a TLS certificate by ID.
@@ -88,15 +89,15 @@ module NgrokAPI
         )
       end
 
+      # rubocop:disable LineLength
+
       ##
       # Update attributes of a TLS Certificate by ID.
       #
-      # rubocop:disable LineLength
       # @param [string] id
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
       # @return [NgrokAPI::Models::TlsCertificate] result from update request
-      # rubocop:enable LineLength
       #
       # https://ngrok.com/docs/api#api-tls-certificates-update
       def update(
@@ -110,6 +111,7 @@ module NgrokAPI
         result = @client.patch("#{PATH}/#{id}", data: data)
         NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
       end
+      # rubocop:enable LineLength
     end
   end
 end
