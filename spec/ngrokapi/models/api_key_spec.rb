@@ -1,32 +1,21 @@
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::Models::ApiKey do
-  let(:result) do
-    {
-      "id" => "ak_1xrq8h890dWRYiRdIHeZYCdlyT7",
-      "uri" => "https://api.ngrok.com/api_keys/ak_1xrq8h890dWRYiRdIHeZYCdlyT7",
-      "description" => "",
-      "metadata" => "",
-      "created_at" => "2021-09-08T17:49:56Z",
-      "token" => nil,
-    }
-  end
-
   before(:each) do
     @client = class_double("ApiKeysClient")
-    @api_key = NgrokAPI::Models::ApiKey.new(client: @client, result: result)
+    @api_key = NgrokAPI::Models::ApiKey.new(client: @client, result: api_key_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      key2 = NgrokAPI::Models::ApiKey.new(client: @client, result: result)
+      key2 = NgrokAPI::Models::ApiKey.new(client: @client, result: api_key_result)
       expect(@api_key == key2).to eq true
     end
   end
 
   describe "#to_s" do
     it "stringifies as result.to_s" do
-      expect(@api_key.to_s).to eq result.to_s
+      expect(@api_key.to_s).to eq api_key_result.to_s
     end
   end
 

@@ -2,8 +2,7 @@ require 'spec_helper'
 
 RSpec.describe NgrokAPI::Client do
   before(:each) do
-    api_key = 'abc'
-    @client = NgrokAPI::Client.new(api_key: api_key)
+    @client = NgrokAPI::Client.new(api_key: 'abc')
   end
 
   describe "#api_keys" do

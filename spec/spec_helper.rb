@@ -44,3 +44,37 @@ RSpec::Matchers.define :use_cert_store do |cert_store|
     connection.cert_store == cert_store
   end
 end
+
+# Custom objects
+def api_key_result
+  {
+    "id" => "ak_1xrq8h890dWRYiRdIHeZYCdlyT7",
+    "uri" => "https://api.ngrok.com/api_keys/ak_1xrq8h890dWRYiRdIHeZYCdlyT7",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-09-08T17:49:56Z",
+    "token" => nil,
+  }
+end
+
+def api_key_result2
+  {
+    "id" => "ak_1xrqAsg8fMHBgD71MSbtr6a0pA2",
+    "uri" => "https://api.ngrok.com/api_keys/ak_1xrqAsg8fMHBgD71MSbtr6a0pA2",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-09-08T17:50:14Z",
+    "token" => nil,
+  }
+end
+
+def api_key_results
+  {
+    "keys" => [
+      api_key_result,
+      api_key_result2,
+    ],
+    "uri" => "https://api.ngrok.com/api_keys",
+    "next_page_uri" => nil,
+  }
+end
