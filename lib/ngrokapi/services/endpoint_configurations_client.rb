@@ -94,6 +94,19 @@ module NgrokAPI
       end
 
       ##
+      # Delete an endpoint configuration. Throw an exception if 404.
+      # This operation will fail if the endpoint configuration is still referenced by
+      # any reserved domain or reserved address.
+      #
+      # @param [string] id a resource identifier
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-endpoint-configurations-delete
+      def delete!(id: nil)
+        @client.delete("#{PATH}/#{id}", danger: true)
+      end
+
+      ##
       # Returns detailed information about an endpoint configuration by ID.
       #
       # @param [string] id a resource identifier
@@ -102,6 +115,18 @@ module NgrokAPI
       # https://ngrok.com/docs/api#api-endpoint-configurations-get
       def get(id: nil)
         result = @client.get("#{PATH}/#{id}")
+        NgrokAPI::Models::EndpointConfiguration.new(client: self, result: result)
+      end
+
+      ##
+      # Returns detailed information about an endpoint configuration by ID. Throw an execption if 404.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::EndpointConfiguration] result from get request
+      #
+      # https://ngrok.com/docs/api#api-endpoint-configurations-get
+      def get!(id: nil)
+        result = @client.get("#{PATH}/#{id}", danger: true)
         NgrokAPI::Models::EndpointConfiguration.new(client: self, result: result)
       end
 
@@ -166,6 +191,106 @@ module NgrokAPI
         saml: nil,
         oidc: nil
       )
+        data = build_data(
+          description: description,
+          metadata: metadata,
+          circuit_breaker: circuit_breaker,
+          compression: compression,
+          request_headers: request_headers,
+          response_headers: response_headers,
+          ip_policy: ip_policy,
+          mutual_tls: mutual_tls,
+          tls_termination: tls_termination,
+          webhook_validation: webhook_validation,
+          oauth: oauth,
+          logging: logging,
+          saml: saml,
+          oidc: oidc
+        )
+        result = @client.patch("#{PATH}/#{id}", data: data)
+        NgrokAPI::Models::EndpointConfiguration.new(client: self, result: result)
+      end
+
+      ##
+      # Updates an endpoint configuration. If a module is not specified in the update, it will not be modified.
+      # However, each module configuration that is specified will completely replace the existing value.
+      # There is no way to delete an existing module via this API, instead use the delete module API.
+      # Throw an exception if 404.
+      #
+      # @param [string] id unique identifier of this endpoint configuration
+      # @param [string] description human-readable description of what this endpoint configuration will be do when applied or what traffic it will be applied to. Optional, max 255 bytes
+      # @param [string] metadata arbitrary user-defined machine-readable data of this endpoint configuration. Optional, max 4096 bytes.
+      # @param [string] circuit_breaker circuit breaker module configuration
+      # @param [string] compression compression module configuration
+      # @param [string] request_headers request headers module configuration
+      # @param [string] response_headers response headers module configuration
+      # @param [string] ip_policy ip policy module configuration
+      # @param [string] mutual_tls mutual TLS module configuration
+      # @param [string] tls_termination TLS termination module configuration
+      # @param [string] webhook_validation webhook validation module configuration
+      # @param [string] oauth oauth module configuration
+      # @param [string] logging logging module configuration
+      # @param [string] saml saml module configuration
+      # @param [string] oidc oidc module configuration
+      # @return [NgrokAPI::Models::EndpointConfiguration] result from update request
+      #
+      # https://ngrok.com/docs/api#api-endpoint-configurations-update
+      def update!(
+        id: nil,
+        description: nil,
+        metadata: nil,
+        circuit_breaker: nil,
+        compression: nil,
+        request_headers: nil,
+        response_headers: nil,
+        ip_policy: nil,
+        mutual_tls: nil,
+        tls_termination: nil,
+        webhook_validation: nil,
+        oauth: nil,
+        logging: nil,
+        saml: nil,
+        oidc: nil
+      )
+        data = build_data(
+          description: description,
+          metadata: metadata,
+          circuit_breaker: circuit_breaker,
+          compression: compression,
+          request_headers: request_headers,
+          response_headers: response_headers,
+          ip_policy: ip_policy,
+          mutual_tls: mutual_tls,
+          tls_termination: tls_termination,
+          webhook_validation: webhook_validation,
+          oauth: oauth,
+          logging: logging,
+          saml: saml,
+          oidc: oidc
+        )
+        result = @client.patch("#{PATH}/#{id}", danger: true, data: data)
+        NgrokAPI::Models::EndpointConfiguration.new(client: self, result: result)
+      end
+      # rubocop:enable LineLength
+
+      private
+
+      def build_data(
+        description: nil,
+        metadata: nil,
+        circuit_breaker: nil,
+        compression: nil,
+        request_headers: nil,
+        response_headers: nil,
+        ip_policy: nil,
+        mutual_tls: nil,
+        tls_termination: nil,
+        webhook_validation: nil,
+        oauth: nil,
+        logging: nil,
+        saml: nil,
+        oidc: nil
+      )
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
@@ -181,10 +306,8 @@ module NgrokAPI
         data[:logging] = logging if logging
         data[:saml] = saml if saml
         data[:oidc] = oidc if oidc
-        result = @client.patch("#{PATH}/#{id}", data: data)
-        NgrokAPI::Models::EndpointConfiguration.new(client: self, result: result)
+        data
       end
-      # rubocop:enable LineLength
     end
   end
 end

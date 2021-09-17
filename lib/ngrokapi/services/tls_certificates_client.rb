@@ -59,6 +59,17 @@ module NgrokAPI
       end
 
       ##
+      # Delete a TLS certificate by ID. Throw an exception if 404.
+      #
+      # @param [string] id a resource identifier
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-tls-certificates-delete
+      def delete!(id: nil)
+        @client.delete("#{PATH}/#{id}", danger: true)
+      end
+
+      ##
       # Get detailed information about a TLS certificate by ID.
       #
       # @param [string] id a resource identifier
@@ -67,6 +78,18 @@ module NgrokAPI
       # https://ngrok.com/docs/api#api-tls-certificates-get
       def get(id: nil)
         result = @client.get("#{PATH}/#{id}")
+        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
+      end
+
+      ##
+      # Get detailed information about a TLS certificate by ID. Throw an exception if 404.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::TlsCertificate] result from get request
+      #
+      # https://ngrok.com/docs/api#api-tls-certificates-get
+      def get!(id: nil)
+        result = @client.get("#{PATH}/#{id}", danger: true)
         NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
       end
 
@@ -109,6 +132,27 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch("#{PATH}/#{id}", data: data)
+        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
+      end
+
+      ##
+      # Update attributes of a TLS Certificate by ID. Throw an exception if 404.
+      #
+      # @param [string] id
+      # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
+      # @return [NgrokAPI::Models::TlsCertificate] result from update request
+      #
+      # https://ngrok.com/docs/api#api-tls-certificates-update
+      def update!(
+        id: nil,
+        description: nil,
+        metadata: nil
+      )
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        result = @client.patch("#{PATH}/#{id}", danger: true, data: data)
         NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
       end
       # rubocop:enable LineLength

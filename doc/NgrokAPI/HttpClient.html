@@ -191,7 +191,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(path)  &#x21d2; nil </a>
+      <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(path, danger: false)  &#x21d2; nil </a>
     
 
     
@@ -215,7 +215,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get-instance_method" title="#get (instance method)">#<strong>get</strong>(path, data: {})  &#x21d2; json </a>
+      <a href="#get-instance_method" title="#get (instance method)">#<strong>get</strong>(path, danger: false, data: {})  &#x21d2; json </a>
     
 
     
@@ -289,7 +289,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#patch-instance_method" title="#patch (instance method)">#<strong>patch</strong>(path, data: {})  &#x21d2; json </a>
+      <a href="#patch-instance_method" title="#patch (instance method)">#<strong>patch</strong>(path, danger: false, data: {})  &#x21d2; json </a>
     
 
     
@@ -313,7 +313,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#post-instance_method" title="#post (instance method)">#<strong>post</strong>(path, data: {})  &#x21d2; json </a>
+      <a href="#post-instance_method" title="#post (instance method)">#<strong>post</strong>(path, danger: false, data: {})  &#x21d2; json </a>
     
 
     
@@ -490,7 +490,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="delete-instance_method">
   
-    #<strong>delete</strong>(path)  &#x21d2; <tt>nil</tt> 
+    #<strong>delete</strong>(path, danger: false)  &#x21d2; <tt>nil</tt> 
   
 
   
@@ -519,7 +519,25 @@
       
         &mdash;
         <div class='inline'>
-<p>URL resource path</p>
+<p>URL resource path.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>danger</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>determine if we should throw an exception on 404 or not</p>
 </div>
       
     </li>
@@ -546,19 +564,19 @@
       <pre class="lines">
 
 
-24
 25
 26
 27
-28</pre>
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Delete</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='id identifier rubyid_danger'>danger</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -568,7 +586,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get-instance_method">
   
-    #<strong>get</strong>(path, data: {})  &#x21d2; <tt>json</tt> 
+    #<strong>get</strong>(path, danger: false, data: {})  &#x21d2; <tt>json</tt> 
   
 
   
@@ -598,6 +616,24 @@
         &mdash;
         <div class='inline'>
 <p>URL resource path</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>danger</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>determine if we should throw an exception on 404 or not</p>
 </div>
       
     </li>
@@ -647,19 +683,19 @@
       <pre class="lines">
 
 
-36
-37
 38
 39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Get</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_headers'>headers</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='id identifier rubyid_danger'>danger</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -786,8 +822,6 @@
       <pre class="lines">
 
 
-50
-51
 52
 53
 54
@@ -795,10 +829,12 @@
 56
 57
 58
-59</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
@@ -818,7 +854,7 @@
       <div class="method_details ">
   <h3 class="signature " id="patch-instance_method">
   
-    #<strong>patch</strong>(path, data: {})  &#x21d2; <tt>json</tt> 
+    #<strong>patch</strong>(path, danger: false, data: {})  &#x21d2; <tt>json</tt> 
   
 
   
@@ -854,6 +890,24 @@
   
     <li>
       
+        <span class='name'>danger</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>determine if we should throw an exception on 404 or not</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>data</span>
       
       
@@ -897,19 +951,19 @@
       <pre class="lines">
 
 
-67
-68
-69
 70
-71</pre>
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 70</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Patch</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_headers_with_json'>headers_with_json</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='id identifier rubyid_danger'>danger</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -919,7 +973,7 @@
       <div class="method_details ">
   <h3 class="signature " id="post-instance_method">
   
-    #<strong>post</strong>(path, data: {})  &#x21d2; <tt>json</tt> 
+    #<strong>post</strong>(path, danger: false, data: {})  &#x21d2; <tt>json</tt> 
   
 
   
@@ -955,6 +1009,24 @@
   
     <li>
       
+        <span class='name'>danger</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>determine if we should throw an exception on 404 or not</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>data</span>
       
       
@@ -998,19 +1070,19 @@
       <pre class="lines">
 
 
-79
-80
-81
-82
-83</pre>
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 83</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_req'>req</span> <span class='op'>=</span> <span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='op'>::</span><span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_headers_with_json'>headers_with_json</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_json_do'>json_do</span><span class='lparen'>(</span><span class='id identifier rubyid_uri'>uri</span><span class='comma'>,</span> <span class='id identifier rubyid_req'>req</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='id identifier rubyid_danger'>danger</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1022,7 +1094,7 @@
 </div>
 
       <div id="footer">
-  Generated on Fri Sep 17 09:53:56 2021 by
+  Generated on Fri Sep 17 13:27:19 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.2).
 </div>

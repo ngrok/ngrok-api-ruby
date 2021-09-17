@@ -29,10 +29,7 @@ module NgrokAPI
       #
       # https://ngrok.com/docs/api#api-api-keys-create
       def create(description: nil, metadata: nil)
-        data = {}
-        data[:description] = description if description
-        data[:metadata] = metadata if metadata
-        result = @client.post(PATH, data: data)
+        result = @client.post(PATH, data: build_data(description: description, metadata: metadata))
         NgrokAPI::Models::ApiKey.new(client: self, result: result)
       end
       # rubocop:enable LineLength
@@ -49,6 +46,17 @@ module NgrokAPI
       end
 
       ##
+      # Delete an API key by ID. Throw an exception if 404.
+      #
+      # @param [string] id a resource identifier
+      # @return [nil] result from delete request
+      #
+      # https://ngrok.com/docs/api#api-api-keys-delete
+      def delete!(id: nil)
+        @client.delete("#{PATH}/#{id}", danger: true)
+      end
+
+      ##
       # Get the details of an API key by ID.
       #
       # @param [string] id a resource identifier
@@ -57,6 +65,18 @@ module NgrokAPI
       # https://ngrok.com/docs/api#api-api-keys-get
       def get(id: nil)
         result = @client.get("#{PATH}/#{id}")
+        NgrokAPI::Models::ApiKey.new(client: self, result: result)
+      end
+
+      ##
+      # Get the details of an API key by ID. Throw an exception if 404.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::ApiKey] result from get request
+      #
+      # https://ngrok.com/docs/api#api-api-keys-get
+      def get!(id: nil)
+        result = @client.get("#{PATH}/#{id}", danger: true)
         NgrokAPI::Models::ApiKey.new(client: self, result: result)
       end
 
@@ -91,13 +111,34 @@ module NgrokAPI
       #
       # https://ngrok.com/docs/api#api-api-keys-update
       def update(id: nil, description: nil, metadata: nil)
-        data = {}
-        data[:description] = description if description
-        data[:metadata] = metadata if metadata
-        result = @client.patch("#{PATH}/#{id}", data: data)
+        result = @client.patch("#{PATH}/#{id}", data: build_data(description: description, metadata: metadata))
+        NgrokAPI::Models::ApiKey.new(client: self, result: result)
+      end
+
+      ##
+      # Update attributes of an API key by ID.
+      #
+      # @param [string] id
+      # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
+      # @return [NgrokAPI::Models::ApiKey] result from update request
+      #
+      # https://ngrok.com/docs/api#api-api-keys-update
+      def update!(id: nil, description: nil, metadata: nil)
+        data = build_data(description: description, metadata: metadata)
+        result = @client.patch("#{PATH}/#{id}", danger: true, data: data)
         NgrokAPI::Models::ApiKey.new(client: self, result: result)
       end
       # rubocop:enable LineLength
+
+      private
+
+      def build_data(description: nil, metadata: nil)
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data
+      end
     end
   end
 end

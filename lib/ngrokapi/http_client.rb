@@ -19,24 +19,26 @@ module NgrokAPI
     ##
     # Make a DELETE request to a given URI
     #
-    # @param [string] path URL resource path
+    # @param [string] path URL resource path.
+    # @param [boolean] danger determine if we should throw an exception on 404 or not
     # @return [nil]
-    def delete(path)
+    def delete(path, danger: false)
       uri = get_uri(path)
       req = Net::HTTP::Delete.new(uri, headers)
-      json_do(uri, req)
+      json_do(uri, req, danger: danger)
     end
 
     ##
     # Make a GET request to a given URI with optional data
     #
     # @param [string] path URL resource path
+    # @param [boolean] danger determine if we should throw an exception on 404 or not
     # @param [hash] data hash which will be converted to query parameters or form data
     # @return [json] response body
-    def get(path, data: {})
+    def get(path, danger: false, data: {})
       uri = get_uri(path, data: data)
       req = Net::HTTP::Get.new(uri, headers)
-      json_do(uri, req)
+      json_do(uri, req, danger: danger)
     end
 
     ##
@@ -62,24 +64,26 @@ module NgrokAPI
     # Make a PATCH request to a given URI with optional data
     #
     # @param [string] path URL resource path
+    # @param [boolean] danger determine if we should throw an exception on 404 or not
     # @param [hash] data hash which will be converted to query parameters or form data
     # @return [json] response body
-    def patch(path, data: {})
+    def patch(path, danger: false, data: {})
       uri = get_uri(path)
       req = Net::HTTP::Patch.new(uri, headers_with_json)
-      json_do(uri, req, data: data.to_json)
+      json_do(uri, req, danger: danger, data: data.to_json)
     end
 
     ##
     # Make a POST request to a given URI with optional data
     #
     # @param [string] path URL resource path
+    # @param [boolean] danger determine if we should throw an exception on 404 or not
     # @param [hash] data hash which will be converted to query parameters or form data
     # @return [json] response body
-    def post(path, data: {})
+    def post(path, danger: false, data: {})
       uri = get_uri(path)
       req = Net::HTTP::Post.new(uri, headers_with_json)
-      json_do(uri, req, data: data.to_json)
+      json_do(uri, req, danger: danger, data: data.to_json)
     end
 
     private
@@ -95,9 +99,12 @@ module NgrokAPI
       headers.merge({ 'Content-Type': 'application/json' })
     end
 
-    def json_do(uri, req, data: nil)
+    def json_do(uri, req, danger: false, data: nil)
       resp = Net::HTTP.start(uri.hostname, uri.port, req_options(uri)) do |http|
         http.request(req, data)
+      end
+      if danger && resp.code == "404"
+        raise NgrokAPI::Errors::NotFoundError.new(response: resp)
       end
       if resp.body && resp.body != ''
         JSON.parse(resp.body)

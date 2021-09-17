@@ -25,35 +25,75 @@ RSpec.describe NgrokAPI::Services::ApiKeysClient do
       }],
     }
   end
+  let(:not_found) do
+    NgrokAPI::Errors::NotFoundError.new(response: result)
+  end
 
   before(:each) do
     @client = class_double("HttpClient")
     @api_keys_client = NgrokAPI::Services::ApiKeysClient.new(client: @client)
   end
 
-  it "will make a POST request and return a newly created instance of NgrokAPI::Models::ApiKey" do
-    merged = result
-    merged['metadata'] = 'data'
-    expect(@client).to receive(:post).with(path, data: { metadata: 'data' }).and_return(merged)
-    result2 = @api_keys_client.create(metadata: 'data')
-    expect(result2.class).to eq(NgrokAPI::Models::ApiKey)
-    expect(result2.id).to eq(result["id"])
-    expect(result2.metadata).to eq('data')
+  describe "#create" do
+    it "will make a POST request and return a newly created instance of NgrokAPI::Models::ApiKey" do
+      merged = result
+      merged['metadata'] = 'data'
+      expect(@client).to receive(:post).with(path, data: { metadata: 'data' }).and_return(merged)
+      result2 = @api_keys_client.create(metadata: 'data')
+      expect(result2.class).to eq(NgrokAPI::Models::ApiKey)
+      expect(result2.id).to eq(result["id"])
+      expect(result2.metadata).to eq('data')
+    end
   end
 
   describe "#delete" do
     it "will make a DELETE request" do
-      expect(@client).to receive(:delete)
+      expect(@client).to receive(:delete).with("#{path}/#{result["id"]}").and_return(nil)
       @api_keys_client.delete(id: result["id"])
+    end
+  end
+
+  describe "#delete!" do
+    it "will make a DELETE request" do
+      expect(@client).to receive(:delete).with("#{path}/#{result["id"]}", danger: true).
+        and_return(nil)
+      @api_keys_client.delete!(id: result["id"])
+    end
+
+    it "will make a DELETE request and return NotFoundError if 404" do
+      expect do
+        expect(@client).to receive(:delete).with("#{path}/#{result["id"]}", danger: true).
+          and_raise(NgrokAPI::Errors::NotFoundError)
+        result2 = @api_keys_client.delete!(id: result["id"])
+        expect(result2).to be nil
+      end.to raise_error(NgrokAPI::Errors::NotFoundError)
     end
   end
 
   describe "#get" do
     it "will make a GET request and return a NgrokAPI::Models::ApiKey" do
-      expect(@client).to receive(:get).and_return(result)
+      expect(@client).to receive(:get).with("#{path}/#{result["id"]}").and_return(result)
       result2 = @api_keys_client.get(id: result["id"])
       expect(result2.class).to eq(NgrokAPI::Models::ApiKey)
       expect(result2.id).to eq(result["id"])
+    end
+  end
+
+  describe "#get!" do
+    it "will make a GET request and return a NgrokAPI::Models::ApiKey" do
+      expect(@client).to receive(:get).with("#{path}/#{result["id"]}", danger: true).and_return(result)
+      result2 = @api_keys_client.get!(id: result["id"])
+      expect(result2.class).to eq(NgrokAPI::Models::ApiKey)
+      expect(result2.id).to eq(result["id"])
+    end
+
+    it "will make a GET request and return NotFoundError if 404" do
+      expect do
+        expect(@client).to receive(:get).with("#{path}/#{result["id"]}", danger: true).
+          and_raise(NgrokAPI::Errors::NotFoundError)
+        result2 = @api_keys_client.get!(id: result["id"])
+        expect(result2).to be nil
+      end.to raise_error(NgrokAPI::Errors::NotFoundError)
     end
   end
 
@@ -78,6 +118,32 @@ RSpec.describe NgrokAPI::Services::ApiKeysClient do
       expect(result2.class).to eq(NgrokAPI::Models::ApiKey)
       expect(result2.id).to eq(result["id"])
       expect(result2.metadata).to eq('data')
+    end
+  end
+
+  describe "#update!" do
+    it "will make a PATCH request and return an updated instance of NgrokAPI::Models::ApiKey" do
+      merged = result
+      merged['metadata'] = 'data'
+      expect(@client).to receive(:patch).
+        with("#{path}/#{result["id"]}", danger: true, data: { metadata: 'data' }).
+        and_return(merged)
+      result2 = @api_keys_client.update!(id: result["id"], metadata: 'data')
+      expect(result2.class).to eq(NgrokAPI::Models::ApiKey)
+      expect(result2.id).to eq(result["id"])
+      expect(result2.metadata).to eq('data')
+    end
+
+    it "will make a PATCH request and return NotFoundError if 404" do
+      expect do
+        merged = result
+        merged['metadata'] = 'data'
+        expect(@client).to receive(:patch).
+          with("#{path}/#{result["id"]}", danger: true, data: { metadata: 'data' }).
+          and_raise(NgrokAPI::Errors::NotFoundError)
+        result2 = @api_keys_client.update!(id: result["id"], metadata: 'data')
+        expect(result2).to be nil
+      end.to raise_error(NgrokAPI::Errors::NotFoundError)
     end
   end
 end

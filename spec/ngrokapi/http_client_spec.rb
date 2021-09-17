@@ -45,6 +45,14 @@ RSpec.describe NgrokAPI::HttpClient do
       stub_request(:get, url).to_return(body: result.to_json)
       expect(@client.get(url)).to eq(result)
     end
+
+    it "will raise a NotFoundError if 404" do
+      url = "#{base_url}#{path}/#{result["id"]}"
+      stub_request(:get, url).to_return(body: nil, status: 404)
+      expect do
+        @client.get(url, danger: true)
+      end.to raise_error(NgrokAPI::Errors::NotFoundError)
+    end
   end
 
   describe "#list" do
