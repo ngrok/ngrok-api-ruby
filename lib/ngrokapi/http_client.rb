@@ -103,8 +103,12 @@ module NgrokAPI
       resp = Net::HTTP.start(uri.hostname, uri.port, req_options(uri)) do |http|
         http.request(req, data)
       end
-      if danger && resp.code == "404"
-        raise NgrokAPI::Errors::NotFoundError.new(response: resp)
+      if danger
+        if resp.code.to_i == 404
+          raise NgrokAPI::Errors::NotFoundError.new(response: resp)
+        elsif resp.code.to_i >= 400
+          raise NgrokAPI::Error.new(response: resp)
+        end
       end
       if resp.body && resp.body != ''
         JSON.parse(resp.body)

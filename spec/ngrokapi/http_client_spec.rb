@@ -31,6 +31,14 @@ RSpec.describe NgrokAPI::HttpClient do
         @client.get(url, danger: true)
       end.to raise_error(NgrokAPI::Errors::NotFoundError)
     end
+
+    it "will raise a NgrokAPI::Error if >= 400" do
+      url = "#{base_url}#{path}/#{api_key_result["id"]}"
+      stub_request(:get, url).to_return(body: nil, status: 400)
+      expect do
+        @client.get(url, danger: true)
+      end.to raise_error(NgrokAPI::Error)
+    end
   end
 
   describe "#list" do
