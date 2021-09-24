@@ -69,12 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">StandardError</span>
+      <span class="inheritName"><span class='object_link'><a href="../Error.html" title="NgrokAPI::Error (class)">NgrokAPI::Error</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next">StandardError</li>
+          
+            <li class="next"><span class='object_link'><a href="../Error.html" title="NgrokAPI::Error (class)">NgrokAPI::Error</a></span></li>
           
             <li class="next">NgrokAPI::Errors::NotFoundError</li>
           
@@ -191,6 +193,12 @@
   
 
 
+  
+  
+  
+  
+  
+  
   <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -230,7 +238,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>msg:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Resource not found</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>response:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@response</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span>
-  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_msg'>msg</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='label'>msg:</span> <span class='id identifier rubyid_msg'>msg</span><span class='comma'>,</span> <span class='label'>response:</span> <span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -291,7 +299,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Sep 20 22:08:35 2021 by
+  Generated on Fri Sep 24 19:03:33 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>
