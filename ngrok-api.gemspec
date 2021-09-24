@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'ngrokapi/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'ngrok-api-ruby'
+  s.name        = 'ngrok-api'
   s.version     = NgrokAPI::VERSION
   s.platform    = Gem::Platform::RUBY
   s.licenses    = ['MIT']
