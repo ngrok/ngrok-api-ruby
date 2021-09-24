@@ -1,6 +1,9 @@
 inherit_from:
   - .rubocop_airbnb.yml
 
+AllCops:
+  TargetRubyVersion: 3.0
+
 Metrics/LineLength:
   Max: 120
 
@@ -21,5 +24,5 @@ RSpec/ExpectActual:
   Enabled: false
 
 # It just looks nicer
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
