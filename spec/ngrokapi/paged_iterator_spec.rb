@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::PagedIterator do
-  let(:client) { class_double("ApiKeysClient") }
+  let(:client) { class_double("APIKeysClient") }
   let(:uri) { "https://api.ngrok.com/api_keys" }
   let(:next_page_uri) { "#{uri}?before_id=ak_1xuyYBCA83z5zo2MkBJ0JjvxPIs&limit=1" }
   let(:results) do
@@ -13,13 +13,13 @@ RSpec.describe NgrokAPI::PagedIterator do
   let(:empty_last_results) do
     { "keys" => [], "uri" => uri, "next_page_uri" => nil }
   end
-  let(:item) { NgrokAPI::Models::ApiKey.new(client: client, result: api_key_result) }
+  let(:item) { NgrokAPI::Models::APIKey.new(client: client, result: api_key_result) }
   let(:page) do
     NgrokAPI::Models::Listable.new(
       client: client,
       result: results,
       list_property: 'keys',
-      klass: NgrokAPI::Models::ApiKey
+      klass: NgrokAPI::Models::APIKey
     )
   end
   let(:empty_page) do
@@ -27,7 +27,7 @@ RSpec.describe NgrokAPI::PagedIterator do
       client: client,
       result: empty_results,
       list_property: 'keys',
-      klass: NgrokAPI::Models::ApiKey
+      klass: NgrokAPI::Models::APIKey
     )
   end
   let(:empty_last_page) do
@@ -35,7 +35,7 @@ RSpec.describe NgrokAPI::PagedIterator do
       client: client,
       result: empty_last_results,
       list_property: 'keys',
-      klass: NgrokAPI::Models::ApiKey
+      klass: NgrokAPI::Models::APIKey
     )
   end
 
