@@ -3,22 +3,23 @@
 module NgrokAPI
   module Services
     ##
-    # A client for interacting with the reserved_domains API
+    # Reserved Domains are hostnames that you can listen for traffic on. Domains
+    #  can be used to listen for http, https or tls traffic. You may use a domain
+    #  that you own by creating a CNAME record specified in the returned resource.
+    #  This CNAME record points traffic for that domain to ngrok's edge servers.
     #
     # https://ngrok.com/docs/api#api-reserved-domains
     class ReservedDomainsClient
+      # The API path for the requests
+      PATH = '/reserved_domains'
       # The List Property from the resulting API for list calls
       LIST_PROPERTY = 'reserved_domains'
-      # The API path for reserved domains
-      PATH = '/reserved_domains'
 
       attr_reader :client
 
       def initialize(client:)
         @client = client
       end
-
-      # rubocop:disable LineLength
 
       ##
       # Create a new reserved domain.
@@ -30,78 +31,107 @@ module NgrokAPI
       # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
       # @param [string] https_endpoint_configuration_id ID of an endpoint configuration of type https that will be used to handle inbound https traffic to this domain
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
-      # @param [string] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
-      # @return [NgrokAPI::Models::ReservedDomain] result from create request
+      # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
       def create(
-        name: '',
-        region: '',
-        description: '',
-        metadata: '',
-        http_endpoint_configuration_id: '',
-        https_endpoint_configuration_id: '',
+        name:,
+        region: "",
+        description: "",
+        metadata: "",
+        http_endpoint_configuration_id: nil,
+        https_endpoint_configuration_id: nil,
         certificate_id: nil,
         certificate_management_policy: nil
       )
-        data = {
-          name: name,
-          region: region,
-          description: description,
-          metadata: metadata,
-          http_endpoint_configuration_id: http_endpoint_configuration_id,
-          https_endpoint_configuration_id: https_endpoint_configuration_id,
-          certificate_id: certificate_id,
-          certificate_management_policy: certificate_management_policy,
+        path = '/reserved_domains'
+        replacements = {
         }
-        result = @client.post(PATH, data: data)
+        data = {}
+        data[:name] = name if name
+        data[:region] = region if region
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:http_endpoint_configuration_id] = http_endpoint_configuration_id if http_endpoint_configuration_id
+        data[:https_endpoint_configuration_id] = https_endpoint_configuration_id if https_endpoint_configuration_id
+        data[:certificate_id] = certificate_id if certificate_id
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
       end
-      # rubocop:enable LineLength
 
       ##
       # Delete a reserved domain.
       #
       # @param [string] id a resource identifier
-      # @return [nil] result from delete request
+      # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete
-      def delete(id: nil)
-        @client.delete("#{PATH}/#{id}")
+      def delete(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements)
       end
 
       ##
-      # Delete a reserved domain. Throw an exception if 404.
+      # Delete a reserved domain.
+      # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
-      # @return [nil] result from delete request
+      # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete
-      def delete!(id: nil)
-        @client.delete("#{PATH}/#{id}", danger: true)
+      def delete!(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements, danger: true)
       end
 
       ##
       # Get the details of a reserved domain.
       #
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::ReservedDomain] result from get request
+      # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-get
-      def get(id: nil)
-        result = @client.get("#{PATH}/#{id}")
+      def get(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}'
+        replacements = {
+          id: id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data)
         NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
       end
 
       ##
-      # Get the details of a reserved domain. Throw an exception if 404.
+      # Get the details of a reserved domain.
+      # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::ReservedDomain] result from get request
+      # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-get
-      def get!(id: nil)
-        result = @client.get!("#{PATH}/#{id}")
+      def get!(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}'
+        replacements = {
+          id: id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data, danger: true)
         NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
       end
 
@@ -109,13 +139,22 @@ module NgrokAPI
       # List all reserved domains on this account.
       #
       # @param [string] before_id
-      # @param [integer] limit
+      # @param [string] limit
       # @param [string] url optional and mutually exclusive from before_id and limit
-      # @return [NgrokAPI::Models::Listable] result from list request
+      # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-list
-      def list(before_id: nil, limit: nil, url: nil)
-        result = @client.list(before_id: before_id, limit: limit, url: url, path: PATH)
+      def list(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
+        result = @client.list(
+          before_id: before_id,
+          limit: limit,
+          url: url,
+          path: PATH
+        )
         NgrokAPI::Models::Listable.new(
           client: self,
           result: result,
@@ -123,8 +162,6 @@ module NgrokAPI
           klass: NgrokAPI::Models::ReservedDomain
         )
       end
-
-      # rubocop:disable LineLength
 
       ##
       # Update the attributes of a reserved domain.
@@ -135,33 +172,37 @@ module NgrokAPI
       # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
       # @param [string] https_endpoint_configuration_id ID of an endpoint configuration of type https that will be used to handle inbound https traffic to this domain
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
-      # @param [string] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
-      # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
       def update(
-        id: nil,
-        certificate_id: nil,
-        certificate_management_policy: nil,
+        id: "",
         description: nil,
+        metadata: nil,
         http_endpoint_configuration_id: nil,
         https_endpoint_configuration_id: nil,
-        metadata: nil
+        certificate_id: nil,
+        certificate_management_policy: nil
       )
-        data = build_data(
-          description: description,
-          metadata: metadata,
-          http_endpoint_configuration_id: http_endpoint_configuration_id,
-          https_endpoint_configuration_id: https_endpoint_configuration_id,
-          certificate_id: certificate_id,
-          certificate_management_policy: certificate_management_policy
-        )
-        result = @client.patch("#{PATH}/#{id}", data: data)
+        path = '/reserved_domains/%{id}'
+        replacements = {
+          id: id,
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:http_endpoint_configuration_id] = http_endpoint_configuration_id if http_endpoint_configuration_id
+        data[:https_endpoint_configuration_id] = https_endpoint_configuration_id if https_endpoint_configuration_id
+        data[:certificate_id] = certificate_id if certificate_id
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        result = @client.patch(path % replacements, data: data)
         NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
       end
 
       ##
-      # Update the attributes of a reserved domain. Throw an exception if 404.
+      # Update the attributes of a reserved domain.
+      # Throws an exception if API error.
       #
       # @param [string] id
       # @param [string] description human-readable description of what this reserved domain will be used for
@@ -169,144 +210,172 @@ module NgrokAPI
       # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
       # @param [string] https_endpoint_configuration_id ID of an endpoint configuration of type https that will be used to handle inbound https traffic to this domain
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
-      # @param [string] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
-      # @return [NgrokAPI::Models::ReservedDomain] result from update request
+      # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
       def update!(
-        id: nil,
-        certificate_id: nil,
-        certificate_management_policy: nil,
-        description: nil,
-        http_endpoint_configuration_id: nil,
-        https_endpoint_configuration_id: nil,
-        metadata: nil
-      )
-        data = build_data(
-          description: description,
-          metadata: metadata,
-          http_endpoint_configuration_id: http_endpoint_configuration_id,
-          https_endpoint_configuration_id: https_endpoint_configuration_id,
-          certificate_id: certificate_id,
-          certificate_management_policy: certificate_management_policy
-        )
-        result = @client.patch("#{PATH}/#{id}", danger: true, data: data)
-        NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
-      end
-      # rubocop:enable LineLength
-
-      ##
-      # Detach the certificate attached from a reserved domain.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
-      def delete_certificate(id: nil)
-        @client.delete("#{PATH}/#{id}/certificate")
-      end
-
-      ##
-      # Detach the certificate attached from a reserved domain. Throw an exception if 404.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
-      def delete_certificate!(id: nil)
-        @client.delete("#{PATH}/#{id}/certificate", danger: true)
-      end
-
-      ##
-      # Detach the certificate management policy attached from a reserved domain.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate-management-policy
-      def delete_certificate_management_policy(id: nil)
-        @client.delete("#{PATH}/#{id}/certificate_management_policy")
-      end
-
-      ##
-      # Detach the certificate management policy attached from a reserved domain.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate-management-policy
-      def delete_certificate_management_policy!(id: nil)
-        @client.delete("#{PATH}/#{id}/certificate_management_policy", danger: true)
-      end
-
-      ##
-      # Detach the http endpoint configuration attached from a reserved domain.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
-      def delete_http_endpoint_config(id: nil)
-        @client.delete("#{PATH}/#{id}/http_endpoint_configuration")
-      end
-
-      ##
-      # Detach the http endpoint configuration attached from a reserved domain. Throw an exception if 404.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
-      def delete_http_endpoint_config!(id: nil)
-        @client.delete("#{PATH}/#{id}/http_endpoint_configuration", danger: true)
-      end
-
-      ##
-      # Detach the https endpoint configuration attached from a reserved domain.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
-      def delete_https_endpoint_config(id: nil)
-        @client.delete("#{PATH}/#{id}/https_endpoint_configuration")
-      end
-
-      ##
-      # Detach the https endpoint configuration attached from a reserved domain. Throw an exception if 404.
-      #
-      # @param [string] id a resource identifier
-      # @return [nil] result from delete request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
-      def delete_https_endpoint_config!(id: nil)
-        @client.delete("#{PATH}/#{id}/https_endpoint_configuration", danger: true)
-      end
-
-      private
-
-      def build_data(
+        id: "",
         description: nil,
         metadata: nil,
         http_endpoint_configuration_id: nil,
         https_endpoint_configuration_id: nil,
         certificate_id: nil,
-        certificate_management_policy: nily
+        certificate_management_policy: nil
       )
+        path = '/reserved_domains/%{id}'
+        replacements = {
+          id: id,
+        }
         data = {}
-        data[:certificate_id] = certificate_id if certificate_id
-        if certificate_management_policy
-          data[:certificate_management_policy] = certificate_management_policy
-        end
         data[:description] = description if description
-        if http_endpoint_configuration_id
-          data[:http_endpoint_configuration_id] = http_endpoint_configuration_id
-        end
-        if https_endpoint_configuration_id
-          data[:https_endpoint_configuration_id] = https_endpoint_configuration_id
-        end
         data[:metadata] = metadata if metadata
-        data
+        data[:http_endpoint_configuration_id] = http_endpoint_configuration_id if http_endpoint_configuration_id
+        data[:https_endpoint_configuration_id] = https_endpoint_configuration_id if https_endpoint_configuration_id
+        data[:certificate_id] = certificate_id if certificate_id
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        result = @client.patch(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
+      end
+
+      ##
+      # Detach the certificate management policy attached to a reserved domain.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate-management-policy
+      def delete_certificate_management_policy(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/certificate_management_policy'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements)
+      end
+
+      ##
+      # Detach the certificate management policy attached to a reserved domain.
+      # Throws an exception if API error.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate-management-policy
+      def delete_certificate_management_policy!(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/certificate_management_policy'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements, danger: true)
+      end
+
+      ##
+      # Detach the certificate attached to a reserved domain.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
+      def delete_certificate(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/certificate'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements)
+      end
+
+      ##
+      # Detach the certificate attached to a reserved domain.
+      # Throws an exception if API error.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
+      def delete_certificate!(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/certificate'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements, danger: true)
+      end
+
+      ##
+      # Detach the http endpoint configuration attached to a reserved domain.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
+      def delete_http_endpoint_config(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/http_endpoint_configuration'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements)
+      end
+
+      ##
+      # Detach the http endpoint configuration attached to a reserved domain.
+      # Throws an exception if API error.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
+      def delete_http_endpoint_config!(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/http_endpoint_configuration'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements, danger: true)
+      end
+
+      ##
+      # Detach the https endpoint configuration attached to a reserved domain.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
+      def delete_https_endpoint_config(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/https_endpoint_configuration'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements)
+      end
+
+      ##
+      # Detach the https endpoint configuration attached to a reserved domain.
+      # Throws an exception if API error.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Empty] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
+      def delete_https_endpoint_config!(
+        id: ""
+      )
+        path = '/reserved_domains/%{id}/https_endpoint_configuration'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements, danger: true)
       end
     end
   end
