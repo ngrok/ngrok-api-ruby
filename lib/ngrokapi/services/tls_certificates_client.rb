@@ -3,14 +3,18 @@
 module NgrokAPI
   module Services
     ##
-    # A client for interacting with the tls_certificates API
+    # TLS Certificates are pairs of x509 certificates and their matching private
+    #  key that can be used to terminate TLS traffic. TLS certificates are unused
+    #  until they are attached to a Domain. TLS Certificates may also be
+    #  provisioned by ngrok automatically for domains on which you have enabled
+    #  automated certificate provisioning.
     #
     # https://ngrok.com/docs/api#api-tls-certificates
-    class TlsCertificatesClient
+    class TLSCertificatesClient
+      # The API path for the requests
+      PATH = '/tls_certificates'
       # The List Property from the resulting API for list calls
       LIST_PROPERTY = 'tls_certificates'
-      # The API path for tls certificates
-      PATH = '/tls_certificates'
 
       attr_reader :client
 
@@ -18,144 +22,186 @@ module NgrokAPI
         @client = client
       end
 
-      # rubocop:disable LineLength
-
       ##
-      # Upload a new TLS certificate.
+      # Upload a new TLS certificate
       #
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
       # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles` <https://ngrok.com/docs/api#tls-certificates-pem>`_.
       # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys` <https://ngrok.com/docs/ngrok-link#tls-certificates-key>`_.
-      # @return [NgrokAPI::Models::TlsCertificate] result from create request
+      # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-create
       def create(
-        certificate_pem: '',
-        description: '',
-        metadata: '',
-        private_key_pem: ''
+        description: "",
+        metadata: "",
+        certificate_pem:,
+        private_key_pem:
       )
-        data = {
-          certificate_pem: certificate_pem,
-          description: description,
-          metadata: metadata,
-          private_key_pem: private_key_pem,
+        path = '/tls_certificates'
+        replacements = {
         }
-        result = @client.post(PATH, data: data)
-        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:certificate_pem] = certificate_pem if certificate_pem
+        data[:private_key_pem] = private_key_pem if private_key_pem
+        result = @client.post(path % replacements, data: data)
+        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
       end
-      # rubocop:enable LineLength
 
       ##
-      # Delete a TLS certificate by ID.
+      # Delete a TLS certificate
       #
       # @param [string] id a resource identifier
-      # @return [nil] result from delete request
+      # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-delete
-      def delete(id: nil)
-        @client.delete("#{PATH}/#{id}")
+      def delete(
+        id: ""
+      )
+        path = '/tls_certificates/%{id}'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements)
       end
 
       ##
-      # Delete a TLS certificate by ID. Throw an exception if 404.
+      # Delete a TLS certificate
+      # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
-      # @return [nil] result from delete request
+      # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-delete
-      def delete!(id: nil)
-        @client.delete("#{PATH}/#{id}", danger: true)
+      def delete!(
+        id: ""
+      )
+        path = '/tls_certificates/%{id}'
+        replacements = {
+          id: id,
+        }
+        @client.delete(path % replacements, danger: true)
       end
 
       ##
-      # Get detailed information about a TLS certificate by ID.
+      # Get detailed information about a TLS certificate
       #
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::TlsCertificate] result from get request
+      # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-get
-      def get(id: nil)
-        result = @client.get("#{PATH}/#{id}")
-        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
+      def get(
+        id: ""
+      )
+        path = '/tls_certificates/%{id}'
+        replacements = {
+          id: id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data)
+        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
       end
 
       ##
-      # Get detailed information about a TLS certificate by ID. Throw an exception if 404.
+      # Get detailed information about a TLS certificate
+      # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::TlsCertificate] result from get request
+      # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-get
-      def get!(id: nil)
-        result = @client.get("#{PATH}/#{id}", danger: true)
-        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
+      def get!(
+        id: ""
+      )
+        path = '/tls_certificates/%{id}'
+        replacements = {
+          id: id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
       end
 
       ##
-      # List all TLS certificates on this account.
+      # List all TLS certificates on this account
       #
       # @param [string] before_id
-      # @param [integer] limit
+      # @param [string] limit
       # @param [string] url optional and mutually exclusive from before_id and limit
-      # @return [NgrokAPI::Models::Listable] the result listable
+      # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-list
-      def list(before_id: nil, limit: nil, url: nil)
-        result = @client.list(before_id: before_id, limit: limit, url: url, path: PATH)
+      def list(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
+        result = @client.list(
+          before_id: before_id,
+          limit: limit,
+          url: url,
+          path: PATH
+        )
         NgrokAPI::Models::Listable.new(
           client: self,
           result: result,
           list_property: LIST_PROPERTY,
-          klass: NgrokAPI::Models::TlsCertificate
+          klass: NgrokAPI::Models::TLSCertificate
         )
       end
 
-      # rubocop:disable LineLength
-
       ##
-      # Update attributes of a TLS Certificate by ID.
+      # Update attributes of a TLS Certificate by ID
       #
       # @param [string] id
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
-      # @return [NgrokAPI::Models::TlsCertificate] result from update request
+      # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-update
       def update(
-        id: nil,
+        id: "",
         description: nil,
         metadata: nil
       )
+        path = '/tls_certificates/%{id}'
+        replacements = {
+          id: id,
+        }
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        result = @client.patch("#{PATH}/#{id}", data: data)
-        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
+        result = @client.patch(path % replacements, data: data)
+        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
       end
 
       ##
-      # Update attributes of a TLS Certificate by ID. Throw an exception if 404.
+      # Update attributes of a TLS Certificate by ID
+      # Throws an exception if API error.
       #
       # @param [string] id
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
-      # @return [NgrokAPI::Models::TlsCertificate] result from update request
+      # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-update
       def update!(
-        id: nil,
+        id: "",
         description: nil,
         metadata: nil
       )
+        path = '/tls_certificates/%{id}'
+        replacements = {
+          id: id,
+        }
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        result = @client.patch("#{PATH}/#{id}", danger: true, data: data)
-        NgrokAPI::Models::TlsCertificate.new(client: self, result: result)
+        result = @client.patch(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
       end
-      # rubocop:enable LineLength
     end
   end
 end
