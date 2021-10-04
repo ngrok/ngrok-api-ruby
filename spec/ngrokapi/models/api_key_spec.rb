@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-RSpec.describe NgrokAPI::Models::ApiKey do
+RSpec.describe NgrokAPI::Models::APIKey do
   before(:each) do
-    @client = class_double("ApiKeysClient")
-    @api_key = NgrokAPI::Models::ApiKey.new(client: @client, result: api_key_result)
+    @client = class_double("APIKeysClient")
+    @api_key = NgrokAPI::Models::APIKey.new(client: @client, result: api_key_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      key2 = NgrokAPI::Models::ApiKey.new(client: @client, result: api_key_result)
-      expect(@api_key == key2).to eq true
+      other = NgrokAPI::Models::APIKey.new(client: @client, result: api_key_result)
+      expect(@api_key == other).to eq true
     end
   end
 
@@ -27,14 +27,13 @@ RSpec.describe NgrokAPI::Models::ApiKey do
   end
 
   describe "#update" do
-    it "updates instance's description and metadata and call update on the client" do
-      new_description = 'new description'
-      new_metadata = 'new metadata'
+    it "calls update on the client" do
+      new_description = 'New description'
+      new_metadata = 'New metadata'
       expect(@api_key.client).to receive(:update)
-
       @api_key.update(
         description: new_description,
-        metadata: new_metadata,
+        metadata: new_metadata
       )
       expect(@api_key.description).to eq new_description
       expect(@api_key.metadata).to eq new_metadata

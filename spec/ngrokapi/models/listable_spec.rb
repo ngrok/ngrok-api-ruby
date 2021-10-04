@@ -2,12 +2,12 @@ require 'spec_helper'
 
 RSpec.describe NgrokAPI::Models::Listable do
   before(:each) do
-    @client = class_double("ApiKeysClient")
+    @client = class_double("APIKeysClient")
     @listable = NgrokAPI::Models::Listable.new(
       client: @client,
       result: api_key_results,
       list_property: 'keys',
-      klass: NgrokAPI::Models::ApiKey
+      klass: NgrokAPI::Models::APIKey
     )
   end
 
@@ -17,7 +17,7 @@ RSpec.describe NgrokAPI::Models::Listable do
         client: @client,
         result: api_key_results,
         list_property: 'keys',
-        klass: NgrokAPI::Models::ApiKey
+        klass: NgrokAPI::Models::APIKey
       )
       expect(@listable == listable2).to eq true
     end
@@ -30,7 +30,7 @@ RSpec.describe NgrokAPI::Models::Listable do
   end
 
   describe "keys" do
-    it "consistent of ApiKeys" do
+    it "consistent of APIKeys" do
       expect(@listable.items.size).to eq api_key_results['keys'].size
     end
   end

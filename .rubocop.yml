@@ -5,7 +5,7 @@ AllCops:
   TargetRubyVersion: 3.0
 
 Metrics/LineLength:
-  Max: 120
+  Enabled: false
 
 # Ignore Rails-y Airbnb recommendation
 Airbnb/ClassOrModuleDeclaredInWrongFile:

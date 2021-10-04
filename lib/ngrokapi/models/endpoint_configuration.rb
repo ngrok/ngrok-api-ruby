@@ -2,25 +2,53 @@
 
 module NgrokAPI
   module Models
-    ##
-    # A resource representing data from the endpoint_configuration API
     class EndpointConfiguration
-      attr_reader :id,
-        :client,
-        :created_at,
+      attr_reader :client,
+        :result,
+        :id,
+        :type,
         :description,
         :metadata,
-        :result,
-        :uri
+        :created_at,
+        :uri,
+        :basic_auth,
+        :circuit_breaker,
+        :compression,
+        :request_headers,
+        :response_headers,
+        :ip_policy,
+        :mutual_tls,
+        :tls_termination,
+        :webhook_validation,
+        :oauth,
+        :logging,
+        :saml,
+        :oidc,
+        :backend
 
       def initialize(client:, result:)
         @client = client
         @result = result
-        @created_at = @result['created_at']
         @id = @result['id']
+        @type = @result['type']
         @description = @result['description']
         @metadata = @result['metadata']
+        @created_at = @result['created_at']
         @uri = @result['uri']
+        @basic_auth = @result['basic_auth']
+        @circuit_breaker = @result['circuit_breaker']
+        @compression = @result['compression']
+        @request_headers = @result['request_headers']
+        @response_headers = @result['response_headers']
+        @ip_policy = @result['ip_policy']
+        @mutual_tls = @result['mutual_tls']
+        @tls_termination = @result['tls_termination']
+        @webhook_validation = @result['webhook_validation']
+        @oauth = @result['oauth']
+        @logging = @result['logging']
+        @saml = @result['saml']
+        @oidc = @result['oidc']
+        @backend = @result['backend']
       end
 
       def ==(other)
@@ -32,37 +60,21 @@ module NgrokAPI
       end
 
       ##
-      # Delete this endpoint configuration.
-      #
-      # @return [nil] result from delete request
+      # Delete an endpoint configuration. This operation will fail if the endpoint
+      # configuration is still referenced by any reserved domain or reserved address.
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-delete
       def delete
-        @client.delete(id: @id)
+        @client.delete(
+          id: @id
+        )
       end
 
-      # rubocop:disable LineLength
-
       ##
-      # Update this endpoint configuration. If a module is not specified in the update, it will not be modified.
-      # However, each module configuration that is specified will completely replace the existing value.
-      # There is no way to delete an existing module via this API, instead use the delete module API.
-      #
-      # @param [string] description human-readable description of what this endpoint configuration will be do when applied or what traffic it will be applied to. Optional, max 255 bytes
-      # @param [string] metadata arbitrary user-defined machine-readable data of this endpoint configuration. Optional, max 4096 bytes.
-      # @param [string] circuit_breaker circuit breaker module configuration
-      # @param [string] compression compression module configuration
-      # @param [string] request_headers request headers module configuration
-      # @param [string] response_headers response headers module configuration
-      # @param [string] ip_policy ip policy module configuration
-      # @param [string] mutual_tls mutual TLS module configuration
-      # @param [string] tls_termination TLS termination module configuration
-      # @param [string] webhook_validation webhook validation module configuration
-      # @param [string] oauth oauth module configuration
-      # @param [string] logging logging module configuration
-      # @param [string] saml saml module configuration
-      # @param [string] oidc oidc module configuration
-      # @return [NgrokAPI::Models::EndpointConfiguration] result from update request
+      # Updates an endpoint configuration. If a module is not specified in the update,
+      # it will not be modified. However, each module configuration that is specified
+      # will completely replace the existing value. There is no way to delete an
+      # existing module via this API, instead use the delete module API.
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-update
       def update(
@@ -113,7 +125,6 @@ module NgrokAPI
           oidc: oidc
         )
       end
-      # rubocop:enable LineLength
     end
   end
 end
