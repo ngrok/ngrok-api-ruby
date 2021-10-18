@@ -29,7 +29,6 @@ RSpec.describe NgrokAPI::Services::IPWhitelistClient do
         ip_net: "New ip_net"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPWhitelistEntry)
-      # expect(result.id).to eq(ip_whitelist_entry_result["id"])
     end
   end
 
@@ -87,7 +86,6 @@ RSpec.describe NgrokAPI::Services::IPWhitelistClient do
         id: ip_whitelist_entry_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::IPWhitelistEntry)
-      # expect(result.id).to eq(ip_whitelist_entry_result["id"])
     end
   end
 
@@ -135,7 +133,6 @@ RSpec.describe NgrokAPI::Services::IPWhitelistClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPWhitelistEntry)
-      # expect(result.id).to eq(ip_whitelist_entry_result["id"])
     end
   end
 

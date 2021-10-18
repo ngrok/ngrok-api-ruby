@@ -41,7 +41,6 @@ RSpec.describe NgrokAPI::Services::SSHUserCertificatesClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHUserCertificate)
-      # expect(result.id).to eq(ssh_user_certificate_result["id"])
     end
   end
 
@@ -99,7 +98,6 @@ RSpec.describe NgrokAPI::Services::SSHUserCertificatesClient do
         id: ssh_user_certificate_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHUserCertificate)
-      # expect(result.id).to eq(ssh_user_certificate_result["id"])
     end
   end
 
@@ -147,7 +145,6 @@ RSpec.describe NgrokAPI::Services::SSHUserCertificatesClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHUserCertificate)
-      # expect(result.id).to eq(ssh_user_certificate_result["id"])
     end
   end
 

@@ -8,8 +8,7 @@ module NgrokAPI
         :error_code,
         :msg,
         :started_at,
-        :retries_at,
-        :ns_targets
+        :retries_at
 
       def initialize(client:, result:)
         @client = client
@@ -18,7 +17,6 @@ module NgrokAPI
         @msg = @result['msg']
         @started_at = @result['started_at']
         @retries_at = @result['retries_at']
-        @ns_targets = @result['ns_targets']
       end
 
       def ==(other)

@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointCircuitBreakerModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointCircuitBreaker)
-      # expect(result.id).to eq(endpoint_circuit_breaker_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointCircuitBreakerModuleClient do
         id: endpoint_circuit_breaker_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointCircuitBreaker)
-      # expect(result.id).to eq(endpoint_circuit_breaker_result["id"])
     end
   end
 

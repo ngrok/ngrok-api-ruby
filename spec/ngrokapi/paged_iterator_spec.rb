@@ -67,7 +67,7 @@ RSpec.describe NgrokAPI::PagedIterator do
         page: empty_page,
         list_property: 'keys'
       )
-      expect(client).to receive(:list).with({ url: next_page_uri }).and_return(page)
+      expect(client).to receive(:list).with({ danger: false, url: next_page_uri }).and_return(page)
       expect(paged_iterator.get_next).to eq(api_key_result)
     end
 
@@ -77,7 +77,7 @@ RSpec.describe NgrokAPI::PagedIterator do
         page: empty_page,
         list_property: 'keys'
       )
-      expect(client).to receive(:list).with({ url: next_page_uri }).and_return(empty_last_page)
+      expect(client).to receive(:list).with({ danger: false, url: next_page_uri }).and_return(empty_last_page)
       expect(paged_iterator.get_next).to eq(nil)
     end
   end

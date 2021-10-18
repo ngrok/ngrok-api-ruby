@@ -265,7 +265,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>(before_id: nil, limit: nil, path: nil, url: nil)  &#x21d2; json </a>
+      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>(danger: false, before_id: nil, limit: nil, path: nil, url: nil)  &#x21d2; json </a>
     
 
     
@@ -280,7 +280,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Make a GET request.</p>
+<p>Make a GET request to list resources.</p>
 </div></span>
   
 </li>
@@ -705,7 +705,7 @@
       <div class="method_details ">
   <h3 class="signature " id="list-instance_method">
   
-    #<strong>list</strong>(before_id: nil, limit: nil, path: nil, url: nil)  &#x21d2; <tt>json</tt> 
+    #<strong>list</strong>(danger: false, before_id: nil, limit: nil, path: nil, url: nil)  &#x21d2; <tt>json</tt> 
   
 
   
@@ -714,7 +714,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Make a GET request</p>
+<p>Make a GET request to list resources</p>
 
 
   </div>
@@ -722,6 +722,24 @@
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
+  
+    <li>
+      
+        <span class='name'>danger</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>determine if we should throw an exception on 404 or not</p>
+</div>
+      
+    </li>
   
     <li>
       
@@ -795,6 +813,24 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Full URL of the resource, mutually exclusive with path</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -822,8 +858,6 @@
       <pre class="lines">
 
 
-52
-53
 54
 55
 56
@@ -831,19 +865,21 @@
 58
 59
 60
-61</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 54</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
     <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
     <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:before_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_before_id'>before_id</span> <span class='kw'>if</span> <span class='id identifier rubyid_before_id'>before_id</span>
     <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:limit</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_limit'>limit</span> <span class='kw'>if</span> <span class='id identifier rubyid_limit'>limit</span>
-    <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='id identifier rubyid_danger'>danger</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -951,14 +987,14 @@
       <pre class="lines">
 
 
-70
-71
 72
 73
-74</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -1070,14 +1106,14 @@
       <pre class="lines">
 
 
-83
-84
 85
 86
-87</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -1094,7 +1130,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  4 23:24:15 2021 by
+  Generated on Mon Oct 18 21:55:45 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

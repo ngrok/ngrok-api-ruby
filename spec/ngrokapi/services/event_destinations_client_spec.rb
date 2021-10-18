@@ -32,7 +32,6 @@ RSpec.describe NgrokAPI::Services::EventDestinationsClient do
         verify_with_test_event: "New verify_with_test_event"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventDestination)
-      # expect(result.id).to eq(event_destination_result["id"])
     end
   end
 
@@ -90,7 +89,6 @@ RSpec.describe NgrokAPI::Services::EventDestinationsClient do
         id: event_destination_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EventDestination)
-      # expect(result.id).to eq(event_destination_result["id"])
     end
   end
 
@@ -143,7 +141,6 @@ RSpec.describe NgrokAPI::Services::EventDestinationsClient do
         verify_with_test_event: "New verify_with_test_event"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventDestination)
-      # expect(result.id).to eq(event_destination_result["id"])
     end
   end
 

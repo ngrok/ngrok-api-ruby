@@ -33,7 +33,6 @@ RSpec.describe NgrokAPI::Services::IPRestrictionsClient do
         ip_policy_ids: "New ip_policy_ids"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPRestriction)
-      # expect(result.id).to eq(ip_restriction_result["id"])
     end
   end
 
@@ -91,7 +90,6 @@ RSpec.describe NgrokAPI::Services::IPRestrictionsClient do
         id: ip_restriction_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::IPRestriction)
-      # expect(result.id).to eq(ip_restriction_result["id"])
     end
   end
 
@@ -143,7 +141,6 @@ RSpec.describe NgrokAPI::Services::IPRestrictionsClient do
         ip_policy_ids: "New ip_policy_ids"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPRestriction)
-      # expect(result.id).to eq(ip_restriction_result["id"])
     end
   end
 

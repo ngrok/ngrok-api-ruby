@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointLoggingModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointLogging)
-      # expect(result.id).to eq(endpoint_logging_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointLoggingModuleClient do
         id: endpoint_logging_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointLogging)
-      # expect(result.id).to eq(endpoint_logging_result["id"])
     end
   end
 

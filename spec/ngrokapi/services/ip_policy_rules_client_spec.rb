@@ -31,7 +31,6 @@ RSpec.describe NgrokAPI::Services::IPPolicyRulesClient do
         ip_policy_id: "New ip_policy_id"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPPolicyRule)
-      # expect(result.id).to eq(ip_policy_rule_result["id"])
     end
   end
 
@@ -89,7 +88,6 @@ RSpec.describe NgrokAPI::Services::IPPolicyRulesClient do
         id: ip_policy_rule_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::IPPolicyRule)
-      # expect(result.id).to eq(ip_policy_rule_result["id"])
     end
   end
 
@@ -139,7 +137,6 @@ RSpec.describe NgrokAPI::Services::IPPolicyRulesClient do
         cidr: "New cidr"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPPolicyRule)
-      # expect(result.id).to eq(ip_policy_rule_result["id"])
     end
   end
 

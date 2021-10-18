@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointSAMLModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointSAML)
-      # expect(result.id).to eq(endpoint_saml_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointSAMLModuleClient do
         id: endpoint_saml_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointSAML)
-      # expect(result.id).to eq(endpoint_saml_result["id"])
     end
   end
 

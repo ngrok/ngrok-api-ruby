@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointOAuthModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointOAuth)
-      # expect(result.id).to eq(endpoint_o_auth_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointOAuthModuleClient do
         id: endpoint_o_auth_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointOAuth)
-      # expect(result.id).to eq(endpoint_o_auth_result["id"])
     end
   end
 

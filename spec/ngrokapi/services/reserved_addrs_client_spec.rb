@@ -31,7 +31,6 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
         endpoint_configuration_id: "New endpoint_configuration_id"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedAddr)
-      # expect(result.id).to eq(reserved_addr_result["id"])
     end
   end
 
@@ -89,7 +88,6 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
         id: reserved_addr_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedAddr)
-      # expect(result.id).to eq(reserved_addr_result["id"])
     end
   end
 
@@ -139,7 +137,6 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
         endpoint_configuration_id: "New endpoint_configuration_id"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedAddr)
-      # expect(result.id).to eq(reserved_addr_result["id"])
     end
   end
 
