@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::AbuseReportsClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::AbuseReport)
-      # expect(result.id).to eq(abuse_report_result["id"])
     end
   end
 
@@ -44,7 +43,6 @@ RSpec.describe NgrokAPI::Services::AbuseReportsClient do
         id: abuse_report_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::AbuseReport)
-      # expect(result.id).to eq(abuse_report_result["id"])
     end
   end
 

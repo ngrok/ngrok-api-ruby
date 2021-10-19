@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointResponseHeadersModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointResponseHeaders)
-      # expect(result.id).to eq(endpoint_response_headers_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointResponseHeadersModuleClient do
         id: endpoint_response_headers_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointResponseHeaders)
-      # expect(result.id).to eq(endpoint_response_headers_result["id"])
     end
   end
 

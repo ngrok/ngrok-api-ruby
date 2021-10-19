@@ -42,21 +42,23 @@ module NgrokAPI
     end
 
     ##
-    # Make a GET request
+    # Make a GET request to list resources
     #
+    # @param [boolean] danger determine if we should throw an exception on 404 or not
     # @param [string] before_id URL resource path
     # @param [integer] limit URL resource path
     # @param [string] path resource path, mutually exclusive with url
     # @param [string] url Full URL of the resource, mutually exclusive with path
+    # @param [string] url Full URL of the resource, mutually exclusive with path
     # @return [json] response body
-    def list(before_id: nil, limit: nil, path: nil, url: nil)
+    def list(danger: false, before_id: nil, limit: nil, path: nil, url: nil)
       if url
         get(url)
       else
         data = {}
         data[:before_id] = before_id if before_id
         data[:limit] = limit if limit
-        get(path, data: data)
+        get(path, danger: danger, data: data)
       end
     end
 

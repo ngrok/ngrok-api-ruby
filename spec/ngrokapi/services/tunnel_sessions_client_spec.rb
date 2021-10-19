@@ -35,7 +35,6 @@ RSpec.describe NgrokAPI::Services::TunnelSessionsClient do
         id: tunnel_session_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::TunnelSession)
-      # expect(result.id).to eq(tunnel_session_result["id"])
     end
   end
 

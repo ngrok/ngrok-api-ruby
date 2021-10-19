@@ -29,7 +29,6 @@ RSpec.describe NgrokAPI::Services::EventSourcesClient do
         fields: "New fields"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventSource)
-      # expect(result.id).to eq(event_source_result["id"])
     end
   end
 
@@ -95,7 +94,6 @@ RSpec.describe NgrokAPI::Services::EventSourcesClient do
         type: event_source_result["type"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EventSource)
-      # expect(result.id).to eq(event_source_result["id"])
     end
   end
 
@@ -118,6 +116,39 @@ RSpec.describe NgrokAPI::Services::EventSourcesClient do
     end
   end
 
+  describe "#list" do
+    it "will make a get request and return an instance of NgrokAPI::Models::EventSourceList" do
+      path = '/event_subscriptions/%{subscription_id}/sources'
+      replacements = {
+        subscription_id: event_source_list_result["subscription_id"],
+      }
+      data = {}
+      expect(@client).to receive(:get).with(path % replacements, data: data).
+        and_return(event_source_list_result)
+      result = @event_sources_client.list(
+        subscription_id: event_source_list_result["subscription_id"]
+      )
+      expect(result.class).to eq(NgrokAPI::Models::EventSourceList)
+    end
+  end
+
+  describe "#list!" do
+    it "will make a get request and return an instance of NgrokAPI::Models::EventSourceList" do
+      path = '/event_subscriptions/%{subscription_id}/sources'
+      replacements = {
+        subscription_id: event_source_list_result["subscription_id"],
+      }
+      data = {}
+      expect(@client).to receive(:get).with(path % replacements, data: data).
+        and_return(event_source_list_result)
+      result = @event_sources_client.list(
+        subscription_id: event_source_list_result["subscription_id"]
+      )
+      expect(result.class).to eq(NgrokAPI::Models::EventSourceList)
+      # expect(result.id).to eq(event_source_list_result["id"])
+    end
+  end
+
   describe "#update" do
     it "will make a patch request and return an instance of NgrokAPI::Models::EventSource" do
       path = '/event_subscriptions/%{subscription_id}/sources/%{type}'
@@ -135,7 +166,6 @@ RSpec.describe NgrokAPI::Services::EventSourcesClient do
         fields: "New fields"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventSource)
-      # expect(result.id).to eq(event_source_result["id"])
     end
   end
 

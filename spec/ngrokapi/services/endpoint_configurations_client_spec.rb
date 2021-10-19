@@ -55,7 +55,6 @@ RSpec.describe NgrokAPI::Services::EndpointConfigurationsClient do
         backend: "New backend"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointConfiguration)
-      # expect(result.id).to eq(endpoint_configuration_result["id"])
     end
   end
 
@@ -113,7 +112,6 @@ RSpec.describe NgrokAPI::Services::EndpointConfigurationsClient do
         id: endpoint_configuration_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointConfiguration)
-      # expect(result.id).to eq(endpoint_configuration_result["id"])
     end
   end
 
@@ -187,7 +185,6 @@ RSpec.describe NgrokAPI::Services::EndpointConfigurationsClient do
         backend: "New backend"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointConfiguration)
-      # expect(result.id).to eq(endpoint_configuration_result["id"])
     end
   end
 

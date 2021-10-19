@@ -39,7 +39,6 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         certificate_management_policy: "New certificate_management_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
-      # expect(result.id).to eq(reserved_domain_result["id"])
     end
   end
 
@@ -97,7 +96,6 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         id: reserved_domain_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
-      # expect(result.id).to eq(reserved_domain_result["id"])
     end
   end
 
@@ -153,7 +151,6 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         certificate_management_policy: "New certificate_management_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
-      # expect(result.id).to eq(reserved_domain_result["id"])
     end
   end
 

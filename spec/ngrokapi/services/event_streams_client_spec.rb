@@ -35,7 +35,6 @@ RSpec.describe NgrokAPI::Services::EventStreamsClient do
         sampling_rate: "New sampling_rate"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventStream)
-      # expect(result.id).to eq(event_stream_result["id"])
     end
   end
 
@@ -93,7 +92,6 @@ RSpec.describe NgrokAPI::Services::EventStreamsClient do
         id: event_stream_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EventStream)
-      # expect(result.id).to eq(event_stream_result["id"])
     end
   end
 
@@ -147,7 +145,6 @@ RSpec.describe NgrokAPI::Services::EventStreamsClient do
         sampling_rate: "New sampling_rate"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventStream)
-      # expect(result.id).to eq(event_stream_result["id"])
     end
   end
 

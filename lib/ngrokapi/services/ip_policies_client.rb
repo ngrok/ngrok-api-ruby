@@ -3,7 +3,7 @@
 module NgrokAPI
   module Services
     ##
-    # IP Policies are reusable groups of CIDR ranges with an allow or deny
+    # IP Policies are reusable groups of CIDR ranges with an `allow` or `deny`
     #  action. They can be attached to endpoints via the Endpoint Configuration IP
     #  Policy module. They can also be used with IP Restrictions to control source
     #  IP ranges that can start tunnel sessions and connect to the API and dashboard.
@@ -145,11 +145,44 @@ module NgrokAPI
           url: url,
           path: PATH
         )
+
         NgrokAPI::Models::Listable.new(
           client: self,
           result: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::IPPolicy
+        )
+      end
+
+      ##
+      # List all IP policies on this account
+      # Throws an exception if API error.
+      #
+      # @param [string] before_id
+      # @param [string] limit
+      # @param [string] url optional and mutually exclusive from before_id and limit
+      # @return [NgrokAPI::Models::Listable] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-ip-policies-list
+      def list!(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
+        result = @client.list(
+          before_id: before_id,
+          limit: limit,
+          danger: true,
+          url: url,
+          path: PATH
+        )
+
+        NgrokAPI::Models::Listable.new(
+          client: self,
+          result: result,
+          list_property: LIST_PROPERTY,
+          klass: NgrokAPI::Models::IPPolicy,
+          danger: true
         )
       end
 

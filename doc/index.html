@@ -58,7 +58,7 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-ngrok+API+client+library+for+Ruby">ngrok API client library for Ruby</h1>
+<h1 id="label-ngrok-api">ngrok-api</h1>
 
 <p>This library wraps the <a href="https://ngrok.com/docs/api">ngrok HTTP API</a> to make it easier to consume in Ruby.</p>
 
@@ -69,15 +69,11 @@
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_ngrok'>ngrok</span><span class='op'>-</span><span class='id identifier rubyid_api'>api</span>
 </code></pre>
 
-<h2 id="label-Documentation">Documentation</h2>
-
-<p>A quickstart guide and a full API reference are included in the <a href="https://ruby-api.docs.ngrok.com">ngrok Ruby API documentation</a></p>
-
 <h2 id="label-Quickstart">Quickstart</h2>
 
 <p>Please consult the <a href="https://ruby-api.docs.ngrok.com">documentation</a> for additional examples.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ngrokapi/client</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ngrokapi</span><span class='tstring_end'>&#39;</span></span>
 <span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="NgrokAPI/Client.html" title="NgrokAPI::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="NgrokAPI/Client.html#initialize-instance_method" title="NgrokAPI::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>api_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;API KEY&gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
 <span class='comment'># Get an instance of the api_keys client and list all API keys
@@ -85,38 +81,69 @@
 <span class='id identifier rubyid_keys_client'>keys_client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span>
 </code></pre>
 
-<h2 id="label-Local+Documentation">Local Documentation</h2>
+<h2 id="label-Automatic+Paging">Automatic Paging</h2>
 
-<p>Documentation can be generated with the command:</p>
+<p>The ngrok API pages all list resources but this library abstracts that away from you. All response objects from any <code>list</code> or <code>list!</code> methods return an object that implements an <code>each</code> method which will automatically fetch additional pages for you.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_yard'>yard</span> <span class='id identifier rubyid_doc'>doc</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lib/**/*.rb</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ngrokapi</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="NgrokAPI/Client.html" title="NgrokAPI::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="NgrokAPI/Client.html#initialize-instance_method" title="NgrokAPI::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>api_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;API KEY&gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='comment'># list all api keys, transparently fetching additional
+</span><span class='comment'># pages for you if necessary
+</span><span class='id identifier rubyid_keys_client'>keys_client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_api_keys'>api_keys</span>
+<span class='id identifier rubyid_keys_client'>keys_client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='op'>|</span>
+  <span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
 </code></pre>
 
-<p>This will generate documentation which can be viewed within the doc folder.</p>
+<h2 id="label-Instance+Methods">Instance Methods</h2>
 
-<h2 id="label-Specs">Specs</h2>
+<p>Instance methods like <code>update</code> and <code>delete</code> can be invoked on an instance of an API object itself as well as directly without needing to first fetch the object.</p>
 
-<p>Specs can be run with the command:</p>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ngrokapi</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="NgrokAPI/Client.html" title="NgrokAPI::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="NgrokAPI/Client.html#initialize-instance_method" title="NgrokAPI::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>api_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;API KEY&gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rake'>rake</span>
+<span class='comment'># update the metadata of a credential
+</span><span class='id identifier rubyid_cred'>cred</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_credentials'>credentials</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cr_1kYyunEyn6XHHlqyMBLrj5nxkoz</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_cred'>cred</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>metadata:</span> <span class='lbrace'>{</span><span class='label'>server_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>giraffe-1</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
+
+<span class='comment'># or do it in single call
+</span><span class='id identifier rubyid_cred'>cred</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_credentials'>credentials</span><span class='period'>.</span><span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cr_1kYyunEyn6XHHlqyMBLrj5nxkoz</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='lbrace'>{</span><span class='label'>server_name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>giraffe-1</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='rparen'>)</span>
 </code></pre>
 
-<p>This will generate a coverage report which can be viewed within the coverage folder.</p>
+<h2 id="label-Bang+Methods">Bang Methods</h2>
 
-<h2 id="label-Rubocop">Rubocop</h2>
+<p>Most methods that interact with the API have a <code>!</code> counterpart. It raises an error when one is returned by the API.</p>
 
-<p>Rubocop can be run with the command:</p>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ngrokapi</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="NgrokAPI/Client.html" title="NgrokAPI::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="NgrokAPI/Client.html#initialize-instance_method" title="NgrokAPI::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>api_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;API KEY&gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-<pre class="code ruby"><code class="ruby"><span class='comment'># Run rubocop on lib folder
-</span><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rubocop'>rubocop</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>lib</span><span class='tstring_end'>&#39;</span></span>
+<span class='comment'># no error raised, even though it&#39;s a bad identifier
+</span><span class='comment'># the error is simply returned
+</span><span class='id identifier rubyid_cred'>cred</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_credentials'>credentials</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-<span class='comment'># Run rubcop on all files
-</span><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rubocop'>rubocop</span>
+<span class='comment'># this raises an NgrokAPI::Error
+</span><span class='id identifier rubyid_cred'>cred</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_credentials'>credentials</span><span class='period'>.</span><span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Error+Handling">Error Handling</h2>
+
+<p>The ngrok API returns detailed information when an API call fails. Consult the section on errors for additional details.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ngrokapi</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="NgrokAPI/Client.html" title="NgrokAPI::Client (class)">Client</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="NgrokAPI/Client.html#initialize-instance_method" title="NgrokAPI::Client#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>api_key:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;API KEY&gt;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='kw'>begin</span>
+    <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_ip_policies'>ip_policies</span><span class='period'>.</span><span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invalid</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="NgrokAPI/Error.html" title="NgrokAPI::Error (class)">Error</a></span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+    <span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_puts'>puts</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
 </code></pre>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Oct  4 23:24:15 2021 by
+  Generated on Tue Oct 19 15:48:17 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

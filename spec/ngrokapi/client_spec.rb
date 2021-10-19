@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'ostruct'
 
 RSpec.describe NgrokAPI::Client do
   before(:each) do
@@ -134,6 +135,24 @@ RSpec.describe NgrokAPI::Client do
   describe "#tunnels" do
     it "returns an instance of the TunnelsClient" do
       expect(@client.tunnels.class).to eq(NgrokAPI::Services::TunnelsClient)
+    end
+  end
+
+  describe "#pointcfg_module" do
+    it "returns an instance of OpenStruct covering namespaces" do
+      ns = @client.pointcfg_module
+      expect(ns.logging.class).to eq(NgrokAPI::Services::EndpointLoggingModuleClient)
+      expect(ns.circuit_breaker.class).to eq(NgrokAPI::Services::EndpointCircuitBreakerModuleClient)
+      expect(ns.compression.class).to eq(NgrokAPI::Services::EndpointCompressionModuleClient)
+      expect(ns.tls_termination.class).to eq(NgrokAPI::Services::EndpointTLSTerminationModuleClient)
+      expect(ns.ip_policy.class).to eq(NgrokAPI::Services::EndpointIPPolicyModuleClient)
+      expect(ns.mutual_tls.class).to eq(NgrokAPI::Services::EndpointMutualTLSModuleClient)
+      expect(ns.request_headers.class).to eq(NgrokAPI::Services::EndpointRequestHeadersModuleClient)
+      expect(ns.response_headers.class).to eq(NgrokAPI::Services::EndpointResponseHeadersModuleClient)
+      expect(ns.oauth.class).to eq(NgrokAPI::Services::EndpointOAuthModuleClient)
+      expect(ns.webhook_validation.class).to eq(NgrokAPI::Services::EndpointWebhookValidationModuleClient)
+      expect(ns.saml.class).to eq(NgrokAPI::Services::EndpointSAMLModuleClient)
+      expect(ns.oidc.class).to eq(NgrokAPI::Services::EndpointOIDCModuleClient)
     end
   end
 end

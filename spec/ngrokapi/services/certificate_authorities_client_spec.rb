@@ -29,7 +29,6 @@ RSpec.describe NgrokAPI::Services::CertificateAuthoritiesClient do
         ca_pem: "New ca_pem"
       )
       expect(result.class).to eq(NgrokAPI::Models::CertificateAuthority)
-      # expect(result.id).to eq(certificate_authority_result["id"])
     end
   end
 
@@ -87,7 +86,6 @@ RSpec.describe NgrokAPI::Services::CertificateAuthoritiesClient do
         id: certificate_authority_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::CertificateAuthority)
-      # expect(result.id).to eq(certificate_authority_result["id"])
     end
   end
 
@@ -135,7 +133,6 @@ RSpec.describe NgrokAPI::Services::CertificateAuthoritiesClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::CertificateAuthority)
-      # expect(result.id).to eq(certificate_authority_result["id"])
     end
   end
 

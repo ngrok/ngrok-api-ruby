@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'ostruct'
+
 module NgrokAPI
   ##
   # Low-level api client for communicating with Ngrok's HTTP API.
@@ -22,11 +24,10 @@ module NgrokAPI
     end
 
     ##
-    # API Keys are used to authenticate to the
-    # (https://ngrok.com/docs/api#authentication)ngrok
-    #  API. You may use the API itself
+    # API Keys are used to authenticate to the [ngrok
+    #  API](https://ngrok.com/docs/api#authentication). You may use the API itself
     #  to provision and manage API Keys but you'll need to provision your first API
-    #  key from the  (https://dashboard.ngrok.com/api/keys)API Keys page on your
+    #  key from the [API Keys page](https://dashboard.ngrok.com/api/keys) on your
     #  ngrok.com dashboard.
     #
     # @return [NgrokAPI::Services::APIKeysClient]
@@ -49,8 +50,8 @@ module NgrokAPI
     ##
     # Tunnel Credentials are ngrok agent authtokens. They authorize the ngrok
     #  agent to connect the ngrok service as your account. They are installed with
-    #  the ngrok authtoken command or by specifying it in the ngrok.yml
-    #  configuration file with the authtoken property.
+    #  the `ngrok authtoken` command or by specifying it in the `ngrok.yml`
+    #  configuration file with the `authtoken` property.
     #
     # @return [NgrokAPI::Services::CredentialsClient]
     def credentials
@@ -84,7 +85,7 @@ module NgrokAPI
     end
 
     ##
-    # IP Policies are reusable groups of CIDR ranges with an allow or deny
+    # IP Policies are reusable groups of CIDR ranges with an `allow` or `deny`
     #  action. They can be attached to endpoints via the Endpoint Configuration IP
     #  Policy module. They can also be used with IP Restrictions to control source
     #  IP ranges that can start tunnel sessions and connect to the API and dashboard.
@@ -118,7 +119,7 @@ module NgrokAPI
 
     ##
     # The IP Whitelist is deprecated and will be removed. Use an IP Restriction
-    #  with an endpoints type instead.
+    #  with an `endpoints` type instead.
     #
     # @return [NgrokAPI::Services::IPWhitelistClient]
     def ip_whitelist
@@ -213,6 +214,24 @@ module NgrokAPI
     # @return [NgrokAPI::Services::TunnelsClient]
     def tunnels
       @_tunnels ||= NgrokAPI::Services::TunnelsClient.new(client: @client)
+    end
+
+    def pointcfg_module
+      ns = OpenStruct.new
+      ns.logging = NgrokAPI::Services::EndpointLoggingModuleClient.new(client: @client)
+      ns.circuit_breaker = NgrokAPI::Services::EndpointCircuitBreakerModuleClient.new(client: @client)
+      ns.compression = NgrokAPI::Services::EndpointCompressionModuleClient.new(client: @client)
+      ns.tls_termination = NgrokAPI::Services::EndpointTLSTerminationModuleClient.new(client: @client)
+      ns.ip_policy = NgrokAPI::Services::EndpointIPPolicyModuleClient.new(client: @client)
+      ns.mutual_tls = NgrokAPI::Services::EndpointMutualTLSModuleClient.new(client: @client)
+      ns.request_headers = NgrokAPI::Services::EndpointRequestHeadersModuleClient.new(client: @client)
+      ns.response_headers = NgrokAPI::Services::EndpointResponseHeadersModuleClient.new(client: @client)
+      ns.oauth = NgrokAPI::Services::EndpointOAuthModuleClient.new(client: @client)
+      ns.webhook_validation = NgrokAPI::Services::EndpointWebhookValidationModuleClient.new(client: @client)
+      ns.saml = NgrokAPI::Services::EndpointSAMLModuleClient.new(client: @client)
+      ns.oidc = NgrokAPI::Services::EndpointOIDCModuleClient.new(client: @client)
+
+      ns
     end
   end
 end

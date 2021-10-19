@@ -497,6 +497,13 @@ def event_source_result
   }
 end
 
+def event_source_list_result
+  {
+    "sources" => [],
+    "uri" => "https://api.ngrok.com/event_sources",
+  }
+end
+
 def event_subscription_result
   {
     "id" => "esb_1ro7av77nFHjRVO7GwDxRE7TElG",
