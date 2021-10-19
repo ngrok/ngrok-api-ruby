@@ -3,11 +3,10 @@
 module NgrokAPI
   module Services
     ##
-    # API Keys are used to authenticate to the
-    # (https://ngrok.com/docs/api#authentication)ngrok
-    #  API. You may use the API itself
+    # API Keys are used to authenticate to the [ngrok
+    #  API](https://ngrok.com/docs/api#authentication). You may use the API itself
     #  to provision and manage API Keys but you'll need to provision your first API
-    #  key from the  (https://dashboard.ngrok.com/api/keys)API Keys page on your
+    #  key from the [API Keys page](https://dashboard.ngrok.com/api/keys) on your
     #  ngrok.com dashboard.
     #
     # https://ngrok.com/docs/api#api-api-keys
@@ -140,11 +139,44 @@ module NgrokAPI
           url: url,
           path: PATH
         )
+
         NgrokAPI::Models::Listable.new(
           client: self,
           result: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::APIKey
+        )
+      end
+
+      ##
+      # List all API keys owned by this account
+      # Throws an exception if API error.
+      #
+      # @param [string] before_id
+      # @param [string] limit
+      # @param [string] url optional and mutually exclusive from before_id and limit
+      # @return [NgrokAPI::Models::Listable] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-api-keys-list
+      def list!(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
+        result = @client.list(
+          before_id: before_id,
+          limit: limit,
+          danger: true,
+          url: url,
+          path: PATH
+        )
+
+        NgrokAPI::Models::Listable.new(
+          client: self,
+          result: result,
+          list_property: LIST_PROPERTY,
+          klass: NgrokAPI::Models::APIKey,
+          danger: true
         )
       end
 

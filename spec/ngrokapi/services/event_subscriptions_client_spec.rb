@@ -31,7 +31,6 @@ RSpec.describe NgrokAPI::Services::EventSubscriptionsClient do
         destination_ids: "New destination_ids"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventSubscription)
-      # expect(result.id).to eq(event_subscription_result["id"])
     end
   end
 
@@ -89,7 +88,6 @@ RSpec.describe NgrokAPI::Services::EventSubscriptionsClient do
         id: event_subscription_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EventSubscription)
-      # expect(result.id).to eq(event_subscription_result["id"])
     end
   end
 
@@ -141,7 +139,6 @@ RSpec.describe NgrokAPI::Services::EventSubscriptionsClient do
         destination_ids: "New destination_ids"
       )
       expect(result.class).to eq(NgrokAPI::Models::EventSubscription)
-      # expect(result.id).to eq(event_subscription_result["id"])
     end
   end
 

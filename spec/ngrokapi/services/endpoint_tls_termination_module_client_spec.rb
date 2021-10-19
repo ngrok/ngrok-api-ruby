@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointTLSTerminationModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointTLSTermination)
-      # expect(result.id).to eq(endpoint_tls_termination_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointTLSTerminationModuleClient do
         id: endpoint_tls_termination_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointTLSTermination)
-      # expect(result.id).to eq(endpoint_tls_termination_result["id"])
     end
   end
 

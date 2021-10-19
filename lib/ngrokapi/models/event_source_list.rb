@@ -2,17 +2,17 @@
 
 module NgrokAPI
   module Models
-    class ReservedDomainCertNSTarget
+    class EventSourceList
       attr_reader :client,
         :result,
-        :zone,
-        :nameservers
+        :sources,
+        :uri
 
       def initialize(client:, result:)
         @client = client
         @result = result
-        @zone = @result['zone']
-        @nameservers = @result['nameservers']
+        @sources = @result['sources']
+        @uri = @result['uri']
       end
 
       def ==(other)

@@ -31,7 +31,6 @@ RSpec.describe NgrokAPI::Services::TLSCertificatesClient do
         private_key_pem: "New private_key_pem"
       )
       expect(result.class).to eq(NgrokAPI::Models::TLSCertificate)
-      # expect(result.id).to eq(tls_certificate_result["id"])
     end
   end
 
@@ -89,7 +88,6 @@ RSpec.describe NgrokAPI::Services::TLSCertificatesClient do
         id: tls_certificate_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::TLSCertificate)
-      # expect(result.id).to eq(tls_certificate_result["id"])
     end
   end
 
@@ -137,7 +135,6 @@ RSpec.describe NgrokAPI::Services::TLSCertificatesClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::TLSCertificate)
-      # expect(result.id).to eq(tls_certificate_result["id"])
     end
   end
 

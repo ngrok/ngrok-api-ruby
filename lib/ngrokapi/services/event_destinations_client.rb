@@ -145,11 +145,44 @@ module NgrokAPI
           url: url,
           path: PATH
         )
+
         NgrokAPI::Models::Listable.new(
           client: self,
           result: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::EventDestination
+        )
+      end
+
+      ##
+      # List all Event Destinations on this account.
+      # Throws an exception if API error.
+      #
+      # @param [string] before_id
+      # @param [string] limit
+      # @param [string] url optional and mutually exclusive from before_id and limit
+      # @return [NgrokAPI::Models::Listable] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-event-destinations-list
+      def list!(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
+        result = @client.list(
+          before_id: before_id,
+          limit: limit,
+          danger: true,
+          url: url,
+          path: PATH
+        )
+
+        NgrokAPI::Models::Listable.new(
+          client: self,
+          result: result,
+          list_property: LIST_PROPERTY,
+          klass: NgrokAPI::Models::EventDestination,
+          danger: true
         )
       end
 

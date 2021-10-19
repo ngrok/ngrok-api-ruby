@@ -10,12 +10,14 @@ module NgrokAPI
     def initialize(
       client:,
       page:,
-      list_property:
+      list_property:,
+      danger: false
     )
       @n = 0
       @client = client
       @list_property = list_property
       @page = page
+      @danger = danger
     end
 
     ##
@@ -30,7 +32,7 @@ module NgrokAPI
       item
     rescue
       if @page.next_page_uri
-        res = @client.list(url: @page.next_page_uri)
+        res = @client.list(danger: @danger, url: @page.next_page_uri)
         self.n = 0
         self.page = res
         get_next

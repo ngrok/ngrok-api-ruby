@@ -17,7 +17,8 @@ module NgrokAPI
         :https_endpoint_configuration,
         :certificate,
         :certificate_management_policy,
-        :certificate_management_status
+        :certificate_management_status,
+        :acme_challenge_cname_target
 
       def initialize(client:, result:)
         @client = client
@@ -35,6 +36,7 @@ module NgrokAPI
         @certificate = @result['certificate']
         @certificate_management_policy = @result['certificate_management_policy']
         @certificate_management_status = @result['certificate_management_status']
+        @acme_challenge_cname_target = @result['acme_challenge_cname_target']
       end
 
       def ==(other)

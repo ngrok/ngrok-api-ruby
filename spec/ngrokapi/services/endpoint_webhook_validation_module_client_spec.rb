@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointWebhookValidationModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointWebhookValidation)
-      # expect(result.id).to eq(endpoint_webhook_validation_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointWebhookValidationModuleClient do
         id: endpoint_webhook_validation_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointWebhookValidation)
-      # expect(result.id).to eq(endpoint_webhook_validation_result["id"])
     end
   end
 

@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointMutualTLSModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointMutualTLS)
-      # expect(result.id).to eq(endpoint_mutual_tls_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointMutualTLSModuleClient do
         id: endpoint_mutual_tls_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointMutualTLS)
-      # expect(result.id).to eq(endpoint_mutual_tls_result["id"])
     end
   end
 

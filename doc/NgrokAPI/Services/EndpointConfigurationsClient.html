@@ -102,11 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Endpoint Configurations are a reusable group of modules that encapsulate how</p>
-
-<pre class="code ruby"><code class="ruby">traffic to a domain or address is handled. Endpoint configurations are only
-applied to Domains and TCP Addresses they have been attached to.
-</code></pre>
+<p>Endpoint Configurations are a reusable group of modules that encapsulate how  traffic to a domain or address is handled. Endpoint configurations are only  applied to Domains and TCP Addresses they have been attached to.</p>
 
 <p><a href="https://ngrok.com/docs/api#api-endpoint-configurations">ngrok.com/docs/api#api-endpoint-configurations</a></p>
 
@@ -381,6 +377,30 @@ applied to Domains and TCP Addresses they have been attached to.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#list!-instance_method" title="#list! (instance method)">#<strong>list!</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; NgrokAPI::Models::Listable </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a list of all endpoint configurations on this account Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(id: &quot;&quot;, description: nil, metadata: nil, basic_auth: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, ip_policy: nil, mutual_tls: nil, tls_termination: nil, webhook_validation: nil, oauth: nil, logging: nil, saml: nil, oidc: nil, backend: nil)  &#x21d2; NgrokAPI::Models::EndpointConfiguration </a>
     
 
@@ -564,7 +584,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>they type of traffic this endpoint configuration can be applied to. one of: “http“, “https“, “tcp“</p>
+<p>they type of traffic this endpoint configuration can be applied to. one of: <code>http</code>, <code>https</code>, <code>tcp</code></p>
 </div>
       
     </li>
@@ -618,7 +638,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>circuit breaker module configuration or “null“</p>
+<p>circuit breaker module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -636,7 +656,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>compression module configuration or “null“</p>
+<p>compression module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -654,7 +674,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>request headers module configuration or “null“</p>
+<p>request headers module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -672,7 +692,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>response headers module configuration or “null“</p>
+<p>response headers module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -690,7 +710,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>ip policy module configuration or “null“</p>
+<p>ip policy module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -708,7 +728,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>mutual TLS module configuration or “null“</p>
+<p>mutual TLS module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -726,7 +746,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>TLS termination module configuration or “null“</p>
+<p>TLS termination module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -744,7 +764,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>webhook validation module configuration or “null“</p>
+<p>webhook validation module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -762,7 +782,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>oauth module configuration or “null“</p>
+<p>oauth module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -780,7 +800,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>logging module configuration or “null“</p>
+<p>logging module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -798,7 +818,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>saml module configuration or “null“</p>
+<p>saml module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -816,7 +836,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>oidc module configuration or “null“</p>
+<p>oidc module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1438,7 +1458,8 @@ applied to Domains and TCP Addresses they have been attached to.
 185
 186
 187
-188</pre>
+188
+189</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 171</span>
@@ -1454,11 +1475,157 @@ applied to Domains and TCP Addresses they have been attached to.
     <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
     <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::EndpointConfigurationsClient::PATH (constant)">PATH</a></span></span>
   <span class='rparen'>)</span>
+
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
     <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
     <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::EndpointConfigurationsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
     <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/EndpointConfiguration.html" title="NgrokAPI::Models::EndpointConfiguration (class)">EndpointConfiguration</a></span></span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list!-instance_method">
+  
+    #<strong>list!</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a list of all endpoint configurations on this account Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-endpoint-configurations-list">ngrok.com/docs/api#api-endpoint-configurations-list</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>before_id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>limit</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>optional and mutually exclusive from before_id and limit</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 201</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span>
+  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>url:</span> <span class='kw'>nil</span>
+<span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+    <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
+    <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
+    <span class='label'>danger:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
+    <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::EndpointConfigurationsClient::PATH (constant)">PATH</a></span></span>
+  <span class='rparen'>)</span>
+
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
+    <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::EndpointConfigurationsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
+    <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/EndpointConfiguration.html" title="NgrokAPI::Models::EndpointConfiguration (class)">EndpointConfiguration</a></span></span><span class='comma'>,</span>
+    <span class='label'>danger:</span> <span class='kw'>true</span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1556,7 +1723,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>circuit breaker module configuration or “null“</p>
+<p>circuit breaker module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1574,7 +1741,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>compression module configuration or “null“</p>
+<p>compression module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1592,7 +1759,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>request headers module configuration or “null“</p>
+<p>request headers module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1610,7 +1777,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>response headers module configuration or “null“</p>
+<p>response headers module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1628,7 +1795,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>ip policy module configuration or “null“</p>
+<p>ip policy module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1646,7 +1813,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>mutual TLS module configuration or “null“</p>
+<p>mutual TLS module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1664,7 +1831,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>TLS termination module configuration or “null“</p>
+<p>TLS termination module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1682,7 +1849,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>webhook validation module configuration or “null“</p>
+<p>webhook validation module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1700,7 +1867,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>oauth module configuration or “null“</p>
+<p>oauth module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1718,7 +1885,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>logging module configuration or “null“</p>
+<p>logging module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1736,7 +1903,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>saml module configuration or “null“</p>
+<p>saml module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1754,7 +1921,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>oidc module configuration or “null“</p>
+<p>oidc module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1786,39 +1953,6 @@ applied to Domains and TCP Addresses they have been attached to.
       <pre class="lines">
 
 
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
 247
 248
 249
@@ -1826,10 +1960,43 @@ applied to Domains and TCP Addresses they have been attached to.
 251
 252
 253
-254</pre>
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 214</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 247</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
   <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -1967,7 +2134,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>circuit breaker module configuration or “null“</p>
+<p>circuit breaker module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -1985,7 +2152,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>compression module configuration or “null“</p>
+<p>compression module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2003,7 +2170,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>request headers module configuration or “null“</p>
+<p>request headers module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2021,7 +2188,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>response headers module configuration or “null“</p>
+<p>response headers module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2039,7 +2206,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>ip policy module configuration or “null“</p>
+<p>ip policy module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2057,7 +2224,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>mutual TLS module configuration or “null“</p>
+<p>mutual TLS module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2075,7 +2242,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>TLS termination module configuration or “null“</p>
+<p>TLS termination module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2093,7 +2260,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>webhook validation module configuration or “null“</p>
+<p>webhook validation module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2111,7 +2278,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>oauth module configuration or “null“</p>
+<p>oauth module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2129,7 +2296,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>logging module configuration or “null“</p>
+<p>logging module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2147,7 +2314,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>saml module configuration or “null“</p>
+<p>saml module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2165,7 +2332,7 @@ applied to Domains and TCP Addresses they have been attached to.
       
         &mdash;
         <div class='inline'>
-<p>oidc module configuration or “null“</p>
+<p>oidc module configuration or <code>null</code></p>
 </div>
       
     </li>
@@ -2197,39 +2364,6 @@ applied to Domains and TCP Addresses they have been attached to.
       <pre class="lines">
 
 
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
 314
 315
 316
@@ -2237,10 +2371,43 @@ applied to Domains and TCP Addresses they have been attached to.
 318
 319
 320
-321</pre>
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 281</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_configurations_client.rb', line 314</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span>
   <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -2293,7 +2460,7 @@ applied to Domains and TCP Addresses they have been attached to.
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  4 23:24:18 2021 by
+  Generated on Tue Oct 19 15:48:26 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

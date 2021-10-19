@@ -29,7 +29,6 @@ RSpec.describe NgrokAPI::Services::IPPoliciesClient do
         action: "New action"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPPolicy)
-      # expect(result.id).to eq(ip_policy_result["id"])
     end
   end
 
@@ -87,7 +86,6 @@ RSpec.describe NgrokAPI::Services::IPPoliciesClient do
         id: ip_policy_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::IPPolicy)
-      # expect(result.id).to eq(ip_policy_result["id"])
     end
   end
 
@@ -135,7 +133,6 @@ RSpec.describe NgrokAPI::Services::IPPoliciesClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::IPPolicy)
-      # expect(result.id).to eq(ip_policy_result["id"])
     end
   end
 

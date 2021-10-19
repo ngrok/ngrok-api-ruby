@@ -335,6 +335,54 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>(subscription_id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::EventSourceList </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List the types for which this event subscription will trigger.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list!-instance_method" title="#list! (instance method)">#<strong>list!</strong>(subscription_id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::EventSourceList </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List the types for which this event subscription will trigger Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(subscription_id: &quot;&quot;, type: &quot;&quot;, filter: nil, fields: nil)  &#x21d2; NgrokAPI::Models::EventSource </a>
     
 
@@ -1084,6 +1132,204 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="list-instance_method">
+  
+    #<strong>list</strong>(subscription_id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/EventSourceList.html" title="NgrokAPI::Models::EventSourceList (class)">NgrokAPI::Models::EventSourceList</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List the types for which this event subscription will trigger</p>
+
+<p><a href="https://ngrok.com/docs/api#api-event-sources-list">ngrok.com/docs/api#api-event-sources-list</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>subscription_id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The unique identifier for the Event Subscription that this Event Source is attached to.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/EventSourceList.html" title="NgrokAPI::Models::EventSourceList (class)">NgrokAPI::Models::EventSourceList</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_sources_client.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+  <span class='label'>subscription_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{subscription_id}/sources</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>subscription_id:</span> <span class='id identifier rubyid_subscription_id'>subscription_id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/EventSourceList.html" title="NgrokAPI::Models::EventSourceList (class)">EventSourceList</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/EventSourceList.html#initialize-instance_method" title="NgrokAPI::Models::EventSourceList#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list!-instance_method">
+  
+    #<strong>list!</strong>(subscription_id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/EventSourceList.html" title="NgrokAPI::Models::EventSourceList (class)">NgrokAPI::Models::EventSourceList</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List the types for which this event subscription will trigger Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-event-sources-list">ngrok.com/docs/api#api-event-sources-list</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>subscription_id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The unique identifier for the Event Subscription that this Event Source is attached to.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/EventSourceList.html" title="NgrokAPI::Models::EventSourceList (class)">NgrokAPI::Models::EventSourceList</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_sources_client.rb', line 154</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span>
+  <span class='label'>subscription_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+<span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{subscription_id}/sources</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>subscription_id:</span> <span class='id identifier rubyid_subscription_id'>subscription_id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/EventSourceList.html" title="NgrokAPI::Models::EventSourceList (class)">EventSourceList</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/EventSourceList.html#initialize-instance_method" title="NgrokAPI::Models::EventSourceList#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
     #<strong>update</strong>(subscription_id: &quot;&quot;, type: &quot;&quot;, filter: nil, fields: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/EventSource.html" title="NgrokAPI::Models::EventSource (class)">NgrokAPI::Models::EventSource</a></span></tt> 
@@ -1169,24 +1415,24 @@
       <pre class="lines">
 
 
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149</pre>
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_sources_client.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_sources_client.rb', line 174</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
   <span class='label'>subscription_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -1294,24 +1540,24 @@
       <pre class="lines">
 
 
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174</pre>
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_sources_client.rb', line 160</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_sources_client.rb', line 199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span>
   <span class='label'>subscription_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -1338,7 +1584,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Oct  4 23:24:17 2021 by
+  Generated on Tue Oct 19 15:48:22 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.1).
 </div>

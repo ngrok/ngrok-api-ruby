@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointIPPolicyModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointIPPolicy)
-      # expect(result.id).to eq(endpoint_ip_policy_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointIPPolicyModuleClient do
         id: endpoint_ip_policy_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointIPPolicy)
-      # expect(result.id).to eq(endpoint_ip_policy_result["id"])
     end
   end
 

@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointOIDCModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointOIDC)
-      # expect(result.id).to eq(endpoint_oidc_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointOIDCModuleClient do
         id: endpoint_oidc_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointOIDC)
-      # expect(result.id).to eq(endpoint_oidc_result["id"])
     end
   end
 

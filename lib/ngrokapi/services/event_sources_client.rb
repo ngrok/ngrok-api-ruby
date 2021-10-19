@@ -125,6 +125,45 @@ module NgrokAPI
       end
 
       ##
+      # List the types for which this event subscription will trigger
+      #
+      # @param [string] subscription_id The unique identifier for the Event Subscription that this Event Source is attached to.
+      # @return [NgrokAPI::Models::EventSourceList] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-event-sources-list
+      def list(
+        subscription_id: ""
+      )
+        path = '/event_subscriptions/%{subscription_id}/sources'
+        replacements = {
+          subscription_id: subscription_id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data)
+        NgrokAPI::Models::EventSourceList.new(client: self, result: result)
+      end
+
+      ##
+      # List the types for which this event subscription will trigger
+      # Throws an exception if API error.
+      #
+      # @param [string] subscription_id The unique identifier for the Event Subscription that this Event Source is attached to.
+      # @return [NgrokAPI::Models::EventSourceList] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-event-sources-list
+      def list!(
+        subscription_id: ""
+      )
+        path = '/event_subscriptions/%{subscription_id}/sources'
+        replacements = {
+          subscription_id: subscription_id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::EventSourceList.new(client: self, result: result)
+      end
+
+      ##
       # Update the type for which this event subscription will trigger
       #
       # @param [string] subscription_id The unique identifier for the Event Subscription that this Event Source is attached to.

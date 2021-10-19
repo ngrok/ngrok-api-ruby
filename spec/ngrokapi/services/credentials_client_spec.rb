@@ -29,7 +29,6 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
         acl: "New acl"
       )
       expect(result.class).to eq(NgrokAPI::Models::Credential)
-      # expect(result.id).to eq(credential_result["id"])
     end
   end
 
@@ -87,7 +86,6 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
         id: credential_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::Credential)
-      # expect(result.id).to eq(credential_result["id"])
     end
   end
 
@@ -137,7 +135,6 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
         acl: "New acl"
       )
       expect(result.class).to eq(NgrokAPI::Models::Credential)
-      # expect(result.id).to eq(credential_result["id"])
     end
   end
 

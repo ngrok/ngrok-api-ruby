@@ -5,6 +5,8 @@ module NgrokAPI
     ##
     # A resource representing multiple instances from a given "list" API call
     class Listable
+      include Enumerable
+
       attr_reader :client,
         :klass,
         :iter,
@@ -14,7 +16,7 @@ module NgrokAPI
         :result,
         :uri
 
-      def initialize(client:, result:, list_property:, klass:)
+      def initialize(danger: false, client:, result:, list_property:, klass:)
         @client = client
         @result = result
         @list_property = list_property
@@ -26,8 +28,17 @@ module NgrokAPI
         @iter = NgrokAPI::PagedIterator.new(
           client: client,
           page: self,
-          list_property: list_property
+          list_property: list_property,
+          danger: danger
         )
+      end
+
+      def each
+        item = @iter.get_next
+        while item
+          yield item
+          item = @iter.get_next
+        end
       end
 
       def ==(other)

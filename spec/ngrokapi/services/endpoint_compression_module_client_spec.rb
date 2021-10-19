@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::EndpointCompressionModuleClient do
         a_module: "New a_module"
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointCompression)
-      # expect(result.id).to eq(endpoint_compression_result["id"])
     end
   end
 
@@ -63,7 +62,6 @@ RSpec.describe NgrokAPI::Services::EndpointCompressionModuleClient do
         id: endpoint_compression_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::EndpointCompression)
-      # expect(result.id).to eq(endpoint_compression_result["id"])
     end
   end
 

@@ -33,7 +33,6 @@ RSpec.describe NgrokAPI::Services::SSHCertificateAuthoritiesClient do
         key_size: "New key_size"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHCertificateAuthority)
-      # expect(result.id).to eq(ssh_certificate_authority_result["id"])
     end
   end
 
@@ -91,7 +90,6 @@ RSpec.describe NgrokAPI::Services::SSHCertificateAuthoritiesClient do
         id: ssh_certificate_authority_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHCertificateAuthority)
-      # expect(result.id).to eq(ssh_certificate_authority_result["id"])
     end
   end
 
@@ -139,7 +137,6 @@ RSpec.describe NgrokAPI::Services::SSHCertificateAuthoritiesClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHCertificateAuthority)
-      # expect(result.id).to eq(ssh_certificate_authority_result["id"])
     end
   end
 

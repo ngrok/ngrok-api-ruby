@@ -27,7 +27,6 @@ RSpec.describe NgrokAPI::Services::APIKeysClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::APIKey)
-      # expect(result.id).to eq(api_key_result["id"])
     end
   end
 
@@ -85,7 +84,6 @@ RSpec.describe NgrokAPI::Services::APIKeysClient do
         id: api_key_result["id"]
       )
       expect(result.class).to eq(NgrokAPI::Models::APIKey)
-      # expect(result.id).to eq(api_key_result["id"])
     end
   end
 
@@ -133,7 +131,6 @@ RSpec.describe NgrokAPI::Services::APIKeysClient do
         metadata: "New metadata"
       )
       expect(result.class).to eq(NgrokAPI::Models::APIKey)
-      # expect(result.id).to eq(api_key_result["id"])
     end
   end
 
