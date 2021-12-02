@@ -30,12 +30,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHCredential] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-create
-      def create(
-        description: "",
-        metadata: "",
-        acl: [],
-        public_key:
-      )
+      def create(description: "", metadata: "", acl: [], public_key:)
         path = '/ssh_credentials'
         replacements = {
         }
@@ -55,9 +50,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/ssh_credentials/%{id}'
         replacements = {
           id: id,
@@ -73,9 +66,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/ssh_credentials/%{id}'
         replacements = {
           id: id,
@@ -90,9 +81,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHCredential] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/ssh_credentials/%{id}'
         replacements = {
           id: id,
@@ -110,9 +99,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHCredential] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/ssh_credentials/%{id}'
         replacements = {
           id: id,
@@ -131,11 +118,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -161,11 +145,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -193,12 +174,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHCredential] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil,
-        acl: nil
-      )
+      def update(id: "", description: nil, metadata: nil, acl: nil)
         path = '/ssh_credentials/%{id}'
         replacements = {
           id: id,
@@ -222,12 +198,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHCredential] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil,
-        acl: nil
-      )
+      def update!(id: "", description: nil, metadata: nil, acl: nil)
         path = '/ssh_credentials/%{id}'
         replacements = {
           id: id,

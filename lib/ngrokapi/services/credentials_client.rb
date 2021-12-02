@@ -33,11 +33,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-create
-      def create(
-        description: "",
-        metadata: "",
-        acl: []
-      )
+      def create(description: "", metadata: "", acl: [])
         path = '/credentials'
         replacements = {
         }
@@ -56,9 +52,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/credentials/%{id}'
         replacements = {
           id: id,
@@ -74,9 +68,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/credentials/%{id}'
         replacements = {
           id: id,
@@ -91,9 +83,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/credentials/%{id}'
         replacements = {
           id: id,
@@ -111,9 +101,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/credentials/%{id}'
         replacements = {
           id: id,
@@ -132,11 +120,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -162,11 +147,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -194,12 +176,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil,
-        acl: nil
-      )
+      def update(id: "", description: nil, metadata: nil, acl: nil)
         path = '/credentials/%{id}'
         replacements = {
           id: id,
@@ -223,12 +200,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil,
-        acl: nil
-      )
+      def update!(id: "", description: nil, metadata: nil, acl: nil)
         path = '/credentials/%{id}'
         replacements = {
           id: id,

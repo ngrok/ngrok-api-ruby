@@ -29,12 +29,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-create
-      def create(
-        description: "",
-        metadata: "",
-        cidr:,
-        ip_policy_id:
-      )
+      def create(description: "", metadata: "", cidr:, ip_policy_id:)
         path = '/ip_policy_rules'
         replacements = {
         }
@@ -54,9 +49,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/ip_policy_rules/%{id}'
         replacements = {
           id: id,
@@ -72,9 +65,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/ip_policy_rules/%{id}'
         replacements = {
           id: id,
@@ -89,9 +80,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/ip_policy_rules/%{id}'
         replacements = {
           id: id,
@@ -109,9 +98,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/ip_policy_rules/%{id}'
         replacements = {
           id: id,
@@ -130,11 +117,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -160,11 +144,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -192,12 +173,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil,
-        cidr: nil
-      )
+      def update(id: "", description: nil, metadata: nil, cidr: nil)
         path = '/ip_policy_rules/%{id}'
         replacements = {
           id: id,
@@ -221,12 +197,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil,
-        cidr: nil
-      )
+      def update!(id: "", description: nil, metadata: nil, cidr: nil)
         path = '/ip_policy_rules/%{id}'
         replacements = {
           id: id,

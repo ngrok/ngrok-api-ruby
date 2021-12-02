@@ -20,10 +20,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointSAML] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-saml-module-replace
-      def replace(
-        id: "",
-        a_module: nil
-      )
+      def replace(id: "", a_module: nil)
         path = '/endpoint_configurations/%{id}/saml'
         replacements = {
           id: id,
@@ -40,10 +37,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointSAML] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-saml-module-replace
-      def replace!(
-        id: "",
-        a_module: nil
-      )
+      def replace!(id: "", a_module: nil)
         path = '/endpoint_configurations/%{id}/saml'
         replacements = {
           id: id,
@@ -59,9 +53,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointSAML] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-saml-module-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/endpoint_configurations/%{id}/saml'
         replacements = {
           id: id,
@@ -76,9 +68,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointSAML] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-saml-module-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/endpoint_configurations/%{id}/saml'
         replacements = {
           id: id,
@@ -93,9 +83,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-saml-module-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/endpoint_configurations/%{id}/saml'
         replacements = {
           id: id,
@@ -108,9 +96,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-saml-module-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/endpoint_configurations/%{id}/saml'
         replacements = {
           id: id,

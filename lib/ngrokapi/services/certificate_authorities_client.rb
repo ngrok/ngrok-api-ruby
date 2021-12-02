@@ -31,11 +31,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::CertificateAuthority] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-create
-      def create(
-        description: "",
-        metadata: "",
-        ca_pem:
-      )
+      def create(description: "", metadata: "", ca_pem:)
         path = '/certificate_authorities'
         replacements = {
         }
@@ -54,9 +50,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/certificate_authorities/%{id}'
         replacements = {
           id: id,
@@ -72,9 +66,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/certificate_authorities/%{id}'
         replacements = {
           id: id,
@@ -89,9 +81,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::CertificateAuthority] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/certificate_authorities/%{id}'
         replacements = {
           id: id,
@@ -109,9 +99,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::CertificateAuthority] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/certificate_authorities/%{id}'
         replacements = {
           id: id,
@@ -130,11 +118,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -160,11 +145,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -191,11 +173,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::CertificateAuthority] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update(id: "", description: nil, metadata: nil)
         path = '/certificate_authorities/%{id}'
         replacements = {
           id: id,
@@ -217,11 +195,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::CertificateAuthority] result from the API request
       #
       # https://ngrok.com/docs/api#api-certificate-authorities-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update!(id: "", description: nil, metadata: nil)
         path = '/certificate_authorities/%{id}'
         replacements = {
           id: id,

@@ -27,10 +27,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::AbuseReport] result from the API request
       #
       # https://ngrok.com/docs/api#api-abuse-reports-create
-      def create(
-        urls:,
-        metadata: ""
-      )
+      def create(urls:, metadata: "")
         path = '/abuse_reports'
         replacements = {
         }
@@ -48,9 +45,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::AbuseReport] result from the API request
       #
       # https://ngrok.com/docs/api#api-abuse-reports-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/abuse_reports/%{id}'
         replacements = {
           id: id,
@@ -68,9 +63,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::AbuseReport] result from the API request
       #
       # https://ngrok.com/docs/api#api-abuse-reports-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/abuse_reports/%{id}'
         replacements = {
           id: id,

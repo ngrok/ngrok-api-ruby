@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.description = 'This library wraps the [ngrok HTTP API](https://ngrok.com/docs/api) to make
     it easier to consume in Ruby.'
 
-  s.required_ruby_version = '>= 3.0.0'
+  s.required_ruby_version = '>= 2.7.2'
 
   all_files = `git ls-files`.split("\n")
   test_files = `git ls-files -- {test,spec,features}/*`.split('\n')

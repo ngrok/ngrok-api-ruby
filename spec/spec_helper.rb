@@ -57,6 +57,57 @@ def abuse_report_result
   }
 end
 
+def agent_ingress_result
+  {
+    "id" => "agin_1zlnrHlibHAywyAvG5wk0rx5olk",
+    "uri" => "https=>//api.ngrok.com/agent_ingresses/agin_1zlnrHlibHAywyAvG5wk0rx5olk",
+    "description" => "acme devices",
+    "metadata" => "",
+    "domain" => "connect.acme.com",
+    "ns_targets" => [
+      "0.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+      "1.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+      "2.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+      "3.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+    ],
+    "region_domains" => [
+      "tunnel.us.connect.acme.com",
+    ],
+    "created_at" => "2021-10-20T12=>08=>58Z",
+  }
+end
+
+def agent_ingress_result2
+  {
+    "id" => "agin_1zlnrHlibHAywyAvG5wk0rx5olk",
+    "uri" => "https=>//api.ngrok.com/agent_ingresses/agin_1zlnrHlibHAywyAvG5wk0rx5olk",
+    "description" => "ACME Co. Device Ingress",
+    "metadata" => "{\"device_sku\"=> \"824JS4RZ1F8X\"}",
+    "domain" => "connect.acme.com",
+    "ns_targets" => [
+      "0.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+      "1.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+      "2.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+      "3.agin_1zlnrHlibHAywyAvG5wk0rx5olk.ns.ngrok.com",
+    ],
+    "region_domains" => [
+      "tunnel.us.connect.acme.com",
+    ],
+    "created_at" => "2021-10-20T12=>08=>58Z",
+  }
+end
+
+def agent_ingress_results
+  {
+    "ingresses" => [
+      agent_ingress_result,
+      agent_ingress_result2,
+    ],
+    "uri" => "https://api.ngrok.com/agent_ingresses",
+    "next_page_uri" => nil,
+  }
+end
+
 def api_key_result
   {
     "id" => "ak_1xrq8h890dWRYiRdIHeZYCdlyT7",

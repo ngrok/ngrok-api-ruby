@@ -22,12 +22,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSource] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-create
-      def create(
-        subscription_id: "",
-        type: "",
-        filter: "",
-        fields: []
-      )
+      def create(subscription_id: "", type: "", filter: "", fields: [])
         path = '/event_subscriptions/%{subscription_id}/sources'
         replacements = {
           subscription_id: subscription_id,
@@ -46,10 +41,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-delete
-      def delete(
-        subscription_id: "",
-        type: ""
-      )
+      def delete(subscription_id: "", type: "")
         path = '/event_subscriptions/%{subscription_id}/sources/%{type}'
         replacements = {
           subscription_id: subscription_id,
@@ -67,10 +59,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-delete
-      def delete!(
-        subscription_id: "",
-        type: ""
-      )
+      def delete!(subscription_id: "", type: "")
         path = '/event_subscriptions/%{subscription_id}/sources/%{type}'
         replacements = {
           subscription_id: subscription_id,
@@ -87,10 +76,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSource] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-get
-      def get(
-        subscription_id: "",
-        type: ""
-      )
+      def get(subscription_id: "", type: "")
         path = '/event_subscriptions/%{subscription_id}/sources/%{type}'
         replacements = {
           subscription_id: subscription_id,
@@ -110,10 +96,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSource] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-get
-      def get!(
-        subscription_id: "",
-        type: ""
-      )
+      def get!(subscription_id: "", type: "")
         path = '/event_subscriptions/%{subscription_id}/sources/%{type}'
         replacements = {
           subscription_id: subscription_id,
@@ -131,9 +114,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSourceList] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-list
-      def list(
-        subscription_id: ""
-      )
+      def list(subscription_id: "")
         path = '/event_subscriptions/%{subscription_id}/sources'
         replacements = {
           subscription_id: subscription_id,
@@ -151,9 +132,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSourceList] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-list
-      def list!(
-        subscription_id: ""
-      )
+      def list!(subscription_id: "")
         path = '/event_subscriptions/%{subscription_id}/sources'
         replacements = {
           subscription_id: subscription_id,
@@ -171,12 +150,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSource] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-update
-      def update(
-        subscription_id: "",
-        type: "",
-        filter: nil,
-        fields: nil
-      )
+      def update(subscription_id: "", type: "", filter: nil, fields: nil)
         path = '/event_subscriptions/%{subscription_id}/sources/%{type}'
         replacements = {
           subscription_id: subscription_id,
@@ -196,12 +170,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSource] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-sources-update
-      def update!(
-        subscription_id: "",
-        type: "",
-        filter: nil,
-        fields: nil
-      )
+      def update!(subscription_id: "", type: "", filter: nil, fields: nil)
         path = '/event_subscriptions/%{subscription_id}/sources/%{type}'
         replacements = {
           subscription_id: subscription_id,

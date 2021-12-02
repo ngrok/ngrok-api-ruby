@@ -12,6 +12,12 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
+  describe "#agent_ingresses" do
+    it "returns an instance of the AgentIngressesClient" do
+      expect(@client.agent_ingresses.class).to eq(NgrokAPI::Services::AgentIngressesClient)
+    end
+  end
+
   describe "#api_keys" do
     it "returns an instance of the APIKeysClient" do
       expect(@client.api_keys.class).to eq(NgrokAPI::Services::APIKeysClient)
@@ -75,12 +81,6 @@ RSpec.describe NgrokAPI::Client do
   describe "#ip_restrictions" do
     it "returns an instance of the IPRestrictionsClient" do
       expect(@client.ip_restrictions.class).to eq(NgrokAPI::Services::IPRestrictionsClient)
-    end
-  end
-
-  describe "#ip_whitelist" do
-    it "returns an instance of the IPWhitelistClient" do
-      expect(@client.ip_whitelist.class).to eq(NgrokAPI::Services::IPWhitelistClient)
     end
   end
 

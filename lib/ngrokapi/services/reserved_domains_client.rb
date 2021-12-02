@@ -35,16 +35,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
-      def create(
-        name:,
-        region: "",
-        description: "",
-        metadata: "",
-        http_endpoint_configuration_id: nil,
-        https_endpoint_configuration_id: nil,
-        certificate_id: nil,
-        certificate_management_policy: nil
-      )
+      def create(name:, region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
         path = '/reserved_domains'
         replacements = {
         }
@@ -68,9 +59,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -86,9 +75,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -103,9 +90,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -123,9 +108,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -144,11 +127,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -174,11 +154,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -209,15 +186,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil,
-        http_endpoint_configuration_id: nil,
-        https_endpoint_configuration_id: nil,
-        certificate_id: nil,
-        certificate_management_policy: nil
-      )
+      def update(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -247,15 +216,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil,
-        http_endpoint_configuration_id: nil,
-        https_endpoint_configuration_id: nil,
-        certificate_id: nil,
-        certificate_management_policy: nil
-      )
+      def update!(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -278,9 +239,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate-management-policy
-      def delete_certificate_management_policy(
-        id: ""
-      )
+      def delete_certificate_management_policy(id: "")
         path = '/reserved_domains/%{id}/certificate_management_policy'
         replacements = {
           id: id,
@@ -296,9 +255,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate-management-policy
-      def delete_certificate_management_policy!(
-        id: ""
-      )
+      def delete_certificate_management_policy!(id: "")
         path = '/reserved_domains/%{id}/certificate_management_policy'
         replacements = {
           id: id,
@@ -313,9 +270,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
-      def delete_certificate(
-        id: ""
-      )
+      def delete_certificate(id: "")
         path = '/reserved_domains/%{id}/certificate'
         replacements = {
           id: id,
@@ -331,9 +286,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
-      def delete_certificate!(
-        id: ""
-      )
+      def delete_certificate!(id: "")
         path = '/reserved_domains/%{id}/certificate'
         replacements = {
           id: id,
@@ -348,9 +301,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
-      def delete_http_endpoint_config(
-        id: ""
-      )
+      def delete_http_endpoint_config(id: "")
         path = '/reserved_domains/%{id}/http_endpoint_configuration'
         replacements = {
           id: id,
@@ -366,9 +317,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
-      def delete_http_endpoint_config!(
-        id: ""
-      )
+      def delete_http_endpoint_config!(id: "")
         path = '/reserved_domains/%{id}/http_endpoint_configuration'
         replacements = {
           id: id,
@@ -383,9 +332,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
-      def delete_https_endpoint_config(
-        id: ""
-      )
+      def delete_https_endpoint_config(id: "")
         path = '/reserved_domains/%{id}/https_endpoint_configuration'
         replacements = {
           id: id,
@@ -401,9 +348,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
-      def delete_https_endpoint_config!(
-        id: ""
-      )
+      def delete_https_endpoint_config!(id: "")
         path = '/reserved_domains/%{id}/https_endpoint_configuration'
         replacements = {
           id: id,

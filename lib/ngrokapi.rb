@@ -3,7 +3,7 @@
 require 'json'
 require 'net/http'
 
-Dir[File.join('.', 'lib', '**/*.rb')].each do |f|
+Dir[File.join('.', 'lib', '**/*.rb')].sort.each do |f|
   require f
 end
 

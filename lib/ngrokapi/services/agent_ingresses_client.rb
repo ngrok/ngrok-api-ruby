@@ -3,18 +3,12 @@
 module NgrokAPI
   module Services
     ##
-    # API Keys are used to authenticate to the [ngrok
-    #  API](https://ngrok.com/docs/api#authentication). You may use the API itself
-    #  to provision and manage API Keys but you'll need to provision your first API
-    #  key from the [API Keys page](https://dashboard.ngrok.com/api/keys) on your
-    #  ngrok.com dashboard.
-    #
-    # https://ngrok.com/docs/api#api-api-keys
-    class APIKeysClient
+    # https://ngrok.com/docs/api#api-agent-ingresses
+    class AgentIngressesClient
       # The API path for the requests
-      PATH = '/api_keys'
+      PATH = '/agent_ingresses'
       # The List Property from the resulting API for list calls
-      LIST_PROPERTY = 'keys'
+      LIST_PROPERTY = 'ingresses'
 
       attr_reader :client
 
@@ -23,34 +17,36 @@ module NgrokAPI
       end
 
       ##
-      # Create a new API key. The generated API key can be used to authenticate to the
-      # ngrok API.
+      # Create a new Agent Ingress. The ngrok agent can be configured to connect to
+      # ngrok via the new set of addresses on the returned Agent Ingress.
       #
-      # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
-      # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
-      # @return [NgrokAPI::Models::APIKey] result from the API request
+      # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
+      # @param [string] domain the domain that you own to be used as the base domain name to generate regional agent ingress domains.
+      # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-create
-      def create(description: "", metadata: "")
-        path = '/api_keys'
+      # https://ngrok.com/docs/api#api-agent-ingresses-create
+      def create(description: "", metadata: "", domain:)
+        path = '/agent_ingresses'
         replacements = {
         }
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
+        data[:domain] = domain if domain
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
       end
 
       ##
-      # Delete an API key by ID
+      # Delete an Agent Ingress by ID
       #
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-delete
+      # https://ngrok.com/docs/api#api-agent-ingresses-delete
       def delete(id: "")
-        path = '/api_keys/%{id}'
+        path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
         }
@@ -58,15 +54,15 @@ module NgrokAPI
       end
 
       ##
-      # Delete an API key by ID
+      # Delete an Agent Ingress by ID
       # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-delete
+      # https://ngrok.com/docs/api#api-agent-ingresses-delete
       def delete!(id: "")
-        path = '/api_keys/%{id}'
+        path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
         }
@@ -74,49 +70,49 @@ module NgrokAPI
       end
 
       ##
-      # Get the details of an API key by ID.
+      # Get the details of an Agent Ingress by ID.
       #
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::APIKey] result from the API request
+      # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-get
+      # https://ngrok.com/docs/api#api-agent-ingresses-get
       def get(id: "")
-        path = '/api_keys/%{id}'
+        path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
       end
 
       ##
-      # Get the details of an API key by ID.
+      # Get the details of an Agent Ingress by ID.
       # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::APIKey] result from the API request
+      # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-get
+      # https://ngrok.com/docs/api#api-agent-ingresses-get
       def get!(id: "")
-        path = '/api_keys/%{id}'
+        path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
       end
 
       ##
-      # List all API keys owned by this account
+      # List all Agent Ingresses owned by this account
       #
       # @param [string] before_id
       # @param [string] limit
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-list
+      # https://ngrok.com/docs/api#api-agent-ingresses-list
       def list(before_id: nil, limit: nil,
                url: nil)
         result = @client.list(
@@ -130,12 +126,12 @@ module NgrokAPI
           client: self,
           result: result,
           list_property: LIST_PROPERTY,
-          klass: NgrokAPI::Models::APIKey
+          klass: NgrokAPI::Models::AgentIngress
         )
       end
 
       ##
-      # List all API keys owned by this account
+      # List all Agent Ingresses owned by this account
       # Throws an exception if API error.
       #
       # @param [string] before_id
@@ -143,7 +139,7 @@ module NgrokAPI
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-list
+      # https://ngrok.com/docs/api#api-agent-ingresses-list
       def list!(before_id: nil, limit: nil,
                 url: nil)
         result = @client.list(
@@ -158,22 +154,22 @@ module NgrokAPI
           client: self,
           result: result,
           list_property: LIST_PROPERTY,
-          klass: NgrokAPI::Models::APIKey,
+          klass: NgrokAPI::Models::AgentIngress,
           danger: true
         )
       end
 
       ##
-      # Update attributes of an API key by ID.
+      # Update attributes of an Agent Ingress by ID.
       #
       # @param [string] id
-      # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
-      # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
-      # @return [NgrokAPI::Models::APIKey] result from the API request
+      # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
+      # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-update
+      # https://ngrok.com/docs/api#api-agent-ingresses-update
       def update(id: "", description: nil, metadata: nil)
-        path = '/api_keys/%{id}'
+        path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
         }
@@ -181,21 +177,21 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
       end
 
       ##
-      # Update attributes of an API key by ID.
+      # Update attributes of an Agent Ingress by ID.
       # Throws an exception if API error.
       #
       # @param [string] id
-      # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
-      # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
-      # @return [NgrokAPI::Models::APIKey] result from the API request
+      # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
+      # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
-      # https://ngrok.com/docs/api#api-api-keys-update
+      # https://ngrok.com/docs/api#api-agent-ingresses-update
       def update!(id: "", description: nil, metadata: nil)
-        path = '/api_keys/%{id}'
+        path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
         }
@@ -203,7 +199,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
       end
     end
   end

@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::EndpointIPPolicyModuleClient
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -524,22 +524,18 @@
       <pre class="lines">
 
 
-96
-97
-98
-99
-100
-101
-102
-103
-104</pre>
+86
+87
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 86</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoint_configurations/%{id}/ip_policy</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -617,22 +613,18 @@
       <pre class="lines">
 
 
-111
-112
-113
-114
-115
-116
-117
-118
-119</pre>
+99
+100
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 99</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoint_configurations/%{id}/ip_policy</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -710,24 +702,20 @@
       <pre class="lines">
 
 
+56
+57
+58
+59
+60
+61
 62
 63
-64
-65
-66
-67
-68
-69
-70
-71
-72</pre>
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 56</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoint_configurations/%{id}/ip_policy</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -807,24 +795,20 @@
       <pre class="lines">
 
 
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89</pre>
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 71</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoint_configurations/%{id}/ip_policy</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -921,18 +905,12 @@
 29
 30
 31
-32
-33
-34
-35</pre>
+32</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 23</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>a_module:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>a_module:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoint_configurations/%{id}/ip_policy</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1021,27 +999,21 @@
       <pre class="lines">
 
 
+40
+41
+42
 43
 44
 45
 46
 47
 48
-49
-50
-51
-52
-53
-54
-55</pre>
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoint_ip_policy_module_client.rb', line 40</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_replace!'>replace!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>a_module:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_replace!'>replace!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>a_module:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoint_configurations/%{id}/ip_policy</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1061,9 +1033,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 19 23:01:40 2021 by
+  Generated on Thu Dec  2 18:48:57 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.1).
+  0.9.27 (ruby-3.0.1).
 </div>
 
     </div>

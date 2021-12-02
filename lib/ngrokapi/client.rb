@@ -7,10 +7,7 @@ module NgrokAPI
   # Low-level api client for communicating with Ngrok's HTTP API.
   # Use this object to instantiate your clients.
   class Client
-    def initialize(
-      api_key:,
-      base_url: 'https://api.ngrok.com'
-    )
+    def initialize(api_key:, base_url: 'https://api.ngrok.com')
       @client = NgrokAPI::HttpClient.new(api_key: api_key, base_url: base_url)
     end
 
@@ -21,6 +18,10 @@ module NgrokAPI
     # @return [NgrokAPI::Services::AbuseReportsClient]
     def abuse_reports
       @_abuse_reports ||= NgrokAPI::Services::AbuseReportsClient.new(client: @client)
+    end
+
+    def agent_ingresses
+      @_agent_ingresses ||= NgrokAPI::Services::AgentIngressesClient.new(client: @client)
     end
 
     ##
@@ -115,15 +116,6 @@ module NgrokAPI
     # @return [NgrokAPI::Services::IPRestrictionsClient]
     def ip_restrictions
       @_ip_restrictions ||= NgrokAPI::Services::IPRestrictionsClient.new(client: @client)
-    end
-
-    ##
-    # The IP Whitelist is deprecated and will be removed. Use an IP Restriction
-    #  with an `endpoints` type instead.
-    #
-    # @return [NgrokAPI::Services::IPWhitelistClient]
-    def ip_whitelist
-      @_ip_whitelist ||= NgrokAPI::Services::IPWhitelistClient.new(client: @client)
     end
 
     ##

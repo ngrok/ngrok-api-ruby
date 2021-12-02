@@ -28,13 +28,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventDestination] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-create
-      def create(
-        metadata: "",
-        description: "",
-        format: "",
-        target: nil,
-        verify_with_test_event: nil
-      )
+      def create(metadata: "", description: "", format: "", target: nil, verify_with_test_event: nil)
         path = '/event_destinations'
         replacements = {
         }
@@ -56,9 +50,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/event_destinations/%{id}'
         replacements = {
           id: id,
@@ -76,9 +68,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/event_destinations/%{id}'
         replacements = {
           id: id,
@@ -93,9 +83,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventDestination] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/event_destinations/%{id}'
         replacements = {
           id: id,
@@ -113,9 +101,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventDestination] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/event_destinations/%{id}'
         replacements = {
           id: id,
@@ -134,11 +120,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -164,11 +147,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -197,14 +177,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventDestination] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-update
-      def update(
-        id: "",
-        metadata: nil,
-        description: nil,
-        format: nil,
-        target: nil,
-        verify_with_test_event: nil
-      )
+      def update(id: "", metadata: nil, description: nil, format: nil, target: nil, verify_with_test_event: nil)
         path = '/event_destinations/%{id}'
         replacements = {
           id: id,
@@ -230,14 +203,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventDestination] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-update
-      def update!(
-        id: "",
-        metadata: nil,
-        description: nil,
-        format: nil,
-        target: nil,
-        verify_with_test_event: nil
-      )
+      def update!(id: "", metadata: nil, description: nil, format: nil, target: nil, verify_with_test_event: nil)
         path = '/event_destinations/%{id}'
         replacements = {
           id: id,

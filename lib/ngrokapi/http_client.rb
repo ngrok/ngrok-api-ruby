@@ -8,10 +8,7 @@ module NgrokAPI
     attr_reader :api_key,
       :base_url
 
-    def initialize(
-      api_key:,
-      base_url: 'https://api.ngrok.com'
-    )
+    def initialize(api_key:, base_url: 'https://api.ngrok.com')
       @api_key = api_key
       @base_url = base_url
     end
