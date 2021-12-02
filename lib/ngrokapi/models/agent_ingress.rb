@@ -2,25 +2,29 @@
 
 module NgrokAPI
   module Models
-    class IPWhitelistEntry
+    class AgentIngress
       attr_reader :client,
         :result,
         :id,
         :uri,
-        :created_at,
         :description,
         :metadata,
-        :ip_net
+        :domain,
+        :ns_targets,
+        :region_domains,
+        :created_at
 
       def initialize(client:, result:)
         @client = client
         @result = result
         @id = @result['id']
         @uri = @result['uri']
-        @created_at = @result['created_at']
         @description = @result['description']
         @metadata = @result['metadata']
-        @ip_net = @result['ip_net']
+        @domain = @result['domain']
+        @ns_targets = @result['ns_targets']
+        @region_domains = @result['region_domains']
+        @created_at = @result['created_at']
       end
 
       def ==(other)
@@ -32,9 +36,9 @@ module NgrokAPI
       end
 
       ##
-      # Delete an IP whitelist entry.
+      # Delete an Agent Ingress by ID
       #
-      # https://ngrok.com/docs/api#api-ip-whitelist-delete
+      # https://ngrok.com/docs/api#api-agent-ingresses-delete
       def delete
         @client.delete(
           id: @id
@@ -42,9 +46,9 @@ module NgrokAPI
       end
 
       ##
-      # Update attributes of an IP whitelist entry by ID
+      # Update attributes of an Agent Ingress by ID.
       #
-      # https://ngrok.com/docs/api#api-ip-whitelist-update
+      # https://ngrok.com/docs/api#api-agent-ingresses-update
       def update(
         description: nil,
         metadata: nil

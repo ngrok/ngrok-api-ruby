@@ -33,15 +33,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHHostCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-create
-      def create(
-        ssh_certificate_authority_id:,
-        public_key:,
-        principals: [],
-        valid_after: "",
-        valid_until: "",
-        description: "",
-        metadata: ""
-      )
+      def create(ssh_certificate_authority_id:, public_key:, principals: [], valid_after: "", valid_until: "", description: "", metadata: "")
         path = '/ssh_host_certificates'
         replacements = {
         }
@@ -64,9 +56,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/ssh_host_certificates/%{id}'
         replacements = {
           id: id,
@@ -82,9 +72,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/ssh_host_certificates/%{id}'
         replacements = {
           id: id,
@@ -99,9 +87,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHHostCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/ssh_host_certificates/%{id}'
         replacements = {
           id: id,
@@ -119,9 +105,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHHostCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/ssh_host_certificates/%{id}'
         replacements = {
           id: id,
@@ -140,11 +124,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -170,11 +151,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -201,11 +179,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHHostCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update(id: "", description: nil, metadata: nil)
         path = '/ssh_host_certificates/%{id}'
         replacements = {
           id: id,
@@ -227,11 +201,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::SSHHostCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-host-certificates-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update!(id: "", description: nil, metadata: nil)
         path = '/ssh_host_certificates/%{id}'
         replacements = {
           id: id,

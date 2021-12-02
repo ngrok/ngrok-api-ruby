@@ -32,12 +32,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-create
-      def create(
-        description: "",
-        metadata: "",
-        certificate_pem:,
-        private_key_pem:
-      )
+      def create(description: "", metadata: "", certificate_pem:, private_key_pem:)
         path = '/tls_certificates'
         replacements = {
         }
@@ -57,9 +52,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/tls_certificates/%{id}'
         replacements = {
           id: id,
@@ -75,9 +68,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/tls_certificates/%{id}'
         replacements = {
           id: id,
@@ -92,9 +83,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/tls_certificates/%{id}'
         replacements = {
           id: id,
@@ -112,9 +101,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/tls_certificates/%{id}'
         replacements = {
           id: id,
@@ -133,11 +120,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -163,11 +147,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -194,11 +175,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update(id: "", description: nil, metadata: nil)
         path = '/tls_certificates/%{id}'
         replacements = {
           id: id,
@@ -220,11 +197,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update!(id: "", description: nil, metadata: nil)
         path = '/tls_certificates/%{id}'
         replacements = {
           id: id,

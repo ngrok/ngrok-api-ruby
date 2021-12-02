@@ -29,14 +29,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventStream] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-create
-      def create(
-        metadata: "",
-        description: "",
-        fields: [],
-        event_type: "",
-        destination_ids: [],
-        sampling_rate: 0
-      )
+      def create(metadata: "", description: "", fields: [], event_type: "", destination_ids: [], sampling_rate: 0)
         path = '/event_streams'
         replacements = {
         }
@@ -58,9 +51,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/event_streams/%{id}'
         replacements = {
           id: id,
@@ -76,9 +67,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/event_streams/%{id}'
         replacements = {
           id: id,
@@ -93,9 +82,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventStream] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/event_streams/%{id}'
         replacements = {
           id: id,
@@ -113,9 +100,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventStream] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/event_streams/%{id}'
         replacements = {
           id: id,
@@ -134,11 +119,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -164,11 +146,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -198,14 +177,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventStream] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-update
-      def update(
-        id: "",
-        metadata: nil,
-        description: nil,
-        fields: nil,
-        destination_ids: nil,
-        sampling_rate: nil
-      )
+      def update(id: "", metadata: nil, description: nil, fields: nil, destination_ids: nil, sampling_rate: nil)
         path = '/event_streams/%{id}'
         replacements = {
           id: id,
@@ -233,14 +205,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventStream] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-streams-update
-      def update!(
-        id: "",
-        metadata: nil,
-        description: nil,
-        fields: nil,
-        destination_ids: nil,
-        sampling_rate: nil
-      )
+      def update!(id: "", metadata: nil, description: nil, fields: nil, destination_ids: nil, sampling_rate: nil)
         path = '/event_streams/%{id}'
         replacements = {
           id: id,

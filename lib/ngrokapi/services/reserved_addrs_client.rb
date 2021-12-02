@@ -30,12 +30,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-create
-      def create(
-        description: "",
-        metadata: "",
-        region: "",
-        endpoint_configuration_id: ""
-      )
+      def create(description: "", metadata: "", region: "", endpoint_configuration_id: nil)
         path = '/reserved_addrs'
         replacements = {
         }
@@ -55,9 +50,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/reserved_addrs/%{id}'
         replacements = {
           id: id,
@@ -73,9 +66,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/reserved_addrs/%{id}'
         replacements = {
           id: id,
@@ -90,9 +81,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/reserved_addrs/%{id}'
         replacements = {
           id: id,
@@ -110,9 +99,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/reserved_addrs/%{id}'
         replacements = {
           id: id,
@@ -131,11 +118,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -161,11 +145,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -193,12 +174,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil,
-        endpoint_configuration_id: nil
-      )
+      def update(id: "", description: nil, metadata: nil, endpoint_configuration_id: nil)
         path = '/reserved_addrs/%{id}'
         replacements = {
           id: id,
@@ -222,12 +198,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil,
-        endpoint_configuration_id: nil
-      )
+      def update!(id: "", description: nil, metadata: nil, endpoint_configuration_id: nil)
         path = '/reserved_addrs/%{id}'
         replacements = {
           id: id,
@@ -247,9 +218,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-delete-endpoint-config
-      def delete_endpoint_config(
-        id: ""
-      )
+      def delete_endpoint_config(id: "")
         path = '/reserved_addrs/%{id}/endpoint_configuration'
         replacements = {
           id: id,
@@ -265,9 +234,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-delete-endpoint-config
-      def delete_endpoint_config!(
-        id: ""
-      )
+      def delete_endpoint_config!(id: "")
         path = '/reserved_addrs/%{id}/endpoint_configuration'
         replacements = {
           id: id,

@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::HttpClient
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -369,18 +369,12 @@
 11
 12
 13
-14
-15
-16
-17</pre>
+14</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 11</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span>
-  <span class='label'>api_key:</span><span class='comma'>,</span>
-  <span class='label'>base_url:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://api.ngrok.com</span><span class='tstring_end'>&#39;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>api_key:</span><span class='comma'>,</span> <span class='label'>base_url:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://api.ngrok.com</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='ivar'>@api_key</span> <span class='op'>=</span> <span class='id identifier rubyid_api_key'>api_key</span>
   <span class='ivar'>@base_url</span> <span class='op'>=</span> <span class='id identifier rubyid_base_url'>base_url</span>
 <span class='kw'>end</span></pre>
@@ -564,14 +558,14 @@
       <pre class="lines">
 
 
+22
+23
+24
 25
-26
-27
-28
-29</pre>
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -683,14 +677,14 @@
       <pre class="lines">
 
 
+35
+36
+37
 38
-39
-40
-41
-42</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
@@ -858,19 +852,19 @@
       <pre class="lines">
 
 
+51
+52
+53
 54
 55
 56
 57
 58
 59
-60
-61
-62
-63</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>path:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
@@ -987,14 +981,14 @@
       <pre class="lines">
 
 
+69
+70
+71
 72
-73
-74
-75
-76</pre>
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -1106,14 +1100,14 @@
       <pre class="lines">
 
 
+82
+83
+84
 85
-86
-87
-88
-89</pre>
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/http_client.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_uri'>uri</span> <span class='op'>=</span> <span class='id identifier rubyid_get_uri'>get_uri</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -1130,9 +1124,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 19 23:01:32 2021 by
+  Generated on Thu Dec  2 18:48:49 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.1).
+  0.9.27 (ruby-3.0.1).
 </div>
 
     </div>

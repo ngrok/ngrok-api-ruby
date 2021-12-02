@@ -41,25 +41,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointConfiguration] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-create
-      def create(
-        type: "",
-        description: "",
-        metadata: "",
-        basic_auth: nil,
-        circuit_breaker: nil,
-        compression: nil,
-        request_headers: nil,
-        response_headers: nil,
-        ip_policy: nil,
-        mutual_tls: nil,
-        tls_termination: nil,
-        webhook_validation: nil,
-        oauth: nil,
-        logging: nil,
-        saml: nil,
-        oidc: nil,
-        backend: nil
-      )
+      def create(type: "", description: "", metadata: "", basic_auth: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, ip_policy: nil, mutual_tls: nil, tls_termination: nil, webhook_validation: nil, oauth: nil, logging: nil, saml: nil, oidc: nil, backend: nil)
         path = '/endpoint_configurations'
         replacements = {
         }
@@ -91,9 +73,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/endpoint_configurations/%{id}'
         replacements = {
           id: id,
@@ -110,9 +90,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/endpoint_configurations/%{id}'
         replacements = {
           id: id,
@@ -127,9 +105,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointConfiguration] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/endpoint_configurations/%{id}'
         replacements = {
           id: id,
@@ -147,9 +123,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointConfiguration] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/endpoint_configurations/%{id}'
         replacements = {
           id: id,
@@ -168,11 +142,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -198,11 +169,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -244,25 +212,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointConfiguration] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil,
-        basic_auth: nil,
-        circuit_breaker: nil,
-        compression: nil,
-        request_headers: nil,
-        response_headers: nil,
-        ip_policy: nil,
-        mutual_tls: nil,
-        tls_termination: nil,
-        webhook_validation: nil,
-        oauth: nil,
-        logging: nil,
-        saml: nil,
-        oidc: nil,
-        backend: nil
-      )
+      def update(id: "", description: nil, metadata: nil, basic_auth: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, ip_policy: nil, mutual_tls: nil, tls_termination: nil, webhook_validation: nil, oauth: nil, logging: nil, saml: nil, oidc: nil, backend: nil)
         path = '/endpoint_configurations/%{id}'
         replacements = {
           id: id,
@@ -311,25 +261,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EndpointConfiguration] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoint-configurations-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil,
-        basic_auth: nil,
-        circuit_breaker: nil,
-        compression: nil,
-        request_headers: nil,
-        response_headers: nil,
-        ip_policy: nil,
-        mutual_tls: nil,
-        tls_termination: nil,
-        webhook_validation: nil,
-        oauth: nil,
-        logging: nil,
-        saml: nil,
-        oidc: nil,
-        backend: nil
-      )
+      def update!(id: "", description: nil, metadata: nil, basic_auth: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, ip_policy: nil, mutual_tls: nil, tls_termination: nil, webhook_validation: nil, oauth: nil, logging: nil, saml: nil, oidc: nil, backend: nil)
         path = '/endpoint_configurations/%{id}'
         replacements = {
           id: id,

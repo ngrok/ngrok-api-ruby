@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::SSHCertificateAuthoritiesClient
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -700,24 +700,12 @@
 42
 43
 44
-45
-46
-47
-48
-49
-50
-51</pre>
+45</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 33</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span>
-  <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>private_key_type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>elliptic_curve:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>key_size:</span> <span class='int'>0</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>private_key_type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>elliptic_curve:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>key_size:</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ssh_certificate_authorities</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
   <span class='rbrace'>}</span>
@@ -803,22 +791,18 @@
       <pre class="lines">
 
 
-60
-61
-62
-63
-64
-65
-66
-67
-68</pre>
+54
+55
+56
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 54</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ssh_certificate_authorities/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -898,22 +882,18 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
-86</pre>
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 70</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ssh_certificate_authorities/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -993,24 +973,20 @@
       <pre class="lines">
 
 
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105</pre>
+85
+86
+87
+88
+89
+90
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 85</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ssh_certificate_authorities/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1092,24 +1068,20 @@
       <pre class="lines">
 
 
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125</pre>
+103
+104
+105
+106
+107
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 103</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ssh_certificate_authorities/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1217,34 +1189,28 @@
       <pre class="lines">
 
 
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
 136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154</pre>
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 122</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
-  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>url:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+         <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1358,36 +1324,30 @@
       <pre class="lines">
 
 
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186</pre>
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 166</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 149</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span>
-  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>url:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+          <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1508,30 +1468,22 @@
       <pre class="lines">
 
 
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211</pre>
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 177</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>metadata:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ssh_certificate_authorities/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1646,30 +1598,22 @@
       <pre class="lines">
 
 
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237</pre>
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ssh_certificate_authorities_client.rb', line 199</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>metadata:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ssh_certificate_authorities/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1690,9 +1634,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 19 23:01:40 2021 by
+  Generated on Thu Dec  2 18:48:58 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.1).
+  0.9.27 (ruby-3.0.1).
 </div>
 
     </div>

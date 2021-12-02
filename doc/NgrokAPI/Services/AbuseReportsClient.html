@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::AbuseReportsClient
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -481,18 +481,12 @@
 36
 37
 38
-39
-40
-41
-42</pre>
+39</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 30</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span>
-  <span class='label'>urls:</span><span class='comma'>,</span>
-  <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>urls:</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/abuse_reports</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
   <span class='rbrace'>}</span>
@@ -575,24 +569,20 @@
       <pre class="lines">
 
 
+48
+49
+50
 51
 52
 53
 54
 55
-56
-57
-58
-59
-60
-61</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/abuse_reports/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -674,24 +664,20 @@
       <pre class="lines">
 
 
+66
+67
+68
+69
+70
 71
 72
 73
-74
-75
-76
-77
-78
-79
-80
-81</pre>
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 66</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/abuse_reports/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -710,9 +696,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 19 23:01:36 2021 by
+  Generated on Thu Dec  2 18:48:53 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.1).
+  0.9.27 (ruby-3.0.1).
 </div>
 
     </div>

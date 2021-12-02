@@ -31,11 +31,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicy] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-create
-      def create(
-        description: "",
-        metadata: "",
-        action:
-      )
+      def create(description: "", metadata: "", action:)
         path = '/ip_policies'
         replacements = {
         }
@@ -56,9 +52,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/ip_policies/%{id}'
         replacements = {
           id: id,
@@ -76,9 +70,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/ip_policies/%{id}'
         replacements = {
           id: id,
@@ -93,9 +85,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicy] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/ip_policies/%{id}'
         replacements = {
           id: id,
@@ -113,9 +103,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicy] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/ip_policies/%{id}'
         replacements = {
           id: id,
@@ -134,11 +122,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -164,11 +149,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -195,11 +177,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicy] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-update
-      def update(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update(id: "", description: nil, metadata: nil)
         path = '/ip_policies/%{id}'
         replacements = {
           id: id,
@@ -221,11 +199,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicy] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-update
-      def update!(
-        id: "",
-        description: nil,
-        metadata: nil
-      )
+      def update!(id: "", description: nil, metadata: nil)
         path = '/ip_policies/%{id}'
         replacements = {
           id: id,

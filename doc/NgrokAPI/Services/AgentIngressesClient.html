@@ -4,9 +4,9 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: NgrokAPI::Services::IPWhitelistClient
+  Class: NgrokAPI::Services::AgentIngressesClient
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.27
   
 </title>
 
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "NgrokAPI::Services::IPWhitelistClient";
+  pathId = "NgrokAPI::Services::AgentIngressesClient";
   relpath = '../../';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="../../_index.html">Index (I)</a> &raquo;
+    <a href="../../_index.html">Index (A)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Services.html" title="NgrokAPI::Services (module)">Services</a></span></span>
      &raquo; 
-    <span class="title">IPWhitelistClient</span>
+    <span class="title">AgentIngressesClient</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: NgrokAPI::Services::IPWhitelistClient
+      <div id="content"><h1>Class: NgrokAPI::Services::AgentIngressesClient
   
   
   
@@ -74,7 +74,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">NgrokAPI::Services::IPWhitelistClient</li>
+            <li class="next">NgrokAPI::Services::AgentIngressesClient</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -94,7 +94,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/ngrokapi/services/ip_whitelist_client.rb</dd>
+    <dd>lib/ngrokapi/services/agent_ingresses_client.rb</dd>
   </dl>
   
 </div>
@@ -102,9 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>The IP Whitelist is deprecated and will be removed. Use an IP Restriction  with an <code>endpoints</code> type instead.</p>
-
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist">ngrok.com/docs/api#api-ip-whitelist</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses">ngrok.com/docs/api#api-agent-ingresses</a></p>
 
 
   </div>
@@ -135,7 +133,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="LIST_PROPERTY-constant" class="">LIST_PROPERTY =
           <div class="docstring">
@@ -151,7 +149,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>whitelist</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ingresses</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
     </dl>
   
@@ -207,7 +205,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">#<strong>create</strong>(description: &quot;&quot;, metadata: &quot;&quot;, ip_net: &quot;&quot;)  &#x21d2; NgrokAPI::Models::IPWhitelistEntry </a>
+      <a href="#create-instance_method" title="#create (instance method)">#<strong>create</strong>(description: &quot;&quot;, metadata: &quot;&quot;, domain:)  &#x21d2; NgrokAPI::Models::AgentIngress </a>
     
 
     
@@ -222,7 +220,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Create a new IP whitelist entry that will restrict traffic to all tunnel endpoints on the account.</p>
+<p>Create a new Agent Ingress.</p>
 </div></span>
   
 </li>
@@ -246,7 +244,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Delete an IP whitelist entry.</p>
+<p>Delete an Agent Ingress by ID.</p>
 </div></span>
   
 </li>
@@ -270,7 +268,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Delete an IP whitelist entry.</p>
+<p>Delete an Agent Ingress by ID Throws an exception if API error.</p>
 </div></span>
   
 </li>
@@ -279,7 +277,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get-instance_method" title="#get (instance method)">#<strong>get</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::IPWhitelistEntry </a>
+      <a href="#get-instance_method" title="#get (instance method)">#<strong>get</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::AgentIngress </a>
     
 
     
@@ -294,7 +292,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Get detailed information about an IP whitelist entry by ID.</p>
+<p>Get the details of an Agent Ingress by ID.</p>
 </div></span>
   
 </li>
@@ -303,7 +301,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get!-instance_method" title="#get! (instance method)">#<strong>get!</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::IPWhitelistEntry </a>
+      <a href="#get!-instance_method" title="#get! (instance method)">#<strong>get!</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::AgentIngress </a>
     
 
     
@@ -318,7 +316,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Get detailed information about an IP whitelist entry by ID.</p>
+<p>Get the details of an Agent Ingress by ID.</p>
 </div></span>
   
 </li>
@@ -327,7 +325,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client:)  &#x21d2; IPWhitelistClient </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client:)  &#x21d2; AgentIngressesClient </a>
     
 
     
@@ -344,7 +342,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of IPWhitelistClient.</p>
+<p>A new instance of AgentIngressesClient.</p>
 </div></span>
   
 </li>
@@ -368,7 +366,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>List all IP whitelist entries on this account.</p>
+<p>List all Agent Ingresses owned by this account.</p>
 </div></span>
   
 </li>
@@ -392,7 +390,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>List all IP whitelist entries on this account Throws an exception if API error.</p>
+<p>List all Agent Ingresses owned by this account Throws an exception if API error.</p>
 </div></span>
   
 </li>
@@ -401,7 +399,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; NgrokAPI::Models::IPWhitelistEntry </a>
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; NgrokAPI::Models::AgentIngress </a>
     
 
     
@@ -416,7 +414,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Update attributes of an IP whitelist entry by ID.</p>
+<p>Update attributes of an Agent Ingress by ID.</p>
 </div></span>
   
 </li>
@@ -425,7 +423,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update!-instance_method" title="#update! (instance method)">#<strong>update!</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; NgrokAPI::Models::IPWhitelistEntry </a>
+      <a href="#update!-instance_method" title="#update! (instance method)">#<strong>update!</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; NgrokAPI::Models::AgentIngress </a>
     
 
     
@@ -440,7 +438,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Update attributes of an IP whitelist entry by ID Throws an exception if API error.</p>
+<p>Update attributes of an Agent Ingress by ID.</p>
 </div></span>
   
 </li>
@@ -455,7 +453,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(client:)  &#x21d2; <tt><span class='object_link'><a href="" title="NgrokAPI::Services::IPWhitelistClient (class)">IPWhitelistClient</a></span></tt> 
+    #<strong>initialize</strong>(client:)  &#x21d2; <tt><span class='object_link'><a href="" title="NgrokAPI::Services::AgentIngressesClient (class)">AgentIngressesClient</a></span></tt> 
   
 
   
@@ -464,7 +462,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of IPWhitelistClient.</p>
+<p>Returns a new instance of AgentIngressesClient.</p>
 
 
   </div>
@@ -478,12 +476,12 @@
       <pre class="lines">
 
 
-18
-19
-20</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -526,12 +524,12 @@
       <pre class="lines">
 
 
-16
-17
-18</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -551,7 +549,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    #<strong>create</strong>(description: &quot;&quot;, metadata: &quot;&quot;, ip_net: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt> 
+    #<strong>create</strong>(description: &quot;&quot;, metadata: &quot;&quot;, domain:)  &#x21d2; <tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt> 
   
 
   
@@ -560,9 +558,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Create a new IP whitelist entry that will restrict traffic to all tunnel endpoints on the account.</p>
+<p>Create a new Agent Ingress. The ngrok agent can be configured to connect to ngrok via the new set of addresses on the returned Agent Ingress.</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-create">ngrok.com/docs/api#api-ip-whitelist-create</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-create">ngrok.com/docs/api#api-agent-ingresses-create</a></p>
 
 
   </div>
@@ -584,7 +582,7 @@
       
         &mdash;
         <div class='inline'>
-<p>human-readable description of the source IPs for this IP whitelist entry. optional, max 255 bytes.</p>
+<p>human-readable description of the use of this Agent Ingress. optional, max 255 bytes.</p>
 </div>
       
     </li>
@@ -602,25 +600,23 @@
       
         &mdash;
         <div class='inline'>
-<p>arbitrary user-defined machine-readable data of this IP whitelist entry. optional, max 4096 bytes.</p>
+<p>arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes</p>
 </div>
       
     </li>
   
     <li>
       
-        <span class='name'>ip_net</span>
+        <span class='name'>domain</span>
       
       
         <span class='type'>(<tt>string</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
-      
       
         &mdash;
         <div class='inline'>
-<p>an IP address or IP network range in CIDR notation (e.g. 10.1.1.1 or 10.1.0.0/16) of addresses that will be whitelisted to communicate with your tunnel endpoints</p>
+<p>the domain that you own to be used as the base domain name to generate regional agent ingress domains.</p>
 </div>
       
     </li>
@@ -633,7 +629,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt>)</span>
       
       
       
@@ -652,6 +648,9 @@
       <pre class="lines">
 
 
+29
+30
+31
 32
 33
 34
@@ -659,32 +658,21 @@
 36
 37
 38
-39
-40
-41
-42
-43
-44
-45
-46</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 29</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span>
-  <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>ip_net:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>domain:</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
-  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:ip_net</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_ip_net'>ip_net</span> <span class='kw'>if</span> <span class='id identifier rubyid_ip_net'>ip_net</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:domain</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_domain'>domain</span> <span class='kw'>if</span> <span class='id identifier rubyid_domain'>domain</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">IPWhitelistEntry</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/IPWhitelistEntry.html#initialize-instance_method" title="NgrokAPI::Models::IPWhitelistEntry#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">AgentIngress</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/AgentIngress.html#initialize-instance_method" title="NgrokAPI::Models::AgentIngress#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -703,9 +691,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Delete an IP whitelist entry.</p>
+<p>Delete an Agent Ingress by ID</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-delete">ngrok.com/docs/api#api-ip-whitelist-delete</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-delete">ngrok.com/docs/api#api-agent-ingresses-delete</a></p>
 
 
   </div>
@@ -759,23 +747,19 @@
       <pre class="lines">
 
 
-55
-56
-57
-58
-59
-60
-61
-62
-63</pre>
+48
+49
+50
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 48</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist/%{id}</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
   <span class='rbrace'>}</span>
@@ -798,9 +782,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Delete an IP whitelist entry. Throws an exception if API error.</p>
+<p>Delete an Agent Ingress by ID Throws an exception if API error.</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-delete">ngrok.com/docs/api#api-ip-whitelist-delete</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-delete">ngrok.com/docs/api#api-agent-ingresses-delete</a></p>
 
 
   </div>
@@ -854,23 +838,19 @@
       <pre class="lines">
 
 
-73
-74
-75
-76
-77
-78
-79
-80
-81</pre>
+64
+65
+66
+67
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 64</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist/%{id}</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
   <span class='rbrace'>}</span>
@@ -884,7 +864,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get-instance_method">
   
-    #<strong>get</strong>(id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt> 
+    #<strong>get</strong>(id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt> 
   
 
   
@@ -893,9 +873,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Get detailed information about an IP whitelist entry by ID.</p>
+<p>Get the details of an Agent Ingress by ID.</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-get">ngrok.com/docs/api#api-ip-whitelist-get</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-get">ngrok.com/docs/api#api-agent-ingresses-get</a></p>
 
 
   </div>
@@ -930,7 +910,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt>)</span>
       
       
       
@@ -949,31 +929,27 @@
       <pre class="lines">
 
 
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100</pre>
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 79</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist/%{id}</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">IPWhitelistEntry</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/IPWhitelistEntry.html#initialize-instance_method" title="NgrokAPI::Models::IPWhitelistEntry#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">AgentIngress</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/AgentIngress.html#initialize-instance_method" title="NgrokAPI::Models::AgentIngress#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -983,7 +959,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get!-instance_method">
   
-    #<strong>get!</strong>(id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt> 
+    #<strong>get!</strong>(id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt> 
   
 
   
@@ -992,9 +968,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Get detailed information about an IP whitelist entry by ID. Throws an exception if API error.</p>
+<p>Get the details of an Agent Ingress by ID. Throws an exception if API error.</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-get">ngrok.com/docs/api#api-ip-whitelist-get</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-get">ngrok.com/docs/api#api-agent-ingresses-get</a></p>
 
 
   </div>
@@ -1029,7 +1005,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt>)</span>
       
       
       
@@ -1048,31 +1024,27 @@
       <pre class="lines">
 
 
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120</pre>
+97
+98
+99
+100
+101
+102
+103
+104
+105</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 97</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist/%{id}</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">IPWhitelistEntry</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/IPWhitelistEntry.html#initialize-instance_method" title="NgrokAPI::Models::IPWhitelistEntry#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">AgentIngress</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/AgentIngress.html#initialize-instance_method" title="NgrokAPI::Models::AgentIngress#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1091,9 +1063,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>List all IP whitelist entries on this account</p>
+<p>List all Agent Ingresses owned by this account</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-list">ngrok.com/docs/api#api-ip-whitelist-list</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-list">ngrok.com/docs/api#api-agent-ingresses-list</a></p>
 
 
   </div>
@@ -1173,46 +1145,40 @@
       <pre class="lines">
 
 
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149</pre>
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 116</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
-  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>url:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+         <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
     <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
-    <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::IPWhitelistClient::PATH (constant)">PATH</a></span></span>
+    <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::AgentIngressesClient::PATH (constant)">PATH</a></span></span>
   <span class='rparen'>)</span>
 
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
     <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
-    <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::IPWhitelistClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
-    <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">IPWhitelistEntry</a></span></span>
+    <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::AgentIngressesClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
+    <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">AgentIngress</a></span></span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1232,9 +1198,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>List all IP whitelist entries on this account Throws an exception if API error.</p>
+<p>List all Agent Ingresses owned by this account Throws an exception if API error.</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-list">ngrok.com/docs/api#api-ip-whitelist-list</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-list">ngrok.com/docs/api#api-agent-ingresses-list</a></p>
 
 
   </div>
@@ -1314,16 +1280,150 @@
       <pre class="lines">
 
 
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+          <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+    <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
+    <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
+    <span class='label'>danger:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
+    <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::AgentIngressesClient::PATH (constant)">PATH</a></span></span>
+  <span class='rparen'>)</span>
+
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
+    <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::AgentIngressesClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
+    <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">AgentIngress</a></span></span><span class='comma'>,</span>
+    <span class='label'>danger:</span> <span class='kw'>true</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update attributes of an Agent Ingress by ID.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-update">ngrok.com/docs/api#api-agent-ingresses-update</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>human-readable description of the use of this Agent Ingress. optional, max 255 bytes.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 171
 172
 173
@@ -1337,28 +1437,18 @@
 181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 161</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 171</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span>
-  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>url:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
-    <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
-    <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
-    <span class='label'>danger:</span> <span class='kw'>true</span><span class='comma'>,</span>
-    <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
-    <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::IPWhitelistClient::PATH (constant)">PATH</a></span></span>
-  <span class='rparen'>)</span>
-
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
-    <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
-    <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
-    <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::IPWhitelistClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
-    <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">IPWhitelistEntry</a></span></span><span class='comma'>,</span>
-    <span class='label'>danger:</span> <span class='kw'>true</span>
-  <span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">AgentIngress</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/AgentIngress.html#initialize-instance_method" title="NgrokAPI::Models::AgentIngress#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1366,9 +1456,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="update-instance_method">
+  <h3 class="signature " id="update!-instance_method">
   
-    #<strong>update</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt> 
+    #<strong>update!</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt> 
   
 
   
@@ -1377,9 +1467,9 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Update attributes of an IP whitelist entry by ID</p>
+<p>Update attributes of an Agent Ingress by ID. Throws an exception if API error.</p>
 
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-update">ngrok.com/docs/api#api-ip-whitelist-update</a></p>
+<p><a href="https://ngrok.com/docs/api#api-agent-ingresses-update">ngrok.com/docs/api#api-agent-ingresses-update</a></p>
 
 
   </div>
@@ -1414,7 +1504,7 @@
       
         &mdash;
         <div class='inline'>
-<p>human-readable description of the source IPs for this IP whitelist entry. optional, max 255 bytes.</p>
+<p>human-readable description of the use of this Agent Ingress. optional, max 255 bytes.</p>
 </div>
       
     </li>
@@ -1432,7 +1522,7 @@
       
         &mdash;
         <div class='inline'>
-<p>arbitrary user-defined machine-readable data of this IP whitelist entry. optional, max 4096 bytes.</p>
+<p>arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes</p>
 </div>
       
     </li>
@@ -1445,7 +1535,7 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">NgrokAPI::Models::AgentIngress</a></span></tt>)</span>
       
       
       
@@ -1464,7 +1554,6 @@
       <pre class="lines">
 
 
-192
 193
 194
 195
@@ -1475,158 +1564,13 @@
 200
 201
 202
-203
-204
-205
-206</pre>
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/agent_ingresses_client.rb', line 193</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>metadata:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist/%{id}</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
-  <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
-  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
-  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">IPWhitelistEntry</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/IPWhitelistEntry.html#initialize-instance_method" title="NgrokAPI::Models::IPWhitelistEntry#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update!-instance_method">
-  
-    #<strong>update!</strong>(id: &quot;&quot;, description: nil, metadata: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Update attributes of an IP whitelist entry by ID Throws an exception if API error.</p>
-
-<p><a href="https://ngrok.com/docs/api#api-ip-whitelist-update">ngrok.com/docs/api#api-ip-whitelist-update</a></p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>id</span>
-      
-      
-        <span class='type'>(<tt>string</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
-      
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>description</span>
-      
-      
-        <span class='type'>(<tt>string</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>human-readable description of the source IPs for this IP whitelist entry. optional, max 255 bytes.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata</span>
-      
-      
-        <span class='type'>(<tt>string</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>arbitrary user-defined machine-readable data of this IP whitelist entry. optional, max 4096 bytes.</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">NgrokAPI::Models::IPWhitelistEntry</a></span></tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>result from the API request</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_whitelist_client.rb', line 218</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span>
-  <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-  <span class='label'>metadata:</span> <span class='kw'>nil</span>
-<span class='rparen'>)</span>
-  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_whitelist/%{id}</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/agent_ingresses/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
   <span class='rbrace'>}</span>
@@ -1634,7 +1578,7 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/IPWhitelistEntry.html" title="NgrokAPI::Models::IPWhitelistEntry (class)">IPWhitelistEntry</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/IPWhitelistEntry.html#initialize-instance_method" title="NgrokAPI::Models::IPWhitelistEntry#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/AgentIngress.html" title="NgrokAPI::Models::AgentIngress (class)">AgentIngress</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/AgentIngress.html#initialize-instance_method" title="NgrokAPI::Models::AgentIngress#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1646,9 +1590,9 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct 19 23:01:36 2021 by
+  Generated on Thu Dec  2 18:48:54 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.1).
+  0.9.27 (ruby-3.0.1).
 </div>
 
     </div>

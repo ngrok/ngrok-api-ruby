@@ -26,12 +26,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-create
-      def create(
-        metadata: "",
-        description: "",
-        sources: [],
-        destination_ids: []
-      )
+      def create(metadata: "", description: "", sources: [], destination_ids: [])
         path = '/event_subscriptions'
         replacements = {
         }
@@ -51,9 +46,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-delete
-      def delete(
-        id: ""
-      )
+      def delete(id: "")
         path = '/event_subscriptions/%{id}'
         replacements = {
           id: id,
@@ -69,9 +62,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-delete
-      def delete!(
-        id: ""
-      )
+      def delete!(id: "")
         path = '/event_subscriptions/%{id}'
         replacements = {
           id: id,
@@ -86,9 +77,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-get
-      def get(
-        id: ""
-      )
+      def get(id: "")
         path = '/event_subscriptions/%{id}'
         replacements = {
           id: id,
@@ -106,9 +95,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-get
-      def get!(
-        id: ""
-      )
+      def get!(id: "")
         path = '/event_subscriptions/%{id}'
         replacements = {
           id: id,
@@ -127,11 +114,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-list
-      def list(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list(before_id: nil, limit: nil,
+               url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -157,11 +141,8 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-list
-      def list!(
-        before_id: nil,
-        limit: nil,
-        url: nil
-      )
+      def list!(before_id: nil, limit: nil,
+                url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -190,13 +171,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-update
-      def update(
-        id: "",
-        metadata: nil,
-        description: nil,
-        sources: nil,
-        destination_ids: nil
-      )
+      def update(id: "", metadata: nil, description: nil, sources: nil, destination_ids: nil)
         path = '/event_subscriptions/%{id}'
         replacements = {
           id: id,
@@ -222,13 +197,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-update
-      def update!(
-        id: "",
-        metadata: nil,
-        description: nil,
-        sources: nil,
-        destination_ids: nil
-      )
+      def update!(id: "", metadata: nil, description: nil, sources: nil, destination_ids: nil)
         path = '/event_subscriptions/%{id}'
         replacements = {
           id: id,
