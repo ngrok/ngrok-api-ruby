@@ -26,7 +26,6 @@ module NgrokAPI
       # @param [string] description human-readable description of what this reserved address will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved address. Optional, max 4096 bytes.
       # @param [string] region reserve the address in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)
-      # @param [string] endpoint_configuration_id ID of an endpoint configuration of type tcp that will be used to handle inbound traffic to this address
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-create
@@ -38,7 +37,6 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         data[:region] = region if region
-        data[:endpoint_configuration_id] = endpoint_configuration_id if endpoint_configuration_id
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
       end
@@ -170,7 +168,6 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of what this reserved address will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved address. Optional, max 4096 bytes.
-      # @param [string] endpoint_configuration_id ID of an endpoint configuration of type tcp that will be used to handle inbound traffic to this address
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-update
@@ -182,7 +179,6 @@ module NgrokAPI
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        data[:endpoint_configuration_id] = endpoint_configuration_id if endpoint_configuration_id
         result = @client.patch(path % replacements, data: data)
         NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
       end
@@ -194,7 +190,6 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of what this reserved address will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved address. Optional, max 4096 bytes.
-      # @param [string] endpoint_configuration_id ID of an endpoint configuration of type tcp that will be used to handle inbound traffic to this address
       # @return [NgrokAPI::Models::ReservedAddr] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-update
@@ -206,40 +201,8 @@ module NgrokAPI
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        data[:endpoint_configuration_id] = endpoint_configuration_id if endpoint_configuration_id
         result = @client.patch(path % replacements, data: data, danger: true)
         NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
-      end
-
-      ##
-      # Detach the endpoint configuration attached to a reserved address.
-      #
-      # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::Empty] result from the API request
-      #
-      # https://ngrok.com/docs/api#api-reserved-addrs-delete-endpoint-config
-      def delete_endpoint_config(id: "")
-        path = '/reserved_addrs/%{id}/endpoint_configuration'
-        replacements = {
-          id: id,
-        }
-        @client.delete(path % replacements)
-      end
-
-      ##
-      # Detach the endpoint configuration attached to a reserved address.
-      # Throws an exception if API error.
-      #
-      # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::Empty] result from the API request
-      #
-      # https://ngrok.com/docs/api#api-reserved-addrs-delete-endpoint-config
-      def delete_endpoint_config!(id: "")
-        path = '/reserved_addrs/%{id}/endpoint_configuration'
-        replacements = {
-          id: id,
-        }
-        @client.delete(path % replacements, danger: true)
       end
     end
   end

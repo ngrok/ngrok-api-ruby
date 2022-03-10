@@ -27,18 +27,16 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of the source IPs of this IP policy. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this IP policy. optional, max 4096 bytes.
-      # @param [string] action the IP policy action. Supported values are ``allow`` or ``deny``
       # @return [NgrokAPI::Models::IPPolicy] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-create
-      def create(description: "", metadata: "", action:)
+      def create(description: "", metadata: "", action: nil)
         path = '/ip_policies'
         replacements = {
         }
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        data[:action] = action if action
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::IPPolicy.new(client: self, result: result)
       end

@@ -60,17 +60,13 @@ module NgrokAPI
     end
 
     ##
-    # Endpoint Configurations are a reusable group of modules that encapsulate how
-    #  traffic to a domain or address is handled. Endpoint configurations are only
-    #  applied to Domains and TCP Addresses they have been attached to.
+    # Endpoints provides an API for querying the endpoint objects
+    #  which define what tunnel or edge is used to serve a hostport.
+    #  Only active endpoints associated with a tunnel or backend are returned.
     #
-    # @return [NgrokAPI::Services::EndpointConfigurationsClient]
-    def endpoint_configurations
-      @_endpoint_configurations ||= NgrokAPI::Services::EndpointConfigurationsClient.new(client: @client)
-    end
-
-    def event_streams
-      @_event_streams ||= NgrokAPI::Services::EventStreamsClient.new(client: @client)
+    # @return [NgrokAPI::Services::EndpointsClient]
+    def endpoints
+      @_endpoints ||= NgrokAPI::Services::EndpointsClient.new(client: @client)
     end
 
     def event_destinations
@@ -107,7 +103,7 @@ module NgrokAPI
 
     ##
     # An IP restriction is a restriction placed on the CIDRs that are allowed to
-    #  initate traffic to a specific aspect of your ngrok account. An IP
+    #  initiate traffic to a specific aspect of your ngrok account. An IP
     #  restriction has a type which defines the ingress it applies to. IP
     #  restrictions can be used to enforce the source IPs that can make API
     #  requests, log in to the dashboard, start ngrok agents, and connect to your
@@ -208,20 +204,47 @@ module NgrokAPI
       @_tunnels ||= NgrokAPI::Services::TunnelsClient.new(client: @client)
     end
 
-    def pointcfg_module
+    def backends
       ns = OpenStruct.new
-      ns.logging = NgrokAPI::Services::EndpointLoggingModuleClient.new(client: @client)
-      ns.circuit_breaker = NgrokAPI::Services::EndpointCircuitBreakerModuleClient.new(client: @client)
-      ns.compression = NgrokAPI::Services::EndpointCompressionModuleClient.new(client: @client)
-      ns.tls_termination = NgrokAPI::Services::EndpointTLSTerminationModuleClient.new(client: @client)
-      ns.ip_policy = NgrokAPI::Services::EndpointIPPolicyModuleClient.new(client: @client)
-      ns.mutual_tls = NgrokAPI::Services::EndpointMutualTLSModuleClient.new(client: @client)
-      ns.request_headers = NgrokAPI::Services::EndpointRequestHeadersModuleClient.new(client: @client)
-      ns.response_headers = NgrokAPI::Services::EndpointResponseHeadersModuleClient.new(client: @client)
-      ns.oauth = NgrokAPI::Services::EndpointOAuthModuleClient.new(client: @client)
-      ns.webhook_validation = NgrokAPI::Services::EndpointWebhookValidationModuleClient.new(client: @client)
-      ns.saml = NgrokAPI::Services::EndpointSAMLModuleClient.new(client: @client)
-      ns.oidc = NgrokAPI::Services::EndpointOIDCModuleClient.new(client: @client)
+      ns.failover = NgrokAPI::Services::FailoverBackendsClient.new(client: @client)
+      ns.http_response = NgrokAPI::Services::HTTPResponseBackendsClient.new(client: @client)
+      ns.tunnel_group = NgrokAPI::Services::TunnelGroupBackendsClient.new(client: @client)
+      ns.weighted = NgrokAPI::Services::WeightedBackendsClient.new(client: @client)
+
+      ns
+    end
+
+    def edges
+      ns = OpenStruct.new
+      ns.https_routes = NgrokAPI::Services::EdgesHTTPSRoutesClient.new(client: @client)
+      ns.https = NgrokAPI::Services::EdgesHTTPSClient.new(client: @client)
+      ns.tcp = NgrokAPI::Services::EdgesTCPClient.new(client: @client)
+      ns.tls = NgrokAPI::Services::EdgesTLSClient.new(client: @client)
+
+      ns
+    end
+
+    def edge_modules
+      ns = OpenStruct.new
+      ns.https_edge_mutual_tls = NgrokAPI::Services::HTTPSEdgeMutualTLSModuleClient.new(client: @client)
+      ns.https_edge_tls_termination = NgrokAPI::Services::HTTPSEdgeTLSTerminationModuleClient.new(client: @client)
+      ns.https_edge_route_backend = NgrokAPI::Services::EdgeRouteBackendModuleClient.new(client: @client)
+      ns.https_edge_route_ip_restriction = NgrokAPI::Services::EdgeRouteIPRestrictionModuleClient.new(client: @client)
+      ns.https_edge_route_request_headers = NgrokAPI::Services::EdgeRouteRequestHeadersModuleClient.new(client: @client)
+      ns.https_edge_route_response_headers = NgrokAPI::Services::EdgeRouteResponseHeadersModuleClient.new(client: @client)
+      ns.https_edge_route_compression = NgrokAPI::Services::EdgeRouteCompressionModuleClient.new(client: @client)
+      ns.https_edge_route_circuit_breaker = NgrokAPI::Services::EdgeRouteCircuitBreakerModuleClient.new(client: @client)
+      ns.https_edge_route_webhook_verification = NgrokAPI::Services::EdgeRouteWebhookVerificationModuleClient.new(client: @client)
+      ns.https_edge_route_oauth = NgrokAPI::Services::EdgeRouteOAuthModuleClient.new(client: @client)
+      ns.https_edge_route_saml = NgrokAPI::Services::EdgeRouteSAMLModuleClient.new(client: @client)
+      ns.https_edge_route_oidc = NgrokAPI::Services::EdgeRouteOIDCModuleClient.new(client: @client)
+      ns.https_edge_route_websocket_tcp_converter = NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient.new(client: @client)
+      ns.tcp_edge_backend = NgrokAPI::Services::TCPEdgeBackendModuleClient.new(client: @client)
+      ns.tcp_edge_ip_restriction = NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient.new(client: @client)
+      ns.tls_edge_backend = NgrokAPI::Services::TLSEdgeBackendModuleClient.new(client: @client)
+      ns.tls_edge_ip_restriction = NgrokAPI::Services::TLSEdgeIPRestrictionModuleClient.new(client: @client)
+      ns.tls_edge_mutual_tls = NgrokAPI::Services::TLSEdgeMutualTLSModuleClient.new(client: @client)
+      ns.tls_edge_tls_termination = NgrokAPI::Services::TLSEdgeTLSTerminationModuleClient.new(client: @client)
 
       ns
     end

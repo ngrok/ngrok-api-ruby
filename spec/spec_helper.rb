@@ -237,6 +237,53 @@ def credential_results
   }
 end
 
+def endpoint_result
+  {
+    "id" => "ep_123",
+    "region" => "us",
+    "created_at" => "2021-04-21T23:36:29Z",
+    "updated_at" => "2021-04-21T23:36:29Z",
+    "public_url" => "tls://1.tcp.ngrok.io:1234",
+    "proto" => "tcp",
+    "hostport" => "1.tcp.ngrok.io:1234",
+    "type" => "ephemeral",
+    "metadata" => "tunnel metadata",
+    "domain" => nil,
+    "tcp_addr" => { "id": "ra_1024", "uri": "foo" },
+    "tunnel" => { "id": "tun_1024", "uri": "foo" },
+    "edge" => nil,
+  }
+end
+
+def endpoint_result2
+  {
+    "id" => "ep_456",
+    "region" => "sa",
+    "created_at" => "2021-04-21T23:36:29Z",
+    "updated_at" => "2021-04-21T23:36:29Z",
+    "public_url" => "https://bugcat.ngrok.io",
+    "proto" => "https",
+    "hostport" => "bugcat.ngrok.io:443",
+    "type" => "persistent",
+    "metadata" => "edge metadata",
+    "domain" => { "id": "rd_2408", "uri": "quux" },
+    "tcp_addr" => nil,
+    "tunnel" => nil,
+    "edge" => { "id": "edghts_555", "uri": "bar" },
+  }
+end
+
+def endpoint_results
+  {
+    "endpoints" => [
+      endpoint_result,
+      endpoint_result2,
+    ],
+    "uri" => "https://api.ngrok.com/endpoints",
+    "next_page_uri" => nil,
+  }
+end
+
 def endpoint_compression_result
   {
   }
@@ -709,39 +756,6 @@ def ip_restriction_results
   }
 end
 
-def ip_whitelist_entry_result
-  {
-    "id" => "wl_1rV55uK6IddK1eJWBcopcSqr9jr",
-    "uri" => "https://api.ngrok.com/ip_whitelist/wl_1rV55uK6IddK1eJWBcopcSqr9jr",
-    "created_at" => "2021-04-21T23:37:16Z",
-    "description" => "outbound proxy servers",
-    "metadata" => "",
-    "ip_net" => "10.1.1.0/24",
-  }
-end
-
-def ip_whitelist_entry_result2
-  {
-    "id" => "wl_1rV55s4NmZ81mUa5zqPetlpngC7",
-    "uri" => "https://api.ngrok.com/ip_whitelist/wl_1rV55s4NmZ81mUa5zqPetlpngC7",
-    "created_at" => "2021-04-21T23:37:16Z",
-    "description" => "office wifi",
-    "metadata" => "",
-    "ip_net" => "78.3.12.121/32",
-  }
-end
-
-def ip_whitelist_entry_results
-  {
-    "whitelist" => [
-      ip_whitelist_entry_result,
-      ip_whitelist_entry_result2,
-    ],
-    "uri" => "https://api.ngrok.com/ip_whitelist",
-    "next_page_uri" => nil,
-  }
-end
-
 def ref_result
   {
   }
@@ -1091,6 +1105,285 @@ def tunnel_session_results
       tunnel_session_result,
     ],
     "uri" => "https://api.ngrok.com/tunnel_sessions",
+    "next_page_uri" => nil,
+  }
+end
+
+def endpoint_backend_mutate_result
+  {
+    "enabled" => true,
+    "backend_id" => "bkdhr_23ejDsgFClTHtGtzdbcNzkr2DvA",
+  }
+end
+
+def endpoint_backend_result
+  {
+    "enabled" => true,
+    "backend" => {
+      "id" => "bkdfo_23WYoC8ApDQQpNeaqhvzQD25RVx",
+      "uri" => "https://api.ngrok.com/backends/failover/bkdfo_23WYoC8ApDQQpNeaqhvzQD25RVx",
+    },
+  }
+end
+
+def endpoint_tls_termination_at_edge_result
+  {
+    "enabled" => true,
+    "min_version" => nil,
+  }
+end
+
+def endpoint_websocket_tcp_converter_result
+  {
+    "enabled" => true,
+  }
+end
+
+def https_edge_result
+  {
+    "id" => "edghts_23WYoHa6cZpqNFOr7nuDEsaN9SG",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-10-20T12=>08=>58Z",
+    "uri" => "https://api.ngrok.com/edges/https/edghts_23WYoHa6cZpqNFOr7nuDEsaN9SG",
+    "hostports" => [
+      "example.ngrok.io:443",
+    ],
+    "mutual_tls" => nil,
+    "tls_termination" => nil,
+    "routes" => nil,
+  }
+end
+
+def https_edge_result2
+  {
+    "id" => "edghts_23f9iVEEQPCXa54Ob3s0M9t8cq8",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-10-20T12=>08=>58Z",
+    "uri" => "https://api.ngrok.com/edges/https/edghts_23f9iVEEQPCXa54Ob3s0M9t8cq8",
+    "hostports" => [
+      "example.ngrok.io:443",
+    ],
+    "mutual_tls" => nil,
+    "tls_termination" => nil,
+    "routes" => nil,
+  }
+end
+
+def https_edge_results
+  {
+    "https_edges" => [
+      https_edge_result,
+      https_edge_result2,
+    ],
+    "uri" => "https://api.ngrok.com/edges/https",
+    "next_page_uri" => nil,
+  }
+end
+
+def https_edge_route_result
+  {
+    "id" => "edghtsrt_23WZ2wMQh9ZV0gPcToseRIIUJQo",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-10-20T12=>08=>58Z",
+    "edge_id" => "edghts_23WYoHa6cZpqNFOr7nuDEsaN9SG",
+    "match_type" => "path_prefix",
+    "match" => "/",
+    "uri" => "https://api.ngrok.com/edges/https/edghts_23WYoHa6cZpqNFOr7nuDEsaN9SG/routes/edghtsrt_23WZ2wMQh9ZV0gPcToseRIIUJQo",
+    "backend" => nil,
+    "ip_restriction" => nil,
+    "circuit_breaker" => nil,
+    "compression" => nil,
+    "request_headers" => nil,
+    "response_headers" => nil,
+    "webhook_validation" => nil,
+    "oauth" => nil,
+    "saml" => nil,
+    "oidc" => nil,
+    "websocket_tcp_converter" => nil,
+  }
+end
+
+def tcp_edge_result
+  {
+    "id" => "edgtcp_23f9bWP6gWuwWVhhXXZJd87khPr",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-10-20T12=>08=>58Z",
+    "uri" => "https://api.ngrok.com/edges/tcp/edgtcp_23f9bWP6gWuwWVhhXXZJd87khPr",
+    "hostports" => [
+      "1.tcp.ngrok.io:20033",
+    ],
+    "backend" => nil,
+    "ip_restriction" => nil,
+  }
+end
+
+def tcp_edge_result2
+  {
+    "id" => "edgtcp_23fAbCNhQWBW7jaAEHIwNjN0psq",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-10-20T12=>08=>58Z",
+    "uri" => "https://api.ngrok.com/edges/tcp/edgtcp_23fAbCNhQWBW7jaAEHIwNjN0psq",
+    "hostports" => [
+      "1.tcp.ngrok.io:20034",
+    ],
+    "backend" => nil,
+    "ip_restriction" => nil,
+  }
+end
+
+def tcp_edge_results
+  {
+    "tcp_edges" => [
+      tcp_edge_result,
+      tcp_edge_result2,
+    ],
+    "uri" => "https://api.ngrok.com/edges/tcp",
+    "next_page_uri" => nil,
+  }
+end
+
+def tls_edge_result
+  {
+    "id" => "edgtls_23fAtcj1nEUtNOvCHTmw2p7boPq",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-10-20T12=>08=>58Z",
+    "uri" => "https://api.ngrok.com/edges/tls/edgtls_23fAtcj1nEUtNOvCHTmw2p7boPq",
+    "hostports" => [
+      "q3n1rmaj.ngrok.io:443",
+    ],
+    "backend" => nil,
+    "ip_restriction" => nil,
+    "mutual_tls" => nil,
+    "tls_termination" => nil,
+  }
+end
+
+def tls_edge_result2
+  {
+    "id" => "edgtls_23fB67XVniqMYnmzMHJCGDjlNTh",
+    "description" => "",
+    "metadata" => "",
+    "created_at" => "2021-10-20T12=>08=>58Z",
+    "uri" => "https://api.ngrok.com/edges/tls/edgtls_23fB67XVniqMYnmzMHJCGDjlNTh",
+    "hostports" => [
+      "q3n1rmaj.ngrok.io:443",
+    ],
+    "backend" => nil,
+    "ip_restriction" => nil,
+    "mutual_tls" => nil,
+    "tls_termination" => nil,
+  }
+end
+
+def tls_edge_results
+  {
+    "tls_edges" => [
+      tls_edge_result,
+      tls_edge_result2,
+    ],
+    "uri" => "https://api.ngrok.com/edges/tls",
+    "next_page_uri" => nil,
+  }
+end
+
+def tunnel_group_backend_result
+  {
+    "id" => "bkdtg_23wBji94nFzDEouYAo3QHYWLmKH",
+    "uri" => "https://api.ngrok.com/backends/tunnel_group/bkdtg_23wBji94nFzDEouYAo3QHYWLmKH",
+    "created_at" => "2022-01-19T23:36:45Z",
+    "description" => "acme tunnel group",
+    "metadata" => "{\"environment\" => \"staging\"}",
+    "labels" => {
+      "baz" => "qux",
+      "foo" => "bar",
+    },
+  }
+end
+
+def tunnel_group_backend_results
+  {
+    "backends" => [
+      tunnel_group_backend_result,
+    ],
+    "uri" => "https://api.ngrok.com/backends/tunnel_group",
+    "next_page_uri" => nil,
+  }
+end
+
+def http_response_backend_result
+  {
+    "id" => "bkdhr_23wBjkemewVLpsBfzIsBkzgaE3A",
+    "uri" => "https://api.ngrok.com/backends/http_response/bkdhr_23wBjkemewVLpsBfzIsBkzgaE3A",
+    "created_at" => "2022-01-19T23:36:45Z",
+    "description" => "acme http response",
+    "metadata" => "{\"environment\" => \"staging\"}",
+    "body" => "I'm a teapot",
+    "headers" => {
+      "content-type" => "text/plain",
+    },
+    "status_code" => 418,
+  }
+end
+
+def http_response_backend_results
+  {
+    "backends" => [
+      http_response_backend_result,
+    ],
+    "uri" => "https://api.ngrok.com/backends/http_response",
+    "next_page_uri" => nil,
+  }
+end
+
+def failover_backend_result
+  {
+    "id" => "bkdfo_23wBjiMhF0HaPfF98vQrdWmscai",
+    "uri" => "https://api.ngrok.com/backends/failover/bkdfo_23wBjiMhF0HaPfF98vQrdWmscai",
+    "created_at" => "2022-01-19T23:36:45Z",
+    "description" => "acme failover",
+    "metadata" => "{\"environment\" => \"staging\"}",
+    "backends" => [
+      "bkdhr_23wBjgJYO3hKSpkaIrDQ5HQE2jY",
+    ],
+  }
+end
+
+def failover_backend_results
+  {
+    "backends" => [
+      failover_backend_result,
+    ],
+    "uri" => "https://api.ngrok.com/backends/failover",
+    "next_page_uri" => nil,
+  }
+end
+
+def weighted_backend_result
+  {
+    "id" => "bkdwd_23wBjgO2sn7WFHs8269Xrdv2yXw",
+    "uri" => "https://api.ngrok.com/backends/weighted/bkdwd_23wBjgO2sn7WFHs8269Xrdv2yXw",
+    "created_at" => "2022-01-19T23:36:45Z",
+    "description" => "acme weighted",
+    "metadata" => "{\"environment\" => \"staging\"}",
+    "backends" => {
+      "bkdhr_23wBjgkCq2PEYfrOjKBqQY3hy9B" => 0,
+      "bkdhr_23wBjiPnTqyUosGG2pdP2VWXxlx" => 1,
+    },
+  }
+end
+
+def weighted_backend_results
+  {
+    "backends" => [
+      weighted_backend_result,
+    ],
+    "uri" => "https://api.ngrok.com/backends/weighted",
     "next_page_uri" => nil,
   }
 end

@@ -11,7 +11,11 @@ module NgrokAPI
         :metadata,
         :proto,
         :region,
-        :tunnel_session
+        :tunnel_session,
+        :endpoint,
+        :labels,
+        :backends,
+        :forwards_to
 
       def initialize(client:, result:)
         @client = client
@@ -23,6 +27,10 @@ module NgrokAPI
         @proto = @result['proto']
         @region = @result['region']
         @tunnel_session = @result['tunnel_session']
+        @endpoint = @result['endpoint']
+        @labels = @result['labels']
+        @backends = @result['backends']
+        @forwards_to = @result['forwards_to']
       end
 
       def ==(other)

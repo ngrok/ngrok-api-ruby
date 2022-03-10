@@ -978,7 +978,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Delete an Event Destination. If the Event Destination is still referenced by an Event Stream, this will throw an error until that Event Stream has removed that reference.</p>
+<p>Delete an Event Destination. If the Event Destination is still referenced by an Event Subscription.</p>
 
 <p><a href="https://ngrok.com/docs/api#api-event-destinations-delete">ngrok.com/docs/api#api-event-destinations-delete</a></p>
 
@@ -994,14 +994,14 @@
       <pre class="lines">
 
 
+41
 42
 43
 44
-45
-46</pre>
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_destination.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_destination.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span>
@@ -1048,9 +1048,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Dec  2 18:48:51 2021 by
+  Generated on Thu Mar 10 04:54:49 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.1).
+  0.9.27 (ruby-2.7.5).
 </div>
 
     </div>

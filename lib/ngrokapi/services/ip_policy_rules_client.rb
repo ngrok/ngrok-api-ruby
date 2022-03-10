@@ -26,10 +26,11 @@ module NgrokAPI
       # @param [string] metadata arbitrary user-defined machine-readable data of this IP policy rule. optional, max 4096 bytes.
       # @param [string] cidr an IP or IP range specified in CIDR notation. IPv4 and IPv6 are both supported.
       # @param [string] ip_policy_id ID of the IP policy this IP policy rule will be attached to
+      # @param [string] action the action to apply to the policy rule, either ``allow`` or ``deny``
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-create
-      def create(description: "", metadata: "", cidr:, ip_policy_id:)
+      def create(description: "", metadata: "", cidr:, ip_policy_id:, action: nil)
         path = '/ip_policy_rules'
         replacements = {
         }
@@ -38,6 +39,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:cidr] = cidr if cidr
         data[:ip_policy_id] = ip_policy_id if ip_policy_id
+        data[:action] = action if action
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::IPPolicyRule.new(client: self, result: result)
       end
