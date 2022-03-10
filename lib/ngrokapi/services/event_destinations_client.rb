@@ -43,8 +43,7 @@ module NgrokAPI
 
       ##
       # Delete an Event Destination. If the Event Destination is still referenced by an
-      # Event Stream, this will throw an error until that Event Stream has removed that
-      # reference.
+      # Event Subscription.
       #
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::Empty] result from the API request
@@ -60,8 +59,7 @@ module NgrokAPI
 
       ##
       # Delete an Event Destination. If the Event Destination is still referenced by an
-      # Event Stream, this will throw an error until that Event Stream has removed that
-      # reference.
+      # Event Subscription.
       # Throws an exception if API error.
       #
       # @param [string] id a resource identifier

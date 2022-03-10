@@ -28,8 +28,6 @@ module NgrokAPI
       # @param [string] region reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)
       # @param [string] description human-readable description of what this reserved domain will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
-      # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
-      # @param [string] https_endpoint_configuration_id ID of an endpoint configuration of type https that will be used to handle inbound https traffic to this domain
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
@@ -44,8 +42,6 @@ module NgrokAPI
         data[:region] = region if region
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        data[:http_endpoint_configuration_id] = http_endpoint_configuration_id if http_endpoint_configuration_id
-        data[:https_endpoint_configuration_id] = https_endpoint_configuration_id if https_endpoint_configuration_id
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.post(path % replacements, data: data)
@@ -179,8 +175,6 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of what this reserved domain will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
-      # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
-      # @param [string] https_endpoint_configuration_id ID of an endpoint configuration of type https that will be used to handle inbound https traffic to this domain
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
@@ -194,8 +188,6 @@ module NgrokAPI
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        data[:http_endpoint_configuration_id] = http_endpoint_configuration_id if http_endpoint_configuration_id
-        data[:https_endpoint_configuration_id] = https_endpoint_configuration_id if https_endpoint_configuration_id
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.patch(path % replacements, data: data)
@@ -209,8 +201,6 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of what this reserved domain will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
-      # @param [string] http_endpoint_configuration_id ID of an endpoint configuration of type http that will be used to handle inbound http traffic to this domain
-      # @param [string] https_endpoint_configuration_id ID of an endpoint configuration of type https that will be used to handle inbound https traffic to this domain
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
@@ -224,8 +214,6 @@ module NgrokAPI
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
-        data[:http_endpoint_configuration_id] = http_endpoint_configuration_id if http_endpoint_configuration_id
-        data[:https_endpoint_configuration_id] = https_endpoint_configuration_id if https_endpoint_configuration_id
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.patch(path % replacements, data: data, danger: true)
@@ -288,68 +276,6 @@ module NgrokAPI
       # https://ngrok.com/docs/api#api-reserved-domains-delete-certificate
       def delete_certificate!(id: "")
         path = '/reserved_domains/%{id}/certificate'
-        replacements = {
-          id: id,
-        }
-        @client.delete(path % replacements, danger: true)
-      end
-
-      ##
-      # Detach the http endpoint configuration attached to a reserved domain.
-      #
-      # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::Empty] result from the API request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
-      def delete_http_endpoint_config(id: "")
-        path = '/reserved_domains/%{id}/http_endpoint_configuration'
-        replacements = {
-          id: id,
-        }
-        @client.delete(path % replacements)
-      end
-
-      ##
-      # Detach the http endpoint configuration attached to a reserved domain.
-      # Throws an exception if API error.
-      #
-      # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::Empty] result from the API request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-http-endpoint-config
-      def delete_http_endpoint_config!(id: "")
-        path = '/reserved_domains/%{id}/http_endpoint_configuration'
-        replacements = {
-          id: id,
-        }
-        @client.delete(path % replacements, danger: true)
-      end
-
-      ##
-      # Detach the https endpoint configuration attached to a reserved domain.
-      #
-      # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::Empty] result from the API request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
-      def delete_https_endpoint_config(id: "")
-        path = '/reserved_domains/%{id}/https_endpoint_configuration'
-        replacements = {
-          id: id,
-        }
-        @client.delete(path % replacements)
-      end
-
-      ##
-      # Detach the https endpoint configuration attached to a reserved domain.
-      # Throws an exception if API error.
-      #
-      # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::Empty] result from the API request
-      #
-      # https://ngrok.com/docs/api#api-reserved-domains-delete-https-endpoint-config
-      def delete_https_endpoint_config!(id: "")
-        path = '/reserved_domains/%{id}/https_endpoint_configuration'
         replacements = {
           id: id,
         }

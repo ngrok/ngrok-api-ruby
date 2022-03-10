@@ -22,7 +22,7 @@ module NgrokAPI
       # @param [string] metadata Arbitrary customer supplied information intended to be machine readable. Optional, max 4096 chars.
       # @param [string] description Arbitrary customer supplied information intended to be human readable. Optional, max 255 chars.
       # @param [List<EventSourceReplace>] sources Sources containing the types for which this event subscription will trigger
-      # @param [List<string>] destination_ids A list of Event Destination IDs which should be used for this Event Stream. Event Streams are required to have at least one Event Destination.
+      # @param [List<string>] destination_ids A list of Event Destination IDs which should be used for this Event Subscription.
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-create
@@ -167,7 +167,7 @@ module NgrokAPI
       # @param [string] metadata Arbitrary customer supplied information intended to be machine readable. Optional, max 4096 chars.
       # @param [string] description Arbitrary customer supplied information intended to be human readable. Optional, max 255 chars.
       # @param [List<EventSourceReplace>] sources Sources containing the types for which this event subscription will trigger
-      # @param [List<string>] destination_ids A list of Event Destination IDs which should be used for this Event Stream. Event Streams are required to have at least one Event Destination.
+      # @param [List<string>] destination_ids A list of Event Destination IDs which should be used for this Event Subscription.
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-update
@@ -193,7 +193,7 @@ module NgrokAPI
       # @param [string] metadata Arbitrary customer supplied information intended to be machine readable. Optional, max 4096 chars.
       # @param [string] description Arbitrary customer supplied information intended to be human readable. Optional, max 255 chars.
       # @param [List<EventSourceReplace>] sources Sources containing the types for which this event subscription will trigger
-      # @param [List<string>] destination_ids A list of Event Destination IDs which should be used for this Event Stream. Event Streams are required to have at least one Event Destination.
+      # @param [List<string>] destination_ids A list of Event Destination IDs which should be used for this Event Subscription.
       # @return [NgrokAPI::Models::EventSubscription] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-update

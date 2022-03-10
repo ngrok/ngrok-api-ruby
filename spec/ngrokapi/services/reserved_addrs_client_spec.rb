@@ -21,7 +21,6 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:region] = "New region"
-      data[:endpoint_configuration_id] = "New endpoint_configuration_id"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(reserved_addr_result)
       result = @reserved_addrs_client.create(
@@ -127,7 +126,6 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
-      data[:endpoint_configuration_id] = "New endpoint_configuration_id"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(reserved_addr_result)
       result = @reserved_addrs_client.update(
@@ -149,7 +147,6 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
-      data[:endpoint_configuration_id] = "New endpoint_configuration_id"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(reserved_addr_result)
       result = @reserved_addrs_client.update(
@@ -160,47 +157,6 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedAddr)
       # expect(result.id).to eq(reserved_addr_result["id"])
-    end
-  end
-
-  describe "#delete_endpoint_config" do
-    it "will make a delete request" do
-      path = '/reserved_addrs/%{id}/endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect(@client).to receive(:delete).with(path % replacements).and_return(nil)
-      @reserved_addrs_client.delete_endpoint_config(
-        id: api_key_result["id"]
-      )
-    end
-  end
-
-  describe "#delete_endpoint_config!" do
-    it "will make a delete request" do
-      path = '/reserved_addrs/%{id}/endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect(@client).to receive(:delete).with(path % replacements, danger: true).and_return(nil)
-      @reserved_addrs_client.delete_endpoint_config!(
-        id: api_key_result["id"]
-      )
-    end
-
-    it "will make a delete request and return NotFoundError if 404" do
-      path = '/reserved_addrs/%{id}/endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect do
-        expect(@client).to receive(:delete).with(path % replacements, danger: true).
-          and_raise(NgrokAPI::Errors::NotFoundError)
-        result = @reserved_addrs_client.delete_endpoint_config!(
-          id: api_key_result["id"]
-        )
-        expect(result).to be nil
-      end.to raise_error(NgrokAPI::Errors::NotFoundError)
     end
   end
 end

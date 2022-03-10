@@ -20,7 +20,6 @@ RSpec.describe NgrokAPI::Services::IPPoliciesClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
-      data[:action] = "New action"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(ip_policy_result)
       result = @ip_policies_client.create(

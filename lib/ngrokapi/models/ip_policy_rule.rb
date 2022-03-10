@@ -11,7 +11,8 @@ module NgrokAPI
         :description,
         :metadata,
         :cidr,
-        :ip_policy
+        :ip_policy,
+        :action
 
       def initialize(client:, result:)
         @client = client
@@ -23,6 +24,7 @@ module NgrokAPI
         @metadata = @result['metadata']
         @cidr = @result['cidr']
         @ip_policy = @result['ip_policy']
+        @action = @result['action']
       end
 
       def ==(other)
