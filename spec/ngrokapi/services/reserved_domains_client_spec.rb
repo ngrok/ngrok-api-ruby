@@ -22,8 +22,6 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       data[:region] = "New region"
       data[:description] = "New description"
       data[:metadata] = "New metadata"
-      data[:http_endpoint_configuration_id] = "New http_endpoint_configuration_id"
-      data[:https_endpoint_configuration_id] = "New https_endpoint_configuration_id"
       data[:certificate_id] = "New certificate_id"
       data[:certificate_management_policy] = "New certificate_management_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
@@ -135,8 +133,6 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
-      data[:http_endpoint_configuration_id] = "New http_endpoint_configuration_id"
-      data[:https_endpoint_configuration_id] = "New https_endpoint_configuration_id"
       data[:certificate_id] = "New certificate_id"
       data[:certificate_management_policy] = "New certificate_management_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
@@ -163,8 +159,6 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
-      data[:http_endpoint_configuration_id] = "New http_endpoint_configuration_id"
-      data[:https_endpoint_configuration_id] = "New https_endpoint_configuration_id"
       data[:certificate_id] = "New certificate_id"
       data[:certificate_management_policy] = "New certificate_management_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
@@ -258,88 +252,6 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         expect(@client).to receive(:delete).with(path % replacements, danger: true).
           and_raise(NgrokAPI::Errors::NotFoundError)
         result = @reserved_domains_client.delete_certificate!(
-          id: api_key_result["id"]
-        )
-        expect(result).to be nil
-      end.to raise_error(NgrokAPI::Errors::NotFoundError)
-    end
-  end
-
-  describe "#delete_http_endpoint_config" do
-    it "will make a delete request" do
-      path = '/reserved_domains/%{id}/http_endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect(@client).to receive(:delete).with(path % replacements).and_return(nil)
-      @reserved_domains_client.delete_http_endpoint_config(
-        id: api_key_result["id"]
-      )
-    end
-  end
-
-  describe "#delete_http_endpoint_config!" do
-    it "will make a delete request" do
-      path = '/reserved_domains/%{id}/http_endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect(@client).to receive(:delete).with(path % replacements, danger: true).and_return(nil)
-      @reserved_domains_client.delete_http_endpoint_config!(
-        id: api_key_result["id"]
-      )
-    end
-
-    it "will make a delete request and return NotFoundError if 404" do
-      path = '/reserved_domains/%{id}/http_endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect do
-        expect(@client).to receive(:delete).with(path % replacements, danger: true).
-          and_raise(NgrokAPI::Errors::NotFoundError)
-        result = @reserved_domains_client.delete_http_endpoint_config!(
-          id: api_key_result["id"]
-        )
-        expect(result).to be nil
-      end.to raise_error(NgrokAPI::Errors::NotFoundError)
-    end
-  end
-
-  describe "#delete_https_endpoint_config" do
-    it "will make a delete request" do
-      path = '/reserved_domains/%{id}/https_endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect(@client).to receive(:delete).with(path % replacements).and_return(nil)
-      @reserved_domains_client.delete_https_endpoint_config(
-        id: api_key_result["id"]
-      )
-    end
-  end
-
-  describe "#delete_https_endpoint_config!" do
-    it "will make a delete request" do
-      path = '/reserved_domains/%{id}/https_endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect(@client).to receive(:delete).with(path % replacements, danger: true).and_return(nil)
-      @reserved_domains_client.delete_https_endpoint_config!(
-        id: api_key_result["id"]
-      )
-    end
-
-    it "will make a delete request and return NotFoundError if 404" do
-      path = '/reserved_domains/%{id}/https_endpoint_configuration'
-      replacements = {
-        id: api_key_result["id"],
-      }
-      expect do
-        expect(@client).to receive(:delete).with(path % replacements, danger: true).
-          and_raise(NgrokAPI::Errors::NotFoundError)
-        result = @reserved_domains_client.delete_https_endpoint_config!(
           id: api_key_result["id"]
         )
         expect(result).to be nil

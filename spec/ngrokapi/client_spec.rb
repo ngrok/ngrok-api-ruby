@@ -36,15 +36,9 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
-  describe "#endpoint_configurations" do
-    it "returns an instance of the EndpointConfigurationsClient" do
-      expect(@client.endpoint_configurations.class).to eq(NgrokAPI::Services::EndpointConfigurationsClient)
-    end
-  end
-
-  describe "#event_streams" do
-    it "returns an instance of the EventStreamsClient" do
-      expect(@client.event_streams.class).to eq(NgrokAPI::Services::EventStreamsClient)
+  describe "#endpoints" do
+    it "returns an instance of the EndpointsClient" do
+      expect(@client.endpoints.class).to eq(NgrokAPI::Services::EndpointsClient)
     end
   end
 
@@ -138,21 +132,48 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
-  describe "#pointcfg_module" do
+  describe "#backends" do
     it "returns an instance of OpenStruct covering namespaces" do
-      ns = @client.pointcfg_module
-      expect(ns.logging.class).to eq(NgrokAPI::Services::EndpointLoggingModuleClient)
-      expect(ns.circuit_breaker.class).to eq(NgrokAPI::Services::EndpointCircuitBreakerModuleClient)
-      expect(ns.compression.class).to eq(NgrokAPI::Services::EndpointCompressionModuleClient)
-      expect(ns.tls_termination.class).to eq(NgrokAPI::Services::EndpointTLSTerminationModuleClient)
-      expect(ns.ip_policy.class).to eq(NgrokAPI::Services::EndpointIPPolicyModuleClient)
-      expect(ns.mutual_tls.class).to eq(NgrokAPI::Services::EndpointMutualTLSModuleClient)
-      expect(ns.request_headers.class).to eq(NgrokAPI::Services::EndpointRequestHeadersModuleClient)
-      expect(ns.response_headers.class).to eq(NgrokAPI::Services::EndpointResponseHeadersModuleClient)
-      expect(ns.oauth.class).to eq(NgrokAPI::Services::EndpointOAuthModuleClient)
-      expect(ns.webhook_validation.class).to eq(NgrokAPI::Services::EndpointWebhookValidationModuleClient)
-      expect(ns.saml.class).to eq(NgrokAPI::Services::EndpointSAMLModuleClient)
-      expect(ns.oidc.class).to eq(NgrokAPI::Services::EndpointOIDCModuleClient)
+      ns = @client.backends
+      expect(ns.failover.class).to eq(NgrokAPI::Services::FailoverBackendsClient)
+      expect(ns.http_response.class).to eq(NgrokAPI::Services::HTTPResponseBackendsClient)
+      expect(ns.tunnel_group.class).to eq(NgrokAPI::Services::TunnelGroupBackendsClient)
+      expect(ns.weighted.class).to eq(NgrokAPI::Services::WeightedBackendsClient)
+    end
+  end
+
+  describe "#edges" do
+    it "returns an instance of OpenStruct covering namespaces" do
+      ns = @client.edges
+      expect(ns.https_routes.class).to eq(NgrokAPI::Services::EdgesHTTPSRoutesClient)
+      expect(ns.https.class).to eq(NgrokAPI::Services::EdgesHTTPSClient)
+      expect(ns.tcp.class).to eq(NgrokAPI::Services::EdgesTCPClient)
+      expect(ns.tls.class).to eq(NgrokAPI::Services::EdgesTLSClient)
+    end
+  end
+
+  describe "#edge_modules" do
+    it "returns an instance of OpenStruct covering namespaces" do
+      ns = @client.edge_modules
+      expect(ns.https_edge_mutual_tls.class).to eq(NgrokAPI::Services::HTTPSEdgeMutualTLSModuleClient)
+      expect(ns.https_edge_tls_termination.class).to eq(NgrokAPI::Services::HTTPSEdgeTLSTerminationModuleClient)
+      expect(ns.https_edge_route_backend.class).to eq(NgrokAPI::Services::EdgeRouteBackendModuleClient)
+      expect(ns.https_edge_route_ip_restriction.class).to eq(NgrokAPI::Services::EdgeRouteIPRestrictionModuleClient)
+      expect(ns.https_edge_route_request_headers.class).to eq(NgrokAPI::Services::EdgeRouteRequestHeadersModuleClient)
+      expect(ns.https_edge_route_response_headers.class).to eq(NgrokAPI::Services::EdgeRouteResponseHeadersModuleClient)
+      expect(ns.https_edge_route_compression.class).to eq(NgrokAPI::Services::EdgeRouteCompressionModuleClient)
+      expect(ns.https_edge_route_circuit_breaker.class).to eq(NgrokAPI::Services::EdgeRouteCircuitBreakerModuleClient)
+      expect(ns.https_edge_route_webhook_verification.class).to eq(NgrokAPI::Services::EdgeRouteWebhookVerificationModuleClient)
+      expect(ns.https_edge_route_oauth.class).to eq(NgrokAPI::Services::EdgeRouteOAuthModuleClient)
+      expect(ns.https_edge_route_saml.class).to eq(NgrokAPI::Services::EdgeRouteSAMLModuleClient)
+      expect(ns.https_edge_route_oidc.class).to eq(NgrokAPI::Services::EdgeRouteOIDCModuleClient)
+      expect(ns.https_edge_route_websocket_tcp_converter.class).to eq(NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient)
+      expect(ns.tcp_edge_backend.class).to eq(NgrokAPI::Services::TCPEdgeBackendModuleClient)
+      expect(ns.tcp_edge_ip_restriction.class).to eq(NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient)
+      expect(ns.tls_edge_backend.class).to eq(NgrokAPI::Services::TLSEdgeBackendModuleClient)
+      expect(ns.tls_edge_ip_restriction.class).to eq(NgrokAPI::Services::TLSEdgeIPRestrictionModuleClient)
+      expect(ns.tls_edge_mutual_tls.class).to eq(NgrokAPI::Services::TLSEdgeMutualTLSModuleClient)
+      expect(ns.tls_edge_tls_termination.class).to eq(NgrokAPI::Services::TLSEdgeTLSTerminationModuleClient)
     end
   end
 end

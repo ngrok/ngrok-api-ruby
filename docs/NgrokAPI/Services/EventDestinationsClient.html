@@ -713,7 +713,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Delete an Event Destination. If the Event Destination is still referenced by an Event Stream, this will throw an error until that Event Stream has removed that reference.</p>
+<p>Delete an Event Destination. If the Event Destination is still referenced by an Event Subscription.</p>
 
 <p><a href="https://ngrok.com/docs/api#api-event-destinations-delete">ngrok.com/docs/api#api-event-destinations-delete</a></p>
 
@@ -769,16 +769,16 @@
       <pre class="lines">
 
 
+52
 53
 54
 55
 56
 57
-58
-59</pre>
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_destinations/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -804,7 +804,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Delete an Event Destination. If the Event Destination is still referenced by an Event Stream, this will throw an error until that Event Stream has removed that reference. Throws an exception if API error.</p>
+<p>Delete an Event Destination. If the Event Destination is still referenced by an Event Subscription. Throws an exception if API error.</p>
 
 <p><a href="https://ngrok.com/docs/api#api-event-destinations-delete">ngrok.com/docs/api#api-event-destinations-delete</a></p>
 
@@ -860,16 +860,16 @@
       <pre class="lines">
 
 
+69
+70
 71
 72
 73
 74
-75
-76
-77</pre>
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_destinations/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -951,18 +951,18 @@
       <pre class="lines">
 
 
+84
+85
 86
 87
 88
 89
 90
 91
-92
-93
-94</pre>
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_destinations/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1046,18 +1046,18 @@
       <pre class="lines">
 
 
+102
+103
 104
 105
 106
 107
 108
 109
-110
-111
-112</pre>
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_destinations/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1167,6 +1167,8 @@
       <pre class="lines">
 
 
+121
+122
 123
 124
 125
@@ -1180,12 +1182,10 @@
 133
 134
 135
-136
-137
-138</pre>
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
          <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -1302,6 +1302,8 @@
       <pre class="lines">
 
 
+148
+149
 150
 151
 152
@@ -1317,12 +1319,10 @@
 162
 163
 164
-165
-166
-167</pre>
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
           <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
@@ -1487,6 +1487,8 @@
       <pre class="lines">
 
 
+178
+179
 180
 181
 182
@@ -1497,12 +1499,10 @@
 187
 188
 189
-190
-191
-192</pre>
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>target:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>verify_with_test_event:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_destinations/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1662,6 +1662,8 @@
       <pre class="lines">
 
 
+204
+205
 206
 207
 208
@@ -1672,12 +1674,10 @@
 213
 214
 215
-216
-217
-218</pre>
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_destinations_client.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>format:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>target:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>verify_with_test_event:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_destinations/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1702,9 +1702,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Dec  2 18:48:56 2021 by
+  Generated on Thu Mar 10 16:54:46 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-3.0.1).
+  0.9.27 (ruby-2.7.5).
 </div>
 
     </div>

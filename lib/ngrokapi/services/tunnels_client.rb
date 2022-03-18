@@ -73,6 +73,41 @@ module NgrokAPI
           danger: true
         )
       end
+
+      ##
+      # Get the status of a tunnel by ID
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Tunnel] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-tunnels-get
+      def get(id: "")
+        path = '/tunnels/%{id}'
+        replacements = {
+          id: id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data)
+        NgrokAPI::Models::Tunnel.new(client: self, result: result)
+      end
+
+      ##
+      # Get the status of a tunnel by ID
+      # Throws an exception if API error.
+      #
+      # @param [string] id a resource identifier
+      # @return [NgrokAPI::Models::Tunnel] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-tunnels-get
+      def get!(id: "")
+        path = '/tunnels/%{id}'
+        replacements = {
+          id: id,
+        }
+        data = {}
+        result = @client.get(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::Tunnel.new(client: self, result: result)
+      end
     end
   end
 end
