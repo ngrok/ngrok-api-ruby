@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::EventSource do
   before(:each) do
     @client = class_double("EventSourcesClient")
-    @event_source = NgrokAPI::Models::EventSource.new(client: @client, result: event_source_result)
+    @event_source = NgrokAPI::Models::EventSource.new(client: @client, attrs: event_source_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::EventSource.new(client: @client, result: event_source_result)
+      other = NgrokAPI::Models::EventSource.new(client: @client, attrs: event_source_result)
       expect(@event_source == other).to eq true
     end
   end

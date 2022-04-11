@@ -4,21 +4,25 @@ module NgrokAPI
   module Models
     class EndpointCompression
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

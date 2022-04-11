@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::TCPEdge do
   before(:each) do
     @client = class_double("TCPEdgesClient")
-    @tcp_edge = NgrokAPI::Models::TCPEdge.new(client: @client, result: tcp_edge_result)
+    @tcp_edge = NgrokAPI::Models::TCPEdge.new(client: @client, attrs: tcp_edge_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::TCPEdge.new(client: @client, result: tcp_edge_result)
+      other = NgrokAPI::Models::TCPEdge.new(client: @client, attrs: tcp_edge_result)
       expect(@tcp_edge == other).to eq true
     end
   end

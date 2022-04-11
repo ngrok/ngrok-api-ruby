@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class Endpoint
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :region,
         :created_at,
@@ -19,30 +19,34 @@ module NgrokAPI
         :tunnel,
         :edge
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @region = @result['region']
-        @created_at = @result['created_at']
-        @updated_at = @result['updated_at']
-        @public_url = @result['public_url']
-        @proto = @result['proto']
-        @hostport = @result['hostport']
-        @type = @result['type']
-        @metadata = @result['metadata']
-        @domain = @result['domain']
-        @tcp_addr = @result['tcp_addr']
-        @tunnel = @result['tunnel']
-        @edge = @result['edge']
+        @attrs = attrs
+        @id = @attrs['id']
+        @region = @attrs['region']
+        @created_at = @attrs['created_at']
+        @updated_at = @attrs['updated_at']
+        @public_url = @attrs['public_url']
+        @proto = @attrs['proto']
+        @hostport = @attrs['hostport']
+        @type = @attrs['type']
+        @metadata = @attrs['metadata']
+        @domain = @attrs['domain']
+        @tcp_addr = @attrs['tcp_addr']
+        @tunnel = @attrs['tunnel']
+        @edge = @attrs['edge']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

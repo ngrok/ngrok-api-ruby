@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class EventTargetKinesis
       attr_reader :client,
-        :result,
+        :attrs,
         :auth,
         :stream_arn
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @auth = @result['auth']
-        @stream_arn = @result['stream_arn']
+        @attrs = attrs
+        @auth = @attrs['auth']
+        @stream_arn = @attrs['stream_arn']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

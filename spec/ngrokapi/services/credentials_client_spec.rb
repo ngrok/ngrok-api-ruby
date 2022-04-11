@@ -32,6 +32,27 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::Credential" do
+      path = '/credentials'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:acl] = "New acl"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(credential_result)
+      result = @credentials_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        acl: "New acl"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::Credential)
+      # expect(result.id).to eq(credential_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/credentials/%{id}'

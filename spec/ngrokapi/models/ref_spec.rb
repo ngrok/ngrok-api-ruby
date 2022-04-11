@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::Ref do
   before(:each) do
     @client = class_double("RefsClient")
-    @ref = NgrokAPI::Models::Ref.new(client: @client, result: ref_result)
+    @ref = NgrokAPI::Models::Ref.new(client: @client, attrs: ref_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::Ref.new(client: @client, result: ref_result)
+      other = NgrokAPI::Models::Ref.new(client: @client, attrs: ref_result)
       expect(@ref == other).to eq true
     end
   end

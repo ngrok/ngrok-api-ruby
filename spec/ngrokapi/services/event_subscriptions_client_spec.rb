@@ -34,6 +34,29 @@ RSpec.describe NgrokAPI::Services::EventSubscriptionsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::EventSubscription" do
+      path = '/event_subscriptions'
+      replacements = {
+      }
+      data = {}
+      data[:metadata] = "New metadata"
+      data[:description] = "New description"
+      data[:sources] = "New sources"
+      data[:destination_ids] = "New destination_ids"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(event_subscription_result)
+      result = @event_subscriptions_client.create(
+        metadata: "New metadata",
+        description: "New description",
+        sources: "New sources",
+        destination_ids: "New destination_ids"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::EventSubscription)
+      # expect(result.id).to eq(event_subscription_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/event_subscriptions/%{id}'

@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::ReservedAddr do
   before(:each) do
     @client = class_double("ReservedAddrsClient")
-    @reserved_addr = NgrokAPI::Models::ReservedAddr.new(client: @client, result: reserved_addr_result)
+    @reserved_addr = NgrokAPI::Models::ReservedAddr.new(client: @client, attrs: reserved_addr_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::ReservedAddr.new(client: @client, result: reserved_addr_result)
+      other = NgrokAPI::Models::ReservedAddr.new(client: @client, attrs: reserved_addr_result)
       expect(@reserved_addr == other).to eq true
     end
   end

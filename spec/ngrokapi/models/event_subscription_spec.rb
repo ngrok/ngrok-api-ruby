@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::EventSubscription do
   before(:each) do
     @client = class_double("EventSubscriptionsClient")
-    @event_subscription = NgrokAPI::Models::EventSubscription.new(client: @client, result: event_subscription_result)
+    @event_subscription = NgrokAPI::Models::EventSubscription.new(client: @client, attrs: event_subscription_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::EventSubscription.new(client: @client, result: event_subscription_result)
+      other = NgrokAPI::Models::EventSubscription.new(client: @client, attrs: event_subscription_result)
       expect(@event_subscription == other).to eq true
     end
   end

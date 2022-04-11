@@ -44,6 +44,39 @@ RSpec.describe NgrokAPI::Services::SSHUserCertificatesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::SSHUserCertificate" do
+      path = '/ssh_user_certificates'
+      replacements = {
+      }
+      data = {}
+      data[:ssh_certificate_authority_id] = "New ssh_certificate_authority_id"
+      data[:public_key] = "New public_key"
+      data[:principals] = "New principals"
+      data[:critical_options] = "New critical_options"
+      data[:extensions] = "New extensions"
+      data[:valid_after] = "New valid_after"
+      data[:valid_until] = "New valid_until"
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(ssh_user_certificate_result)
+      result = @ssh_user_certificates_client.create(
+        ssh_certificate_authority_id: "New ssh_certificate_authority_id",
+        public_key: "New public_key",
+        principals: "New principals",
+        critical_options: "New critical_options",
+        extensions: "New extensions",
+        valid_after: "New valid_after",
+        valid_until: "New valid_until",
+        description: "New description",
+        metadata: "New metadata"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::SSHUserCertificate)
+      # expect(result.id).to eq(ssh_user_certificate_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/ssh_user_certificates/%{id}'

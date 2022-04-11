@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class EndpointSAML
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled,
         :options_passthrough,
         :cookie_prefix,
@@ -22,33 +22,37 @@ module NgrokAPI
         :metadata_url,
         :nameid_format
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
-        @options_passthrough = @result['options_passthrough']
-        @cookie_prefix = @result['cookie_prefix']
-        @inactivity_timeout = @result['inactivity_timeout']
-        @maximum_duration = @result['maximum_duration']
-        @idp_metadata_url = @result['idp_metadata_url']
-        @idp_metadata = @result['idp_metadata']
-        @force_authn = @result['force_authn']
-        @allow_idp_initiated = @result['allow_idp_initiated']
-        @authorized_groups = @result['authorized_groups']
-        @entity_id = @result['entity_id']
-        @assertion_consumer_service_url = @result['assertion_consumer_service_url']
-        @single_logout_url = @result['single_logout_url']
-        @request_signing_certificate_pem = @result['request_signing_certificate_pem']
-        @metadata_url = @result['metadata_url']
-        @nameid_format = @result['nameid_format']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
+        @options_passthrough = @attrs['options_passthrough']
+        @cookie_prefix = @attrs['cookie_prefix']
+        @inactivity_timeout = @attrs['inactivity_timeout']
+        @maximum_duration = @attrs['maximum_duration']
+        @idp_metadata_url = @attrs['idp_metadata_url']
+        @idp_metadata = @attrs['idp_metadata']
+        @force_authn = @attrs['force_authn']
+        @allow_idp_initiated = @attrs['allow_idp_initiated']
+        @authorized_groups = @attrs['authorized_groups']
+        @entity_id = @attrs['entity_id']
+        @assertion_consumer_service_url = @attrs['assertion_consumer_service_url']
+        @single_logout_url = @attrs['single_logout_url']
+        @request_signing_certificate_pem = @attrs['request_signing_certificate_pem']
+        @metadata_url = @attrs['metadata_url']
+        @nameid_format = @attrs['nameid_format']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

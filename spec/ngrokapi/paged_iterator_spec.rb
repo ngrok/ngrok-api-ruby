@@ -13,11 +13,11 @@ RSpec.describe NgrokAPI::PagedIterator do
   let(:empty_last_results) do
     { "keys" => [], "uri" => uri, "next_page_uri" => nil }
   end
-  let(:item) { NgrokAPI::Models::APIKey.new(client: client, result: api_key_result) }
+  let(:item) { NgrokAPI::Models::APIKey.new(client: client, attrs: api_key_result) }
   let(:page) do
     NgrokAPI::Models::Listable.new(
       client: client,
-      result: results,
+      attrs: results,
       list_property: 'keys',
       klass: NgrokAPI::Models::APIKey
     )
@@ -25,7 +25,7 @@ RSpec.describe NgrokAPI::PagedIterator do
   let(:empty_page) do
     NgrokAPI::Models::Listable.new(
       client: client,
-      result: empty_results,
+      attrs: empty_results,
       list_property: 'keys',
       klass: NgrokAPI::Models::APIKey
     )
@@ -33,7 +33,7 @@ RSpec.describe NgrokAPI::PagedIterator do
   let(:empty_last_page) do
     NgrokAPI::Models::Listable.new(
       client: client,
-      result: empty_last_results,
+      attrs: empty_last_results,
       list_property: 'keys',
       klass: NgrokAPI::Models::APIKey
     )
@@ -56,7 +56,7 @@ RSpec.describe NgrokAPI::PagedIterator do
         page: empty_page,
         list_property: 'keys'
       )
-      expect(empty_page).to receive(:result).and_return(item)
+      expect(empty_page).to receive(:attrs).and_return(item)
       expect(empty_page).to receive(:next_page_uri)
       expect(paged_iterator.get_next).to eq(nil)
     end

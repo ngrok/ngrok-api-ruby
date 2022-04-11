@@ -32,6 +32,27 @@ RSpec.describe NgrokAPI::Services::WeightedBackendsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::WeightedBackend" do
+      path = '/backends/weighted'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:backends] = "New backends"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(weighted_backend_result)
+      result = @weighted_backends_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        backends: "New backends"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::WeightedBackend)
+      # expect(result.id).to eq(weighted_backend_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/backends/weighted/%{id}'

@@ -32,6 +32,27 @@ RSpec.describe NgrokAPI::Services::FailoverBackendsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::FailoverBackend" do
+      path = '/backends/failover'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:backends] = "New backends"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(failover_backend_result)
+      result = @failover_backends_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        backends: "New backends"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::FailoverBackend)
+      # expect(result.id).to eq(failover_backend_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/backends/failover/%{id}'

@@ -4,27 +4,31 @@ module NgrokAPI
   module Models
     class EndpointOAuthProvider
       attr_reader :client,
-        :result,
+        :attrs,
         :github,
         :facebook,
         :microsoft,
         :google
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @github = @result['github']
-        @facebook = @result['facebook']
-        @microsoft = @result['microsoft']
-        @google = @result['google']
+        @attrs = attrs
+        @github = @attrs['github']
+        @facebook = @attrs['facebook']
+        @microsoft = @attrs['microsoft']
+        @google = @attrs['google']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

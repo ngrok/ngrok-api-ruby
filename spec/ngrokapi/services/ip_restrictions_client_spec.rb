@@ -36,6 +36,31 @@ RSpec.describe NgrokAPI::Services::IPRestrictionsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::IPRestriction" do
+      path = '/ip_restrictions'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:enforced] = "New enforced"
+      data[:type] = "New type"
+      data[:ip_policy_ids] = "New ip_policy_ids"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(ip_restriction_result)
+      result = @ip_restrictions_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        enforced: "New enforced",
+        type: "New type",
+        ip_policy_ids: "New ip_policy_ids"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::IPRestriction)
+      # expect(result.id).to eq(ip_restriction_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/ip_restrictions/%{id}'

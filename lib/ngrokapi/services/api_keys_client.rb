@@ -39,7 +39,28 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::APIKey.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new API key. The generated API key can be used to authenticate to the
+      # ngrok API.
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
+      # @return [NgrokAPI::Models::APIKey] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-api-keys-create
+      def create!(description: "", metadata: "")
+        path = '/api_keys'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::APIKey.new(client: self, attrs: result)
       end
 
       ##
@@ -87,7 +108,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::APIKey.new(client: self, attrs: result)
       end
 
       ##
@@ -105,7 +126,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::APIKey.new(client: self, attrs: result)
       end
 
       ##
@@ -117,8 +138,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-api-keys-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -128,7 +148,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::APIKey
         )
@@ -144,8 +164,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-api-keys-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -156,7 +175,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::APIKey,
           danger: true
@@ -181,7 +200,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::APIKey.new(client: self, attrs: result)
       end
 
       ##
@@ -203,7 +222,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::APIKey.new(client: self, result: result)
+        NgrokAPI::Models::APIKey.new(client: self, attrs: result)
       end
     end
   end

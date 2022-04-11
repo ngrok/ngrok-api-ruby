@@ -4,27 +4,31 @@ module NgrokAPI
   module Models
     class ReservedDomainCertJob
       attr_reader :client,
-        :result,
+        :attrs,
         :error_code,
         :msg,
         :started_at,
         :retries_at
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @error_code = @result['error_code']
-        @msg = @result['msg']
-        @started_at = @result['started_at']
-        @retries_at = @result['retries_at']
+        @attrs = attrs
+        @error_code = @attrs['error_code']
+        @msg = @attrs['msg']
+        @started_at = @attrs['started_at']
+        @retries_at = @attrs['retries_at']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

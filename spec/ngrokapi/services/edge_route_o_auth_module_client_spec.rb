@@ -19,8 +19,7 @@ RSpec.describe NgrokAPI::Services::EdgeRouteOAuthModuleClient do
         edge_id: endpoint_o_auth_result["edge_id"],
         id: endpoint_o_auth_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_o_auth_result)
       result = @edge_route_o_auth_module_client.replace(
@@ -39,8 +38,7 @@ RSpec.describe NgrokAPI::Services::EdgeRouteOAuthModuleClient do
         edge_id: endpoint_o_auth_result["edge_id"],
         id: endpoint_o_auth_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_o_auth_result)
       result = @edge_route_o_auth_module_client.replace(

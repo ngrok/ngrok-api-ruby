@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::AgentIngress do
   before(:each) do
     @client = class_double("AgentIngresssClient")
-    @agent_ingress = NgrokAPI::Models::AgentIngress.new(client: @client, result: agent_ingress_result)
+    @agent_ingress = NgrokAPI::Models::AgentIngress.new(client: @client, attrs: agent_ingress_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::AgentIngress.new(client: @client, result: agent_ingress_result)
+      other = NgrokAPI::Models::AgentIngress.new(client: @client, attrs: agent_ingress_result)
       expect(@agent_ingress == other).to eq true
     end
   end

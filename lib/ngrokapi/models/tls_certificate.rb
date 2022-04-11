@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class TLSCertificate
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -27,38 +27,42 @@ module NgrokAPI
         :subject_province,
         :subject_country
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @certificate_pem = @result['certificate_pem']
-        @subject_common_name = @result['subject_common_name']
-        @subject_alternative_names = @result['subject_alternative_names']
-        @issued_at = @result['issued_at']
-        @not_before = @result['not_before']
-        @not_after = @result['not_after']
-        @key_usages = @result['key_usages']
-        @extended_key_usages = @result['extended_key_usages']
-        @private_key_type = @result['private_key_type']
-        @issuer_common_name = @result['issuer_common_name']
-        @serial_number = @result['serial_number']
-        @subject_organization = @result['subject_organization']
-        @subject_organizational_unit = @result['subject_organizational_unit']
-        @subject_locality = @result['subject_locality']
-        @subject_province = @result['subject_province']
-        @subject_country = @result['subject_country']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @certificate_pem = @attrs['certificate_pem']
+        @subject_common_name = @attrs['subject_common_name']
+        @subject_alternative_names = @attrs['subject_alternative_names']
+        @issued_at = @attrs['issued_at']
+        @not_before = @attrs['not_before']
+        @not_after = @attrs['not_after']
+        @key_usages = @attrs['key_usages']
+        @extended_key_usages = @attrs['extended_key_usages']
+        @private_key_type = @attrs['private_key_type']
+        @issuer_common_name = @attrs['issuer_common_name']
+        @serial_number = @attrs['serial_number']
+        @subject_organization = @attrs['subject_organization']
+        @subject_organizational_unit = @attrs['subject_organizational_unit']
+        @subject_locality = @attrs['subject_locality']
+        @subject_province = @attrs['subject_province']
+        @subject_country = @attrs['subject_country']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

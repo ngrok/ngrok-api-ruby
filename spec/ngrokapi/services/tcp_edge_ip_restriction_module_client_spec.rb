@@ -18,8 +18,7 @@ RSpec.describe NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient do
       replacements = {
         id: endpoint_ip_policy_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_ip_policy_result)
       result = @tcp_edge_ip_restriction_module_client.replace(
@@ -36,8 +35,7 @@ RSpec.describe NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient do
       replacements = {
         id: endpoint_ip_policy_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_ip_policy_result)
       result = @tcp_edge_ip_restriction_module_client.replace(

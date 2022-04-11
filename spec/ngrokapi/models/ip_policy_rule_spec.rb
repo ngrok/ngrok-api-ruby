@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::IPPolicyRule do
   before(:each) do
     @client = class_double("IPPolicyRulesClient")
-    @ip_policy_rule = NgrokAPI::Models::IPPolicyRule.new(client: @client, result: ip_policy_rule_result)
+    @ip_policy_rule = NgrokAPI::Models::IPPolicyRule.new(client: @client, attrs: ip_policy_rule_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::IPPolicyRule.new(client: @client, result: ip_policy_rule_result)
+      other = NgrokAPI::Models::IPPolicyRule.new(client: @client, attrs: ip_policy_rule_result)
       expect(@ip_policy_rule == other).to eq true
     end
   end

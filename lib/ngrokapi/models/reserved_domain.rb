@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class ReservedDomain
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -20,31 +20,35 @@ module NgrokAPI
         :certificate_management_status,
         :acme_challenge_cname_target
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @domain = @result['domain']
-        @region = @result['region']
-        @cname_target = @result['cname_target']
-        @http_endpoint_configuration = @result['http_endpoint_configuration']
-        @https_endpoint_configuration = @result['https_endpoint_configuration']
-        @certificate = @result['certificate']
-        @certificate_management_policy = @result['certificate_management_policy']
-        @certificate_management_status = @result['certificate_management_status']
-        @acme_challenge_cname_target = @result['acme_challenge_cname_target']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @domain = @attrs['domain']
+        @region = @attrs['region']
+        @cname_target = @attrs['cname_target']
+        @http_endpoint_configuration = @attrs['http_endpoint_configuration']
+        @https_endpoint_configuration = @attrs['https_endpoint_configuration']
+        @certificate = @attrs['certificate']
+        @certificate_management_policy = @attrs['certificate_management_policy']
+        @certificate_management_status = @attrs['certificate_management_status']
+        @acme_challenge_cname_target = @attrs['acme_challenge_cname_target']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

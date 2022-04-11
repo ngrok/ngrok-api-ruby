@@ -13,17 +13,17 @@ module NgrokAPI
         :items,
         :list_property,
         :next_page_uri,
-        :result,
+        :attrs,
         :uri
 
-      def initialize(danger: false, client:, result:, list_property:, klass:)
+      def initialize(danger: false, client:, attrs:, list_property:, klass:)
         @client = client
-        @result = result
+        @attrs = attrs
         @list_property = list_property
-        @next_page_uri = @result['next_page_uri']
-        @uri = @result['uri']
-        @items = @result[list_property].map do |item|
-          klass.new(client: client, result: item)
+        @next_page_uri = @attrs['next_page_uri']
+        @uri = @attrs['uri']
+        @items = @attrs[list_property].map do |item|
+          klass.new(client: client, attrs: item)
         end
         @iter = NgrokAPI::PagedIterator.new(
           client: client,
@@ -42,11 +42,11 @@ module NgrokAPI
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
       end
     end
   end

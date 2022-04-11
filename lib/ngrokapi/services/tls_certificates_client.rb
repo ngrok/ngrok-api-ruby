@@ -42,7 +42,31 @@ module NgrokAPI
         data[:certificate_pem] = certificate_pem if certificate_pem
         data[:private_key_pem] = private_key_pem if private_key_pem
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
+        NgrokAPI::Models::TLSCertificate.new(client: self, attrs: result)
+      end
+
+      ##
+      # Upload a new TLS certificate
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
+      # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles` <https://ngrok.com/docs/api#tls-certificates-pem>`_.
+      # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys` <https://ngrok.com/docs/ngrok-link#tls-certificates-key>`_.
+      # @return [NgrokAPI::Models::TLSCertificate] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-tls-certificates-create
+      def create!(description: "", metadata: "", certificate_pem:, private_key_pem:)
+        path = '/tls_certificates'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:certificate_pem] = certificate_pem if certificate_pem
+        data[:private_key_pem] = private_key_pem if private_key_pem
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::TLSCertificate.new(client: self, attrs: result)
       end
 
       ##
@@ -90,7 +114,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
+        NgrokAPI::Models::TLSCertificate.new(client: self, attrs: result)
       end
 
       ##
@@ -108,7 +132,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
+        NgrokAPI::Models::TLSCertificate.new(client: self, attrs: result)
       end
 
       ##
@@ -120,8 +144,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -131,7 +154,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::TLSCertificate
         )
@@ -147,8 +170,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -159,7 +181,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::TLSCertificate,
           danger: true
@@ -184,7 +206,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
+        NgrokAPI::Models::TLSCertificate.new(client: self, attrs: result)
       end
 
       ##
@@ -206,7 +228,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::TLSCertificate.new(client: self, result: result)
+        NgrokAPI::Models::TLSCertificate.new(client: self, attrs: result)
       end
     end
   end

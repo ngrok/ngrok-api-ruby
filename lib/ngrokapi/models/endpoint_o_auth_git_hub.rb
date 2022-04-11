@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class EndpointOAuthGitHub
       attr_reader :client,
-        :result,
+        :attrs,
         :client_id,
         :client_secret,
         :scopes,
@@ -13,24 +13,28 @@ module NgrokAPI
         :teams,
         :organizations
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @client_id = @result['client_id']
-        @client_secret = @result['client_secret']
-        @scopes = @result['scopes']
-        @email_addresses = @result['email_addresses']
-        @email_domains = @result['email_domains']
-        @teams = @result['teams']
-        @organizations = @result['organizations']
+        @attrs = attrs
+        @client_id = @attrs['client_id']
+        @client_secret = @attrs['client_secret']
+        @scopes = @attrs['scopes']
+        @email_addresses = @attrs['email_addresses']
+        @email_domains = @attrs['email_domains']
+        @teams = @attrs['teams']
+        @organizations = @attrs['organizations']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

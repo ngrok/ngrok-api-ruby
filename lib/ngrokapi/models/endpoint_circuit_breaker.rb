@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class EndpointCircuitBreaker
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled,
         :tripped_duration,
         :rolling_window,
@@ -12,23 +12,27 @@ module NgrokAPI
         :volume_threshold,
         :error_threshold_percentage
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
-        @tripped_duration = @result['tripped_duration']
-        @rolling_window = @result['rolling_window']
-        @num_buckets = @result['num_buckets']
-        @volume_threshold = @result['volume_threshold']
-        @error_threshold_percentage = @result['error_threshold_percentage']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
+        @tripped_duration = @attrs['tripped_duration']
+        @rolling_window = @attrs['rolling_window']
+        @num_buckets = @attrs['num_buckets']
+        @volume_threshold = @attrs['volume_threshold']
+        @error_threshold_percentage = @attrs['error_threshold_percentage']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

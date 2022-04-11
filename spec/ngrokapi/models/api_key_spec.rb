@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::APIKey do
   before(:each) do
     @client = class_double("APIKeysClient")
-    @api_key = NgrokAPI::Models::APIKey.new(client: @client, result: api_key_result)
+    @api_key = NgrokAPI::Models::APIKey.new(client: @client, attrs: api_key_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::APIKey.new(client: @client, result: api_key_result)
+      other = NgrokAPI::Models::APIKey.new(client: @client, attrs: api_key_result)
       expect(@api_key == other).to eq true
     end
   end

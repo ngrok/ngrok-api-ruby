@@ -42,7 +42,32 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:acl] = acl if acl
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::Credential.new(client: self, result: result)
+        NgrokAPI::Models::Credential.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new tunnel authtoken credential. This authtoken credential can be used
+      # to start a new tunnel session. The response to this API call is the only time
+      # the generated token is available. If you need it for future use, you must save
+      # it securely yourself.
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of who or what will use the credential to authenticate. Optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this credential. Optional, max 4096 bytes.
+      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains and addresses the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @return [NgrokAPI::Models::Credential] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-credentials-create
+      def create!(description: "", metadata: "", acl: [])
+        path = '/credentials'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:acl] = acl if acl
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::Credential.new(client: self, attrs: result)
       end
 
       ##
@@ -90,7 +115,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::Credential.new(client: self, result: result)
+        NgrokAPI::Models::Credential.new(client: self, attrs: result)
       end
 
       ##
@@ -108,7 +133,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::Credential.new(client: self, result: result)
+        NgrokAPI::Models::Credential.new(client: self, attrs: result)
       end
 
       ##
@@ -120,8 +145,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -131,7 +155,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::Credential
         )
@@ -147,8 +171,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -159,7 +182,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::Credential,
           danger: true
@@ -186,7 +209,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:acl] = acl if acl
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::Credential.new(client: self, result: result)
+        NgrokAPI::Models::Credential.new(client: self, attrs: result)
       end
 
       ##
@@ -210,7 +233,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:acl] = acl if acl
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::Credential.new(client: self, result: result)
+        NgrokAPI::Models::Credential.new(client: self, attrs: result)
       end
     end
   end

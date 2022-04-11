@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class FailoverBackend
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -12,27 +12,31 @@ module NgrokAPI
         :metadata,
         :backends
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @backends = @result['backends']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @backends = @attrs['backends']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##
-      # Delete a Failover backend by ID. TODO what if used?
+      # Delete a Failover backend by ID.
       #
       # https://ngrok.com/docs/api#api-failover-backends-delete
       def delete

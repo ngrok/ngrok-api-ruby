@@ -41,7 +41,33 @@ module NgrokAPI
         data[:ip_policy_id] = ip_policy_id if ip_policy_id
         data[:action] = action if action
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::IPPolicyRule.new(client: self, result: result)
+        NgrokAPI::Models::IPPolicyRule.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new IP policy rule attached to an IP Policy.
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of the source IPs of this IP rule. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this IP policy rule. optional, max 4096 bytes.
+      # @param [string] cidr an IP or IP range specified in CIDR notation. IPv4 and IPv6 are both supported.
+      # @param [string] ip_policy_id ID of the IP policy this IP policy rule will be attached to
+      # @param [string] action the action to apply to the policy rule, either ``allow`` or ``deny``
+      # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-ip-policy-rules-create
+      def create!(description: "", metadata: "", cidr:, ip_policy_id:, action: nil)
+        path = '/ip_policy_rules'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:cidr] = cidr if cidr
+        data[:ip_policy_id] = ip_policy_id if ip_policy_id
+        data[:action] = action if action
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::IPPolicyRule.new(client: self, attrs: result)
       end
 
       ##
@@ -89,7 +115,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::IPPolicyRule.new(client: self, result: result)
+        NgrokAPI::Models::IPPolicyRule.new(client: self, attrs: result)
       end
 
       ##
@@ -107,7 +133,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::IPPolicyRule.new(client: self, result: result)
+        NgrokAPI::Models::IPPolicyRule.new(client: self, attrs: result)
       end
 
       ##
@@ -119,8 +145,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -130,7 +155,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::IPPolicyRule
         )
@@ -146,8 +171,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -158,7 +182,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::IPPolicyRule,
           danger: true
@@ -185,7 +209,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:cidr] = cidr if cidr
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::IPPolicyRule.new(client: self, result: result)
+        NgrokAPI::Models::IPPolicyRule.new(client: self, attrs: result)
       end
 
       ##
@@ -209,7 +233,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:cidr] = cidr if cidr
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::IPPolicyRule.new(client: self, result: result)
+        NgrokAPI::Models::IPPolicyRule.new(client: self, attrs: result)
       end
     end
   end

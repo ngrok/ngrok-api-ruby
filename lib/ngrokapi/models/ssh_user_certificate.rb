@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class SSHUserCertificate
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -20,31 +20,35 @@ module NgrokAPI
         :valid_until,
         :certificate
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @public_key = @result['public_key']
-        @key_type = @result['key_type']
-        @ssh_certificate_authority_id = @result['ssh_certificate_authority_id']
-        @principals = @result['principals']
-        @critical_options = @result['critical_options']
-        @extensions = @result['extensions']
-        @valid_after = @result['valid_after']
-        @valid_until = @result['valid_until']
-        @certificate = @result['certificate']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @public_key = @attrs['public_key']
+        @key_type = @attrs['key_type']
+        @ssh_certificate_authority_id = @attrs['ssh_certificate_authority_id']
+        @principals = @attrs['principals']
+        @critical_options = @attrs['critical_options']
+        @extensions = @attrs['extensions']
+        @valid_after = @attrs['valid_after']
+        @valid_until = @attrs['valid_until']
+        @certificate = @attrs['certificate']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

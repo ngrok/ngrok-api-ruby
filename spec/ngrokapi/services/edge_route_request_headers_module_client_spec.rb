@@ -19,8 +19,7 @@ RSpec.describe NgrokAPI::Services::EdgeRouteRequestHeadersModuleClient do
         edge_id: endpoint_request_headers_result["edge_id"],
         id: endpoint_request_headers_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_request_headers_result)
       result = @edge_route_request_headers_module_client.replace(
@@ -39,8 +38,7 @@ RSpec.describe NgrokAPI::Services::EdgeRouteRequestHeadersModuleClient do
         edge_id: endpoint_request_headers_result["edge_id"],
         id: endpoint_request_headers_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_request_headers_result)
       result = @edge_route_request_headers_module_client.replace(

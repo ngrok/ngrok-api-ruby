@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::EndpointCompression do
   before(:each) do
     @client = class_double("EndpointCompressionsClient")
-    @endpoint_compression = NgrokAPI::Models::EndpointCompression.new(client: @client, result: endpoint_compression_result)
+    @endpoint_compression = NgrokAPI::Models::EndpointCompression.new(client: @client, attrs: endpoint_compression_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::EndpointCompression.new(client: @client, result: endpoint_compression_result)
+      other = NgrokAPI::Models::EndpointCompression.new(client: @client, attrs: endpoint_compression_result)
       expect(@endpoint_compression == other).to eq true
     end
   end

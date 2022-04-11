@@ -32,6 +32,27 @@ RSpec.describe NgrokAPI::Services::AgentIngressesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::AgentIngress" do
+      path = '/agent_ingresses'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:domain] = "New domain"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(agent_ingress_result)
+      result = @agent_ingresses_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        domain: "New domain"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::AgentIngress)
+      # expect(result.id).to eq(agent_ingress_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/agent_ingresses/%{id}'

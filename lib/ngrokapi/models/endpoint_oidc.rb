@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class EndpointOIDC
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled,
         :options_passthrough,
         :cookie_prefix,
@@ -15,26 +15,30 @@ module NgrokAPI
         :client_secret,
         :scopes
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
-        @options_passthrough = @result['options_passthrough']
-        @cookie_prefix = @result['cookie_prefix']
-        @inactivity_timeout = @result['inactivity_timeout']
-        @maximum_duration = @result['maximum_duration']
-        @issuer = @result['issuer']
-        @client_id = @result['client_id']
-        @client_secret = @result['client_secret']
-        @scopes = @result['scopes']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
+        @options_passthrough = @attrs['options_passthrough']
+        @cookie_prefix = @attrs['cookie_prefix']
+        @inactivity_timeout = @attrs['inactivity_timeout']
+        @maximum_duration = @attrs['maximum_duration']
+        @issuer = @attrs['issuer']
+        @client_id = @attrs['client_id']
+        @client_secret = @attrs['client_secret']
+        @scopes = @attrs['scopes']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

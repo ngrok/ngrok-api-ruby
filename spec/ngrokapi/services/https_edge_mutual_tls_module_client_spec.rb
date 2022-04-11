@@ -18,8 +18,7 @@ RSpec.describe NgrokAPI::Services::HTTPSEdgeMutualTLSModuleClient do
       replacements = {
         id: endpoint_mutual_tls_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_mutual_tls_result)
       result = @https_edge_mutual_tls_module_client.replace(
@@ -36,8 +35,7 @@ RSpec.describe NgrokAPI::Services::HTTPSEdgeMutualTLSModuleClient do
       replacements = {
         id: endpoint_mutual_tls_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_mutual_tls_result)
       result = @https_edge_mutual_tls_module_client.replace(

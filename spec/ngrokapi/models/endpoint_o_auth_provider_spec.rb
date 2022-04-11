@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::EndpointOAuthProvider do
   before(:each) do
     @client = class_double("EndpointOAuthProvidersClient")
-    @endpoint_o_auth_provider = NgrokAPI::Models::EndpointOAuthProvider.new(client: @client, result: endpoint_o_auth_provider_result)
+    @endpoint_o_auth_provider = NgrokAPI::Models::EndpointOAuthProvider.new(client: @client, attrs: endpoint_o_auth_provider_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::EndpointOAuthProvider.new(client: @client, result: endpoint_o_auth_provider_result)
+      other = NgrokAPI::Models::EndpointOAuthProvider.new(client: @client, attrs: endpoint_o_auth_provider_result)
       expect(@endpoint_o_auth_provider == other).to eq true
     end
   end

@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::ReservedDomain do
   before(:each) do
     @client = class_double("ReservedDomainsClient")
-    @reserved_domain = NgrokAPI::Models::ReservedDomain.new(client: @client, result: reserved_domain_result)
+    @reserved_domain = NgrokAPI::Models::ReservedDomain.new(client: @client, attrs: reserved_domain_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::ReservedDomain.new(client: @client, result: reserved_domain_result)
+      other = NgrokAPI::Models::ReservedDomain.new(client: @client, attrs: reserved_domain_result)
       expect(@reserved_domain == other).to eq true
     end
   end

@@ -35,6 +35,30 @@ RSpec.describe NgrokAPI::Services::EventDestinationsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::EventDestination" do
+      path = '/event_destinations'
+      replacements = {
+      }
+      data = {}
+      data[:metadata] = "New metadata"
+      data[:description] = "New description"
+      data[:format] = "New format"
+      data[:target] = "New target"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(event_destination_result)
+      result = @event_destinations_client.create(
+        metadata: "New metadata",
+        description: "New description",
+        format: "New format",
+        target: "New target",
+        verify_with_test_event: "New verify_with_test_event"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::EventDestination)
+      # expect(result.id).to eq(event_destination_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/event_destinations/%{id}'

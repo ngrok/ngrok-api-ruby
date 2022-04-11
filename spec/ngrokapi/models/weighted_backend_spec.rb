@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::WeightedBackend do
   before(:each) do
     @client = class_double("WeightedBackendsClient")
-    @weighted_backend = NgrokAPI::Models::WeightedBackend.new(client: @client, result: weighted_backend_result)
+    @weighted_backend = NgrokAPI::Models::WeightedBackend.new(client: @client, attrs: weighted_backend_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::WeightedBackend.new(client: @client, result: weighted_backend_result)
+      other = NgrokAPI::Models::WeightedBackend.new(client: @client, attrs: weighted_backend_result)
       expect(@weighted_backend == other).to eq true
     end
   end

@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::TunnelSession do
   before(:each) do
     @client = class_double("TunnelSessionsClient")
-    @tunnel_session = NgrokAPI::Models::TunnelSession.new(client: @client, result: tunnel_session_result)
+    @tunnel_session = NgrokAPI::Models::TunnelSession.new(client: @client, attrs: tunnel_session_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::TunnelSession.new(client: @client, result: tunnel_session_result)
+      other = NgrokAPI::Models::TunnelSession.new(client: @client, attrs: tunnel_session_result)
       expect(@tunnel_session == other).to eq true
     end
   end

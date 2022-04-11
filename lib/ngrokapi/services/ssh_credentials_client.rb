@@ -40,7 +40,32 @@ module NgrokAPI
         data[:acl] = acl if acl
         data[:public_key] = public_key if public_key
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::SSHCredential.new(client: self, result: result)
+        NgrokAPI::Models::SSHCredential.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new ssh_credential from an uploaded public SSH key. This ssh credential
+      # can be used to start new tunnels via ngrok's SSH gateway.
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of who or what will use the ssh credential to authenticate. Optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this ssh credential. Optional, max 4096 bytes.
+      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains and addresses the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @param [string] public_key the PEM-encoded public key of the SSH keypair that will be used to authenticate
+      # @return [NgrokAPI::Models::SSHCredential] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-ssh-credentials-create
+      def create!(description: "", metadata: "", acl: [], public_key:)
+        path = '/ssh_credentials'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:acl] = acl if acl
+        data[:public_key] = public_key if public_key
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::SSHCredential.new(client: self, attrs: result)
       end
 
       ##
@@ -88,7 +113,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::SSHCredential.new(client: self, result: result)
+        NgrokAPI::Models::SSHCredential.new(client: self, attrs: result)
       end
 
       ##
@@ -106,7 +131,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::SSHCredential.new(client: self, result: result)
+        NgrokAPI::Models::SSHCredential.new(client: self, attrs: result)
       end
 
       ##
@@ -118,8 +143,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -129,7 +153,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::SSHCredential
         )
@@ -145,8 +169,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ssh-credentials-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -157,7 +180,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::SSHCredential,
           danger: true
@@ -184,7 +207,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:acl] = acl if acl
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::SSHCredential.new(client: self, result: result)
+        NgrokAPI::Models::SSHCredential.new(client: self, attrs: result)
       end
 
       ##
@@ -208,7 +231,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:acl] = acl if acl
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::SSHCredential.new(client: self, result: result)
+        NgrokAPI::Models::SSHCredential.new(client: self, attrs: result)
       end
     end
   end

@@ -18,8 +18,7 @@ RSpec.describe NgrokAPI::Services::TLSEdgeTLSTerminationModuleClient do
       replacements = {
         id: endpoint_tls_termination_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_tls_termination_result)
       result = @tls_edge_tls_termination_module_client.replace(
@@ -36,8 +35,7 @@ RSpec.describe NgrokAPI::Services::TLSEdgeTLSTerminationModuleClient do
       replacements = {
         id: endpoint_tls_termination_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_tls_termination_result)
       result = @tls_edge_tls_termination_module_client.replace(

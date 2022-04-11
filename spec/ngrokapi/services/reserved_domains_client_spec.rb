@@ -40,6 +40,35 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::ReservedDomain" do
+      path = '/reserved_domains'
+      replacements = {
+      }
+      data = {}
+      data[:name] = "New name"
+      data[:region] = "New region"
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:certificate_id] = "New certificate_id"
+      data[:certificate_management_policy] = "New certificate_management_policy"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(reserved_domain_result)
+      result = @reserved_domains_client.create(
+        name: "New name",
+        region: "New region",
+        description: "New description",
+        metadata: "New metadata",
+        http_endpoint_configuration_id: "New http_endpoint_configuration_id",
+        https_endpoint_configuration_id: "New https_endpoint_configuration_id",
+        certificate_id: "New certificate_id",
+        certificate_management_policy: "New certificate_management_policy"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
+      # expect(result.id).to eq(reserved_domain_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/reserved_domains/%{id}'

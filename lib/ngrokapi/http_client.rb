@@ -69,7 +69,7 @@ module NgrokAPI
     def patch(path, danger: false, data: {})
       uri = get_uri(path)
       req = Net::HTTP::Patch.new(uri, headers_with_json)
-      json_do(uri, req, danger: danger, data: data.to_json)
+      json_do(uri, req, danger: danger, data: deep_to_h(data).to_json)
     end
 
     ##
@@ -82,7 +82,20 @@ module NgrokAPI
     def post(path, danger: false, data: {})
       uri = get_uri(path)
       req = Net::HTTP::Post.new(uri, headers_with_json)
-      json_do(uri, req, danger: danger, data: data.to_json)
+      json_do(uri, req, danger: danger, data: deep_to_h(data).to_json)
+    end
+
+    ##
+    # Make a PUT request to a given URI with optional data
+    #
+    # @param [string] path URL resource path
+    # @param [boolean] danger determine if we should throw an exception on 404 or not
+    # @param [hash] data hash which will be converted to query parameters or form data
+    # @return [json] response body
+    def put(path, danger: false, data: {})
+      uri = get_uri(path)
+      req = Net::HTTP::Put.new(uri, headers_with_json)
+      json_do(uri, req, danger: danger, data: deep_to_h(data).to_json)
     end
 
     private
@@ -126,6 +139,12 @@ module NgrokAPI
     def url(path)
       path = path.delete_prefix(@base_url)
       "#{@base_url}#{path}"
+    end
+
+    def deep_to_h(data)
+      data.to_h.transform_values do |v|
+        (!v.is_a?(Array) && v.methods.include?(:to_h)) ? deep_to_h(v) : v
+      end
     end
   end
 end

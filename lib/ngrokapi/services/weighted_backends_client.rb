@@ -26,7 +26,7 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of this backend. Optional
       # @param [string] metadata arbitrary user-defined machine-readable data of this backend. Optional
-      # @param [Map<string, int64>] backends the ids of the child backends to their weights (0-10000)
+      # @param [Map<string, int64>] backends the ids of the child backends to their weights [0-10000]
       # @return [NgrokAPI::Models::WeightedBackend] result from the API request
       #
       # https://ngrok.com/docs/api#api-weighted-backends-create
@@ -39,11 +39,33 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:backends] = backends if backends
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::WeightedBackend.new(client: self, result: result)
+        NgrokAPI::Models::WeightedBackend.new(client: self, attrs: result)
       end
 
       ##
-      # Delete a Weighted backend by ID. TODO what if used?
+      # Create a new Weighted backend
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of this backend. Optional
+      # @param [string] metadata arbitrary user-defined machine-readable data of this backend. Optional
+      # @param [Map<string, int64>] backends the ids of the child backends to their weights [0-10000]
+      # @return [NgrokAPI::Models::WeightedBackend] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-weighted-backends-create
+      def create!(description: "", metadata: "", backends: {})
+        path = '/backends/weighted'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:backends] = backends if backends
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::WeightedBackend.new(client: self, attrs: result)
+      end
+
+      ##
+      # Delete a Weighted backend by ID.
       #
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::Empty] result from the API request
@@ -58,7 +80,7 @@ module NgrokAPI
       end
 
       ##
-      # Delete a Weighted backend by ID. TODO what if used?
+      # Delete a Weighted backend by ID.
       # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
@@ -87,7 +109,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::WeightedBackend.new(client: self, result: result)
+        NgrokAPI::Models::WeightedBackend.new(client: self, attrs: result)
       end
 
       ##
@@ -105,7 +127,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::WeightedBackend.new(client: self, result: result)
+        NgrokAPI::Models::WeightedBackend.new(client: self, attrs: result)
       end
 
       ##
@@ -117,8 +139,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-weighted-backends-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -128,7 +149,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::WeightedBackend
         )
@@ -144,8 +165,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-weighted-backends-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -156,7 +176,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::WeightedBackend,
           danger: true
@@ -169,7 +189,7 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of this backend. Optional
       # @param [string] metadata arbitrary user-defined machine-readable data of this backend. Optional
-      # @param [Map<string, int64>] backends the ids of the child backends to their weights (0-10000)
+      # @param [Map<string, int64>] backends the ids of the child backends to their weights [0-10000]
       # @return [NgrokAPI::Models::WeightedBackend] result from the API request
       #
       # https://ngrok.com/docs/api#api-weighted-backends-update
@@ -183,7 +203,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:backends] = backends if backends
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::WeightedBackend.new(client: self, result: result)
+        NgrokAPI::Models::WeightedBackend.new(client: self, attrs: result)
       end
 
       ##
@@ -193,7 +213,7 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of this backend. Optional
       # @param [string] metadata arbitrary user-defined machine-readable data of this backend. Optional
-      # @param [Map<string, int64>] backends the ids of the child backends to their weights (0-10000)
+      # @param [Map<string, int64>] backends the ids of the child backends to their weights [0-10000]
       # @return [NgrokAPI::Models::WeightedBackend] result from the API request
       #
       # https://ngrok.com/docs/api#api-weighted-backends-update
@@ -207,7 +227,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:backends] = backends if backends
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::WeightedBackend.new(client: self, result: result)
+        NgrokAPI::Models::WeightedBackend.new(client: self, attrs: result)
       end
     end
   end
