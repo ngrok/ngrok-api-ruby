@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class HTTPSEdgeRoute
       attr_reader :client,
-        :result,
+        :attrs,
         :edge_id,
         :id,
         :created_at,
@@ -25,36 +25,40 @@ module NgrokAPI
         :oidc,
         :websocket_tcp_converter
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @edge_id = @result['edge_id']
-        @id = @result['id']
-        @created_at = @result['created_at']
-        @match_type = @result['match_type']
-        @match = @result['match']
-        @uri = @result['uri']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @backend = @result['backend']
-        @ip_restriction = @result['ip_restriction']
-        @circuit_breaker = @result['circuit_breaker']
-        @compression = @result['compression']
-        @request_headers = @result['request_headers']
-        @response_headers = @result['response_headers']
-        @webhook_verification = @result['webhook_verification']
-        @oauth = @result['oauth']
-        @saml = @result['saml']
-        @oidc = @result['oidc']
-        @websocket_tcp_converter = @result['websocket_tcp_converter']
+        @attrs = attrs
+        @edge_id = @attrs['edge_id']
+        @id = @attrs['id']
+        @created_at = @attrs['created_at']
+        @match_type = @attrs['match_type']
+        @match = @attrs['match']
+        @uri = @attrs['uri']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @backend = @attrs['backend']
+        @ip_restriction = @attrs['ip_restriction']
+        @circuit_breaker = @attrs['circuit_breaker']
+        @compression = @attrs['compression']
+        @request_headers = @attrs['request_headers']
+        @response_headers = @attrs['response_headers']
+        @webhook_verification = @attrs['webhook_verification']
+        @oauth = @attrs['oauth']
+        @saml = @attrs['saml']
+        @oidc = @attrs['oidc']
+        @websocket_tcp_converter = @attrs['websocket_tcp_converter']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

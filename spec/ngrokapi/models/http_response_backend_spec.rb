@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::HTTPResponseBackend do
   before(:each) do
     @client = class_double("HTTPResponseBackendsClient")
-    @http_response_backend = NgrokAPI::Models::HTTPResponseBackend.new(client: @client, result: http_response_backend_result)
+    @http_response_backend = NgrokAPI::Models::HTTPResponseBackend.new(client: @client, attrs: http_response_backend_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::HTTPResponseBackend.new(client: @client, result: http_response_backend_result)
+      other = NgrokAPI::Models::HTTPResponseBackend.new(client: @client, attrs: http_response_backend_result)
       expect(@http_response_backend == other).to eq true
     end
   end

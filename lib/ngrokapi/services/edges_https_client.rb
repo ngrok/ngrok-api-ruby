@@ -38,7 +38,33 @@ module NgrokAPI
         data[:mutual_tls] = mutual_tls if mutual_tls
         data[:tls_termination] = tls_termination if tls_termination
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::HTTPSEdge.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdge.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create an HTTPS Edge
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of what this edge will be used for; optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this edge; optional, max 4096 bytes.
+      # @param [List<string>] hostports hostports served by this edge
+      # @param [EndpointMutualTLSMutate] mutual_tls edge modules
+      # @param [EndpointTLSTerminationAtEdge] tls_termination
+      # @return [NgrokAPI::Models::HTTPSEdge] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-edges-https-create
+      def create!(description: "", metadata: "", hostports: nil, mutual_tls: nil, tls_termination: nil)
+        path = '/edges/https'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:hostports] = hostports if hostports
+        data[:mutual_tls] = mutual_tls if mutual_tls
+        data[:tls_termination] = tls_termination if tls_termination
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::HTTPSEdge.new(client: self, attrs: result)
       end
 
       ##
@@ -55,7 +81,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::HTTPSEdge.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdge.new(client: self, attrs: result)
       end
 
       ##
@@ -73,7 +99,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::HTTPSEdge.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdge.new(client: self, attrs: result)
       end
 
       ##
@@ -85,8 +111,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-https-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -96,7 +121,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::HTTPSEdge
         )
@@ -112,8 +137,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-https-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -124,7 +148,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::HTTPSEdge,
           danger: true
@@ -158,7 +182,7 @@ module NgrokAPI
         data[:mutual_tls] = mutual_tls if mutual_tls
         data[:tls_termination] = tls_termination if tls_termination
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::HTTPSEdge.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdge.new(client: self, attrs: result)
       end
 
       ##
@@ -189,7 +213,7 @@ module NgrokAPI
         data[:mutual_tls] = mutual_tls if mutual_tls
         data[:tls_termination] = tls_termination if tls_termination
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::HTTPSEdge.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdge.new(client: self, attrs: result)
       end
 
       ##

@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class EndpointBackend
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled,
         :backend
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
-        @backend = @result['backend']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
+        @backend = @attrs['backend']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

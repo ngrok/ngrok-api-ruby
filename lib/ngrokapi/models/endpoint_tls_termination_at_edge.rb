@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class EndpointTLSTerminationAtEdge
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled,
         :min_version
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
-        @min_version = @result['min_version']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
+        @min_version = @attrs['min_version']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

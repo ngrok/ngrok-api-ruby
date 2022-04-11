@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class EventTargetFirehose
       attr_reader :client,
-        :result,
+        :attrs,
         :auth,
         :delivery_stream_arn
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @auth = @result['auth']
-        @delivery_stream_arn = @result['delivery_stream_arn']
+        @attrs = attrs
+        @auth = @attrs['auth']
+        @delivery_stream_arn = @attrs['delivery_stream_arn']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

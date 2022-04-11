@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class AgentIngress
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :description,
@@ -14,25 +14,29 @@ module NgrokAPI
         :region_domains,
         :created_at
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @domain = @result['domain']
-        @ns_targets = @result['ns_targets']
-        @region_domains = @result['region_domains']
-        @created_at = @result['created_at']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @domain = @attrs['domain']
+        @ns_targets = @attrs['ns_targets']
+        @region_domains = @attrs['region_domains']
+        @created_at = @attrs['created_at']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class AWSAuth
       attr_reader :client,
-        :result,
+        :attrs,
         :role,
         :creds
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @role = @result['role']
-        @creds = @result['creds']
+        @attrs = attrs
+        @role = @attrs['role']
+        @creds = @attrs['creds']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

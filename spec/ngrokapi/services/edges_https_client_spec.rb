@@ -36,6 +36,31 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::HTTPSEdge" do
+      path = '/edges/https'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:hostports] = "New hostports"
+      data[:mutual_tls] = "New mutual_tls"
+      data[:tls_termination] = "New tls_termination"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(https_edge_result)
+      result = @edges_https_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        hostports: "New hostports",
+        mutual_tls: "New mutual_tls",
+        tls_termination: "New tls_termination"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::HTTPSEdge)
+      # expect(result.id).to eq(https_edge_result["id"])
+    end
+  end
+
   describe "#get" do
     it "will make a get request and return an instance of NgrokAPI::Models::HTTPSEdge" do
       path = '/edges/https/%{id}'

@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class AbuseReportHostname
       attr_reader :client,
-        :result,
+        :attrs,
         :hostname,
         :status
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @hostname = @result['hostname']
-        @status = @result['status']
+        @attrs = attrs
+        @hostname = @attrs['hostname']
+        @status = @attrs['status']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class EventSubscription
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -13,24 +13,28 @@ module NgrokAPI
         :sources,
         :destinations
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @metadata = @result['metadata']
-        @description = @result['description']
-        @sources = @result['sources']
-        @destinations = @result['destinations']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @metadata = @attrs['metadata']
+        @description = @attrs['description']
+        @sources = @attrs['sources']
+        @destinations = @attrs['destinations']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

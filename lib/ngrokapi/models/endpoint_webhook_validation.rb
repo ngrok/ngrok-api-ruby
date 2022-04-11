@@ -4,25 +4,29 @@ module NgrokAPI
   module Models
     class EndpointWebhookValidation
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled,
         :provider,
         :secret
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
-        @provider = @result['provider']
-        @secret = @result['secret']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
+        @provider = @attrs['provider']
+        @secret = @attrs['secret']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

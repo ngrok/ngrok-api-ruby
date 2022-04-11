@@ -19,8 +19,7 @@ RSpec.describe NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient do
         edge_id: endpoint_websocket_tcp_converter_result["edge_id"],
         id: endpoint_websocket_tcp_converter_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_websocket_tcp_converter_result)
       result = @edge_route_websocket_tcp_converter_module_client.replace(
@@ -39,8 +38,7 @@ RSpec.describe NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient do
         edge_id: endpoint_websocket_tcp_converter_result["edge_id"],
         id: endpoint_websocket_tcp_converter_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_websocket_tcp_converter_result)
       result = @edge_route_websocket_tcp_converter_module_client.replace(

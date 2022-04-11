@@ -4,27 +4,31 @@ module NgrokAPI
   module Models
     class EventSource
       attr_reader :client,
-        :result,
+        :attrs,
         :type,
         :filter,
         :fields,
         :uri
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @type = @result['type']
-        @filter = @result['filter']
-        @fields = @result['fields']
-        @uri = @result['uri']
+        @attrs = attrs
+        @type = @attrs['type']
+        @filter = @attrs['filter']
+        @fields = @attrs['fields']
+        @uri = @attrs['uri']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

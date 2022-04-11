@@ -36,6 +36,31 @@ RSpec.describe NgrokAPI::Services::HTTPResponseBackendsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::HTTPResponseBackend" do
+      path = '/backends/http_response'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:body] = "New body"
+      data[:headers] = "New headers"
+      data[:status_code] = "New status_code"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(http_response_backend_result)
+      result = @http_response_backends_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        body: "New body",
+        headers: "New headers",
+        status_code: "New status_code"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::HTTPResponseBackend)
+      # expect(result.id).to eq(http_response_backend_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/backends/http_response/%{id}'

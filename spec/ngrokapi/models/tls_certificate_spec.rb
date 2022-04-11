@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::TLSCertificate do
   before(:each) do
     @client = class_double("TLSCertificatesClient")
-    @tls_certificate = NgrokAPI::Models::TLSCertificate.new(client: @client, result: tls_certificate_result)
+    @tls_certificate = NgrokAPI::Models::TLSCertificate.new(client: @client, attrs: tls_certificate_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::TLSCertificate.new(client: @client, result: tls_certificate_result)
+      other = NgrokAPI::Models::TLSCertificate.new(client: @client, attrs: tls_certificate_result)
       expect(@tls_certificate == other).to eq true
     end
   end

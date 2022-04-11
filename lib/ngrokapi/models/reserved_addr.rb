@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class ReservedAddr
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -14,25 +14,29 @@ module NgrokAPI
         :region,
         :endpoint_configuration
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @addr = @result['addr']
-        @region = @result['region']
-        @endpoint_configuration = @result['endpoint_configuration']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @addr = @attrs['addr']
+        @region = @attrs['region']
+        @endpoint_configuration = @attrs['endpoint_configuration']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

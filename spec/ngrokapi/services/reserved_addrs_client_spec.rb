@@ -33,6 +33,28 @@ RSpec.describe NgrokAPI::Services::ReservedAddrsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::ReservedAddr" do
+      path = '/reserved_addrs'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:region] = "New region"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(reserved_addr_result)
+      result = @reserved_addrs_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        region: "New region",
+        endpoint_configuration_id: "New endpoint_configuration_id"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::ReservedAddr)
+      # expect(result.id).to eq(reserved_addr_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/reserved_addrs/%{id}'

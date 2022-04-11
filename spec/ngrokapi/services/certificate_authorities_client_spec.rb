@@ -32,6 +32,27 @@ RSpec.describe NgrokAPI::Services::CertificateAuthoritiesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::CertificateAuthority" do
+      path = '/certificate_authorities'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:ca_pem] = "New ca_pem"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(certificate_authority_result)
+      result = @certificate_authorities_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        ca_pem: "New ca_pem"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::CertificateAuthority)
+      # expect(result.id).to eq(certificate_authority_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/certificate_authorities/%{id}'

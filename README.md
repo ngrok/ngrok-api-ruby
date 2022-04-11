@@ -20,12 +20,39 @@ A quickstart guide and a full API reference are included in the [ngrok Ruby API 
 Please consult the [documentation](https://ruby-api.docs.ngrok.com) for additional examples.
 
 ```ruby
-require 'ngrokapi/client'
+require 'ngrokapi'
 client = NgrokAPI::Client.new(api_key: '<API KEY>')
 
 # Get an instance of the api_keys client and list all API keys
 keys_client = client.api_keys
 keys_client.list
+
+# Or set up an edge and backend with the ability to change your configuration later
+edge = client.edges.https.create!(
+  description: "A Ruby Created Edge",
+  metadata: '{"client": "ruby"}',
+  hostports: ["your-subdomain.ngrok.io:443"]
+)
+
+backend = client.backends.tunnel_group.create!(
+  description: "A Ruby Created Backend",
+  labels: {"client_example": "ruby"}
+)
+
+route = client.edges.https_routes.create!(
+  edge_id: edge.id,
+  match_type: "path_prefix",
+  match: "/",
+  description: "Root",
+  backend: NgrokAPI::Models::EndpointBackendMutate.new(attrs: {"enabled": true, "backend_id": backend.id}),
+  compression: NgrokAPI::Models::EndpointCompression.new(attrs: {"enabled": true})
+)
+
+client.edge_modules.https_edge_route_compression.replace!(
+  edge_id: edge.id,
+  id: route.id,
+  a_module: NgrokAPI::Models::EndpointCompression.new(attrs: {"enabled": false})
+)
 ```
 
 ## Local Documentation

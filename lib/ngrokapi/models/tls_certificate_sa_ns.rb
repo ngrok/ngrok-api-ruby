@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class TLSCertificateSANs
       attr_reader :client,
-        :result,
+        :attrs,
         :dns_names,
         :ips
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @dns_names = @result['dns_names']
-        @ips = @result['ips']
+        @attrs = attrs
+        @dns_names = @attrs['dns_names']
+        @ips = @attrs['ips']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

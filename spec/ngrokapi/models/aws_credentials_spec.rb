@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::AWSCredentials do
   before(:each) do
     @client = class_double("AWSCredentialssClient")
-    @aws_credentials = NgrokAPI::Models::AWSCredentials.new(client: @client, result: aws_credentials_result)
+    @aws_credentials = NgrokAPI::Models::AWSCredentials.new(client: @client, attrs: aws_credentials_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::AWSCredentials.new(client: @client, result: aws_credentials_result)
+      other = NgrokAPI::Models::AWSCredentials.new(client: @client, attrs: aws_credentials_result)
       expect(@aws_credentials == other).to eq true
     end
   end

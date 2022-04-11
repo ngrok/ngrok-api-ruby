@@ -125,6 +125,35 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#attrs-instance_method" title="#attrs (instance method)">#<strong>attrs</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute attrs.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#client-instance_method" title="#client (instance method)">#<strong>client</strong>  &#x21d2; Object </a>
     
 
@@ -299,35 +328,6 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#result-instance_method" title="#result (instance method)">#<strong>result</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute result.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#uri-instance_method" title="#uri (instance method)">#<strong>uri</strong>  &#x21d2; Object </a>
     
 
@@ -414,7 +414,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(danger: false, client:, result:, list_property:, klass:)  &#x21d2; Listable </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(danger: false, client:, attrs:, list_property:, klass:)  &#x21d2; Listable </a>
     
 
     
@@ -469,7 +469,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(danger: false, client:, result:, list_property:, klass:)  &#x21d2; <tt><span class='object_link'><a href="" title="NgrokAPI::Models::Listable (class)">Listable</a></span></tt> 
+    #<strong>initialize</strong>(danger: false, client:, attrs:, list_property:, klass:)  &#x21d2; <tt><span class='object_link'><a href="" title="NgrokAPI::Models::Listable (class)">Listable</a></span></tt> 
   
 
   
@@ -512,14 +512,14 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/listable.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>client:</span><span class='comma'>,</span> <span class='label'>result:</span><span class='comma'>,</span> <span class='label'>list_property:</span><span class='comma'>,</span> <span class='label'>klass:</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>danger:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>client:</span><span class='comma'>,</span> <span class='label'>attrs:</span><span class='comma'>,</span> <span class='label'>list_property:</span><span class='comma'>,</span> <span class='label'>klass:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
-  <span class='ivar'>@result</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span>
+  <span class='ivar'>@attrs</span> <span class='op'>=</span> <span class='id identifier rubyid_attrs'>attrs</span>
   <span class='ivar'>@list_property</span> <span class='op'>=</span> <span class='id identifier rubyid_list_property'>list_property</span>
-  <span class='ivar'>@next_page_uri</span> <span class='op'>=</span> <span class='ivar'>@result</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>next_page_uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='ivar'>@result</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@items</span> <span class='op'>=</span> <span class='ivar'>@result</span><span class='lbracket'>[</span><span class='id identifier rubyid_list_property'>list_property</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
-    <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+  <span class='ivar'>@next_page_uri</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>next_page_uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@items</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='id identifier rubyid_list_property'>list_property</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
+    <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='id identifier rubyid_client'>client</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
   <span class='ivar'>@iter</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../PagedIterator.html" title="NgrokAPI::PagedIterator (class)">PagedIterator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../PagedIterator.html#initialize-instance_method" title="NgrokAPI::PagedIterator#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>client:</span> <span class='id identifier rubyid_client'>client</span><span class='comma'>,</span>
@@ -541,7 +541,50 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="client-instance_method">
+  <h3 class="signature first" id="attrs-instance_method">
+  
+    #<strong>attrs</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute attrs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/listable.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_attrs'>attrs</span>
+  <span class='ivar'>@attrs</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="client-instance_method">
   
     #<strong>client</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
   
@@ -799,49 +842,6 @@
       
       <span id=""></span>
       <div class="method_details ">
-  <h3 class="signature " id="result-instance_method">
-  
-    #<strong>result</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute result.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-10
-11
-12</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/listable.rb', line 10</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_result'>result</span>
-  <span class='ivar'>@result</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
   <h3 class="signature " id="uri-instance_method">
   
     #<strong>uri</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
@@ -912,7 +912,7 @@
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/listable.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
-  <span class='ivar'>@result</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_result'>result</span>
+  <span class='ivar'>@attrs</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_attrs'>attrs</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -980,7 +980,7 @@
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/listable.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
-  <span class='ivar'>@result</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -992,7 +992,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Mar 10 16:54:39 2022 by
+  Generated on Mon Apr 11 19:32:56 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.5).
 </div>

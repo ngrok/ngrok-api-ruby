@@ -36,6 +36,31 @@ RSpec.describe NgrokAPI::Services::SSHCertificateAuthoritiesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::SSHCertificateAuthority" do
+      path = '/ssh_certificate_authorities'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:private_key_type] = "New private_key_type"
+      data[:elliptic_curve] = "New elliptic_curve"
+      data[:key_size] = "New key_size"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(ssh_certificate_authority_result)
+      result = @ssh_certificate_authorities_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        private_key_type: "New private_key_type",
+        elliptic_curve: "New elliptic_curve",
+        key_size: "New key_size"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::SSHCertificateAuthority)
+      # expect(result.id).to eq(ssh_certificate_authority_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/ssh_certificate_authorities/%{id}'

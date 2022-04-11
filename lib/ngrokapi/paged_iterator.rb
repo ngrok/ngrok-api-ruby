@@ -26,7 +26,7 @@ module NgrokAPI
     #
     # @return [object] Returns an instance of a class.
     def get_next
-      item = @page.result[@list_property][@n]
+      item = @page.attrs[@list_property][@n]
       raise "None" if item.nil?
       self.n += 1
       item

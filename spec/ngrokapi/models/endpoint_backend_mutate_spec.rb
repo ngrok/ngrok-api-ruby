@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::EndpointBackendMutate do
   before(:each) do
     @client = class_double("EndpointBackendMutatesClient")
-    @endpoint_backend_mutate = NgrokAPI::Models::EndpointBackendMutate.new(client: @client, result: endpoint_backend_mutate_result)
+    @endpoint_backend_mutate = NgrokAPI::Models::EndpointBackendMutate.new(client: @client, attrs: endpoint_backend_mutate_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::EndpointBackendMutate.new(client: @client, result: endpoint_backend_mutate_result)
+      other = NgrokAPI::Models::EndpointBackendMutate.new(client: @client, attrs: endpoint_backend_mutate_result)
       expect(@endpoint_backend_mutate == other).to eq true
     end
   end

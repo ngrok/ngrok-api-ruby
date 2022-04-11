@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::TunnelGroupBackend do
   before(:each) do
     @client = class_double("TunnelGroupBackendsClient")
-    @tunnel_group_backend = NgrokAPI::Models::TunnelGroupBackend.new(client: @client, result: tunnel_group_backend_result)
+    @tunnel_group_backend = NgrokAPI::Models::TunnelGroupBackend.new(client: @client, attrs: tunnel_group_backend_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::TunnelGroupBackend.new(client: @client, result: tunnel_group_backend_result)
+      other = NgrokAPI::Models::TunnelGroupBackend.new(client: @client, attrs: tunnel_group_backend_result)
       expect(@tunnel_group_backend == other).to eq true
     end
   end

@@ -27,10 +27,9 @@ module NgrokAPI
           edge_id: edge_id,
           id: id,
         }
-        data = {}
-        data[:module] = a_module if a_module
+        data = a_module
         result = @client.put(path % replacements, data: data)
-        NgrokAPI::Models::EndpointBackend.new(client: self, result: result)
+        NgrokAPI::Models::EndpointBackend.new(client: self, attrs: result)
       end
 
       ##
@@ -46,10 +45,9 @@ module NgrokAPI
           edge_id: edge_id,
           id: id,
         }
-        data = {}
-        data[:module] = a_module if a_module
+        data = a_module
         result = @client.put(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EndpointBackend.new(client: self, result: result)
+        NgrokAPI::Models::EndpointBackend.new(client: self, attrs: result)
       end
 
       ##
@@ -66,7 +64,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::EndpointBackend.new(client: self, result: result)
+        NgrokAPI::Models::EndpointBackend.new(client: self, attrs: result)
       end
 
       ##
@@ -83,7 +81,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EndpointBackend.new(client: self, result: result)
+        NgrokAPI::Models::EndpointBackend.new(client: self, attrs: result)
       end
 
       ##

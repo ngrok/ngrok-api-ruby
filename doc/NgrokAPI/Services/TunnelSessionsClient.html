@@ -640,18 +640,18 @@
       <pre class="lines">
 
 
+83
+84
 85
 86
 87
 88
 89
 90
-91
-92
-93</pre>
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -660,7 +660,7 @@
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/TunnelSession.html" title="NgrokAPI::Models::TunnelSession (class)">TunnelSession</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/TunnelSession.html#initialize-instance_method" title="NgrokAPI::Models::TunnelSession#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/TunnelSession.html" title="NgrokAPI::Models::TunnelSession (class)">TunnelSession</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/TunnelSession.html#initialize-instance_method" title="NgrokAPI::Models::TunnelSession#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -735,18 +735,18 @@
       <pre class="lines">
 
 
+101
+102
 103
 104
 105
 106
 107
 108
-109
-110
-111</pre>
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -755,7 +755,7 @@
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/TunnelSession.html" title="NgrokAPI::Models::TunnelSession (class)">TunnelSession</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/TunnelSession.html#initialize-instance_method" title="NgrokAPI::Models::TunnelSession#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/TunnelSession.html" title="NgrokAPI::Models::TunnelSession (class)">TunnelSession</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/TunnelSession.html#initialize-instance_method" title="NgrokAPI::Models::TunnelSession#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -870,14 +870,12 @@
 43
 44
 45
-46
-47</pre>
+46</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 32</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-         <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -887,7 +885,7 @@
 
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
-    <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
     <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::TunnelSessionsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
     <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/TunnelSession.html" title="NgrokAPI::Models::TunnelSession (class)">TunnelSession</a></span></span>
   <span class='rparen'>)</span>
@@ -991,6 +989,7 @@
       <pre class="lines">
 
 
+58
 59
 60
 61
@@ -1006,15 +1005,12 @@
 71
 72
 73
-74
-75
-76</pre>
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 58</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-          <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1025,7 +1021,7 @@
 
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
-    <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
     <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::TunnelSessionsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
     <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/TunnelSession.html" title="NgrokAPI::Models::TunnelSession (class)">TunnelSession</a></span></span><span class='comma'>,</span>
     <span class='label'>danger:</span> <span class='kw'>true</span>
@@ -1104,16 +1100,16 @@
       <pre class="lines">
 
 
+121
+122
 123
 124
 125
 126
-127
-128
-129</pre>
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}/restart</span><span class='tstring_end'>&#39;</span></span>
@@ -1195,16 +1191,16 @@
       <pre class="lines">
 
 
+140
+141
 142
 143
 144
 145
-146
-147
-148</pre>
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 140</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart!'>restart!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}/restart</span><span class='tstring_end'>&#39;</span></span>
@@ -1286,16 +1282,16 @@
       <pre class="lines">
 
 
+156
+157
 158
 159
 160
 161
-162
-163
-164</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}/stop</span><span class='tstring_end'>&#39;</span></span>
@@ -1377,16 +1373,16 @@
       <pre class="lines">
 
 
+173
+174
 175
 176
 177
 178
-179
-180
-181</pre>
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop!'>stop!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}/stop</span><span class='tstring_end'>&#39;</span></span>
@@ -1463,16 +1459,16 @@
       <pre class="lines">
 
 
+199
+200
 201
 202
 203
 204
-205
-206
-207</pre>
+205</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>version:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}/update</span><span class='tstring_end'>&#39;</span></span>
@@ -1549,16 +1545,16 @@
       <pre class="lines">
 
 
+226
+227
 228
 229
 230
 231
-232
-233
-234</pre>
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tunnel_sessions_client.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>version:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tunnel_sessions/%{id}/update</span><span class='tstring_end'>&#39;</span></span>
@@ -1577,7 +1573,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Mar 10 16:54:45 2022 by
+  Generated on Mon Apr 11 19:33:02 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.5).
 </div>

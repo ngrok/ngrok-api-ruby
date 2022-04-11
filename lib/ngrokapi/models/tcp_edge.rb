@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class TCPEdge
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :description,
         :metadata,
@@ -14,25 +14,29 @@ module NgrokAPI
         :backend,
         :ip_restriction
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @created_at = @result['created_at']
-        @uri = @result['uri']
-        @hostports = @result['hostports']
-        @backend = @result['backend']
-        @ip_restriction = @result['ip_restriction']
+        @attrs = attrs
+        @id = @attrs['id']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @created_at = @attrs['created_at']
+        @uri = @attrs['uri']
+        @hostports = @attrs['hostports']
+        @backend = @attrs['backend']
+        @ip_restriction = @attrs['ip_restriction']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

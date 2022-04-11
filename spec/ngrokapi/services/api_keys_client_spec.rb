@@ -30,6 +30,25 @@ RSpec.describe NgrokAPI::Services::APIKeysClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::APIKey" do
+      path = '/api_keys'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(api_key_result)
+      result = @api_keys_client.create(
+        description: "New description",
+        metadata: "New metadata"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::APIKey)
+      # expect(result.id).to eq(api_key_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/api_keys/%{id}'

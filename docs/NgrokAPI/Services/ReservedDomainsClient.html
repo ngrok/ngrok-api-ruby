@@ -231,6 +231,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#create!-instance_method" title="#create! (instance method)">#<strong>create!</strong>(name:, region: &quot;&quot;, description: &quot;&quot;, metadata: &quot;&quot;, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)  &#x21d2; NgrokAPI::Models::ReservedDomain </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new reserved domain.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Empty </a>
     
 
@@ -830,7 +854,200 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_management_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create!-instance_method">
+  
+    #<strong>create!</strong>(name:, region: &quot;&quot;, description: &quot;&quot;, metadata: &quot;&quot;, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">NgrokAPI::Models::ReservedDomain</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new reserved domain. Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-reserved-domains-create">ngrok.com/docs/api#api-reserved-domains-create</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the domain name to reserve. It may be a full domain name like app.example.com. If the name does not contain a &#39;.&#39; it will reserve that subdomain on ngrok.io.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>region</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>human-readable description of what this reserved domain will be used for</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>certificate_id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with <code>certificate_management_policy</code>.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>certificate_management_policy</span>
+      
+      
+        <span class='type'>(<tt>ReservedDomainCertPolicy</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with <code>certificate_id</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">NgrokAPI::Models::ReservedDomain</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>name:</span><span class='comma'>,</span> <span class='label'>region:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>http_endpoint_configuration_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>https_endpoint_configuration_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>certificate_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>certificate_management_policy:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:region</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_region'>region</span> <span class='kw'>if</span> <span class='id identifier rubyid_region'>region</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_management_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -905,16 +1122,16 @@
       <pre class="lines">
 
 
-58
-59
-60
-61
-62
-63
-64</pre>
+86
+87
+88
+89
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -996,16 +1213,16 @@
       <pre class="lines">
 
 
-74
-75
-76
-77
-78
-79
-80</pre>
+102
+103
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1087,16 +1304,16 @@
       <pre class="lines">
 
 
-261
-262
-263
-264
-265
-266
-267</pre>
+287
+288
+289
+290
+291
+292
+293</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 261</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 287</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_certificate'>delete_certificate</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}/certificate</span><span class='tstring_end'>&#39;</span></span>
@@ -1178,16 +1395,16 @@
       <pre class="lines">
 
 
-277
-278
-279
-280
-281
-282
-283</pre>
+303
+304
+305
+306
+307
+308
+309</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 277</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 303</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_certificate!'>delete_certificate!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}/certificate</span><span class='tstring_end'>&#39;</span></span>
@@ -1269,16 +1486,16 @@
       <pre class="lines">
 
 
-230
-231
-232
-233
-234
-235
-236</pre>
+256
+257
+258
+259
+260
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 256</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_certificate_management_policy'>delete_certificate_management_policy</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}/certificate_management_policy</span><span class='tstring_end'>&#39;</span></span>
@@ -1360,16 +1577,16 @@
       <pre class="lines">
 
 
-246
-247
-248
-249
-250
-251
-252</pre>
+272
+273
+274
+275
+276
+277
+278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 246</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 272</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_certificate_management_policy!'>delete_certificate_management_policy!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}/certificate_management_policy</span><span class='tstring_end'>&#39;</span></span>
@@ -1451,18 +1668,18 @@
       <pre class="lines">
 
 
-89
-90
-91
-92
-93
-94
-95
-96
-97</pre>
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1471,7 +1688,7 @@
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1546,18 +1763,18 @@
       <pre class="lines">
 
 
-107
-108
-109
-110
-111
-112
-113
-114
-115</pre>
+135
+136
+137
+138
+139
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1566,7 +1783,7 @@
   <span class='rbrace'>}</span>
   <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1667,28 +1884,26 @@
       <pre class="lines">
 
 
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141</pre>
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 154</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-         <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1698,7 +1913,7 @@
 
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
-    <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
     <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::ReservedDomainsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
     <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span>
   <span class='rparen'>)</span>
@@ -1802,30 +2017,28 @@
       <pre class="lines">
 
 
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170</pre>
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 180</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
-          <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1836,7 +2049,7 @@
 
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
     <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
-    <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
     <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::ReservedDomainsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
     <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='comma'>,</span>
     <span class='label'>danger:</span> <span class='kw'>true</span>
@@ -1982,22 +2195,22 @@
       <pre class="lines">
 
 
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195</pre>
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 209</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>http_endpoint_configuration_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>https_endpoint_configuration_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>certificate_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>certificate_management_policy:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -2010,7 +2223,7 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_management_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2152,22 +2365,22 @@
       <pre class="lines">
 
 
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221</pre>
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/reserved_domains_client.rb', line 235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>http_endpoint_configuration_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>https_endpoint_configuration_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>certificate_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>certificate_management_policy:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/reserved_domains/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -2180,7 +2393,7 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_id</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_id'>certificate_id</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:certificate_management_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_certificate_management_policy'>certificate_management_policy</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>result:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/ReservedDomain.html" title="NgrokAPI::Models::ReservedDomain (class)">ReservedDomain</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/ReservedDomain.html#initialize-instance_method" title="NgrokAPI::Models::ReservedDomain#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2192,7 +2405,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Mar 10 16:54:45 2022 by
+  Generated on Mon Apr 11 19:33:02 2022 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.27 (ruby-2.7.5).
 </div>

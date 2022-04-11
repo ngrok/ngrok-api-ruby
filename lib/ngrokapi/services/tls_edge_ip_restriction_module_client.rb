@@ -25,10 +25,9 @@ module NgrokAPI
         replacements = {
           id: id,
         }
-        data = {}
-        data[:module] = a_module if a_module
+        data = a_module
         result = @client.put(path % replacements, data: data)
-        NgrokAPI::Models::EndpointIPPolicy.new(client: self, result: result)
+        NgrokAPI::Models::EndpointIPPolicy.new(client: self, attrs: result)
       end
 
       ##
@@ -42,10 +41,9 @@ module NgrokAPI
         replacements = {
           id: id,
         }
-        data = {}
-        data[:module] = a_module if a_module
+        data = a_module
         result = @client.put(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EndpointIPPolicy.new(client: self, result: result)
+        NgrokAPI::Models::EndpointIPPolicy.new(client: self, attrs: result)
       end
 
       ##
@@ -60,7 +58,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::EndpointIPPolicy.new(client: self, result: result)
+        NgrokAPI::Models::EndpointIPPolicy.new(client: self, attrs: result)
       end
 
       ##
@@ -75,7 +73,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EndpointIPPolicy.new(client: self, result: result)
+        NgrokAPI::Models::EndpointIPPolicy.new(client: self, attrs: result)
       end
 
       ##

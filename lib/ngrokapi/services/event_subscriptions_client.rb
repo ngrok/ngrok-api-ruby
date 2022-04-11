@@ -36,7 +36,31 @@ module NgrokAPI
         data[:sources] = sources if sources
         data[:destination_ids] = destination_ids if destination_ids
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::EventSubscription.new(client: self, result: result)
+        NgrokAPI::Models::EventSubscription.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create an Event Subscription.
+      # Throws an exception if API error.
+      #
+      # @param [string] metadata Arbitrary customer supplied information intended to be machine readable. Optional, max 4096 chars.
+      # @param [string] description Arbitrary customer supplied information intended to be human readable. Optional, max 255 chars.
+      # @param [List<EventSourceReplace>] sources Sources containing the types for which this event subscription will trigger
+      # @param [List<string>] destination_ids A list of Event Destination IDs which should be used for this Event Subscription.
+      # @return [NgrokAPI::Models::EventSubscription] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-event-subscriptions-create
+      def create!(metadata: "", description: "", sources: [], destination_ids: [])
+        path = '/event_subscriptions'
+        replacements = {
+        }
+        data = {}
+        data[:metadata] = metadata if metadata
+        data[:description] = description if description
+        data[:sources] = sources if sources
+        data[:destination_ids] = destination_ids if destination_ids
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::EventSubscription.new(client: self, attrs: result)
       end
 
       ##
@@ -84,7 +108,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::EventSubscription.new(client: self, result: result)
+        NgrokAPI::Models::EventSubscription.new(client: self, attrs: result)
       end
 
       ##
@@ -102,7 +126,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EventSubscription.new(client: self, result: result)
+        NgrokAPI::Models::EventSubscription.new(client: self, attrs: result)
       end
 
       ##
@@ -114,8 +138,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -125,7 +148,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::EventSubscription
         )
@@ -141,8 +164,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-subscriptions-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -153,7 +175,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::EventSubscription,
           danger: true
@@ -182,7 +204,7 @@ module NgrokAPI
         data[:sources] = sources if sources
         data[:destination_ids] = destination_ids if destination_ids
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::EventSubscription.new(client: self, result: result)
+        NgrokAPI::Models::EventSubscription.new(client: self, attrs: result)
       end
 
       ##
@@ -208,7 +230,7 @@ module NgrokAPI
         data[:sources] = sources if sources
         data[:destination_ids] = destination_ids if destination_ids
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EventSubscription.new(client: self, result: result)
+        NgrokAPI::Models::EventSubscription.new(client: self, attrs: result)
       end
     end
   end

@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class EndpointOAuth
       attr_reader :client,
-        :result,
+        :attrs,
         :enabled,
         :provider,
         :options_passthrough,
@@ -13,24 +13,28 @@ module NgrokAPI
         :maximum_duration,
         :auth_check_interval
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @enabled = @result['enabled']
-        @provider = @result['provider']
-        @options_passthrough = @result['options_passthrough']
-        @cookie_prefix = @result['cookie_prefix']
-        @inactivity_timeout = @result['inactivity_timeout']
-        @maximum_duration = @result['maximum_duration']
-        @auth_check_interval = @result['auth_check_interval']
+        @attrs = attrs
+        @enabled = @attrs['enabled']
+        @provider = @attrs['provider']
+        @options_passthrough = @attrs['options_passthrough']
+        @cookie_prefix = @attrs['cookie_prefix']
+        @inactivity_timeout = @attrs['inactivity_timeout']
+        @maximum_duration = @attrs['maximum_duration']
+        @auth_check_interval = @attrs['auth_check_interval']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

@@ -45,7 +45,35 @@ module NgrokAPI
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
+        NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new reserved domain.
+      # Throws an exception if API error.
+      #
+      # @param [string] name the domain name to reserve. It may be a full domain name like app.example.com. If the name does not contain a '.' it will reserve that subdomain on ngrok.io.
+      # @param [string] region reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)
+      # @param [string] description human-readable description of what this reserved domain will be used for
+      # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
+      # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
+      # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @return [NgrokAPI::Models::ReservedDomain] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-domains-create
+      def create!(name:, region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
+        path = '/reserved_domains'
+        replacements = {
+        }
+        data = {}
+        data[:name] = name if name
+        data[:region] = region if region
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:certificate_id] = certificate_id if certificate_id
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
 
       ##
@@ -93,7 +121,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
+        NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
 
       ##
@@ -111,7 +139,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
+        NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
 
       ##
@@ -123,8 +151,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -134,7 +161,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::ReservedDomain
         )
@@ -150,8 +177,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -162,7 +188,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::ReservedDomain,
           danger: true
@@ -191,7 +217,7 @@ module NgrokAPI
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
+        NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
 
       ##
@@ -217,7 +243,7 @@ module NgrokAPI
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::ReservedDomain.new(client: self, result: result)
+        NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
 
       ##

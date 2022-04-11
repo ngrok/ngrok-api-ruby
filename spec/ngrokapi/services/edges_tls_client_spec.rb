@@ -40,6 +40,35 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::TLSEdge" do
+      path = '/edges/tls'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:hostports] = "New hostports"
+      data[:backend] = "New backend"
+      data[:ip_restriction] = "New ip_restriction"
+      data[:mutual_tls] = "New mutual_tls"
+      data[:tls_termination] = "New tls_termination"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(tls_edge_result)
+      result = @edges_tls_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        hostports: "New hostports",
+        backend: "New backend",
+        ip_restriction: "New ip_restriction",
+        mutual_tls: "New mutual_tls",
+        tls_termination: "New tls_termination"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::TLSEdge)
+      # expect(result.id).to eq(tls_edge_result["id"])
+    end
+  end
+
   describe "#get" do
     it "will make a get request and return an instance of NgrokAPI::Models::TLSEdge" do
       path = '/edges/tls/%{id}'

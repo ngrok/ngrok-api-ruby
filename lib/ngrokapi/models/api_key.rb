@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class APIKey
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :description,
@@ -12,23 +12,27 @@ module NgrokAPI
         :created_at,
         :token
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @created_at = @result['created_at']
-        @token = @result['token']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @created_at = @attrs['created_at']
+        @token = @attrs['token']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::FailoverBackend do
   before(:each) do
     @client = class_double("FailoverBackendsClient")
-    @failover_backend = NgrokAPI::Models::FailoverBackend.new(client: @client, result: failover_backend_result)
+    @failover_backend = NgrokAPI::Models::FailoverBackend.new(client: @client, attrs: failover_backend_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::FailoverBackend.new(client: @client, result: failover_backend_result)
+      other = NgrokAPI::Models::FailoverBackend.new(client: @client, attrs: failover_backend_result)
       expect(@failover_backend == other).to eq true
     end
   end

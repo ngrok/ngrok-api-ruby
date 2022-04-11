@@ -18,8 +18,7 @@ RSpec.describe NgrokAPI::Services::TLSEdgeBackendModuleClient do
       replacements = {
         id: endpoint_backend_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_backend_result)
       result = @tls_edge_backend_module_client.replace(
@@ -36,8 +35,7 @@ RSpec.describe NgrokAPI::Services::TLSEdgeBackendModuleClient do
       replacements = {
         id: endpoint_backend_result["id"],
       }
-      data = {}
-      data[:module] = "New a_module"
+      data = "New a_module"
       expect(@client).to receive(:put).with(path % replacements, data: data).
         and_return(endpoint_backend_result)
       result = @tls_edge_backend_module_client.replace(

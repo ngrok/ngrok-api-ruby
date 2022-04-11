@@ -40,6 +40,35 @@ RSpec.describe NgrokAPI::Services::SSHHostCertificatesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::SSHHostCertificate" do
+      path = '/ssh_host_certificates'
+      replacements = {
+      }
+      data = {}
+      data[:ssh_certificate_authority_id] = "New ssh_certificate_authority_id"
+      data[:public_key] = "New public_key"
+      data[:principals] = "New principals"
+      data[:valid_after] = "New valid_after"
+      data[:valid_until] = "New valid_until"
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(ssh_host_certificate_result)
+      result = @ssh_host_certificates_client.create(
+        ssh_certificate_authority_id: "New ssh_certificate_authority_id",
+        public_key: "New public_key",
+        principals: "New principals",
+        valid_after: "New valid_after",
+        valid_until: "New valid_until",
+        description: "New description",
+        metadata: "New metadata"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::SSHHostCertificate)
+      # expect(result.id).to eq(ssh_host_certificate_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/ssh_host_certificates/%{id}'

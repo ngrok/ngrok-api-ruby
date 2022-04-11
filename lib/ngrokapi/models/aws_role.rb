@@ -4,21 +4,25 @@ module NgrokAPI
   module Models
     class AWSRole
       attr_reader :client,
-        :result,
+        :attrs,
         :role_arn
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @role_arn = @result['role_arn']
+        @attrs = attrs
+        @role_arn = @attrs['role_arn']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

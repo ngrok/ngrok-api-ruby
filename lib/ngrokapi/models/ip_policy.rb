@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class IPPolicy
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -12,23 +12,27 @@ module NgrokAPI
         :metadata,
         :action
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @action = @result['action']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @action = @attrs['action']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

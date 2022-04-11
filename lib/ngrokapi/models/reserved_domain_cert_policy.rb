@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class ReservedDomainCertPolicy
       attr_reader :client,
-        :result,
+        :attrs,
         :authority,
         :private_key_type
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @authority = @result['authority']
-        @private_key_type = @result['private_key_type']
+        @attrs = attrs
+        @authority = @attrs['authority']
+        @private_key_type = @attrs['private_key_type']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

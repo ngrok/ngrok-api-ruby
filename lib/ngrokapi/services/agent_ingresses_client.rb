@@ -35,7 +35,30 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:domain] = domain if domain
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new Agent Ingress. The ngrok agent can be configured to connect to
+      # ngrok via the new set of addresses on the returned Agent Ingress.
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
+      # @param [string] domain the domain that you own to be used as the base domain name to generate regional agent ingress domains.
+      # @return [NgrokAPI::Models::AgentIngress] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-agent-ingresses-create
+      def create!(description: "", metadata: "", domain:)
+        path = '/agent_ingresses'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:domain] = domain if domain
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
 
       ##
@@ -83,7 +106,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
 
       ##
@@ -101,7 +124,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
 
       ##
@@ -113,8 +136,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-agent-ingresses-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -124,7 +146,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::AgentIngress
         )
@@ -140,8 +162,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-agent-ingresses-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -152,7 +173,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::AgentIngress,
           danger: true
@@ -177,7 +198,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
 
       ##
@@ -199,7 +220,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::AgentIngress.new(client: self, result: result)
+        NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
     end
   end

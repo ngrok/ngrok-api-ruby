@@ -32,6 +32,27 @@ RSpec.describe NgrokAPI::Services::TunnelGroupBackendsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::TunnelGroupBackend" do
+      path = '/backends/tunnel_group'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:labels] = "New labels"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(tunnel_group_backend_result)
+      result = @tunnel_group_backends_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        labels: "New labels"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::TunnelGroupBackend)
+      # expect(result.id).to eq(tunnel_group_backend_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/backends/tunnel_group/%{id}'

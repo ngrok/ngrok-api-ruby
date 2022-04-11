@@ -58,6 +58,53 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::HTTPSEdgeRoute" do
+      path = '/edges/https/%{edge_id}/routes'
+      replacements = {
+        edge_id: https_edge_route_result["edge_id"],
+      }
+      data = {}
+      data[:match_type] = "New match_type"
+      data[:match] = "New match"
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:backend] = "New backend"
+      data[:ip_restriction] = "New ip_restriction"
+      data[:circuit_breaker] = "New circuit_breaker"
+      data[:compression] = "New compression"
+      data[:request_headers] = "New request_headers"
+      data[:response_headers] = "New response_headers"
+      data[:webhook_verification] = "New webhook_verification"
+      data[:oauth] = "New oauth"
+      data[:saml] = "New saml"
+      data[:oidc] = "New oidc"
+      data[:websocket_tcp_converter] = "New websocket_tcp_converter"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(https_edge_route_result)
+      result = @edges_https_routes_client.create(
+        edge_id: https_edge_route_result["edge_id"],
+        match_type: "New match_type",
+        match: "New match",
+        description: "New description",
+        metadata: "New metadata",
+        backend: "New backend",
+        ip_restriction: "New ip_restriction",
+        circuit_breaker: "New circuit_breaker",
+        compression: "New compression",
+        request_headers: "New request_headers",
+        response_headers: "New response_headers",
+        webhook_verification: "New webhook_verification",
+        oauth: "New oauth",
+        saml: "New saml",
+        oidc: "New oidc",
+        websocket_tcp_converter: "New websocket_tcp_converter"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::HTTPSEdgeRoute)
+      # expect(result.id).to eq(https_edge_route_result["id"])
+    end
+  end
+
   describe "#get" do
     it "will make a get request and return an instance of NgrokAPI::Models::HTTPSEdgeRoute" do
       path = '/edges/https/%{edge_id}/routes/%{id}'

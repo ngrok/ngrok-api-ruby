@@ -5,7 +5,7 @@ RSpec.describe NgrokAPI::Models::Listable do
     @client = class_double("APIKeysClient")
     @listable = NgrokAPI::Models::Listable.new(
       client: @client,
-      result: api_key_results,
+      attrs: api_key_results,
       list_property: 'keys',
       klass: NgrokAPI::Models::APIKey
     )
@@ -15,7 +15,7 @@ RSpec.describe NgrokAPI::Models::Listable do
     it "is equal if the results are the same" do
       listable2 = NgrokAPI::Models::Listable.new(
         client: @client,
-        result: api_key_results,
+        attrs: api_key_results,
         list_property: 'keys',
         klass: NgrokAPI::Models::APIKey
       )

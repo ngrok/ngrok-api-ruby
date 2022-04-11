@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::TLSEdge do
   before(:each) do
     @client = class_double("TLSEdgesClient")
-    @tls_edge = NgrokAPI::Models::TLSEdge.new(client: @client, result: tls_edge_result)
+    @tls_edge = NgrokAPI::Models::TLSEdge.new(client: @client, attrs: tls_edge_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::TLSEdge.new(client: @client, result: tls_edge_result)
+      other = NgrokAPI::Models::TLSEdge.new(client: @client, attrs: tls_edge_result)
       expect(@tls_edge == other).to eq true
     end
   end

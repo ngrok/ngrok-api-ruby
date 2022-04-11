@@ -4,23 +4,27 @@ module NgrokAPI
   module Models
     class AWSCredentials
       attr_reader :client,
-        :result,
+        :attrs,
         :aws_access_key_id,
         :aws_secret_access_key
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @aws_access_key_id = @result['aws_access_key_id']
-        @aws_secret_access_key = @result['aws_secret_access_key']
+        @attrs = attrs
+        @aws_access_key_id = @attrs['aws_access_key_id']
+        @aws_secret_access_key = @attrs['aws_secret_access_key']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end

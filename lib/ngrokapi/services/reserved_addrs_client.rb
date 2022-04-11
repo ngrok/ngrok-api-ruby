@@ -38,7 +38,29 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:region] = region if region
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
+        NgrokAPI::Models::ReservedAddr.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new reserved address.
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of what this reserved address will be used for
+      # @param [string] metadata arbitrary user-defined machine-readable data of this reserved address. Optional, max 4096 bytes.
+      # @param [string] region reserve the address in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)
+      # @return [NgrokAPI::Models::ReservedAddr] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-reserved-addrs-create
+      def create!(description: "", metadata: "", region: "", endpoint_configuration_id: nil)
+        path = '/reserved_addrs'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:region] = region if region
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::ReservedAddr.new(client: self, attrs: result)
       end
 
       ##
@@ -86,7 +108,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
+        NgrokAPI::Models::ReservedAddr.new(client: self, attrs: result)
       end
 
       ##
@@ -104,7 +126,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
+        NgrokAPI::Models::ReservedAddr.new(client: self, attrs: result)
       end
 
       ##
@@ -116,8 +138,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -127,7 +148,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::ReservedAddr
         )
@@ -143,8 +164,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-addrs-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -155,7 +175,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::ReservedAddr,
           danger: true
@@ -180,7 +200,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
+        NgrokAPI::Models::ReservedAddr.new(client: self, attrs: result)
       end
 
       ##
@@ -202,7 +222,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::ReservedAddr.new(client: self, result: result)
+        NgrokAPI::Models::ReservedAddr.new(client: self, attrs: result)
       end
     end
   end

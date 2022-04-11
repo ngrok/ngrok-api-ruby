@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::SSHUserCertificate do
   before(:each) do
     @client = class_double("SSHUserCertificatesClient")
-    @ssh_user_certificate = NgrokAPI::Models::SSHUserCertificate.new(client: @client, result: ssh_user_certificate_result)
+    @ssh_user_certificate = NgrokAPI::Models::SSHUserCertificate.new(client: @client, attrs: ssh_user_certificate_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::SSHUserCertificate.new(client: @client, result: ssh_user_certificate_result)
+      other = NgrokAPI::Models::SSHUserCertificate.new(client: @client, attrs: ssh_user_certificate_result)
       expect(@ssh_user_certificate == other).to eq true
     end
   end

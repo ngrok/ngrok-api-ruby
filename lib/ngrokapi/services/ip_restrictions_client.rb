@@ -45,7 +45,33 @@ module NgrokAPI
         data[:type] = type if type
         data[:ip_policy_ids] = ip_policy_ids if ip_policy_ids
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::IPRestriction.new(client: self, result: result)
+        NgrokAPI::Models::IPRestriction.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new IP restriction
+      # Throws an exception if API error.
+      #
+      # @param [string] description human-readable description of this IP restriction. optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this IP restriction. optional, max 4096 bytes.
+      # @param [boolean] enforced true if the IP restriction will be enforced. if false, only warnings will be issued
+      # @param [string] type the type of IP restriction. this defines what traffic will be restricted with the attached policies. four values are currently supported: ``dashboard``, ``api``, ``agent``, and ``endpoints``
+      # @param [List<string>] ip_policy_ids the set of IP policy identifiers that are used to enforce the restriction
+      # @return [NgrokAPI::Models::IPRestriction] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-ip-restrictions-create
+      def create!(description: "", metadata: "", enforced: False, type:, ip_policy_ids:)
+        path = '/ip_restrictions'
+        replacements = {
+        }
+        data = {}
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:enforced] = enforced if enforced
+        data[:type] = type if type
+        data[:ip_policy_ids] = ip_policy_ids if ip_policy_ids
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::IPRestriction.new(client: self, attrs: result)
       end
 
       ##
@@ -93,7 +119,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::IPRestriction.new(client: self, result: result)
+        NgrokAPI::Models::IPRestriction.new(client: self, attrs: result)
       end
 
       ##
@@ -111,7 +137,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::IPRestriction.new(client: self, result: result)
+        NgrokAPI::Models::IPRestriction.new(client: self, attrs: result)
       end
 
       ##
@@ -123,8 +149,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-restrictions-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -134,7 +159,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::IPRestriction
         )
@@ -150,8 +175,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-restrictions-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -162,7 +186,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::IPRestriction,
           danger: true
@@ -191,7 +215,7 @@ module NgrokAPI
         data[:enforced] = enforced if enforced
         data[:ip_policy_ids] = ip_policy_ids if ip_policy_ids
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::IPRestriction.new(client: self, result: result)
+        NgrokAPI::Models::IPRestriction.new(client: self, attrs: result)
       end
 
       ##
@@ -217,7 +241,7 @@ module NgrokAPI
         data[:enforced] = enforced if enforced
         data[:ip_policy_ids] = ip_policy_ids if ip_policy_ids
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::IPRestriction.new(client: self, result: result)
+        NgrokAPI::Models::IPRestriction.new(client: self, attrs: result)
       end
     end
   end

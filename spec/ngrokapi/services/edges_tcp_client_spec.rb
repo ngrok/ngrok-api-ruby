@@ -36,6 +36,31 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::TCPEdge" do
+      path = '/edges/tcp'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:hostports] = "New hostports"
+      data[:backend] = "New backend"
+      data[:ip_restriction] = "New ip_restriction"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(tcp_edge_result)
+      result = @edges_tcp_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        hostports: "New hostports",
+        backend: "New backend",
+        ip_restriction: "New ip_restriction"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::TCPEdge)
+      # expect(result.id).to eq(tcp_edge_result["id"])
+    end
+  end
+
   describe "#get" do
     it "will make a get request and return an instance of NgrokAPI::Models::TCPEdge" do
       path = '/edges/tcp/%{id}'

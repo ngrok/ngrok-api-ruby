@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::Endpoint do
   before(:each) do
     @client = class_double("EndpointsClient")
-    @endpoint = NgrokAPI::Models::Endpoint.new(client: @client, result: endpoint_result)
+    @endpoint = NgrokAPI::Models::Endpoint.new(client: @client, attrs: endpoint_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::Endpoint.new(client: @client, result: endpoint_result)
+      other = NgrokAPI::Models::Endpoint.new(client: @client, attrs: endpoint_result)
       expect(@endpoint == other).to eq true
     end
   end

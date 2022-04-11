@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class CertificateAuthority
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -17,28 +17,32 @@ module NgrokAPI
         :key_usages,
         :extended_key_usages
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @ca_pem = @result['ca_pem']
-        @subject_common_name = @result['subject_common_name']
-        @not_before = @result['not_before']
-        @not_after = @result['not_after']
-        @key_usages = @result['key_usages']
-        @extended_key_usages = @result['extended_key_usages']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @ca_pem = @attrs['ca_pem']
+        @subject_common_name = @attrs['subject_common_name']
+        @not_before = @attrs['not_before']
+        @not_after = @attrs['not_after']
+        @key_usages = @attrs['key_usages']
+        @extended_key_usages = @attrs['extended_key_usages']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

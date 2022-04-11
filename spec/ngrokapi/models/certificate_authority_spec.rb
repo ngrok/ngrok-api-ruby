@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::CertificateAuthority do
   before(:each) do
     @client = class_double("CertificateAuthoritysClient")
-    @certificate_authority = NgrokAPI::Models::CertificateAuthority.new(client: @client, result: certificate_authority_result)
+    @certificate_authority = NgrokAPI::Models::CertificateAuthority.new(client: @client, attrs: certificate_authority_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::CertificateAuthority.new(client: @client, result: certificate_authority_result)
+      other = NgrokAPI::Models::CertificateAuthority.new(client: @client, attrs: certificate_authority_result)
       expect(@certificate_authority == other).to eq true
     end
   end

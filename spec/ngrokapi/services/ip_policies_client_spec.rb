@@ -31,6 +31,26 @@ RSpec.describe NgrokAPI::Services::IPPoliciesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::IPPolicy" do
+      path = '/ip_policies'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(ip_policy_result)
+      result = @ip_policies_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        action: "New action"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::IPPolicy)
+      # expect(result.id).to eq(ip_policy_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/ip_policies/%{id}'

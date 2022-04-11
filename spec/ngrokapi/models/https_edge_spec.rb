@@ -3,12 +3,12 @@ require 'spec_helper'
 RSpec.describe NgrokAPI::Models::HTTPSEdge do
   before(:each) do
     @client = class_double("HTTPSEdgesClient")
-    @https_edge = NgrokAPI::Models::HTTPSEdge.new(client: @client, result: https_edge_result)
+    @https_edge = NgrokAPI::Models::HTTPSEdge.new(client: @client, attrs: https_edge_result)
   end
 
   describe "#==" do
     it "is equal if the results are the same" do
-      other = NgrokAPI::Models::HTTPSEdge.new(client: @client, result: https_edge_result)
+      other = NgrokAPI::Models::HTTPSEdge.new(client: @client, attrs: https_edge_result)
       expect(@https_edge == other).to eq true
     end
   end

@@ -38,7 +38,33 @@ module NgrokAPI
         data[:format] = format if format
         data[:target] = target if target
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::EventDestination.new(client: self, result: result)
+        NgrokAPI::Models::EventDestination.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create a new Event Destination. It will not apply to anything until it is
+      # associated with an Event Stream, and that Event Stream is associated with an
+      # Endpoint Config.
+      # Throws an exception if API error.
+      #
+      # @param [string] metadata Arbitrary user-defined machine-readable data of this Event Destination. Optional, max 4096 bytes.
+      # @param [string] description Human-readable description of the Event Destination. Optional, max 255 bytes.
+      # @param [string] format The output format you would like to serialize events into when sending to their target. Currently the only accepted value is ``JSON``.
+      # @param [EventTarget] target An object that encapsulates where and how to send your events. An event destination must contain exactly one of the following objects, leaving the rest null: ``kinesis``, ``firehose``, ``cloudwatch_logs``, or ``s3``.
+      # @return [NgrokAPI::Models::EventDestination] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-event-destinations-create
+      def create!(metadata: "", description: "", format: "", target: nil, verify_with_test_event: nil)
+        path = '/event_destinations'
+        replacements = {
+        }
+        data = {}
+        data[:metadata] = metadata if metadata
+        data[:description] = description if description
+        data[:format] = format if format
+        data[:target] = target if target
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::EventDestination.new(client: self, attrs: result)
       end
 
       ##
@@ -88,7 +114,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::EventDestination.new(client: self, result: result)
+        NgrokAPI::Models::EventDestination.new(client: self, attrs: result)
       end
 
       ##
@@ -106,7 +132,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EventDestination.new(client: self, result: result)
+        NgrokAPI::Models::EventDestination.new(client: self, attrs: result)
       end
 
       ##
@@ -118,8 +144,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-list
-      def list(before_id: nil, limit: nil,
-               url: nil)
+      def list(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -129,7 +154,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::EventDestination
         )
@@ -145,8 +170,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-event-destinations-list
-      def list!(before_id: nil, limit: nil,
-                url: nil)
+      def list!(before_id: nil, limit: nil, url: nil)
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -157,7 +181,7 @@ module NgrokAPI
 
         NgrokAPI::Models::Listable.new(
           client: self,
-          result: result,
+          attrs: result,
           list_property: LIST_PROPERTY,
           klass: NgrokAPI::Models::EventDestination,
           danger: true
@@ -186,7 +210,7 @@ module NgrokAPI
         data[:format] = format if format
         data[:target] = target if target
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::EventDestination.new(client: self, result: result)
+        NgrokAPI::Models::EventDestination.new(client: self, attrs: result)
       end
 
       ##
@@ -212,7 +236,7 @@ module NgrokAPI
         data[:format] = format if format
         data[:target] = target if target
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EventDestination.new(client: self, result: result)
+        NgrokAPI::Models::EventDestination.new(client: self, attrs: result)
       end
     end
   end

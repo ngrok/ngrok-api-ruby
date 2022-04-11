@@ -30,6 +30,25 @@ RSpec.describe NgrokAPI::Services::AbuseReportsClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::AbuseReport" do
+      path = '/abuse_reports'
+      replacements = {
+      }
+      data = {}
+      data[:urls] = "New urls"
+      data[:metadata] = "New metadata"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(abuse_report_result)
+      result = @abuse_reports_client.create(
+        urls: "New urls",
+        metadata: "New metadata"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::AbuseReport)
+      # expect(result.id).to eq(abuse_report_result["id"])
+    end
+  end
+
   describe "#get" do
     it "will make a get request and return an instance of NgrokAPI::Models::AbuseReport" do
       path = '/abuse_reports/%{id}'

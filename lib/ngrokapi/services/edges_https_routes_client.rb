@@ -58,7 +58,55 @@ module NgrokAPI
         data[:oidc] = oidc if oidc
         data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
         result = @client.post(path % replacements, data: data)
-        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
+      end
+
+      ##
+      # Create an HTTPS Edge Route
+      # Throws an exception if API error.
+      #
+      # @param [string] edge_id unique identifier of this edge
+      # @param [string] match_type Type of match to use for this route. Valid values are "exact_path" and "path_prefix".
+      # @param [string] match Route selector: "/blog" or "example.com" or "example.com/blog"
+      # @param [string] description human-readable description of what this edge will be used for; optional, max 255 bytes.
+      # @param [string] metadata arbitrary user-defined machine-readable data of this edge. Optional, max 4096 bytes.
+      # @param [EndpointBackendMutate] backend backend module configuration or ``null``
+      # @param [EndpointIPPolicyMutate] ip_restriction ip restriction module configuration or ``null``
+      # @param [EndpointCircuitBreaker] circuit_breaker circuit breaker module configuration or ``null``
+      # @param [EndpointCompression] compression compression module configuration or ``null``
+      # @param [EndpointRequestHeaders] request_headers request headers module configuration or ``null``
+      # @param [EndpointResponseHeaders] response_headers response headers module configuration or ``null``
+      # @param [EndpointWebhookValidation] webhook_verification webhook verification module configuration or ``null``
+      # @param [EndpointOAuth] oauth oauth module configuration or ``null``
+      # @param [EndpointSAMLMutate] saml saml module configuration or ``null``
+      # @param [EndpointOIDC] oidc oidc module configuration or ``null``
+      # @param [EndpointWebsocketTCPConverter] websocket_tcp_converter websocket to tcp adapter configuration or ``null``
+      # @return [NgrokAPI::Models::HTTPSEdgeRoute] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-edges-https-routes-create
+      def create!(edge_id: "", match_type:, match:, description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil)
+        path = '/edges/https/%{edge_id}/routes'
+        replacements = {
+          edge_id: edge_id,
+        }
+        data = {}
+        data[:match_type] = match_type if match_type
+        data[:match] = match if match
+        data[:description] = description if description
+        data[:metadata] = metadata if metadata
+        data[:backend] = backend if backend
+        data[:ip_restriction] = ip_restriction if ip_restriction
+        data[:circuit_breaker] = circuit_breaker if circuit_breaker
+        data[:compression] = compression if compression
+        data[:request_headers] = request_headers if request_headers
+        data[:response_headers] = response_headers if response_headers
+        data[:webhook_verification] = webhook_verification if webhook_verification
+        data[:oauth] = oauth if oauth
+        data[:saml] = saml if saml
+        data[:oidc] = oidc if oidc
+        data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
+        result = @client.post(path % replacements, data: data, danger: true)
+        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
 
       ##
@@ -77,7 +125,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
 
       ##
@@ -97,7 +145,7 @@ module NgrokAPI
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
 
       ##
@@ -149,7 +197,7 @@ module NgrokAPI
         data[:oidc] = oidc if oidc
         data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
         result = @client.patch(path % replacements, data: data)
-        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
 
       ##
@@ -202,7 +250,7 @@ module NgrokAPI
         data[:oidc] = oidc if oidc
         data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
         result = @client.patch(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, result: result)
+        NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
 
       ##

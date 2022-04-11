@@ -4,7 +4,7 @@ module NgrokAPI
   module Models
     class HTTPResponseBackend
       attr_reader :client,
-        :result,
+        :attrs,
         :id,
         :uri,
         :created_at,
@@ -14,25 +14,29 @@ module NgrokAPI
         :headers,
         :status_code
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @id = @result['id']
-        @uri = @result['uri']
-        @created_at = @result['created_at']
-        @description = @result['description']
-        @metadata = @result['metadata']
-        @body = @result['body']
-        @headers = @result['headers']
-        @status_code = @result['status_code']
+        @attrs = attrs
+        @id = @attrs['id']
+        @uri = @attrs['uri']
+        @created_at = @attrs['created_at']
+        @description = @attrs['description']
+        @metadata = @attrs['metadata']
+        @body = @attrs['body']
+        @headers = @attrs['headers']
+        @status_code = @attrs['status_code']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
 
       ##

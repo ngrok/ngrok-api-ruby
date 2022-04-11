@@ -34,6 +34,29 @@ RSpec.describe NgrokAPI::Services::TLSCertificatesClient do
     end
   end
 
+  describe "#create!" do
+    it "will make a post request and return an instance of NgrokAPI::Models::TLSCertificate" do
+      path = '/tls_certificates'
+      replacements = {
+      }
+      data = {}
+      data[:description] = "New description"
+      data[:metadata] = "New metadata"
+      data[:certificate_pem] = "New certificate_pem"
+      data[:private_key_pem] = "New private_key_pem"
+      expect(@client).to receive(:post).with(path % replacements, data: data).
+        and_return(tls_certificate_result)
+      result = @tls_certificates_client.create(
+        description: "New description",
+        metadata: "New metadata",
+        certificate_pem: "New certificate_pem",
+        private_key_pem: "New private_key_pem"
+      )
+      expect(result.class).to eq(NgrokAPI::Models::TLSCertificate)
+      # expect(result.id).to eq(tls_certificate_result["id"])
+    end
+  end
+
   describe "#delete" do
     it "will make a delete request" do
       path = '/tls_certificates/%{id}'

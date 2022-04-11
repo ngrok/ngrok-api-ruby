@@ -4,29 +4,33 @@ module NgrokAPI
   module Models
     class EndpointOAuthFacebook
       attr_reader :client,
-        :result,
+        :attrs,
         :client_id,
         :client_secret,
         :scopes,
         :email_addresses,
         :email_domains
 
-      def initialize(client:, result:)
+      def initialize(client: nil, attrs: {})
         @client = client
-        @result = result
-        @client_id = @result['client_id']
-        @client_secret = @result['client_secret']
-        @scopes = @result['scopes']
-        @email_addresses = @result['email_addresses']
-        @email_domains = @result['email_domains']
+        @attrs = attrs
+        @client_id = @attrs['client_id']
+        @client_secret = @attrs['client_secret']
+        @scopes = @attrs['scopes']
+        @email_addresses = @attrs['email_addresses']
+        @email_domains = @attrs['email_domains']
       end
 
       def ==(other)
-        @result == other.result
+        @attrs == other.attrs
       end
 
       def to_s
-        @result.to_s
+        @attrs.to_s
+      end
+
+      def to_h
+        @attrs.to_h
       end
     end
   end
