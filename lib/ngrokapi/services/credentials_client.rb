@@ -5,7 +5,7 @@ module NgrokAPI
     ##
     # Tunnel Credentials are ngrok agent authtokens. They authorize the ngrok
     #  agent to connect the ngrok service as your account. They are installed with
-    #  the `ngrok authtoken` command or by specifying it in the `ngrok.yml`
+    #  the `ngrok config add-authtoken` command or by specifying it in the `ngrok.yml`
     #  configuration file with the `authtoken` property.
     #
     # https://ngrok.com/docs/api#api-credentials
