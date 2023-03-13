@@ -104,6 +104,7 @@ module NgrokAPI
       {
         'Authorization': "Bearer #{@api_key}",
         'Ngrok-Version': '2',
+        'User-Agent': "ngrok-api-ruby/#{@VERSION}/#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}",
       }
     end
 

@@ -19,6 +19,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       }
       data = {}
       data[:name] = "New name"
+      data[:domain] = "New domain"
       data[:region] = "New region"
       data[:description] = "New description"
       data[:metadata] = "New metadata"
@@ -28,6 +29,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         and_return(reserved_domain_result)
       result = @reserved_domains_client.create(
         name: "New name",
+        domain: "New domain",
         region: "New region",
         description: "New description",
         metadata: "New metadata",
@@ -47,6 +49,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       }
       data = {}
       data[:name] = "New name"
+      data[:domain] = "New domain"
       data[:region] = "New region"
       data[:description] = "New description"
       data[:metadata] = "New metadata"
@@ -56,6 +59,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         and_return(reserved_domain_result)
       result = @reserved_domains_client.create(
         name: "New name",
+        domain: "New domain",
         region: "New region",
         description: "New description",
         metadata: "New metadata",
@@ -173,7 +177,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         http_endpoint_configuration_id: "New http_endpoint_configuration_id",
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
-        certificate_management_policy: "New certificate_management_policy"
+        certificate_management_policy: "New certificate_management_policy",
+        region: "New region"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
     end
@@ -199,7 +204,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         http_endpoint_configuration_id: "New http_endpoint_configuration_id",
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
-        certificate_management_policy: "New certificate_management_policy"
+        certificate_management_policy: "New certificate_management_policy",
+        region: "New region"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
       # expect(result.id).to eq(reserved_domain_result["id"])

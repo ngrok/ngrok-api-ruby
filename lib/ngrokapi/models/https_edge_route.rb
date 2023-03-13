@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module NgrokAPI
   module Models
     class HTTPSEdgeRoute
@@ -33,7 +35,9 @@ module NgrokAPI
         @created_at = @attrs['created_at']
         @match_type = @attrs['match_type']
         @match = @attrs['match']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
         @description = @attrs['description']
         @metadata = @attrs['metadata']
         @backend = @attrs['backend']

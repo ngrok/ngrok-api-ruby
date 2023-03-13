@@ -24,6 +24,18 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
+  describe "#application_sessions" do
+    it "returns an instance of the ApplicationSessionsClient" do
+      expect(@client.application_sessions.class).to eq(NgrokAPI::Services::ApplicationSessionsClient)
+    end
+  end
+
+  describe "#application_users" do
+    it "returns an instance of the ApplicationUsersClient" do
+      expect(@client.application_users.class).to eq(NgrokAPI::Services::ApplicationUsersClient)
+    end
+  end
+
   describe "#certificate_authorities" do
     it "returns an instance of the CertificateAuthoritiesClient" do
       expect(@client.certificate_authorities.class).to eq(NgrokAPI::Services::CertificateAuthoritiesClient)

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module NgrokAPI
   module Models
     class Endpoint
@@ -26,7 +28,9 @@ module NgrokAPI
         @region = @attrs['region']
         @created_at = @attrs['created_at']
         @updated_at = @attrs['updated_at']
-        @public_url = @attrs['public_url']
+        unless @attrs['public_url'].nil?
+          @public_url = URI(@attrs['public_url'])
+        end
         @proto = @attrs['proto']
         @hostport = @attrs['hostport']
         @type = @attrs['type']
