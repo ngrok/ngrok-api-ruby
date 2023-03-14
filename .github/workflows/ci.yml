@@ -9,13 +9,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - name: Install bundler
-        run: gem install bundler
-      - name: Run bundler
-        run: bundle install --jobs 4 --retry 3
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run Rake
         run: bundle exec rake
