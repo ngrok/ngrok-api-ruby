@@ -1,5 +1,9 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,6 +16,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          bundler-cache: true
       - name: Run Rake
         run: bundle exec rake
