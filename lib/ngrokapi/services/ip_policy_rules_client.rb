@@ -30,7 +30,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-create
-      def create(description: "", metadata: "", cidr:, ip_policy_id:, action: nil)
+      def create(description: "", metadata: "", cidr:, ip_policy_id:, action:)
         path = '/ip_policy_rules'
         replacements = {
         }
@@ -56,7 +56,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::IPPolicyRule] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policy-rules-create
-      def create!(description: "", metadata: "", cidr:, ip_policy_id:, action: nil)
+      def create!(description: "", metadata: "", cidr:, ip_policy_id:, action:)
         path = '/ip_policy_rules'
         replacements = {
         }

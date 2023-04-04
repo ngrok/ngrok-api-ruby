@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module NgrokAPI
   module Models
     class APIKey
@@ -10,17 +12,21 @@ module NgrokAPI
         :description,
         :metadata,
         :created_at,
-        :token
+        :token,
+        :owner_id
 
       def initialize(client: nil, attrs: {})
         @client = client
         @attrs = attrs
         @id = @attrs['id']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
         @description = @attrs['description']
         @metadata = @attrs['metadata']
         @created_at = @attrs['created_at']
         @token = @attrs['token']
+        @owner_id = @attrs['owner_id']
       end
 
       def ==(other)

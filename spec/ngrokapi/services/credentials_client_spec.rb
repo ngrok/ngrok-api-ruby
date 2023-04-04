@@ -21,12 +21,15 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:acl] = "New acl"
+      data[:owner_id] = "New owner_id"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(credential_result)
       result = @credentials_client.create(
         description: "New description",
         metadata: "New metadata",
-        acl: "New acl"
+        acl: "New acl",
+        owner_id: "New owner_id",
+        owner_email: "New owner_email"
       )
       expect(result.class).to eq(NgrokAPI::Models::Credential)
     end
@@ -41,12 +44,15 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:acl] = "New acl"
+      data[:owner_id] = "New owner_id"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(credential_result)
       result = @credentials_client.create(
         description: "New description",
         metadata: "New metadata",
-        acl: "New acl"
+        acl: "New acl",
+        owner_id: "New owner_id",
+        owner_email: "New owner_email"
       )
       expect(result.class).to eq(NgrokAPI::Models::Credential)
       # expect(result.id).to eq(credential_result["id"])

@@ -22,13 +22,16 @@ RSpec.describe NgrokAPI::Services::SSHCredentialsClient do
       data[:metadata] = "New metadata"
       data[:acl] = "New acl"
       data[:public_key] = "New public_key"
+      data[:owner_id] = "New owner_id"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(ssh_credential_result)
       result = @ssh_credentials_client.create(
         description: "New description",
         metadata: "New metadata",
         acl: "New acl",
-        public_key: "New public_key"
+        public_key: "New public_key",
+        owner_id: "New owner_id",
+        owner_email: "New owner_email"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHCredential)
     end
@@ -44,13 +47,16 @@ RSpec.describe NgrokAPI::Services::SSHCredentialsClient do
       data[:metadata] = "New metadata"
       data[:acl] = "New acl"
       data[:public_key] = "New public_key"
+      data[:owner_id] = "New owner_id"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(ssh_credential_result)
       result = @ssh_credentials_client.create(
         description: "New description",
         metadata: "New metadata",
         acl: "New acl",
-        public_key: "New public_key"
+        public_key: "New public_key",
+        owner_id: "New owner_id",
+        owner_email: "New owner_email"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHCredential)
       # expect(result.id).to eq(ssh_credential_result["id"])

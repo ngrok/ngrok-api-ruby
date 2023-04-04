@@ -11,6 +11,10 @@ This library is published on [Rubygems](https://rubygems.org/gems/ngrok-api)
 gem install ngrok-api
 ```
 
+## Support
+
+The best place to get support using this library is through the [ngrok Slack Community](https://ngrok.com/slack). If you find any bugs, please contribute by opening a [new GitHub issue](https://github.com/ngrok/ngrok-api-ruby/issues/new/choose).
+
 ## Documentation
 
 A quickstart guide and a full API reference are included in the [ngrok Ruby API documentation](https://ruby-api.docs.ngrok.com)

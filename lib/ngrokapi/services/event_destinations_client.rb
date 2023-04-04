@@ -18,8 +18,7 @@ module NgrokAPI
 
       ##
       # Create a new Event Destination. It will not apply to anything until it is
-      # associated with an Event Stream, and that Event Stream is associated with an
-      # Endpoint Config.
+      # associated with an Event Subscription.
       #
       # @param [string] metadata Arbitrary user-defined machine-readable data of this Event Destination. Optional, max 4096 bytes.
       # @param [string] description Human-readable description of the Event Destination. Optional, max 255 bytes.
@@ -43,8 +42,7 @@ module NgrokAPI
 
       ##
       # Create a new Event Destination. It will not apply to anything until it is
-      # associated with an Event Stream, and that Event Stream is associated with an
-      # Endpoint Config.
+      # associated with an Event Subscription.
       # Throws an exception if API error.
       #
       # @param [string] metadata Arbitrary user-defined machine-readable data of this Event Destination. Optional, max 4096 bytes.

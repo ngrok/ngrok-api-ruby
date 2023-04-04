@@ -27,8 +27,8 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
-      # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles` <https://ngrok.com/docs/api#tls-certificates-pem>`_.
-      # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys` <https://ngrok.com/docs/ngrok-link#tls-certificates-key>`_.
+      # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles </cloud-edge/endpoints#certificate-chains>`_.
+      # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys </cloud-edge/endpoints#private-keys>`_.
       # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-create
@@ -51,8 +51,8 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of this TLS certificate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this TLS certificate. optional, max 4096 bytes.
-      # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles` <https://ngrok.com/docs/api#tls-certificates-pem>`_.
-      # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys` <https://ngrok.com/docs/ngrok-link#tls-certificates-key>`_.
+      # @param [string] certificate_pem chain of PEM-encoded certificates, leaf first. See `Certificate Bundles </cloud-edge/endpoints#certificate-chains>`_.
+      # @param [string] private_key_pem private key for the TLS certificate, PEM-encoded. See `Private Keys </cloud-edge/endpoints#private-keys>`_.
       # @return [NgrokAPI::Models::TLSCertificate] result from the API request
       #
       # https://ngrok.com/docs/api#api-tls-certificates-create

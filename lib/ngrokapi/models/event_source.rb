@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module NgrokAPI
   module Models
     class EventSource
@@ -16,7 +18,9 @@ module NgrokAPI
         @type = @attrs['type']
         @filter = @attrs['filter']
         @fields = @attrs['fields']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
       end
 
       def ==(other)

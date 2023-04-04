@@ -8,7 +8,11 @@ module NgrokAPI
         :github,
         :facebook,
         :microsoft,
-        :google
+        :google,
+        :linkedin,
+        :gitlab,
+        :twitch,
+        :amazon
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -17,6 +21,10 @@ module NgrokAPI
         @facebook = @attrs['facebook']
         @microsoft = @attrs['microsoft']
         @google = @attrs['google']
+        @linkedin = @attrs['linkedin']
+        @gitlab = @attrs['gitlab']
+        @twitch = @attrs['twitch']
+        @amazon = @attrs['amazon']
       end
 
       def ==(other)

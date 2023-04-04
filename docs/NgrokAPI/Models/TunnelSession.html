@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Models::TunnelSession
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -591,8 +591,6 @@
       <pre class="lines">
 
 
-19
-20
 21
 22
 23
@@ -604,10 +602,14 @@
 29
 30
 31
-32</pre>
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -621,7 +623,9 @@
   <span class='ivar'>@region</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>region</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@started_at</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>started_at</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@transport</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>transport</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>unless</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -661,12 +665,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agent_version'>agent_version</span>
   <span class='ivar'>@agent_version</span>
@@ -704,12 +708,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attrs'>attrs</span>
   <span class='ivar'>@attrs</span>
@@ -747,12 +751,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -790,12 +794,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_credential'>credential</span>
   <span class='ivar'>@credential</span>
@@ -833,12 +837,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -876,12 +880,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ip'>ip</span>
   <span class='ivar'>@ip</span>
@@ -919,12 +923,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='ivar'>@metadata</span>
@@ -962,12 +966,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_os'>os</span>
   <span class='ivar'>@os</span>
@@ -1005,12 +1009,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_region'>region</span>
   <span class='ivar'>@region</span>
@@ -1048,12 +1052,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_started_at'>started_at</span>
   <span class='ivar'>@started_at</span>
@@ -1091,12 +1095,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_transport'>transport</span>
   <span class='ivar'>@transport</span>
@@ -1134,12 +1138,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_uri'>uri</span>
   <span class='ivar'>@uri</span>
@@ -1171,12 +1175,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
   <span class='ivar'>@attrs</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_attrs'>attrs</span>
@@ -1201,12 +1205,12 @@
       <pre class="lines">
 
 
-42
-43
-44</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_h'>to_h</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
@@ -1231,12 +1235,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/tunnel_session.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -1251,9 +1255,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:32:57 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Tue Apr  4 21:40:43 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-2.7.7).
 </div>
 
     </div>

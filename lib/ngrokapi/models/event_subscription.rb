@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module NgrokAPI
   module Models
     class EventSubscription
@@ -17,7 +19,9 @@ module NgrokAPI
         @client = client
         @attrs = attrs
         @id = @attrs['id']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
         @created_at = @attrs['created_at']
         @metadata = @attrs['metadata']
         @description = @attrs['description']

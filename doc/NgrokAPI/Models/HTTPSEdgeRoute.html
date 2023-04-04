@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Models::HTTPSEdgeRoute
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.28
   
 </title>
 
@@ -900,8 +900,6 @@
       <pre class="lines">
 
 
-28
-29
 30
 31
 32
@@ -922,10 +920,14 @@
 47
 48
 49
-50</pre>
+50
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -935,7 +937,9 @@
   <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@match_type</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>match_type</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@match</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>match</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>unless</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
   <span class='ivar'>@description</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>description</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@metadata</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>metadata</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@backend</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>backend</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -988,12 +992,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attrs'>attrs</span>
   <span class='ivar'>@attrs</span>
@@ -1031,12 +1035,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backend'>backend</span>
   <span class='ivar'>@backend</span>
@@ -1074,12 +1078,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_circuit_breaker'>circuit_breaker</span>
   <span class='ivar'>@circuit_breaker</span>
@@ -1117,12 +1121,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -1160,12 +1164,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_compression'>compression</span>
   <span class='ivar'>@compression</span>
@@ -1203,12 +1207,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
   <span class='ivar'>@created_at</span>
@@ -1246,12 +1250,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='ivar'>@description</span>
@@ -1289,12 +1293,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edge_id'>edge_id</span>
   <span class='ivar'>@edge_id</span>
@@ -1332,12 +1336,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -1375,12 +1379,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ip_restriction'>ip_restriction</span>
   <span class='ivar'>@ip_restriction</span>
@@ -1418,12 +1422,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_match'>match</span>
   <span class='ivar'>@match</span>
@@ -1461,12 +1465,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_match_type'>match_type</span>
   <span class='ivar'>@match_type</span>
@@ -1504,12 +1508,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='ivar'>@metadata</span>
@@ -1547,12 +1551,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oauth'>oauth</span>
   <span class='ivar'>@oauth</span>
@@ -1590,12 +1594,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_oidc'>oidc</span>
   <span class='ivar'>@oidc</span>
@@ -1633,12 +1637,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_request_headers'>request_headers</span>
   <span class='ivar'>@request_headers</span>
@@ -1676,12 +1680,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_response_headers'>response_headers</span>
   <span class='ivar'>@response_headers</span>
@@ -1719,12 +1723,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_saml'>saml</span>
   <span class='ivar'>@saml</span>
@@ -1762,12 +1766,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_uri'>uri</span>
   <span class='ivar'>@uri</span>
@@ -1805,12 +1809,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_webhook_verification'>webhook_verification</span>
   <span class='ivar'>@webhook_verification</span>
@@ -1848,12 +1852,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+8
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_websocket_tcp_converter'>websocket_tcp_converter</span>
   <span class='ivar'>@websocket_tcp_converter</span>
@@ -1885,12 +1889,12 @@
       <pre class="lines">
 
 
-52
-53
-54</pre>
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
   <span class='ivar'>@attrs</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_attrs'>attrs</span>
@@ -1928,16 +1932,16 @@
       <pre class="lines">
 
 
-128
-129
-130
-131
 132
 133
-134</pre>
+134
+135
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span>
 <span class='rparen'>)</span>
@@ -1966,12 +1970,12 @@
       <pre class="lines">
 
 
-60
-61
-62</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_h'>to_h</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
@@ -1996,12 +2000,12 @@
       <pre class="lines">
 
 
-56
-57
-58</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -2039,10 +2043,6 @@
       <pre class="lines">
 
 
-71
-72
-73
-74
 75
 76
 77
@@ -2090,10 +2090,14 @@
 119
 120
 121
-122</pre>
+122
+123
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/https_edge_route.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
   <span class='label'>match_type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -2157,9 +2161,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:32:58 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Tue Apr  4 21:40:43 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.28 (ruby-2.7.7).
 </div>
 
     </div>

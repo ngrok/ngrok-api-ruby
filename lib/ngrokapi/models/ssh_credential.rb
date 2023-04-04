@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module NgrokAPI
   module Models
     class SSHCredential
@@ -11,18 +13,22 @@ module NgrokAPI
         :description,
         :metadata,
         :public_key,
-        :acl
+        :acl,
+        :owner_id
 
       def initialize(client: nil, attrs: {})
         @client = client
         @attrs = attrs
         @id = @attrs['id']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
         @created_at = @attrs['created_at']
         @description = @attrs['description']
         @metadata = @attrs['metadata']
         @public_key = @attrs['public_key']
         @acl = @attrs['acl']
+        @owner_id = @attrs['owner_id']
       end
 
       def ==(other)
