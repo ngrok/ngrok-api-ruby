@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Models::CertificateAuthority
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -668,10 +668,6 @@
       <pre class="lines">
 
 
-20
-21
-22
-23
 24
 25
 26
@@ -682,16 +678,24 @@
 31
 32
 33
-34</pre>
+34
+35
+36
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@attrs</span> <span class='op'>=</span> <span class='id identifier rubyid_attrs'>attrs</span>
   <span class='ivar'>@id</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>id</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>unless</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
   <span class='ivar'>@created_at</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>created_at</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@description</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>description</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@metadata</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>metadata</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -740,12 +744,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attrs'>attrs</span>
   <span class='ivar'>@attrs</span>
@@ -783,12 +787,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ca_pem'>ca_pem</span>
   <span class='ivar'>@ca_pem</span>
@@ -826,12 +830,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -869,12 +873,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_created_at'>created_at</span>
   <span class='ivar'>@created_at</span>
@@ -912,12 +916,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='ivar'>@description</span>
@@ -955,12 +959,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_extended_key_usages'>extended_key_usages</span>
   <span class='ivar'>@extended_key_usages</span>
@@ -998,12 +1002,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
   <span class='ivar'>@id</span>
@@ -1041,12 +1045,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_key_usages'>key_usages</span>
   <span class='ivar'>@key_usages</span>
@@ -1084,12 +1088,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='ivar'>@metadata</span>
@@ -1127,12 +1131,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_after'>not_after</span>
   <span class='ivar'>@not_after</span>
@@ -1170,12 +1174,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_not_before'>not_before</span>
   <span class='ivar'>@not_before</span>
@@ -1213,12 +1217,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_subject_common_name'>subject_common_name</span>
   <span class='ivar'>@subject_common_name</span>
@@ -1256,12 +1260,12 @@
       <pre class="lines">
 
 
-6
-7
-8</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_uri'>uri</span>
   <span class='ivar'>@uri</span>
@@ -1293,12 +1297,12 @@
       <pre class="lines">
 
 
-36
-37
-38</pre>
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
   <span class='ivar'>@attrs</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_attrs'>attrs</span>
@@ -1336,14 +1340,14 @@
       <pre class="lines">
 
 
-52
-53
-54
-55
-56</pre>
+58
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span>
@@ -1370,12 +1374,12 @@
       <pre class="lines">
 
 
-44
-45
-46</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_h'>to_h</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
@@ -1400,12 +1404,12 @@
       <pre class="lines">
 
 
-40
-41
-42</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -1443,21 +1447,21 @@
       <pre class="lines">
 
 
-62
-63
-64
-65
-66
-67
 68
 69
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/certificate_authority.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span>
   <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span>
@@ -1481,9 +1485,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:33:00 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Wed Aug 16 16:38:55 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
+require 'uri'
+
 module NgrokAPI
   module Models
     class TLSEdge
@@ -23,7 +27,9 @@ module NgrokAPI
         @description = @attrs['description']
         @metadata = @attrs['metadata']
         @created_at = @attrs['created_at']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
         @hostports = @attrs['hostports']
         @backend = @attrs['backend']
         @ip_restriction = @attrs['ip_restriction']

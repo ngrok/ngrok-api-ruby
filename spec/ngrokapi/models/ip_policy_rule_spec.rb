@@ -1,3 +1,5 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::Models::IPPolicyRule do

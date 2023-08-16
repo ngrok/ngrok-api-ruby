@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   ##
   # Low level class which allows the user to iterate through the results of a list API call

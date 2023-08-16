@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   module Models
     class EventTarget
@@ -8,7 +10,8 @@ module NgrokAPI
         :firehose,
         :kinesis,
         :cloudwatch_logs,
-        :debug
+        :debug,
+        :datadog
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -17,6 +20,7 @@ module NgrokAPI
         @kinesis = @attrs['kinesis']
         @cloudwatch_logs = @attrs['cloudwatch_logs']
         @debug = @attrs['debug']
+        @datadog = @attrs['datadog']
       end
 
       def ==(other)

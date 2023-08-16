@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
+require 'uri'
+
 module NgrokAPI
   module Models
     class TunnelSession
@@ -28,7 +32,9 @@ module NgrokAPI
         @region = @attrs['region']
         @started_at = @attrs['started_at']
         @transport = @attrs['transport']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
       end
 
       def ==(other)

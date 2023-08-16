@@ -1,3 +1,5 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)

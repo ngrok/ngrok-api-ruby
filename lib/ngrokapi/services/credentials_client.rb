@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   module Services
     ##
     # Tunnel Credentials are ngrok agent authtokens. They authorize the ngrok
     #  agent to connect the ngrok service as your account. They are installed with
-    #  the `ngrok authtoken` command or by specifying it in the `ngrok.yml`
+    #  the `ngrok config add-authtoken` command or by specifying it in the `ngrok.yml`
     #  configuration file with the `authtoken` property.
     #
     # https://ngrok.com/docs/api#api-credentials
@@ -29,11 +31,12 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of who or what will use the credential to authenticate. Optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this credential. Optional, max 4096 bytes.
-      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains and addresses the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains, addresses, and labels the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules for domains may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. Bind rules for labels may specify a wildcard key and/or value to match multiple labels. For example, you may specify a rule of ``bind:*=example`` which will allow ``x=example``, ``y=example``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @param [string] owner_id If supplied at credential creation, ownership will be assigned to the specified User or Bot. Only admins may specify an owner other than themselves. Defaults to the authenticated User or Bot.
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-create
-      def create(description: "", metadata: "", acl: [])
+      def create(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "")
         path = '/credentials'
         replacements = {
         }
@@ -41,6 +44,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         data[:acl] = acl if acl
+        data[:owner_id] = owner_id if owner_id
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::Credential.new(client: self, attrs: result)
       end
@@ -54,11 +58,12 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of who or what will use the credential to authenticate. Optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this credential. Optional, max 4096 bytes.
-      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains and addresses the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains, addresses, and labels the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules for domains may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. Bind rules for labels may specify a wildcard key and/or value to match multiple labels. For example, you may specify a rule of ``bind:*=example`` which will allow ``x=example``, ``y=example``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @param [string] owner_id If supplied at credential creation, ownership will be assigned to the specified User or Bot. Only admins may specify an owner other than themselves. Defaults to the authenticated User or Bot.
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-create
-      def create!(description: "", metadata: "", acl: [])
+      def create!(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "")
         path = '/credentials'
         replacements = {
         }
@@ -66,6 +71,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         data[:acl] = acl if acl
+        data[:owner_id] = owner_id if owner_id
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::Credential.new(client: self, attrs: result)
       end
@@ -195,7 +201,7 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of who or what will use the credential to authenticate. Optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this credential. Optional, max 4096 bytes.
-      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains and addresses the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains, addresses, and labels the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules for domains may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. Bind rules for labels may specify a wildcard key and/or value to match multiple labels. For example, you may specify a rule of ``bind:*=example`` which will allow ``x=example``, ``y=example``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-update
@@ -219,7 +225,7 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of who or what will use the credential to authenticate. Optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this credential. Optional, max 4096 bytes.
-      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains and addresses the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
+      # @param [List<string>] acl optional list of ACL rules. If unspecified, the credential will have no restrictions. The only allowed ACL rule at this time is the ``bind`` rule. The ``bind`` rule allows the caller to restrict what domains, addresses, and labels the token is allowed to bind. For example, to allow the token to open a tunnel on example.ngrok.io your ACL would include the rule ``bind:example.ngrok.io``. Bind rules for domains may specify a leading wildcard to match multiple domains with a common suffix. For example, you may specify a rule of ``bind:*.example.com`` which will allow ``x.example.com``, ``y.example.com``, ``*.example.com``, etc. Bind rules for labels may specify a wildcard key and/or value to match multiple labels. For example, you may specify a rule of ``bind:*=example`` which will allow ``x=example``, ``y=example``, etc. A rule of ``'*'`` is equivalent to no acl at all and will explicitly permit all actions.
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-update

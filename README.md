@@ -1,3 +1,5 @@
+<!-- Code generated for API Clients. DO NOT EDIT. -->
+
 # ngrok API client library for Ruby
 
 This library wraps the [ngrok HTTP API](https://ngrok.com/docs/api) to make it
@@ -10,6 +12,10 @@ This library is published on [Rubygems](https://rubygems.org/gems/ngrok-api)
 ```ruby
 gem install ngrok-api
 ```
+
+## Support
+
+The best place to get support using this library is through the [ngrok Slack Community](https://ngrok.com/slack). If you find any bugs, please contribute by opening a [new GitHub issue](https://github.com/ngrok/ngrok-api-ruby/issues/new/choose).
 
 ## Documentation
 

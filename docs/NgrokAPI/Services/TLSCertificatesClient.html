@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::TLSCertificatesClient
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -502,12 +502,12 @@
       <pre class="lines">
 
 
-21
-22
-23</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -550,12 +550,12 @@
       <pre class="lines">
 
 
-19
-20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -642,7 +642,7 @@
       
         &mdash;
         <div class='inline'>
-<p>chain of PEM-encoded certificates, leaf first. See <code>Certificate Bundles</code> <a href="https://ngrok.com/docs/api#tls-certificates-pem`_">ngrok.com/docs/api#tls-certificates-pem`_</a>.</p>
+<p>chain of PEM-encoded certificates, leaf first. See <code>Certificate Bundles &lt;https://ngrok.com/docs/cloud-edge/endpoints#certificate-chains&gt;</code><a href="_">_</a>.</p>
 </div>
       
     </li>
@@ -658,7 +658,7 @@
       
         &mdash;
         <div class='inline'>
-<p>private key for the TLS certificate, PEM-encoded. See <code>Private Keys</code> <a href="https://ngrok.com/docs/ngrok-link#tls-certificates-key`_">ngrok.com/docs/ngrok-link#tls-certificates-key`_</a>.</p>
+<p>private key for the TLS certificate, PEM-encoded. See <code>Private Keys &lt;https://ngrok.com/docs/cloud-edge/endpoints#private-keys&gt;</code><a href="_">_</a>.</p>
 </div>
       
     </li>
@@ -690,8 +690,6 @@
       <pre class="lines">
 
 
-35
-36
 37
 38
 39
@@ -701,10 +699,12 @@
 43
 44
 45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>certificate_pem:</span><span class='comma'>,</span> <span class='label'>private_key_pem:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates</span><span class='tstring_end'>&#39;</span></span>
@@ -793,7 +793,7 @@
       
         &mdash;
         <div class='inline'>
-<p>chain of PEM-encoded certificates, leaf first. See <code>Certificate Bundles</code> <a href="https://ngrok.com/docs/api#tls-certificates-pem`_">ngrok.com/docs/api#tls-certificates-pem`_</a>.</p>
+<p>chain of PEM-encoded certificates, leaf first. See <code>Certificate Bundles &lt;https://ngrok.com/docs/cloud-edge/endpoints#certificate-chains&gt;</code><a href="_">_</a>.</p>
 </div>
       
     </li>
@@ -809,7 +809,7 @@
       
         &mdash;
         <div class='inline'>
-<p>private key for the TLS certificate, PEM-encoded. See <code>Private Keys</code> <a href="https://ngrok.com/docs/ngrok-link#tls-certificates-key`_">ngrok.com/docs/ngrok-link#tls-certificates-key`_</a>.</p>
+<p>private key for the TLS certificate, PEM-encoded. See <code>Private Keys &lt;https://ngrok.com/docs/cloud-edge/endpoints#private-keys&gt;</code><a href="_">_</a>.</p>
 </div>
       
     </li>
@@ -841,8 +841,6 @@
       <pre class="lines">
 
 
-59
-60
 61
 62
 63
@@ -852,10 +850,12 @@
 67
 68
 69
-70</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>certificate_pem:</span><span class='comma'>,</span> <span class='label'>private_key_pem:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates</span><span class='tstring_end'>&#39;</span></span>
@@ -942,16 +942,16 @@
       <pre class="lines">
 
 
-79
-80
 81
 82
 83
 84
-85</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1033,16 +1033,16 @@
       <pre class="lines">
 
 
-95
-96
 97
 98
 99
 100
-101</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1124,18 +1124,18 @@
       <pre class="lines">
 
 
-110
-111
 112
 113
 114
 115
 116
 117
-118</pre>
+118
+119
+120</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1219,18 +1219,18 @@
       <pre class="lines">
 
 
-128
-129
 130
 131
 132
 133
 134
 135
-136</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 130</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1340,8 +1340,6 @@
       <pre class="lines">
 
 
-147
-148
 149
 150
 151
@@ -1354,10 +1352,12 @@
 158
 159
 160
-161</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1473,8 +1473,6 @@
       <pre class="lines">
 
 
-173
-174
 175
 176
 177
@@ -1489,10 +1487,12 @@
 186
 187
 188
-189</pre>
+189
+190
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1615,8 +1615,6 @@
       <pre class="lines">
 
 
-200
-201
 202
 203
 204
@@ -1625,10 +1623,12 @@
 207
 208
 209
-210</pre>
+210
+211
+212</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 200</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1745,8 +1745,6 @@
       <pre class="lines">
 
 
-222
-223
 224
 225
 226
@@ -1755,10 +1753,12 @@
 229
 230
 231
-232</pre>
+232
+233
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 222</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/tls_certificates_client.rb', line 224</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/tls_certificates/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1781,9 +1781,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:33:02 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Wed Aug 16 16:38:58 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>

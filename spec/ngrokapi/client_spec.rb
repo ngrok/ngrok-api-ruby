@@ -1,3 +1,5 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 require 'spec_helper'
 require 'ostruct'
 
@@ -21,6 +23,24 @@ RSpec.describe NgrokAPI::Client do
   describe "#api_keys" do
     it "returns an instance of the APIKeysClient" do
       expect(@client.api_keys.class).to eq(NgrokAPI::Services::APIKeysClient)
+    end
+  end
+
+  describe "#application_sessions" do
+    it "returns an instance of the ApplicationSessionsClient" do
+      expect(@client.application_sessions.class).to eq(NgrokAPI::Services::ApplicationSessionsClient)
+    end
+  end
+
+  describe "#application_users" do
+    it "returns an instance of the ApplicationUsersClient" do
+      expect(@client.application_users.class).to eq(NgrokAPI::Services::ApplicationUsersClient)
+    end
+  end
+
+  describe "#tunnel_sessions" do
+    it "returns an instance of the TunnelSessionsClient" do
+      expect(@client.tunnel_sessions.class).to eq(NgrokAPI::Services::TunnelSessionsClient)
     end
   end
 
@@ -117,12 +137,6 @@ RSpec.describe NgrokAPI::Client do
   describe "#tls_certificates" do
     it "returns an instance of the TLSCertificatesClient" do
       expect(@client.tls_certificates.class).to eq(NgrokAPI::Services::TLSCertificatesClient)
-    end
-  end
-
-  describe "#tunnel_sessions" do
-    it "returns an instance of the TunnelSessionsClient" do
-      expect(@client.tunnel_sessions.class).to eq(NgrokAPI::Services::TunnelSessionsClient)
     end
   end
 

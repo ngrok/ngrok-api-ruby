@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
+require 'uri'
+
 module NgrokAPI
   module Models
     class EndpointSAMLMutate
@@ -25,7 +29,9 @@ module NgrokAPI
         @cookie_prefix = @attrs['cookie_prefix']
         @inactivity_timeout = @attrs['inactivity_timeout']
         @maximum_duration = @attrs['maximum_duration']
-        @idp_metadata_url = @attrs['idp_metadata_url']
+        unless @attrs['idp_metadata_url'].nil?
+          @idp_metadata_url = URI(@attrs['idp_metadata_url'])
+        end
         @idp_metadata = @attrs['idp_metadata']
         @force_authn = @attrs['force_authn']
         @allow_idp_initiated = @attrs['allow_idp_initiated']

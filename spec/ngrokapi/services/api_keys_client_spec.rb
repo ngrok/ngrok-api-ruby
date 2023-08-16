@@ -1,3 +1,5 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::Services::APIKeysClient do
@@ -20,11 +22,14 @@ RSpec.describe NgrokAPI::Services::APIKeysClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
+      data[:owner_id] = "New owner_id"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(api_key_result)
       result = @api_keys_client.create(
         description: "New description",
-        metadata: "New metadata"
+        metadata: "New metadata",
+        owner_id: "New owner_id",
+        owner_email: "New owner_email"
       )
       expect(result.class).to eq(NgrokAPI::Models::APIKey)
     end
@@ -38,11 +43,14 @@ RSpec.describe NgrokAPI::Services::APIKeysClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
+      data[:owner_id] = "New owner_id"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(api_key_result)
       result = @api_keys_client.create(
         description: "New description",
-        metadata: "New metadata"
+        metadata: "New metadata",
+        owner_id: "New owner_id",
+        owner_email: "New owner_email"
       )
       expect(result.class).to eq(NgrokAPI::Models::APIKey)
       # expect(result.id).to eq(api_key_result["id"])

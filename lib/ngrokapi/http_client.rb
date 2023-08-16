@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   ##
   # Low-level api client for communicating with Ngrok's HTTP API using HTTP. You should not have
@@ -104,6 +106,7 @@ module NgrokAPI
       {
         'Authorization': "Bearer #{@api_key}",
         'Ngrok-Version': '2',
+        'User-Agent': "ngrok-api-ruby/#{@VERSION}/#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}",
       }
     end
 
