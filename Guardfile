@@ -1,3 +1,5 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 rspec_options = {
   version:        1,
   all_after_pass: false,

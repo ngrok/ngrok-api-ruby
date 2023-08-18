@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   module Models
     class EndpointIPPolicy

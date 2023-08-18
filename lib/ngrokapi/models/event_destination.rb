@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
+require 'uri'
+
 module NgrokAPI
   module Models
     class EventDestination
@@ -22,7 +26,9 @@ module NgrokAPI
         @description = @attrs['description']
         @format = @attrs['format']
         @target = @attrs['target']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
       end
 
       def ==(other)

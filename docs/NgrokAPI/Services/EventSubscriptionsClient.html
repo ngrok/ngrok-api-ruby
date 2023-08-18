@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::EventSubscriptionsClient
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -500,12 +500,12 @@
       <pre class="lines">
 
 
-15
-16
-17</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -548,12 +548,12 @@
       <pre class="lines">
 
 
-13
-14
-15</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -692,8 +692,6 @@
       <pre class="lines">
 
 
-29
-30
 31
 32
 33
@@ -703,10 +701,12 @@
 37
 38
 39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>sources:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>destination_ids:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions</span><span class='tstring_end'>&#39;</span></span>
@@ -847,8 +847,6 @@
       <pre class="lines">
 
 
-53
-54
 55
 56
 57
@@ -858,10 +856,12 @@
 61
 62
 63
-64</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>sources:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>destination_ids:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions</span><span class='tstring_end'>&#39;</span></span>
@@ -948,16 +948,16 @@
       <pre class="lines">
 
 
-73
-74
 75
 76
 77
 78
-79</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1039,16 +1039,16 @@
       <pre class="lines">
 
 
-89
-90
 91
 92
 93
 94
-95</pre>
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1130,18 +1130,18 @@
       <pre class="lines">
 
 
-104
-105
 106
 107
 108
 109
 110
 111
-112</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1225,18 +1225,18 @@
       <pre class="lines">
 
 
-122
-123
 124
 125
 126
 127
 128
 129
-130</pre>
+130
+131
+132</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1346,8 +1346,6 @@
       <pre class="lines">
 
 
-141
-142
 143
 144
 145
@@ -1360,10 +1358,12 @@
 152
 153
 154
-155</pre>
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 143</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1479,8 +1479,6 @@
       <pre class="lines">
 
 
-167
-168
 169
 170
 171
@@ -1495,10 +1493,12 @@
 180
 181
 182
-183</pre>
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1662,8 +1662,6 @@
       <pre class="lines">
 
 
-196
-197
 198
 199
 200
@@ -1674,10 +1672,12 @@
 205
 206
 207
-208</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>sources:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>destination_ids:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1837,8 +1837,6 @@
       <pre class="lines">
 
 
-222
-223
 224
 225
 226
@@ -1849,10 +1847,12 @@
 231
 232
 233
-234</pre>
+234
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 222</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/event_subscriptions_client.rb', line 224</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>sources:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>destination_ids:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/event_subscriptions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1877,9 +1877,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:33:04 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Fri Aug 18 15:35:31 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>

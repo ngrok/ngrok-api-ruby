@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::EdgeRouteSAMLModuleClient
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -388,12 +388,12 @@
       <pre class="lines">
 
 
-13
-14
-15</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -436,12 +436,12 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -542,17 +542,17 @@
       <pre class="lines">
 
 
-93
-94
 95
 96
 97
 98
 99
-100</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>edge_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/https/%{edge_id}/routes/%{id}/saml</span><span class='tstring_end'>&#39;</span></span>
@@ -651,17 +651,17 @@
       <pre class="lines">
 
 
-108
-109
 110
 111
 112
 113
 114
-115</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 110</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>edge_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/https/%{edge_id}/routes/%{id}/saml</span><span class='tstring_end'>&#39;</span></span>
@@ -760,8 +760,6 @@
       <pre class="lines">
 
 
-59
-60
 61
 62
 63
@@ -769,10 +767,12 @@
 65
 66
 67
-68</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>edge_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/https/%{edge_id}/routes/%{id}/saml</span><span class='tstring_end'>&#39;</span></span>
@@ -873,8 +873,6 @@
       <pre class="lines">
 
 
-76
-77
 78
 79
 80
@@ -882,10 +880,12 @@
 82
 83
 84
-85</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>edge_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/https/%{edge_id}/routes/%{id}/saml</span><span class='tstring_end'>&#39;</span></span>
@@ -989,8 +989,6 @@
       <pre class="lines">
 
 
-24
-25
 26
 27
 28
@@ -998,10 +996,12 @@
 30
 31
 32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='label'>edge_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>a_module:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/https/%{edge_id}/routes/%{id}/saml</span><span class='tstring_end'>&#39;</span></span>
@@ -1105,8 +1105,6 @@
       <pre class="lines">
 
 
-42
-43
 44
 45
 46
@@ -1114,10 +1112,12 @@
 48
 49
 50
-51</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edge_route_saml_module_client.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_replace!'>replace!</span><span class='lparen'>(</span><span class='label'>edge_id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>a_module:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/https/%{edge_id}/routes/%{id}/saml</span><span class='tstring_end'>&#39;</span></span>
@@ -1139,9 +1139,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:33:04 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Fri Aug 18 15:35:33 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>

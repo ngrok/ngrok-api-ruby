@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
+require 'uri'
+
 module NgrokAPI
   module Models
     class Tunnel
@@ -21,7 +25,9 @@ module NgrokAPI
         @client = client
         @attrs = attrs
         @id = @attrs['id']
-        @public_url = @attrs['public_url']
+        unless @attrs['public_url'].nil?
+          @public_url = URI(@attrs['public_url'])
+        end
         @started_at = @attrs['started_at']
         @metadata = @attrs['metadata']
         @proto = @attrs['proto']

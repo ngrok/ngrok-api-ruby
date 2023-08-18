@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::FailoverBackendsClient
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -502,12 +502,12 @@
       <pre class="lines">
 
 
-20
-21
-22</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -550,12 +550,12 @@
       <pre class="lines">
 
 
-18
-19
-20</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -676,8 +676,6 @@
       <pre class="lines">
 
 
-33
-34
 35
 36
 37
@@ -686,10 +684,12 @@
 40
 41
 42
-43</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>backends:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover</span><span class='tstring_end'>&#39;</span></span>
@@ -811,8 +811,6 @@
       <pre class="lines">
 
 
-55
-56
 57
 58
 59
@@ -821,10 +819,12 @@
 62
 63
 64
-65</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>backends:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover</span><span class='tstring_end'>&#39;</span></span>
@@ -910,16 +910,16 @@
       <pre class="lines">
 
 
-74
-75
 76
 77
 78
 79
-80</pre>
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1001,16 +1001,16 @@
       <pre class="lines">
 
 
-90
-91
 92
 93
 94
 95
-96</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1092,18 +1092,18 @@
       <pre class="lines">
 
 
-105
-106
 107
 108
 109
 110
 111
 112
-113</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1187,18 +1187,18 @@
       <pre class="lines">
 
 
-123
-124
 125
 126
 127
 128
 129
 130
-131</pre>
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1308,8 +1308,6 @@
       <pre class="lines">
 
 
-142
-143
 144
 145
 146
@@ -1322,10 +1320,12 @@
 153
 154
 155
-156</pre>
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1441,8 +1441,6 @@
       <pre class="lines">
 
 
-168
-169
 170
 171
 172
@@ -1457,10 +1455,12 @@
 181
 182
 183
-184</pre>
+184
+185
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1601,8 +1601,6 @@
       <pre class="lines">
 
 
-196
-197
 198
 199
 200
@@ -1612,10 +1610,12 @@
 204
 205
 206
-207</pre>
+207
+208
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>backends:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1751,8 +1751,6 @@
       <pre class="lines">
 
 
-220
-221
 222
 223
 224
@@ -1762,10 +1760,12 @@
 228
 229
 230
-231</pre>
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 220</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/failover_backends_client.rb', line 222</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>backends:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/failover/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1789,9 +1789,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:33:03 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Fri Aug 18 15:35:30 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>

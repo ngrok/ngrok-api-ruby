@@ -1,2 +1,4 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 require:
   - rubocop-airbnb

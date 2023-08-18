@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::IPRestrictionsClient
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -502,12 +502,12 @@
       <pre class="lines">
 
 
-22
-23
-24</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -550,12 +550,12 @@
       <pre class="lines">
 
 
-20
-21
-22</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -708,8 +708,6 @@
       <pre class="lines">
 
 
-37
-38
 39
 40
 41
@@ -720,10 +718,12 @@
 46
 47
 48
-49</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>enforced:</span> <span class='const'>False</span><span class='comma'>,</span> <span class='label'>type:</span><span class='comma'>,</span> <span class='label'>ip_policy_ids:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions</span><span class='tstring_end'>&#39;</span></span>
@@ -879,8 +879,6 @@
       <pre class="lines">
 
 
-63
-64
 65
 66
 67
@@ -891,10 +889,12 @@
 72
 73
 74
-75</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>enforced:</span> <span class='const'>False</span><span class='comma'>,</span> <span class='label'>type:</span><span class='comma'>,</span> <span class='label'>ip_policy_ids:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions</span><span class='tstring_end'>&#39;</span></span>
@@ -982,16 +982,16 @@
       <pre class="lines">
 
 
-84
-85
 86
 87
 88
 89
-90</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1073,16 +1073,16 @@
       <pre class="lines">
 
 
-100
-101
 102
 103
 104
 105
-106</pre>
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1164,18 +1164,18 @@
       <pre class="lines">
 
 
-115
-116
 117
 118
 119
 120
 121
 122
-123</pre>
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 117</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1259,18 +1259,18 @@
       <pre class="lines">
 
 
-133
-134
 135
 136
 137
 138
 139
 140
-141</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1380,8 +1380,6 @@
       <pre class="lines">
 
 
-152
-153
 154
 155
 156
@@ -1394,10 +1392,12 @@
 163
 164
 165
-166</pre>
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 154</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1513,8 +1513,6 @@
       <pre class="lines">
 
 
-178
-179
 180
 181
 182
@@ -1529,10 +1527,12 @@
 191
 192
 193
-194</pre>
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1691,8 +1691,6 @@
       <pre class="lines">
 
 
-207
-208
 209
 210
 211
@@ -1703,10 +1701,12 @@
 216
 217
 218
-219</pre>
+219
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 207</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 209</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>enforced:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ip_policy_ids:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1861,8 +1861,6 @@
       <pre class="lines">
 
 
-233
-234
 235
 236
 237
@@ -1873,10 +1871,12 @@
 242
 243
 244
-245</pre>
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 233</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_restrictions_client.rb', line 235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>enforced:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ip_policy_ids:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_restrictions/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1901,9 +1901,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:33:01 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Fri Aug 18 15:35:28 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>
