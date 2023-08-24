@@ -1,3 +1,5 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::Services::AgentIngressesClient do
@@ -21,12 +23,14 @@ RSpec.describe NgrokAPI::Services::AgentIngressesClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:domain] = "New domain"
+      data[:certificate_management_policy] = "New certificate_management_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(agent_ingress_result)
       result = @agent_ingresses_client.create(
         description: "New description",
         metadata: "New metadata",
-        domain: "New domain"
+        domain: "New domain",
+        certificate_management_policy: "New certificate_management_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::AgentIngress)
     end
@@ -41,12 +45,14 @@ RSpec.describe NgrokAPI::Services::AgentIngressesClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:domain] = "New domain"
+      data[:certificate_management_policy] = "New certificate_management_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(agent_ingress_result)
       result = @agent_ingresses_client.create(
         description: "New description",
         metadata: "New metadata",
-        domain: "New domain"
+        domain: "New domain",
+        certificate_management_policy: "New certificate_management_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::AgentIngress)
       # expect(result.id).to eq(agent_ingress_result["id"])
@@ -146,12 +152,14 @@ RSpec.describe NgrokAPI::Services::AgentIngressesClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
+      data[:certificate_management_policy] = "New certificate_management_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(agent_ingress_result)
       result = @agent_ingresses_client.update(
         id: agent_ingress_result["id"],
         description: "New description",
-        metadata: "New metadata"
+        metadata: "New metadata",
+        certificate_management_policy: "New certificate_management_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::AgentIngress)
     end
@@ -166,12 +174,14 @@ RSpec.describe NgrokAPI::Services::AgentIngressesClient do
       data = {}
       data[:description] = "New description"
       data[:metadata] = "New metadata"
+      data[:certificate_management_policy] = "New certificate_management_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(agent_ingress_result)
       result = @agent_ingresses_client.update(
         id: agent_ingress_result["id"],
         description: "New description",
-        metadata: "New metadata"
+        metadata: "New metadata",
+        certificate_management_policy: "New certificate_management_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::AgentIngress)
       # expect(result.id).to eq(agent_ingress_result["id"])

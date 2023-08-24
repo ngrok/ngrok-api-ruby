@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   module Services
     ##
@@ -24,7 +26,7 @@ module NgrokAPI
       ##
       # Create a new reserved domain.
       #
-      # @param [string] name the domain name to reserve. It may be a full domain name like app.example.com. If the name does not contain a '.' it will reserve that subdomain on ngrok.io.
+      # @param [string] domain hostname of the reserved domain
       # @param [string] region reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)
       # @param [string] description human-readable description of what this reserved domain will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
@@ -33,12 +35,12 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
-      def create(name:, region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
+      def create(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
         path = '/reserved_domains'
         replacements = {
         }
         data = {}
-        data[:name] = name if name
+        data[:domain] = domain if domain
         data[:region] = region if region
         data[:description] = description if description
         data[:metadata] = metadata if metadata
@@ -52,7 +54,7 @@ module NgrokAPI
       # Create a new reserved domain.
       # Throws an exception if API error.
       #
-      # @param [string] name the domain name to reserve. It may be a full domain name like app.example.com. If the name does not contain a '.' it will reserve that subdomain on ngrok.io.
+      # @param [string] domain hostname of the reserved domain
       # @param [string] region reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)
       # @param [string] description human-readable description of what this reserved domain will be used for
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
@@ -61,12 +63,12 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
-      def create!(name:, region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
+      def create!(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
         path = '/reserved_domains'
         replacements = {
         }
         data = {}
-        data[:name] = name if name
+        data[:domain] = domain if domain
         data[:region] = region if region
         data[:description] = description if description
         data[:metadata] = metadata if metadata
@@ -206,7 +208,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
+      def update(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -232,7 +234,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update!(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
+      def update!(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,

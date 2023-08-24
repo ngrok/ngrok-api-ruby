@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::AbuseReportsClient
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -342,12 +342,12 @@
       <pre class="lines">
 
 
-16
-17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -390,12 +390,12 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+16
+17
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -496,8 +496,6 @@
       <pre class="lines">
 
 
-30
-31
 32
 33
 34
@@ -505,10 +503,12 @@
 36
 37
 38
-39</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>urls:</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/abuse_reports</span><span class='tstring_end'>&#39;</span></span>
@@ -609,8 +609,6 @@
       <pre class="lines">
 
 
-52
-53
 54
 55
 56
@@ -618,10 +616,12 @@
 58
 59
 60
-61</pre>
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>urls:</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/abuse_reports</span><span class='tstring_end'>&#39;</span></span>
@@ -706,18 +706,18 @@
       <pre class="lines">
 
 
-70
-71
 72
 73
 74
 75
 76
 77
-78</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/abuse_reports/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -801,18 +801,18 @@
       <pre class="lines">
 
 
-88
-89
 90
 91
 92
 93
 94
 95
-96</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/abuse_reports_client.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/abuse_reports/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -833,9 +833,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:33:00 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Thu Aug 24 20:57:32 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>

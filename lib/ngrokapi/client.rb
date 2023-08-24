@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 require 'ostruct'
 
 module NgrokAPI
@@ -36,6 +38,24 @@ module NgrokAPI
       @_api_keys ||= NgrokAPI::Services::APIKeysClient.new(client: @client)
     end
 
+    def application_sessions
+      @_application_sessions ||= NgrokAPI::Services::ApplicationSessionsClient.new(client: @client)
+    end
+
+    def application_users
+      @_application_users ||= NgrokAPI::Services::ApplicationUsersClient.new(client: @client)
+    end
+
+    ##
+    # Tunnel Sessions represent instances of ngrok agents or SSH reverse tunnel
+    #  sessions that are running and connected to the ngrok service. Each tunnel
+    #  session can include one or more Tunnels.
+    #
+    # @return [NgrokAPI::Services::TunnelSessionsClient]
+    def tunnel_sessions
+      @_tunnel_sessions ||= NgrokAPI::Services::TunnelSessionsClient.new(client: @client)
+    end
+
     ##
     # Certificate Authorities are x509 certificates that are used to sign other
     #  x509 certificates. Attach a Certificate Authority to the Mutual TLS module
@@ -51,7 +71,7 @@ module NgrokAPI
     ##
     # Tunnel Credentials are ngrok agent authtokens. They authorize the ngrok
     #  agent to connect the ngrok service as your account. They are installed with
-    #  the `ngrok authtoken` command or by specifying it in the `ngrok.yml`
+    #  the `ngrok config add-authtoken` command or by specifying it in the `ngrok.yml`
     #  configuration file with the `authtoken` property.
     #
     # @return [NgrokAPI::Services::CredentialsClient]
@@ -183,16 +203,6 @@ module NgrokAPI
     # @return [NgrokAPI::Services::TLSCertificatesClient]
     def tls_certificates
       @_tls_certificates ||= NgrokAPI::Services::TLSCertificatesClient.new(client: @client)
-    end
-
-    ##
-    # Tunnel Sessions represent instances of ngrok agents or SSH reverse tunnel
-    #  sessions that are running and connected to the ngrok service. Each tunnel
-    #  session can include one or more Tunnels.
-    #
-    # @return [NgrokAPI::Services::TunnelSessionsClient]
-    def tunnel_sessions
-      @_tunnel_sessions ||= NgrokAPI::Services::TunnelSessionsClient.new(client: @client)
     end
 
     ##
