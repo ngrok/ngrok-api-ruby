@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
 
+# Code generated for API Clients. DO NOT EDIT.
+
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'ngrokapi/version'
 

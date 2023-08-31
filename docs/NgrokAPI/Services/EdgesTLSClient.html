@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::EdgesTLSClient
   
-    &mdash; Documentation by YARD 0.9.27
+    &mdash; Documentation by YARD 0.9.34
   
 </title>
 
@@ -500,12 +500,12 @@
       <pre class="lines">
 
 
-15
-16
-17</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
@@ -548,12 +548,12 @@
       <pre class="lines">
 
 
-13
-14
-15</pre>
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
@@ -731,8 +731,6 @@
       <pre class="lines">
 
 
-32
-33
 34
 35
 36
@@ -745,10 +743,12 @@
 43
 44
 45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>hostports:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>backend:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ip_restriction:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>mutual_tls:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>tls_termination:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls</span><span class='tstring_end'>&#39;</span></span>
@@ -931,8 +931,6 @@
       <pre class="lines">
 
 
-62
-63
 64
 65
 66
@@ -945,10 +943,12 @@
 73
 74
 75
-76</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>hostports:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>backend:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ip_restriction:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>mutual_tls:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>tls_termination:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls</span><span class='tstring_end'>&#39;</span></span>
@@ -1038,16 +1038,16 @@
       <pre class="lines">
 
 
-242
-243
 244
 245
 246
 247
-248</pre>
+248
+249
+250</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 242</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 244</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1129,16 +1129,16 @@
       <pre class="lines">
 
 
-258
-259
 260
 261
 262
 263
-264</pre>
+264
+265
+266</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 258</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 260</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1220,18 +1220,18 @@
       <pre class="lines">
 
 
-85
-86
 87
 88
 89
 90
 91
 92
-93</pre>
+93
+94
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1315,18 +1315,18 @@
       <pre class="lines">
 
 
-103
-104
 105
 106
 107
 108
 109
 110
-111</pre>
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1436,8 +1436,6 @@
       <pre class="lines">
 
 
-122
-123
 124
 125
 126
@@ -1450,10 +1448,12 @@
 133
 134
 135
-136</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1569,8 +1569,6 @@
       <pre class="lines">
 
 
-148
-149
 150
 151
 152
@@ -1585,10 +1583,12 @@
 161
 162
 163
-164</pre>
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -1791,8 +1791,6 @@
       <pre class="lines">
 
 
-183
-184
 185
 186
 187
@@ -1806,10 +1804,12 @@
 195
 196
 197
-198</pre>
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hostports:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>backend:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ip_restriction:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>mutual_tls:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>tls_termination:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -2011,8 +2011,6 @@
       <pre class="lines">
 
 
-218
-219
 220
 221
 222
@@ -2026,10 +2024,12 @@
 230
 231
 232
-233</pre>
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/edges_tls_client.rb', line 220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>hostports:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>backend:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ip_restriction:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>mutual_tls:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>tls_termination:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/edges/tls/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -2057,9 +2057,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 11 19:32:59 2022 by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.27 (ruby-2.7.5).
+  Generated on Thu Aug 24 20:57:30 2023 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.0.6).
 </div>
 
     </div>

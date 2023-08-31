@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   module Services
     ##
@@ -28,16 +30,18 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
+      # @param [string] owner_id If supplied at credential creation, ownership will be assigned to the specified User or Bot. Only admins may specify an owner other than themselves. Defaults to the authenticated User or Bot.
       # @return [NgrokAPI::Models::APIKey] result from the API request
       #
       # https://ngrok.com/docs/api#api-api-keys-create
-      def create(description: "", metadata: "")
+      def create(description: "", metadata: "", owner_id: nil, owner_email: "")
         path = '/api_keys'
         replacements = {
         }
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
+        data[:owner_id] = owner_id if owner_id
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::APIKey.new(client: self, attrs: result)
       end
@@ -49,16 +53,18 @@ module NgrokAPI
       #
       # @param [string] description human-readable description of what uses the API key to authenticate. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined data of this API key. optional, max 4096 bytes
+      # @param [string] owner_id If supplied at credential creation, ownership will be assigned to the specified User or Bot. Only admins may specify an owner other than themselves. Defaults to the authenticated User or Bot.
       # @return [NgrokAPI::Models::APIKey] result from the API request
       #
       # https://ngrok.com/docs/api#api-api-keys-create
-      def create!(description: "", metadata: "")
+      def create!(description: "", metadata: "", owner_id: nil, owner_email: "")
         path = '/api_keys'
         replacements = {
         }
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
+        data[:owner_id] = owner_id if owner_id
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::APIKey.new(client: self, attrs: result)
       end

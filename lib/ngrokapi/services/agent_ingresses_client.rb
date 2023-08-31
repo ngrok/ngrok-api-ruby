@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 module NgrokAPI
   module Services
     ##
@@ -23,10 +25,11 @@ module NgrokAPI
       # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
       # @param [string] domain the domain that you own to be used as the base domain name to generate regional agent ingress domains.
+      # @param [AgentIngressCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional.
       # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
       # https://ngrok.com/docs/api#api-agent-ingresses-create
-      def create(description: "", metadata: "", domain:)
+      def create(description: "", metadata: "", domain:, certificate_management_policy: nil)
         path = '/agent_ingresses'
         replacements = {
         }
@@ -34,6 +37,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         data[:domain] = domain if domain
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
@@ -46,10 +50,11 @@ module NgrokAPI
       # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
       # @param [string] domain the domain that you own to be used as the base domain name to generate regional agent ingress domains.
+      # @param [AgentIngressCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional.
       # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
       # https://ngrok.com/docs/api#api-agent-ingresses-create
-      def create!(description: "", metadata: "", domain:)
+      def create!(description: "", metadata: "", domain:, certificate_management_policy: nil)
         path = '/agent_ingresses'
         replacements = {
         }
@@ -57,6 +62,7 @@ module NgrokAPI
         data[:description] = description if description
         data[:metadata] = metadata if metadata
         data[:domain] = domain if domain
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
@@ -186,10 +192,11 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
+      # @param [AgentIngressCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional.
       # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
       # https://ngrok.com/docs/api#api-agent-ingresses-update
-      def update(id: "", description: nil, metadata: nil)
+      def update(id: "", description: nil, metadata: nil, certificate_management_policy: nil)
         path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
@@ -197,6 +204,7 @@ module NgrokAPI
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.patch(path % replacements, data: data)
         NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end
@@ -208,10 +216,11 @@ module NgrokAPI
       # @param [string] id
       # @param [string] description human-readable description of the use of this Agent Ingress. optional, max 255 bytes.
       # @param [string] metadata arbitrary user-defined machine-readable data of this Agent Ingress. optional, max 4096 bytes
+      # @param [AgentIngressCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional.
       # @return [NgrokAPI::Models::AgentIngress] result from the API request
       #
       # https://ngrok.com/docs/api#api-agent-ingresses-update
-      def update!(id: "", description: nil, metadata: nil)
+      def update!(id: "", description: nil, metadata: nil, certificate_management_policy: nil)
         path = '/agent_ingresses/%{id}'
         replacements = {
           id: id,
@@ -219,6 +228,7 @@ module NgrokAPI
         data = {}
         data[:description] = description if description
         data[:metadata] = metadata if metadata
+        data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
         result = @client.patch(path % replacements, data: data, danger: true)
         NgrokAPI::Models::AgentIngress.new(client: self, attrs: result)
       end

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
 require "simplecov"
 SimpleCov.start
 require 'pry'
@@ -47,6 +49,56 @@ end
 
 # Custom objects
 # NOTE: we should programmatically create these at some point in the future.
+def application_user_result
+  {
+  }
+end
+
+def application_user_results
+  {
+    "application_users" => [
+      application_user_result,
+    ],
+    "uri" => "https://api.ngrok.com/application_users",
+    "next_page_uri" => nil,
+  }
+end
+
+def application_session_result
+  {
+  }
+end
+
+def application_session_results
+  {
+    "application_sessions" => [
+      application_session_result,
+    ],
+    "uri" => "https://api.ngrok.com/application_sessions",
+    "next_page_uri" => nil,
+  }
+end
+
+def location_result
+  {
+  }
+end
+
+def user_agent_result
+  {
+  }
+end
+
+def identity_provider_result
+  {
+  }
+end
+
+def browser_session_result
+  {
+  }
+end
+
 def abuse_report_hostname_result
   {
   }
@@ -57,10 +109,25 @@ def abuse_report_result
   }
 end
 
+def agent_ingress_cert_policy_result
+  {
+  }
+end
+
+def agent_ingress_cert_status_result
+  {
+  }
+end
+
+def agent_ingress_cert_job_result
+  {
+  }
+end
+
 def agent_ingress_result
   {
     "id" => "agin_1zlnrHlibHAywyAvG5wk0rx5olk",
-    "uri" => "https=>//api.ngrok.com/agent_ingresses/agin_1zlnrHlibHAywyAvG5wk0rx5olk",
+    "uri" => "https://api.ngrok.com/agent_ingresses/agin_1zlnrHlibHAywyAvG5wk0rx5olk",
     "description" => "acme devices",
     "metadata" => "",
     "domain" => "connect.acme.com",
@@ -80,7 +147,7 @@ end
 def agent_ingress_result2
   {
     "id" => "agin_1zlnrHlibHAywyAvG5wk0rx5olk",
-    "uri" => "https=>//api.ngrok.com/agent_ingresses/agin_1zlnrHlibHAywyAvG5wk0rx5olk",
+    "uri" => "https://api.ngrok.com/agent_ingresses/agin_1zlnrHlibHAywyAvG5wk0rx5olk",
     "description" => "ACME Co. Device Ingress",
     "metadata" => "{\"device_sku\"=> \"824JS4RZ1F8X\"}",
     "domain" => "connect.acme.com",
@@ -424,7 +491,27 @@ def endpoint_o_auth_google_result
   }
 end
 
+def endpoint_o_auth_linked_in_result
+  {
+  }
+end
+
+def endpoint_o_auth_git_lab_result
+  {
+  }
+end
+
+def endpoint_o_auth_twitch_result
+  {
+  }
+end
+
 def endpoint_o_auth_microsoft_result
+  {
+  }
+end
+
+def endpoint_o_auth_amazon_result
   {
   }
 end
@@ -645,6 +732,11 @@ def event_target_firehose_result
 end
 
 def event_target_kinesis_result
+  {
+  }
+end
+
+def event_target_datadog_result
   {
   }
 end

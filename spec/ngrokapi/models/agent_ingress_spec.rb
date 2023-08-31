@@ -1,3 +1,5 @@
+# Code generated for API Clients. DO NOT EDIT.
+
 require 'spec_helper'
 
 RSpec.describe NgrokAPI::Models::AgentIngress do
@@ -30,13 +32,16 @@ RSpec.describe NgrokAPI::Models::AgentIngress do
     it "calls update on the client" do
       new_description = 'New description'
       new_metadata = 'New metadata'
+      new_certificate_management_policy = 'New certificate_management_policy'
       expect(@agent_ingress.client).to receive(:update)
       @agent_ingress.update(
         description: new_description,
-        metadata: new_metadata
+        metadata: new_metadata,
+        certificate_management_policy: new_certificate_management_policy
       )
       expect(@agent_ingress.description).to eq new_description
       expect(@agent_ingress.metadata).to eq new_metadata
+      expect(@agent_ingress.certificate_management_policy).to eq new_certificate_management_policy
     end
   end
 end

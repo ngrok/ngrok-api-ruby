@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# Code generated for API Clients. DO NOT EDIT.
+
+require 'uri'
+
 module NgrokAPI
   module Models
     class AgentIngress
@@ -12,19 +16,25 @@ module NgrokAPI
         :domain,
         :ns_targets,
         :region_domains,
-        :created_at
+        :created_at,
+        :certificate_management_policy,
+        :certificate_management_status
 
       def initialize(client: nil, attrs: {})
         @client = client
         @attrs = attrs
         @id = @attrs['id']
-        @uri = @attrs['uri']
+        unless @attrs['uri'].nil?
+          @uri = URI(@attrs['uri'])
+        end
         @description = @attrs['description']
         @metadata = @attrs['metadata']
         @domain = @attrs['domain']
         @ns_targets = @attrs['ns_targets']
         @region_domains = @attrs['region_domains']
         @created_at = @attrs['created_at']
+        @certificate_management_policy = @attrs['certificate_management_policy']
+        @certificate_management_status = @attrs['certificate_management_status']
       end
 
       def ==(other)
@@ -55,14 +65,17 @@ module NgrokAPI
       # https://ngrok.com/docs/api#api-agent-ingresses-update
       def update(
         description: nil,
-        metadata: nil
+        metadata: nil,
+        certificate_management_policy: nil
       )
         @description = description if description
         @metadata = metadata if metadata
+        @certificate_management_policy = certificate_management_policy if certificate_management_policy
         @client.update(
           id: @id,
           description: description,
-          metadata: metadata
+          metadata: metadata,
+          certificate_management_policy: certificate_management_policy
         )
       end
     end
