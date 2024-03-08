@@ -304,6 +304,27 @@ def credential_results
   }
 end
 
+def static_backend_tls_result
+  {
+  }
+end
+
+def static_backend_result
+  {
+  }
+end
+
+def static_backend_results
+  {
+    "backends" => [
+      static_backend_result,
+      static_backend_result,
+      static_backend_result,
+    ],
+    "next" => nil,
+  }
+end
+
 def endpoint_result
   {
     "id" => "ep_123",
@@ -456,6 +477,21 @@ def endpoint_ip_policy_mutate_result
   }
 end
 
+def endpoint_policy_result
+  {
+  }
+end
+
+def endpoint_action_result
+  {
+  }
+end
+
+def endpoint_rule_result
+  {
+  }
+end
+
 def endpoint_logging_result
   {
   }
@@ -552,6 +588,11 @@ def endpoint_saml_mutate_result
 end
 
 def endpoint_tls_termination_result
+  {
+  }
+end
+
+def endpoint_user_agent_filter_result
   {
   }
 end
@@ -1286,6 +1327,7 @@ def https_edge_route_result
     "uri" => "https://api.ngrok.com/edges/https/edghts_23WYoHa6cZpqNFOr7nuDEsaN9SG/routes/edghtsrt_23WZ2wMQh9ZV0gPcToseRIIUJQo",
     "backend" => nil,
     "ip_restriction" => nil,
+    "jwt_validation" => nil,
     "circuit_breaker" => nil,
     "compression" => nil,
     "request_headers" => nil,
@@ -1295,6 +1337,7 @@ def https_edge_route_result
     "saml" => nil,
     "oidc" => nil,
     "websocket_tcp_converter" => nil,
+    "user_agent_filter" => nil,
   }
 end
 

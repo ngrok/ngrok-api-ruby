@@ -10,7 +10,6 @@ module NgrokAPI
         :firehose,
         :kinesis,
         :cloudwatch_logs,
-        :debug,
         :datadog
 
       def initialize(client: nil, attrs: {})
@@ -19,7 +18,6 @@ module NgrokAPI
         @firehose = @attrs['firehose']
         @kinesis = @attrs['kinesis']
         @cloudwatch_logs = @attrs['cloudwatch_logs']
-        @debug = @attrs['debug']
         @datadog = @attrs['datadog']
       end
 

@@ -13,8 +13,7 @@ module NgrokAPI
         :uri,
         :created_at,
         :description,
-        :metadata,
-        :action
+        :metadata
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -26,7 +25,6 @@ module NgrokAPI
         @created_at = @attrs['created_at']
         @description = @attrs['description']
         @metadata = @attrs['metadata']
-        @action = @attrs['action']
       end
 
       def ==(other)

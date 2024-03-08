@@ -36,7 +36,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-create
-      def create(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "")
+      def create(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "", precomputed_token: nil)
         path = '/credentials'
         replacements = {
         }
@@ -63,7 +63,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-create
-      def create!(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "")
+      def create!(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "", precomputed_token: nil)
         path = '/credentials'
         replacements = {
         }

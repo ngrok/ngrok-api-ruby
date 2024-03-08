@@ -30,6 +30,7 @@ RSpec.describe NgrokAPI::Models::TLSEdge do
       new_ip_restriction = 'New ip_restriction'
       new_mutual_tls = 'New mutual_tls'
       new_tls_termination = 'New tls_termination'
+      new_policy = 'New policy'
       expect(@tls_edge.client).to receive(:update)
       @tls_edge.update(
         description: new_description,
@@ -38,7 +39,8 @@ RSpec.describe NgrokAPI::Models::TLSEdge do
         backend: new_backend,
         ip_restriction: new_ip_restriction,
         mutual_tls: new_mutual_tls,
-        tls_termination: new_tls_termination
+        tls_termination: new_tls_termination,
+        policy: new_policy
       )
       expect(@tls_edge.description).to eq new_description
       expect(@tls_edge.metadata).to eq new_metadata
@@ -47,6 +49,7 @@ RSpec.describe NgrokAPI::Models::TLSEdge do
       expect(@tls_edge.ip_restriction).to eq new_ip_restriction
       expect(@tls_edge.mutual_tls).to eq new_mutual_tls
       expect(@tls_edge.tls_termination).to eq new_tls_termination
+      expect(@tls_edge.policy).to eq new_policy
     end
   end
 

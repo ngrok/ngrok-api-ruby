@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Client
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Low-level api client for communicating with Ngrok&#39;s HTTP API. Use this object to instantiate your clients.</p>
+<p>Low-level api client for communicating with Ngrok’s HTTP API. Use this object to instantiate your clients.</p>
 
 
   </div>
@@ -143,7 +143,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Abuse Reports allow you to submit take-down requests for URLs hosted by ngrok that violate ngrok&#39;s terms of service.</p>
+<p>Abuse Reports allow you to submit take-down requests for URLs hosted by ngrok that violate ngrok’s terms of service.</p>
 </div></span>
   
 </li>
@@ -823,7 +823,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Abuse Reports allow you to submit take-down requests for URLs hosted by  ngrok that violate ngrok&#39;s terms of service.</p>
+<p>Abuse Reports allow you to submit take-down requests for URLs hosted by  ngrok that violate ngrok’s terms of service.</p>
 
 
   </div>
@@ -907,7 +907,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>API Keys are used to authenticate to the <a href="https://ngrok.com/docs/api#authentication">ngrok API</a>. You may use the API itself  to provision and manage API Keys but you&#39;ll need to provision your first API  key from the <a href="https://dashboard.ngrok.com/api/keys">API Keys page</a> on your  ngrok.com dashboard.</p>
+<p>API Keys are used to authenticate to the <a href="https://ngrok.com/docs/api#authentication">ngrok API</a>. You may use the API itself  to provision and manage API Keys but you’ll need to provision your first API  key from the <a href="https://dashboard.ngrok.com/api/keys">API Keys page</a> on your  ngrok.com dashboard.</p>
 
 
   </div>
@@ -1032,7 +1032,8 @@
 222
 223
 224
-225</pre>
+225
+226</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 217</span>
@@ -1041,6 +1042,7 @@
   <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_failover'>failover</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/FailoverBackendsClient.html" title="NgrokAPI::Services::FailoverBackendsClient (class)">FailoverBackendsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/FailoverBackendsClient.html#initialize-instance_method" title="NgrokAPI::Services::FailoverBackendsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_http_response'>http_response</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/HTTPResponseBackendsClient.html" title="NgrokAPI::Services::HTTPResponseBackendsClient (class)">HTTPResponseBackendsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/HTTPResponseBackendsClient.html#initialize-instance_method" title="NgrokAPI::Services::HTTPResponseBackendsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_static_address'>static_address</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/StaticBackendsClient.html" title="NgrokAPI::Services::StaticBackendsClient (class)">StaticBackendsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/StaticBackendsClient.html#initialize-instance_method" title="NgrokAPI::Services::StaticBackendsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_tunnel_group'>tunnel_group</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/TunnelGroupBackendsClient.html" title="NgrokAPI::Services::TunnelGroupBackendsClient (class)">TunnelGroupBackendsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/TunnelGroupBackendsClient.html#initialize-instance_method" title="NgrokAPI::Services::TunnelGroupBackendsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_weighted'>weighted</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/WeightedBackendsClient.html" title="NgrokAPI::Services::WeightedBackendsClient (class)">WeightedBackendsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/WeightedBackendsClient.html#initialize-instance_method" title="NgrokAPI::Services::WeightedBackendsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
 
@@ -1174,7 +1176,6 @@
       <pre class="lines">
 
 
-237
 238
 239
 240
@@ -1197,10 +1198,12 @@
 257
 258
 259
-260</pre>
+260
+261
+262</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edge_modules'>edge_modules</span>
   <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1217,6 +1220,7 @@
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_https_edge_route_saml'>https_edge_route_saml</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/EdgeRouteSAMLModuleClient.html" title="NgrokAPI::Services::EdgeRouteSAMLModuleClient (class)">EdgeRouteSAMLModuleClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/EdgeRouteSAMLModuleClient.html#initialize-instance_method" title="NgrokAPI::Services::EdgeRouteSAMLModuleClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_https_edge_route_oidc'>https_edge_route_oidc</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/EdgeRouteOIDCModuleClient.html" title="NgrokAPI::Services::EdgeRouteOIDCModuleClient (class)">EdgeRouteOIDCModuleClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/EdgeRouteOIDCModuleClient.html#initialize-instance_method" title="NgrokAPI::Services::EdgeRouteOIDCModuleClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_https_edge_route_websocket_tcp_converter'>https_edge_route_websocket_tcp_converter</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/EdgeRouteWebsocketTCPConverterModuleClient.html" title="NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient (class)">EdgeRouteWebsocketTCPConverterModuleClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/EdgeRouteWebsocketTCPConverterModuleClient.html#initialize-instance_method" title="NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_https_edge_route_user_agent_filter'>https_edge_route_user_agent_filter</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/EdgeRouteUserAgentFilterModuleClient.html" title="NgrokAPI::Services::EdgeRouteUserAgentFilterModuleClient (class)">EdgeRouteUserAgentFilterModuleClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/EdgeRouteUserAgentFilterModuleClient.html#initialize-instance_method" title="NgrokAPI::Services::EdgeRouteUserAgentFilterModuleClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_tcp_edge_backend'>tcp_edge_backend</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/TCPEdgeBackendModuleClient.html" title="NgrokAPI::Services::TCPEdgeBackendModuleClient (class)">TCPEdgeBackendModuleClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/TCPEdgeBackendModuleClient.html#initialize-instance_method" title="NgrokAPI::Services::TCPEdgeBackendModuleClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_tcp_edge_ip_restriction'>tcp_edge_ip_restriction</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/TCPEdgeIPRestrictionModuleClient.html" title="NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient (class)">TCPEdgeIPRestrictionModuleClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/TCPEdgeIPRestrictionModuleClient.html#initialize-instance_method" title="NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_ns'>ns</span><span class='period'>.</span><span class='id identifier rubyid_tls_edge_backend'>tls_edge_backend</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/TLSEdgeBackendModuleClient.html" title="NgrokAPI::Services::TLSEdgeBackendModuleClient (class)">TLSEdgeBackendModuleClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/TLSEdgeBackendModuleClient.html#initialize-instance_method" title="NgrokAPI::Services::TLSEdgeBackendModuleClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1246,7 +1250,6 @@
       <pre class="lines">
 
 
-227
 228
 229
 230
@@ -1254,10 +1257,11 @@
 232
 233
 234
-235</pre>
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 228</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edges'>edges</span>
   <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1645,7 +1649,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Reserved Domains are hostnames that you can listen for traffic on. Domains  can be used to listen for http, https or tls traffic. You may use a domain  that you own by creating a CNAME record specified in the returned resource.  This CNAME record points traffic for that domain to ngrok&#39;s edge servers.</p>
+<p>Reserved Domains are hostnames that you can listen for traffic on. Domains  can be used to listen for http, https or tls traffic. You may use a domain  that you own by creating a CNAME record specified in the returned resource.  This CNAME record points traffic for that domain to ngrok’s edge servers.</p>
 
 
   </div>
@@ -2070,9 +2074,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 24 20:57:27 2023 by
+  Generated on Fri Mar  8 23:11:30 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.0.6).
+  0.9.36 (ruby-3.3.0).
 </div>
 
     </div>

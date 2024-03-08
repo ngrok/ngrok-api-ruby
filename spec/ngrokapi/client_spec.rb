@@ -151,6 +151,7 @@ RSpec.describe NgrokAPI::Client do
       ns = @client.backends
       expect(ns.failover.class).to eq(NgrokAPI::Services::FailoverBackendsClient)
       expect(ns.http_response.class).to eq(NgrokAPI::Services::HTTPResponseBackendsClient)
+      expect(ns.static_address.class).to eq(NgrokAPI::Services::StaticBackendsClient)
       expect(ns.tunnel_group.class).to eq(NgrokAPI::Services::TunnelGroupBackendsClient)
       expect(ns.weighted.class).to eq(NgrokAPI::Services::WeightedBackendsClient)
     end
@@ -182,6 +183,7 @@ RSpec.describe NgrokAPI::Client do
       expect(ns.https_edge_route_saml.class).to eq(NgrokAPI::Services::EdgeRouteSAMLModuleClient)
       expect(ns.https_edge_route_oidc.class).to eq(NgrokAPI::Services::EdgeRouteOIDCModuleClient)
       expect(ns.https_edge_route_websocket_tcp_converter.class).to eq(NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient)
+      expect(ns.https_edge_route_user_agent_filter.class).to eq(NgrokAPI::Services::EdgeRouteUserAgentFilterModuleClient)
       expect(ns.tcp_edge_backend.class).to eq(NgrokAPI::Services::TCPEdgeBackendModuleClient)
       expect(ns.tcp_edge_ip_restriction.class).to eq(NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient)
       expect(ns.tls_edge_backend.class).to eq(NgrokAPI::Services::TLSEdgeBackendModuleClient)

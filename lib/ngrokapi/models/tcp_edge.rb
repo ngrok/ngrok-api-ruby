@@ -16,7 +16,8 @@ module NgrokAPI
         :uri,
         :hostports,
         :backend,
-        :ip_restriction
+        :ip_restriction,
+        :policy
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -31,6 +32,7 @@ module NgrokAPI
         @hostports = @attrs['hostports']
         @backend = @attrs['backend']
         @ip_restriction = @attrs['ip_restriction']
+        @policy = @attrs['policy']
       end
 
       def ==(other)
@@ -57,20 +59,23 @@ module NgrokAPI
         metadata: nil,
         hostports: nil,
         backend: nil,
-        ip_restriction: nil
+        ip_restriction: nil,
+        policy: nil
       )
         @description = description if description
         @metadata = metadata if metadata
         @hostports = hostports if hostports
         @backend = backend if backend
         @ip_restriction = ip_restriction if ip_restriction
+        @policy = policy if policy
         @client.update(
           id: @id,
           description: description,
           metadata: metadata,
           hostports: hostports,
           backend: backend,
-          ip_restriction: ip_restriction
+          ip_restriction: ip_restriction,
+          policy: policy
         )
       end
 

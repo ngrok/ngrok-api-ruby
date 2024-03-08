@@ -10,16 +10,12 @@ module NgrokAPI
       attr_reader :client,
         :attrs,
         :type,
-        :filter,
-        :fields,
         :uri
 
       def initialize(client: nil, attrs: {})
         @client = client
         @attrs = attrs
         @type = @attrs['type']
-        @filter = @attrs['filter']
-        @fields = @attrs['fields']
         unless @attrs['uri'].nil?
           @uri = URI(@attrs['uri'])
         end

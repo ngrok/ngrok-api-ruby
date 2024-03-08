@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Services::ReservedDomainsClient
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -102,7 +102,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Reserved Domains are hostnames that you can listen for traffic on. Domains  can be used to listen for http, https or tls traffic. You may use a domain  that you own by creating a CNAME record specified in the returned resource.  This CNAME record points traffic for that domain to ngrok&#39;s edge servers.</p>
+<p>Reserved Domains are hostnames that you can listen for traffic on. Domains  can be used to listen for http, https or tls traffic. You may use a domain  that you own by creating a CNAME record specified in the returned resource.  This CNAME record points traffic for that domain to ngrok’s edge servers.</p>
 
 <p><a href="https://ngrok.com/docs/api#api-reserved-domains">ngrok.com/docs/api#api-reserved-domains</a></p>
 
@@ -722,7 +722,7 @@
       
         &mdash;
         <div class='inline'>
-<p>reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)</p>
+<p>deprecated: With the launch of the ngrok Global Network domains traffic is now handled globally. This field applied only to endpoints. Note that agents may still connect to specific regions. Optional, null by default. (au, eu, ap, us, jp, in, sa)</p>
 </div>
       
     </li>
@@ -917,7 +917,7 @@
       
         &mdash;
         <div class='inline'>
-<p>reserve the domain in this geographic ngrok datacenter. Optional, default is us. (au, eu, ap, us, jp, in, sa)</p>
+<p>deprecated: With the launch of the ngrok Global Network domains traffic is now handled globally. This field applied only to endpoints. Note that agents may still connect to specific regions. Optional, null by default. (au, eu, ap, us, jp, in, sa)</p>
 </div>
       
     </li>
@@ -2409,9 +2409,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 24 20:57:35 2023 by
+  Generated on Fri Mar  8 23:11:37 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.0.6).
+  0.9.36 (ruby-3.3.0).
 </div>
 
     </div>
