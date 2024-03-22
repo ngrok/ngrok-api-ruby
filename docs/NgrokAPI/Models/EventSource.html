@@ -6,7 +6,7 @@
 <title>
   Class: NgrokAPI::Models::EventSource
   
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -159,64 +159,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Returns the value of attribute client.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#fields-instance_method" title="#fields (instance method)">#<strong>fields</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute fields.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#filter-instance_method" title="#filter (instance method)">#<strong>filter</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute filter.</p>
 </div></span>
   
 </li>
@@ -417,26 +359,22 @@
       <pre class="lines">
 
 
+15
+16
 17
 18
 19
 20
 21
-22
-23
-24
-25
-26</pre>
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@attrs</span> <span class='op'>=</span> <span class='id identifier rubyid_attrs'>attrs</span>
   <span class='ivar'>@type</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>type</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@filter</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>filter</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='ivar'>@fields</span> <span class='op'>=</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fields</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='kw'>unless</span> <span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='ivar'>@uri</span> <span class='op'>=</span> <span class='const'>URI</span><span class='lparen'>(</span><span class='ivar'>@attrs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -531,92 +469,6 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
   <span class='ivar'>@client</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="fields-instance_method">
-  
-    #<strong>fields</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute fields.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-10
-11
-12</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 10</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_fields'>fields</span>
-  <span class='ivar'>@fields</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <div class="method_details ">
-  <h3 class="signature " id="filter-instance_method">
-  
-    #<strong>filter</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute filter.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-10
-11
-12</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 10</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_filter'>filter</span>
-  <span class='ivar'>@filter</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -731,12 +583,12 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 24</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
   <span class='ivar'>@attrs</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_attrs'>attrs</span>
@@ -761,12 +613,12 @@
       <pre class="lines">
 
 
-36
-37
-38</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_h'>to_h</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
@@ -791,12 +643,12 @@
       <pre class="lines">
 
 
-32
-33
-34</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/models/event_source.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
   <span class='ivar'>@attrs</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -811,9 +663,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 24 20:57:28 2023 by
+  Generated on Fri Mar  8 23:11:31 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.0.6).
+  0.9.36 (ruby-3.3.0).
 </div>
 
     </div>

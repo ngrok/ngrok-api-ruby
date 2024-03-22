@@ -17,8 +17,6 @@ module NgrokAPI
         :domain,
         :region,
         :cname_target,
-        :http_endpoint_configuration,
-        :https_endpoint_configuration,
         :certificate,
         :certificate_management_policy,
         :certificate_management_status,
@@ -37,8 +35,6 @@ module NgrokAPI
         @domain = @attrs['domain']
         @region = @attrs['region']
         @cname_target = @attrs['cname_target']
-        @http_endpoint_configuration = @attrs['http_endpoint_configuration']
-        @https_endpoint_configuration = @attrs['https_endpoint_configuration']
         @certificate = @attrs['certificate']
         @certificate_management_policy = @attrs['certificate_management_policy']
         @certificate_management_status = @attrs['certificate_management_status']

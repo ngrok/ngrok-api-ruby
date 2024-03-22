@@ -18,7 +18,8 @@ module NgrokAPI
         :backend,
         :ip_restriction,
         :mutual_tls,
-        :tls_termination
+        :tls_termination,
+        :policy
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -35,6 +36,7 @@ module NgrokAPI
         @ip_restriction = @attrs['ip_restriction']
         @mutual_tls = @attrs['mutual_tls']
         @tls_termination = @attrs['tls_termination']
+        @policy = @attrs['policy']
       end
 
       def ==(other)
@@ -63,7 +65,8 @@ module NgrokAPI
         backend: nil,
         ip_restriction: nil,
         mutual_tls: nil,
-        tls_termination: nil
+        tls_termination: nil,
+        policy: nil
       )
         @description = description if description
         @metadata = metadata if metadata
@@ -72,6 +75,7 @@ module NgrokAPI
         @ip_restriction = ip_restriction if ip_restriction
         @mutual_tls = mutual_tls if mutual_tls
         @tls_termination = tls_termination if tls_termination
+        @policy = policy if policy
         @client.update(
           id: @id,
           description: description,
@@ -80,7 +84,8 @@ module NgrokAPI
           backend: backend,
           ip_restriction: ip_restriction,
           mutual_tls: mutual_tls,
-          tls_termination: tls_termination
+          tls_termination: tls_termination,
+          policy: policy
         )
       end
 

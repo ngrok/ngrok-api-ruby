@@ -15,8 +15,7 @@ module NgrokAPI
         :description,
         :metadata,
         :addr,
-        :region,
-        :endpoint_configuration
+        :region
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -30,7 +29,6 @@ module NgrokAPI
         @metadata = @attrs['metadata']
         @addr = @attrs['addr']
         @region = @attrs['region']
-        @endpoint_configuration = @attrs['endpoint_configuration']
       end
 
       def ==(other)

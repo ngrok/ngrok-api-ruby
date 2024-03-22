@@ -7,16 +7,12 @@ module NgrokAPI
     class EventSourceReplace
       attr_reader :client,
         :attrs,
-        :type,
-        :filter,
-        :fields
+        :type
 
       def initialize(client: nil, attrs: {})
         @client = client
         @attrs = attrs
         @type = @attrs['type']
-        @filter = @attrs['filter']
-        @fields = @attrs['fields']
       end
 
       def ==(other)
