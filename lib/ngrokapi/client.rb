@@ -56,6 +56,10 @@ module NgrokAPI
       @_tunnel_sessions ||= NgrokAPI::Services::TunnelSessionsClient.new(client: @client)
     end
 
+    def bot_users
+      @_bot_users ||= NgrokAPI::Services::BotUsersClient.new(client: @client)
+    end
+
     ##
     # Certificate Authorities are x509 certificates that are used to sign other
     #  x509 certificates. Attach a Certificate Authority to the Mutual TLS module

@@ -223,6 +223,27 @@ def aws_role_result
   }
 end
 
+def bot_user_result
+  {
+    "id" => "bot_2feR0haVZwmcFwgfEc1UPQwIaIQ",
+    "uri" => "https://api.ngrok.com/bot_users/bot_2feR0haVZwmcFwgfEc1UPQwIaIQ",
+    "name" => "new bot user from API",
+    "active" => true,
+    "created_at" => "2024-04-26T19:22:15Z",
+    "token" => nil,
+  }
+end
+
+def bot_user_results
+  {
+    "bot_users" => [
+      bot_user_result,
+    ],
+    "uri" => "https://api.ngrok.com/bot_users",
+    "next_page_uri" => "https://api.ngrok.com/bot_users?before_id=bot_2feR0ilITzTz046nJryEWY2XTrd&limit=1",
+  }
+end
+
 def certificate_authority_result
   {
     "id" => "ca_1rV5DZka5Q6SaX2NwY1rKVOVgA1",
