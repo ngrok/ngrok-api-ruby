@@ -44,6 +44,12 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
+  describe "#bot_users" do
+    it "returns an instance of the BotUsersClient" do
+      expect(@client.bot_users.class).to eq(NgrokAPI::Services::BotUsersClient)
+    end
+  end
+
   describe "#certificate_authorities" do
     it "returns an instance of the CertificateAuthoritiesClient" do
       expect(@client.certificate_authorities.class).to eq(NgrokAPI::Services::CertificateAuthoritiesClient)
