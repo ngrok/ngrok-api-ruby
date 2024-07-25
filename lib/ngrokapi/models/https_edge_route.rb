@@ -29,7 +29,7 @@ module NgrokAPI
         :oidc,
         :websocket_tcp_converter,
         :user_agent_filter,
-        :policy
+        :traffic_policy
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -56,7 +56,7 @@ module NgrokAPI
         @oidc = @attrs['oidc']
         @websocket_tcp_converter = @attrs['websocket_tcp_converter']
         @user_agent_filter = @attrs['user_agent_filter']
-        @policy = @attrs['policy']
+        @traffic_policy = @attrs['traffic_policy']
       end
 
       def ==(other)
@@ -95,7 +95,7 @@ module NgrokAPI
         oidc: nil,
         websocket_tcp_converter: nil,
         user_agent_filter: nil,
-        policy: nil
+        traffic_policy: nil
       )
         @match_type = match_type if match_type
         @match = match if match
@@ -113,7 +113,7 @@ module NgrokAPI
         @oidc = oidc if oidc
         @websocket_tcp_converter = websocket_tcp_converter if websocket_tcp_converter
         @user_agent_filter = user_agent_filter if user_agent_filter
-        @policy = policy if policy
+        @traffic_policy = traffic_policy if traffic_policy
         @client.update(
           edge_id: @edge_id,
           id: @id,
@@ -133,7 +133,7 @@ module NgrokAPI
           oidc: oidc,
           websocket_tcp_converter: websocket_tcp_converter,
           user_agent_filter: user_agent_filter,
-          policy: policy
+          traffic_policy: traffic_policy
         )
       end
 

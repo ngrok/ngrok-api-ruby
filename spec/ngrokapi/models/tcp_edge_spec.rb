@@ -28,7 +28,7 @@ RSpec.describe NgrokAPI::Models::TCPEdge do
       new_hostports = 'New hostports'
       new_backend = 'New backend'
       new_ip_restriction = 'New ip_restriction'
-      new_policy = 'New policy'
+      new_traffic_policy = 'New traffic_policy'
       expect(@tcp_edge.client).to receive(:update)
       @tcp_edge.update(
         description: new_description,
@@ -36,14 +36,14 @@ RSpec.describe NgrokAPI::Models::TCPEdge do
         hostports: new_hostports,
         backend: new_backend,
         ip_restriction: new_ip_restriction,
-        policy: new_policy
+        traffic_policy: new_traffic_policy
       )
       expect(@tcp_edge.description).to eq new_description
       expect(@tcp_edge.metadata).to eq new_metadata
       expect(@tcp_edge.hostports).to eq new_hostports
       expect(@tcp_edge.backend).to eq new_backend
       expect(@tcp_edge.ip_restriction).to eq new_ip_restriction
-      expect(@tcp_edge.policy).to eq new_policy
+      expect(@tcp_edge.traffic_policy).to eq new_traffic_policy
     end
   end
 

@@ -31,5 +31,5 @@ group :development, :test do
   # https://github.com/airbnb/ruby/tree/master/rubocop
   gem 'rubocop'
   # https://github.com/airbnb/ruby/tree/master/rubocop-airbnb
-  gem 'rubocop-airbnb'
+  gem 'rubocop-airbnb', '~> 6.0.0'
 end

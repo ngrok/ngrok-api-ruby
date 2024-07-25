@@ -39,7 +39,7 @@ RSpec.describe NgrokAPI::Models::HTTPSEdgeRoute do
       new_oidc = 'New oidc'
       new_websocket_tcp_converter = 'New websocket_tcp_converter'
       new_user_agent_filter = 'New user_agent_filter'
-      new_policy = 'New policy'
+      new_traffic_policy = 'New traffic_policy'
       expect(@https_edge_route.client).to receive(:update)
       @https_edge_route.update(
         match_type: new_match_type,
@@ -58,7 +58,7 @@ RSpec.describe NgrokAPI::Models::HTTPSEdgeRoute do
         oidc: new_oidc,
         websocket_tcp_converter: new_websocket_tcp_converter,
         user_agent_filter: new_user_agent_filter,
-        policy: new_policy
+        traffic_policy: new_traffic_policy
       )
       expect(@https_edge_route.match_type).to eq new_match_type
       expect(@https_edge_route.match).to eq new_match
@@ -76,7 +76,7 @@ RSpec.describe NgrokAPI::Models::HTTPSEdgeRoute do
       expect(@https_edge_route.oidc).to eq new_oidc
       expect(@https_edge_route.websocket_tcp_converter).to eq new_websocket_tcp_converter
       expect(@https_edge_route.user_agent_filter).to eq new_user_agent_filter
-      expect(@https_edge_route.policy).to eq new_policy
+      expect(@https_edge_route.traffic_policy).to eq new_traffic_policy
     end
   end
 
