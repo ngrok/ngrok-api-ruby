@@ -37,7 +37,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         http_endpoint_configuration_id: "New http_endpoint_configuration_id",
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
-        certificate_management_policy: "New certificate_management_policy"
+        certificate_management_policy: "New certificate_management_policy",
+        error_redirect_url: "New error_redirect_url"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
     end
@@ -66,7 +67,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         http_endpoint_configuration_id: "New http_endpoint_configuration_id",
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
-        certificate_management_policy: "New certificate_management_policy"
+        certificate_management_policy: "New certificate_management_policy",
+        error_redirect_url: "New error_redirect_url"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
       # expect(result.id).to eq(reserved_domain_result["id"])
@@ -178,7 +180,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
         certificate_management_policy: "New certificate_management_policy",
-        region: "New region"
+        region: "New region",
+        error_redirect_url: "New error_redirect_url"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
     end
@@ -205,7 +208,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
         certificate_management_policy: "New certificate_management_policy",
-        region: "New region"
+        region: "New region",
+        error_redirect_url: "New error_redirect_url"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
       # expect(result.id).to eq(reserved_domain_result["id"])

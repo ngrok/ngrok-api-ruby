@@ -35,7 +35,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
-      def create(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
+      def create(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, error_redirect_url: nil)
         path = '/reserved_domains'
         replacements = {
         }
@@ -63,7 +63,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
-      def create!(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil)
+      def create!(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, error_redirect_url: nil)
         path = '/reserved_domains'
         replacements = {
         }
@@ -208,7 +208,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil)
+      def update(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil, error_redirect_url: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -234,7 +234,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update!(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil)
+      def update!(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil, error_redirect_url: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,

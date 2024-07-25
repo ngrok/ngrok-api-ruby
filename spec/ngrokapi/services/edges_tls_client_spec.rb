@@ -27,7 +27,7 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
       data[:ip_restriction] = "New ip_restriction"
       data[:mutual_tls] = "New mutual_tls"
       data[:tls_termination] = "New tls_termination"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(tls_edge_result)
       result = @edges_tls_client.create(
@@ -38,7 +38,8 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
         ip_restriction: "New ip_restriction",
         mutual_tls: "New mutual_tls",
         tls_termination: "New tls_termination",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TLSEdge)
     end
@@ -57,7 +58,7 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
       data[:ip_restriction] = "New ip_restriction"
       data[:mutual_tls] = "New mutual_tls"
       data[:tls_termination] = "New tls_termination"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(tls_edge_result)
       result = @edges_tls_client.create(
@@ -68,7 +69,8 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
         ip_restriction: "New ip_restriction",
         mutual_tls: "New mutual_tls",
         tls_termination: "New tls_termination",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TLSEdge)
       # expect(result.id).to eq(tls_edge_result["id"])
@@ -132,7 +134,7 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
       data[:ip_restriction] = "New ip_restriction"
       data[:mutual_tls] = "New mutual_tls"
       data[:tls_termination] = "New tls_termination"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(tls_edge_result)
       result = @edges_tls_client.update(
@@ -144,7 +146,8 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
         ip_restriction: "New ip_restriction",
         mutual_tls: "New mutual_tls",
         tls_termination: "New tls_termination",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TLSEdge)
     end
@@ -164,7 +167,7 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
       data[:ip_restriction] = "New ip_restriction"
       data[:mutual_tls] = "New mutual_tls"
       data[:tls_termination] = "New tls_termination"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(tls_edge_result)
       result = @edges_tls_client.update(
@@ -176,7 +179,8 @@ RSpec.describe NgrokAPI::Services::EdgesTLSClient do
         ip_restriction: "New ip_restriction",
         mutual_tls: "New mutual_tls",
         tls_termination: "New tls_termination",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TLSEdge)
       # expect(result.id).to eq(tls_edge_result["id"])

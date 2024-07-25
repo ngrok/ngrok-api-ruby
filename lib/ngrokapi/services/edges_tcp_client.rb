@@ -26,11 +26,11 @@ module NgrokAPI
       # @param [List<string>] hostports hostports served by this edge
       # @param [EndpointBackendMutate] backend edge modules
       # @param [EndpointIPPolicyMutate] ip_restriction
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TCPEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tcp-create
-      def create(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, policy: nil)
+      def create(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tcp'
         replacements = {
         }
@@ -40,7 +40,7 @@ module NgrokAPI
         data[:hostports] = hostports if hostports
         data[:backend] = backend if backend
         data[:ip_restriction] = ip_restriction if ip_restriction
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::TCPEdge.new(client: self, attrs: result)
       end
@@ -54,11 +54,11 @@ module NgrokAPI
       # @param [List<string>] hostports hostports served by this edge
       # @param [EndpointBackendMutate] backend edge modules
       # @param [EndpointIPPolicyMutate] ip_restriction
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TCPEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tcp-create
-      def create!(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, policy: nil)
+      def create!(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tcp'
         replacements = {
         }
@@ -68,7 +68,7 @@ module NgrokAPI
         data[:hostports] = hostports if hostports
         data[:backend] = backend if backend
         data[:ip_restriction] = ip_restriction if ip_restriction
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::TCPEdge.new(client: self, attrs: result)
       end
@@ -173,11 +173,11 @@ module NgrokAPI
       # @param [List<string>] hostports hostports served by this edge
       # @param [EndpointBackendMutate] backend edge modules
       # @param [EndpointIPPolicyMutate] ip_restriction
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TCPEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tcp-update
-      def update(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, policy: nil)
+      def update(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tcp/%{id}'
         replacements = {
           id: id,
@@ -188,7 +188,7 @@ module NgrokAPI
         data[:hostports] = hostports if hostports
         data[:backend] = backend if backend
         data[:ip_restriction] = ip_restriction if ip_restriction
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.patch(path % replacements, data: data)
         NgrokAPI::Models::TCPEdge.new(client: self, attrs: result)
       end
@@ -206,11 +206,11 @@ module NgrokAPI
       # @param [List<string>] hostports hostports served by this edge
       # @param [EndpointBackendMutate] backend edge modules
       # @param [EndpointIPPolicyMutate] ip_restriction
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TCPEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tcp-update
-      def update!(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, policy: nil)
+      def update!(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tcp/%{id}'
         replacements = {
           id: id,
@@ -221,7 +221,7 @@ module NgrokAPI
         data[:hostports] = hostports if hostports
         data[:backend] = backend if backend
         data[:ip_restriction] = ip_restriction if ip_restriction
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.patch(path % replacements, data: data, danger: true)
         NgrokAPI::Models::TCPEdge.new(client: self, attrs: result)
       end
