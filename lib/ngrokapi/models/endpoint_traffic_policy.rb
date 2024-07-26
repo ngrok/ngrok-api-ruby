@@ -4,17 +4,17 @@
 
 module NgrokAPI
   module Models
-    class EndpointAction
+    class EndpointTrafficPolicy
       attr_reader :client,
         :attrs,
-        :type,
-        :config
+        :enabled,
+        :value
 
       def initialize(client: nil, attrs: {})
         @client = client
         @attrs = attrs
-        @type = @attrs['type']
-        @config = @attrs['config']
+        @enabled = @attrs['enabled']
+        @value = @attrs['value']
       end
 
       def ==(other)

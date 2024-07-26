@@ -37,7 +37,7 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
       data[:oidc] = "New oidc"
       data[:websocket_tcp_converter] = "New websocket_tcp_converter"
       data[:user_agent_filter] = "New user_agent_filter"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(https_edge_route_result)
       result = @edges_https_routes_client.create(
@@ -58,7 +58,8 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
         oidc: "New oidc",
         websocket_tcp_converter: "New websocket_tcp_converter",
         user_agent_filter: "New user_agent_filter",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::HTTPSEdgeRoute)
     end
@@ -87,7 +88,7 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
       data[:oidc] = "New oidc"
       data[:websocket_tcp_converter] = "New websocket_tcp_converter"
       data[:user_agent_filter] = "New user_agent_filter"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(https_edge_route_result)
       result = @edges_https_routes_client.create(
@@ -108,7 +109,8 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
         oidc: "New oidc",
         websocket_tcp_converter: "New websocket_tcp_converter",
         user_agent_filter: "New user_agent_filter",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::HTTPSEdgeRoute)
       # expect(result.id).to eq(https_edge_route_result["id"])
@@ -176,7 +178,7 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
       data[:oidc] = "New oidc"
       data[:websocket_tcp_converter] = "New websocket_tcp_converter"
       data[:user_agent_filter] = "New user_agent_filter"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(https_edge_route_result)
       result = @edges_https_routes_client.update(
@@ -198,7 +200,8 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
         oidc: "New oidc",
         websocket_tcp_converter: "New websocket_tcp_converter",
         user_agent_filter: "New user_agent_filter",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::HTTPSEdgeRoute)
     end
@@ -228,7 +231,7 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
       data[:oidc] = "New oidc"
       data[:websocket_tcp_converter] = "New websocket_tcp_converter"
       data[:user_agent_filter] = "New user_agent_filter"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(https_edge_route_result)
       result = @edges_https_routes_client.update(
@@ -250,7 +253,8 @@ RSpec.describe NgrokAPI::Services::EdgesHTTPSRoutesClient do
         oidc: "New oidc",
         websocket_tcp_converter: "New websocket_tcp_converter",
         user_agent_filter: "New user_agent_filter",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::HTTPSEdgeRoute)
       # expect(result.id).to eq(https_edge_route_result["id"])
