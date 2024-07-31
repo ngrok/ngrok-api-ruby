@@ -25,7 +25,7 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
       data[:hostports] = "New hostports"
       data[:backend] = "New backend"
       data[:ip_restriction] = "New ip_restriction"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(tcp_edge_result)
       result = @edges_tcp_client.create(
@@ -34,7 +34,8 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
         hostports: "New hostports",
         backend: "New backend",
         ip_restriction: "New ip_restriction",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TCPEdge)
     end
@@ -51,7 +52,7 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
       data[:hostports] = "New hostports"
       data[:backend] = "New backend"
       data[:ip_restriction] = "New ip_restriction"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(tcp_edge_result)
       result = @edges_tcp_client.create(
@@ -60,7 +61,8 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
         hostports: "New hostports",
         backend: "New backend",
         ip_restriction: "New ip_restriction",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TCPEdge)
       # expect(result.id).to eq(tcp_edge_result["id"])
@@ -122,7 +124,7 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
       data[:hostports] = "New hostports"
       data[:backend] = "New backend"
       data[:ip_restriction] = "New ip_restriction"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(tcp_edge_result)
       result = @edges_tcp_client.update(
@@ -132,7 +134,8 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
         hostports: "New hostports",
         backend: "New backend",
         ip_restriction: "New ip_restriction",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TCPEdge)
     end
@@ -150,7 +153,7 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
       data[:hostports] = "New hostports"
       data[:backend] = "New backend"
       data[:ip_restriction] = "New ip_restriction"
-      data[:policy] = "New policy"
+      data[:traffic_policy] = "New traffic_policy"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(tcp_edge_result)
       result = @edges_tcp_client.update(
@@ -160,7 +163,8 @@ RSpec.describe NgrokAPI::Services::EdgesTCPClient do
         hostports: "New hostports",
         backend: "New backend",
         ip_restriction: "New ip_restriction",
-        policy: "New policy"
+        policy: "New policy",
+        traffic_policy: "New traffic_policy"
       )
       expect(result.class).to eq(NgrokAPI::Models::TCPEdge)
       # expect(result.id).to eq(tcp_edge_result["id"])

@@ -498,17 +498,7 @@ def endpoint_ip_policy_mutate_result
   }
 end
 
-def endpoint_policy_result
-  {
-  }
-end
-
-def endpoint_action_result
-  {
-  }
-end
-
-def endpoint_rule_result
+def endpoint_traffic_policy_result
   {
   }
 end
@@ -799,6 +789,11 @@ def event_target_kinesis_result
 end
 
 def event_target_datadog_result
+  {
+  }
+end
+
+def event_target_azure_logs_ingestion_result
   {
   }
 end

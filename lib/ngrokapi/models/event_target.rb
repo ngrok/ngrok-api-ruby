@@ -10,7 +10,8 @@ module NgrokAPI
         :firehose,
         :kinesis,
         :cloudwatch_logs,
-        :datadog
+        :datadog,
+        :azure_logs_ingestion
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -19,6 +20,7 @@ module NgrokAPI
         @kinesis = @attrs['kinesis']
         @cloudwatch_logs = @attrs['cloudwatch_logs']
         @datadog = @attrs['datadog']
+        @azure_logs_ingestion = @attrs['azure_logs_ingestion']
       end
 
       def ==(other)

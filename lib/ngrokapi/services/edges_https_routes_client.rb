@@ -36,11 +36,11 @@ module NgrokAPI
       # @param [EndpointOIDC] oidc oidc module configuration or ``null``
       # @param [EndpointWebsocketTCPConverter] websocket_tcp_converter websocket to tcp adapter configuration or ``null``
       # @param [EndpointUserAgentFilter] user_agent_filter
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::HTTPSEdgeRoute] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-https-routes-create
-      def create(edge_id: "", match_type:, match:, description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil)
+      def create(edge_id: "", match_type:, match:, description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil, traffic_policy: nil)
         path = '/edges/https/%{edge_id}/routes'
         replacements = {
           edge_id: edge_id,
@@ -62,7 +62,7 @@ module NgrokAPI
         data[:oidc] = oidc if oidc
         data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
         data[:user_agent_filter] = user_agent_filter if user_agent_filter
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
@@ -88,11 +88,11 @@ module NgrokAPI
       # @param [EndpointOIDC] oidc oidc module configuration or ``null``
       # @param [EndpointWebsocketTCPConverter] websocket_tcp_converter websocket to tcp adapter configuration or ``null``
       # @param [EndpointUserAgentFilter] user_agent_filter
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::HTTPSEdgeRoute] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-https-routes-create
-      def create!(edge_id: "", match_type:, match:, description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil)
+      def create!(edge_id: "", match_type:, match:, description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil, traffic_policy: nil)
         path = '/edges/https/%{edge_id}/routes'
         replacements = {
           edge_id: edge_id,
@@ -114,7 +114,7 @@ module NgrokAPI
         data[:oidc] = oidc if oidc
         data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
         data[:user_agent_filter] = user_agent_filter if user_agent_filter
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
@@ -182,11 +182,11 @@ module NgrokAPI
       # @param [EndpointOIDC] oidc oidc module configuration or ``null``
       # @param [EndpointWebsocketTCPConverter] websocket_tcp_converter websocket to tcp adapter configuration or ``null``
       # @param [EndpointUserAgentFilter] user_agent_filter
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::HTTPSEdgeRoute] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-https-routes-update
-      def update(edge_id: "", id: "", match_type: "", match: "", description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil)
+      def update(edge_id: "", id: "", match_type: "", match: "", description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil, traffic_policy: nil)
         path = '/edges/https/%{edge_id}/routes/%{id}'
         replacements = {
           edge_id: edge_id,
@@ -209,7 +209,7 @@ module NgrokAPI
         data[:oidc] = oidc if oidc
         data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
         data[:user_agent_filter] = user_agent_filter if user_agent_filter
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.patch(path % replacements, data: data)
         NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end
@@ -239,11 +239,11 @@ module NgrokAPI
       # @param [EndpointOIDC] oidc oidc module configuration or ``null``
       # @param [EndpointWebsocketTCPConverter] websocket_tcp_converter websocket to tcp adapter configuration or ``null``
       # @param [EndpointUserAgentFilter] user_agent_filter
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::HTTPSEdgeRoute] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-https-routes-update
-      def update!(edge_id: "", id: "", match_type: "", match: "", description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil)
+      def update!(edge_id: "", id: "", match_type: "", match: "", description: "", metadata: "", backend: nil, ip_restriction: nil, circuit_breaker: nil, compression: nil, request_headers: nil, response_headers: nil, webhook_verification: nil, oauth: nil, saml: nil, oidc: nil, websocket_tcp_converter: nil, user_agent_filter: nil, policy: nil, traffic_policy: nil)
         path = '/edges/https/%{edge_id}/routes/%{id}'
         replacements = {
           edge_id: edge_id,
@@ -266,7 +266,7 @@ module NgrokAPI
         data[:oidc] = oidc if oidc
         data[:websocket_tcp_converter] = websocket_tcp_converter if websocket_tcp_converter
         data[:user_agent_filter] = user_agent_filter if user_agent_filter
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.patch(path % replacements, data: data, danger: true)
         NgrokAPI::Models::HTTPSEdgeRoute.new(client: self, attrs: result)
       end

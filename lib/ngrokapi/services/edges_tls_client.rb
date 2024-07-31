@@ -28,11 +28,11 @@ module NgrokAPI
       # @param [EndpointIPPolicyMutate] ip_restriction
       # @param [EndpointMutualTLSMutate] mutual_tls
       # @param [EndpointTLSTermination] tls_termination
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TLSEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tls-create
-      def create(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil)
+      def create(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tls'
         replacements = {
         }
@@ -44,7 +44,7 @@ module NgrokAPI
         data[:ip_restriction] = ip_restriction if ip_restriction
         data[:mutual_tls] = mutual_tls if mutual_tls
         data[:tls_termination] = tls_termination if tls_termination
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::TLSEdge.new(client: self, attrs: result)
       end
@@ -60,11 +60,11 @@ module NgrokAPI
       # @param [EndpointIPPolicyMutate] ip_restriction
       # @param [EndpointMutualTLSMutate] mutual_tls
       # @param [EndpointTLSTermination] tls_termination
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TLSEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tls-create
-      def create!(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil)
+      def create!(description: "", metadata: "", hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tls'
         replacements = {
         }
@@ -76,7 +76,7 @@ module NgrokAPI
         data[:ip_restriction] = ip_restriction if ip_restriction
         data[:mutual_tls] = mutual_tls if mutual_tls
         data[:tls_termination] = tls_termination if tls_termination
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::TLSEdge.new(client: self, attrs: result)
       end
@@ -183,11 +183,11 @@ module NgrokAPI
       # @param [EndpointIPPolicyMutate] ip_restriction
       # @param [EndpointMutualTLSMutate] mutual_tls
       # @param [EndpointTLSTermination] tls_termination
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TLSEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tls-update
-      def update(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil)
+      def update(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tls/%{id}'
         replacements = {
           id: id,
@@ -200,7 +200,7 @@ module NgrokAPI
         data[:ip_restriction] = ip_restriction if ip_restriction
         data[:mutual_tls] = mutual_tls if mutual_tls
         data[:tls_termination] = tls_termination if tls_termination
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.patch(path % replacements, data: data)
         NgrokAPI::Models::TLSEdge.new(client: self, attrs: result)
       end
@@ -220,11 +220,11 @@ module NgrokAPI
       # @param [EndpointIPPolicyMutate] ip_restriction
       # @param [EndpointMutualTLSMutate] mutual_tls
       # @param [EndpointTLSTermination] tls_termination
-      # @param [EndpointPolicy] policy the traffic policy associated with this edge or null
+      # @param [EndpointTrafficPolicy] traffic_policy the traffic policy associated with this edge or null
       # @return [NgrokAPI::Models::TLSEdge] result from the API request
       #
       # https://ngrok.com/docs/api#api-edges-tls-update
-      def update!(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil)
+      def update!(id: "", description: nil, metadata: nil, hostports: nil, backend: nil, ip_restriction: nil, mutual_tls: nil, tls_termination: nil, policy: nil, traffic_policy: nil)
         path = '/edges/tls/%{id}'
         replacements = {
           id: id,
@@ -237,7 +237,7 @@ module NgrokAPI
         data[:ip_restriction] = ip_restriction if ip_restriction
         data[:mutual_tls] = mutual_tls if mutual_tls
         data[:tls_termination] = tls_termination if tls_termination
-        data[:policy] = policy if policy
+        data[:traffic_policy] = traffic_policy if traffic_policy
         result = @client.patch(path % replacements, data: data, danger: true)
         NgrokAPI::Models::TLSEdge.new(client: self, attrs: result)
       end

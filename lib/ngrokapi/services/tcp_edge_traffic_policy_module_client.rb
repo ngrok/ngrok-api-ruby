@@ -5,10 +5,10 @@
 module NgrokAPI
   module Services
     ##
-    # https://ngrok.com/docs/api#api-tls-edge-policy-module
-    class TLSEdgePolicyModuleClient
+    # https://ngrok.com/docs/api#api-tcp-edge-traffic-policy-module
+    class TCPEdgeTrafficPolicyModuleClient
       # The API path for the requests
-      PATH = '/edges/tls/%{id}/policy'
+      PATH = '/edges/tcp/%{id}/traffic_policy'
 
       attr_reader :client
 
@@ -18,73 +18,73 @@ module NgrokAPI
 
       ##
       # @param [string] id
-      # @param [EndpointPolicy] a_module
-      # @return [NgrokAPI::Models::EndpointPolicy] result from the API request
+      # @param [EndpointTrafficPolicy] a_module
+      # @return [NgrokAPI::Models::EndpointTrafficPolicy] result from the API request
       #
-      # https://ngrok.com/docs/api#api-tls-edge-policy-module-replace
+      # https://ngrok.com/docs/api#api-tcp-edge-traffic-policy-module-replace
       def replace(id: "", a_module: nil)
-        path = '/edges/tls/%{id}/policy'
+        path = '/edges/tcp/%{id}/traffic_policy'
         replacements = {
           id: id,
         }
         data = a_module
         result = @client.put(path % replacements, data: data)
-        NgrokAPI::Models::EndpointPolicy.new(client: self, attrs: result)
+        NgrokAPI::Models::EndpointTrafficPolicy.new(client: self, attrs: result)
       end
 
       ##
       # @param [string] id
-      # @param [EndpointPolicy] a_module
-      # @return [NgrokAPI::Models::EndpointPolicy] result from the API request
+      # @param [EndpointTrafficPolicy] a_module
+      # @return [NgrokAPI::Models::EndpointTrafficPolicy] result from the API request
       #
-      # https://ngrok.com/docs/api#api-tls-edge-policy-module-replace
+      # https://ngrok.com/docs/api#api-tcp-edge-traffic-policy-module-replace
       def replace!(id: "", a_module: nil)
-        path = '/edges/tls/%{id}/policy'
+        path = '/edges/tcp/%{id}/traffic_policy'
         replacements = {
           id: id,
         }
         data = a_module
         result = @client.put(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EndpointPolicy.new(client: self, attrs: result)
+        NgrokAPI::Models::EndpointTrafficPolicy.new(client: self, attrs: result)
       end
 
       ##
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::EndpointPolicy] result from the API request
+      # @return [NgrokAPI::Models::EndpointTrafficPolicy] result from the API request
       #
-      # https://ngrok.com/docs/api#api-tls-edge-policy-module-get
+      # https://ngrok.com/docs/api#api-tcp-edge-traffic-policy-module-get
       def get(id: "")
-        path = '/edges/tls/%{id}/policy'
+        path = '/edges/tcp/%{id}/traffic_policy'
         replacements = {
           id: id,
         }
         data = {}
         result = @client.get(path % replacements, data: data)
-        NgrokAPI::Models::EndpointPolicy.new(client: self, attrs: result)
+        NgrokAPI::Models::EndpointTrafficPolicy.new(client: self, attrs: result)
       end
 
       ##
       # @param [string] id a resource identifier
-      # @return [NgrokAPI::Models::EndpointPolicy] result from the API request
+      # @return [NgrokAPI::Models::EndpointTrafficPolicy] result from the API request
       #
-      # https://ngrok.com/docs/api#api-tls-edge-policy-module-get
+      # https://ngrok.com/docs/api#api-tcp-edge-traffic-policy-module-get
       def get!(id: "")
-        path = '/edges/tls/%{id}/policy'
+        path = '/edges/tcp/%{id}/traffic_policy'
         replacements = {
           id: id,
         }
         data = {}
         result = @client.get(path % replacements, data: data, danger: true)
-        NgrokAPI::Models::EndpointPolicy.new(client: self, attrs: result)
+        NgrokAPI::Models::EndpointTrafficPolicy.new(client: self, attrs: result)
       end
 
       ##
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
-      # https://ngrok.com/docs/api#api-tls-edge-policy-module-delete
+      # https://ngrok.com/docs/api#api-tcp-edge-traffic-policy-module-delete
       def delete(id: "")
-        path = '/edges/tls/%{id}/policy'
+        path = '/edges/tcp/%{id}/traffic_policy'
         replacements = {
           id: id,
         }
@@ -95,9 +95,9 @@ module NgrokAPI
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::Empty] result from the API request
       #
-      # https://ngrok.com/docs/api#api-tls-edge-policy-module-delete
+      # https://ngrok.com/docs/api#api-tcp-edge-traffic-policy-module-delete
       def delete!(id: "")
-        path = '/edges/tls/%{id}/policy'
+        path = '/edges/tcp/%{id}/traffic_policy'
         replacements = {
           id: id,
         }
