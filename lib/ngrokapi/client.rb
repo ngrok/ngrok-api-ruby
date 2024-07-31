@@ -255,12 +255,15 @@ module NgrokAPI
       ns.https_edge_route_oidc = NgrokAPI::Services::EdgeRouteOIDCModuleClient.new(client: @client)
       ns.https_edge_route_websocket_tcp_converter = NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient.new(client: @client)
       ns.https_edge_route_user_agent_filter = NgrokAPI::Services::EdgeRouteUserAgentFilterModuleClient.new(client: @client)
+      ns.https_edge_route_traffic_policy = NgrokAPI::Services::EdgeRouteTrafficPolicyModuleClient.new(client: @client)
       ns.tcp_edge_backend = NgrokAPI::Services::TCPEdgeBackendModuleClient.new(client: @client)
       ns.tcp_edge_ip_restriction = NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient.new(client: @client)
+      ns.tcp_edge_traffic_policy = NgrokAPI::Services::TCPEdgeTrafficPolicyModuleClient.new(client: @client)
       ns.tls_edge_backend = NgrokAPI::Services::TLSEdgeBackendModuleClient.new(client: @client)
       ns.tls_edge_ip_restriction = NgrokAPI::Services::TLSEdgeIPRestrictionModuleClient.new(client: @client)
       ns.tls_edge_mutual_tls = NgrokAPI::Services::TLSEdgeMutualTLSModuleClient.new(client: @client)
       ns.tls_edge_tls_termination = NgrokAPI::Services::TLSEdgeTLSTerminationModuleClient.new(client: @client)
+      ns.tls_edge_traffic_policy = NgrokAPI::Services::TLSEdgeTrafficPolicyModuleClient.new(client: @client)
 
       ns
     end

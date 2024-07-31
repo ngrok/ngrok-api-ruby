@@ -190,12 +190,15 @@ RSpec.describe NgrokAPI::Client do
       expect(ns.https_edge_route_oidc.class).to eq(NgrokAPI::Services::EdgeRouteOIDCModuleClient)
       expect(ns.https_edge_route_websocket_tcp_converter.class).to eq(NgrokAPI::Services::EdgeRouteWebsocketTCPConverterModuleClient)
       expect(ns.https_edge_route_user_agent_filter.class).to eq(NgrokAPI::Services::EdgeRouteUserAgentFilterModuleClient)
+      expect(ns.https_edge_route_traffic_policy.class).to eq(NgrokAPI::Services::EdgeRouteTrafficPolicyModuleClient)
       expect(ns.tcp_edge_backend.class).to eq(NgrokAPI::Services::TCPEdgeBackendModuleClient)
       expect(ns.tcp_edge_ip_restriction.class).to eq(NgrokAPI::Services::TCPEdgeIPRestrictionModuleClient)
+      expect(ns.tcp_edge_traffic_policy.class).to eq(NgrokAPI::Services::TCPEdgeTrafficPolicyModuleClient)
       expect(ns.tls_edge_backend.class).to eq(NgrokAPI::Services::TLSEdgeBackendModuleClient)
       expect(ns.tls_edge_ip_restriction.class).to eq(NgrokAPI::Services::TLSEdgeIPRestrictionModuleClient)
       expect(ns.tls_edge_mutual_tls.class).to eq(NgrokAPI::Services::TLSEdgeMutualTLSModuleClient)
       expect(ns.tls_edge_tls_termination.class).to eq(NgrokAPI::Services::TLSEdgeTLSTerminationModuleClient)
+      expect(ns.tls_edge_traffic_policy.class).to eq(NgrokAPI::Services::TLSEdgeTrafficPolicyModuleClient)
     end
   end
 end
