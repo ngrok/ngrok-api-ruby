@@ -92,3 +92,25 @@ bundle exec rubocop 'lib'
 # Run rubcop on all files
 bundle exec rubocop
 ```
+
+## Building (internal)
+
+This is intended for ngrok employees who are updating this client library.
+
+On a standard Ubuntu machine, you will need these packages to get gems to build/install properly:
+
+```bash
+sudo apt install gcc make ruby-dev
+```
+
+Then to actually install:
+
+```bash
+gem install bundler --user-install
+
+# may need to change the ruby version here if yours is different
+~/.local/share/gem/ruby/3.0.0/bin/bundle install --path "$HOME/.local/share/gem"
+```
+
+This will update the Gemfile.lock as a side-effect.
+
