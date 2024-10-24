@@ -144,12 +144,31 @@
 <span class='comment'># Run rubcop on all files
 </span><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rubocop'>rubocop</span>
 </code></pre>
+
+<h2 id="label-Building+-28internal-29">Building (internal)</h2>
+
+<p>This is intended for ngrok employees who are updating this client library.</p>
+
+<p>On a standard Ubuntu machine, you will need these packages to get gems to build/install properly:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_sudo'>sudo</span> <span class='id identifier rubyid_apt'>apt</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_gcc'>gcc</span> <span class='id identifier rubyid_make'>make</span> <span class='id identifier rubyid_ruby'>ruby</span><span class='op'>-</span><span class='id identifier rubyid_dev'>dev</span>
+</code></pre>
+
+<p>Then to actually install:</p>
+
+<pre class="code ruby"><code class="ruby">gem install bundler --user-install
+
+# may need to change the ruby version here if yours is different
+~/.local/share/gem/ruby/3.0.0/bin/bundle install --path &quot;$HOME/.local/share/gem&quot;
+</code></pre>
+
+<p>This will update the Gemfile.lock as a side-effect.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Jul 31 20:36:32 2024 by
+  Generated on Thu Oct 24 20:57:22 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.1).
+  0.9.36 (ruby-3.3.5).
 </div>
 
     </div>

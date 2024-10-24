@@ -121,22 +121,6 @@
 
     <dl class="constants">
       
-        <dt id="LIST_PROPERTY-constant" class="">LIST_PROPERTY =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>The List Property from the resulting API for list calls</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>endpoints</span><span class='tstring_end'>&#39;</span></span></pre></dd>
-      
         <dt id="PATH-constant" class="">PATH =
           <div class="docstring">
   <div class="discussion">
@@ -152,6 +136,22 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="LIST_PROPERTY-constant" class="">LIST_PROPERTY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The List Property from the resulting API for list calls</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>endpoints</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
     </dl>
   
@@ -203,6 +203,102 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">#<strong>create</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create an endpoint, currently available only for cloud endpoints.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create!-instance_method" title="#create! (instance method)">#<strong>create!</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create an endpoint, currently available only for cloud endpoints Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Empty </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an Endpoint by ID, currently available only for cloud endpoints.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete!-instance_method" title="#delete! (instance method)">#<strong>delete!</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Empty </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete an Endpoint by ID, currently available only for cloud endpoints Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -326,6 +422,54 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update an Endpoint by ID, currently available only for cloud endpoints.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update!-instance_method" title="#update! (instance method)">#<strong>update!</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update an Endpoint by ID, currently available only for cloud endpoints Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -429,7 +573,579 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="get-instance_method">
+  <h3 class="signature first" id="create-instance_method">
+  
+    #<strong>create</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create an endpoint, currently available only for cloud endpoints</p>
+
+<p><a href="https://ngrok.com/docs/api#api-endpoints-create">ngrok.com/docs/api#api-endpoints-create</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the url of the endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>whether the endpoint is <code>ephemeral</code> (served directly by an agent-initiated tunnel) or <code>edge</code> (served by an edge) or <code>cloud (represents a cloud endpoint)</code></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>traffic_policy</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The traffic policy attached to this endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied description of the associated tunnel</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied metadata of the associated tunnel or edge object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bindings</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the bindings associated with this endpoint</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 37</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:url</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_url'>url</span> <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_type'>type</span> <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:traffic_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create!-instance_method">
+  
+    #<strong>create!</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create an endpoint, currently available only for cloud endpoints Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-endpoints-create">ngrok.com/docs/api#api-endpoints-create</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the url of the endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>whether the endpoint is <code>ephemeral</code> (served directly by an agent-initiated tunnel) or <code>edge</code> (served by an edge) or <code>cloud (represents a cloud endpoint)</code></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>traffic_policy</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The traffic policy attached to this endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied description of the associated tunnel</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied metadata of the associated tunnel or edge object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bindings</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the bindings associated with this endpoint</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:url</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_url'>url</span> <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:type</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_type'>type</span> <span class='kw'>if</span> <span class='id identifier rubyid_type'>type</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:traffic_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    #<strong>delete</strong>(id: &quot;&quot;)  &#x21d2; <tt>NgrokAPI::Models::Empty</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete an Endpoint by ID, currently available only for cloud endpoints</p>
+
+<p><a href="https://ngrok.com/docs/api#api-endpoints-delete">ngrok.com/docs/api#api-endpoints-delete</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a resource identifier</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NgrokAPI::Models::Empty</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+230
+231
+232
+233
+234
+235
+236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 230</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete!-instance_method">
+  
+    #<strong>delete!</strong>(id: &quot;&quot;)  &#x21d2; <tt>NgrokAPI::Models::Empty</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete an Endpoint by ID, currently available only for cloud endpoints Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-endpoints-delete">ngrok.com/docs/api#api-endpoints-delete</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a resource identifier</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NgrokAPI::Models::Empty</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+246
+247
+248
+249
+250
+251
+252</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 246</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get-instance_method">
   
     #<strong>get</strong>(id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
   
@@ -496,18 +1212,18 @@
       <pre class="lines">
 
 
-85
-86
-87
-88
-89
-90
-91
-92
-93</pre>
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 140</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -591,18 +1307,18 @@
       <pre class="lines">
 
 
-103
-104
-105
-106
-107
-108
-109
-110
-111</pre>
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 158</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -712,24 +1428,24 @@
       <pre class="lines">
 
 
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48</pre>
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -845,26 +1561,26 @@
       <pre class="lines">
 
 
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76</pre>
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 115</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
@@ -888,14 +1604,404 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update an Endpoint by ID, currently available only for cloud endpoints</p>
+
+<p><a href="https://ngrok.com/docs/api#api-endpoints-update">ngrok.com/docs/api#api-endpoints-update</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique endpoint resource identifier</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the url of the endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>traffic_policy</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The traffic policy attached to this endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied description of the associated tunnel</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied metadata of the associated tunnel or edge object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bindings</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the bindings associated with this endpoint</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 180</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:url</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_url'>url</span> <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:traffic_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update!-instance_method">
+  
+    #<strong>update!</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update an Endpoint by ID, currently available only for cloud endpoints Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-endpoints-update">ngrok.com/docs/api#api-endpoints-update</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>unique endpoint resource identifier</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the url of the endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>traffic_policy</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The traffic policy attached to this endpoint</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied description of the associated tunnel</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>user-supplied metadata of the associated tunnel or edge object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bindings</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the bindings associated with this endpoint</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 208</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:url</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_url'>url</span> <span class='kw'>if</span> <span class='id identifier rubyid_url'>url</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:traffic_policy</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span> <span class='kw'>if</span> <span class='id identifier rubyid_traffic_policy'>traffic_policy</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Wed Jul 31 20:36:35 2024 by
+  Generated on Thu Oct 24 20:57:26 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.1).
+  0.9.36 (ruby-3.3.5).
 </div>
 
     </div>
