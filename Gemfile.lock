@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ngrok-api (0.9.0)
+    ngrok-api (0.24.0)
 
 GEM
   remote: https://rubygems.org/
@@ -31,16 +31,8 @@ GEM
     docile (1.4.1)
     drb (2.2.1)
     ffi (1.17.0)
-    ffi (1.17.0-aarch64-linux-gnu)
-    ffi (1.17.0-aarch64-linux-musl)
-    ffi (1.17.0-arm-linux-gnu)
-    ffi (1.17.0-arm-linux-musl)
     ffi (1.17.0-arm64-darwin)
-    ffi (1.17.0-x86-linux-gnu)
-    ffi (1.17.0-x86-linux-musl)
     ffi (1.17.0-x86_64-darwin)
-    ffi (1.17.0-x86_64-linux-gnu)
-    ffi (1.17.0-x86_64-linux-musl)
     formatador (1.1.0)
     guard (2.18.1)
       formatador (>= 0.2.4)
@@ -153,16 +145,16 @@ GEM
     yard (0.9.36)
 
 PLATFORMS
-  aarch64-linux-gnu
+  aarch64-linux
   aarch64-linux-musl
-  arm-linux-gnu
+  arm-linux
   arm-linux-musl
   arm64-darwin
   ruby
-  x86-linux-gnu
+  x86-linux
   x86-linux-musl
   x86_64-darwin
-  x86_64-linux-gnu
+  x86_64-linux
   x86_64-linux-musl
 
 DEPENDENCIES
