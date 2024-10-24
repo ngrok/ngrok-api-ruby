@@ -20,4 +20,34 @@ RSpec.describe NgrokAPI::Models::Endpoint do
       expect(@endpoint.to_s).to eq endpoint_result.to_s
     end
   end
+
+  describe "#update" do
+    it "calls update on the client" do
+      new_url = 'New url'
+      new_traffic_policy = 'New traffic_policy'
+      new_description = 'New description'
+      new_metadata = 'New metadata'
+      new_bindings = 'New bindings'
+      expect(@endpoint.client).to receive(:update)
+      @endpoint.update(
+        url: new_url,
+        traffic_policy: new_traffic_policy,
+        description: new_description,
+        metadata: new_metadata,
+        bindings: new_bindings
+      )
+      expect(@endpoint.url).to eq new_url
+      expect(@endpoint.traffic_policy).to eq new_traffic_policy
+      expect(@endpoint.description).to eq new_description
+      expect(@endpoint.metadata).to eq new_metadata
+      expect(@endpoint.bindings).to eq new_bindings
+    end
+  end
+
+  describe "#delete" do
+    it "calls delete on the client" do
+      expect(@endpoint.client).to receive(:delete)
+      @endpoint.delete
+    end
+  end
 end
