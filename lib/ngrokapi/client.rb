@@ -139,6 +139,16 @@ module NgrokAPI
     end
 
     ##
+    # KubernetesOperators is used by the Kubernetes Operator to register and
+    #  manage its own resource, as well as for users to see active kubernetes
+    #  clusters.
+    #
+    # @return [NgrokAPI::Services::KubernetesOperatorsClient]
+    def kubernetes_operators
+      @_kubernetes_operators ||= NgrokAPI::Services::KubernetesOperatorsClient.new(client: @client)
+    end
+
+    ##
     # Reserved Addresses are TCP addresses that can be used to listen for traffic.
     #  TCP address hostnames and ports are assigned by ngrok, they cannot be
     #  chosen.

@@ -905,6 +905,59 @@ def ip_restriction_results
   }
 end
 
+def kubernetes_operator_binding_create_result
+  {
+  }
+end
+
+def kubernetes_operator_binding_result
+  {
+  }
+end
+
+def kubernetes_operator_binding_update_result
+  {
+  }
+end
+
+def kubernetes_operator_cert_result
+  {
+  }
+end
+
+def kubernetes_operator_deployment_result
+  {
+  }
+end
+
+def kubernetes_operator_deployment_update_result
+  {
+  }
+end
+
+def kubernetes_operator_result
+  {
+    "id" => "ko_1rV3S8JZQ9vZ2J5Z8Z8Z8Z8Z8Z8",
+    "uri" => "https://api.ngrok.com/kubernetes_operators/ko_1rV3S8JZQ9vZ2J5Z8Z8Z8Z8Z8Z",
+  }
+end
+
+def kubernetes_operator_results
+  {
+    "operators" => [
+      kubernetes_operator_result,
+    ],
+    "uri" => "https://api.ngrok.com/kubernetes_operators",
+    "next_page_uri" => nil,
+  }
+end
+
+def kubernetes_operators_get_bound_endpoints_input
+  {
+    "id" => kubernetes_operator_result["id"],
+  }
+end
+
 def ref_result
   {
   }

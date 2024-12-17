@@ -104,6 +104,12 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
+  describe "#kubernetes_operators" do
+    it "returns an instance of the KubernetesOperatorsClient" do
+      expect(@client.kubernetes_operators.class).to eq(NgrokAPI::Services::KubernetesOperatorsClient)
+    end
+  end
+
   describe "#reserved_addrs" do
     it "returns an instance of the ReservedAddrsClient" do
       expect(@client.reserved_addrs.class).to eq(NgrokAPI::Services::ReservedAddrsClient)
