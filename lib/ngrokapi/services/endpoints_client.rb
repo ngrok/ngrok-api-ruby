@@ -34,7 +34,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Endpoint] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-create
-      def create(url: "", type: "", traffic_policy: "", description: nil, metadata: nil, bindings: nil)
+      def create(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil)
         path = '/endpoints'
         replacements = {
         }
@@ -62,7 +62,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Endpoint] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-create
-      def create!(url: "", type: "", traffic_policy: "", description: nil, metadata: nil, bindings: nil)
+      def create!(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil)
         path = '/endpoints'
         replacements = {
         }

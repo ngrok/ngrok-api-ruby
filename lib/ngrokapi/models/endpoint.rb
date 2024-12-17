@@ -27,10 +27,9 @@ module NgrokAPI
         :tunnel,
         :edge,
         :upstream_url,
-        :upstream_proto,
+        :upstream_protocol,
         :url,
         :principal,
-        :principal_id,
         :traffic_policy,
         :bindings,
         :tunnel_session,
@@ -60,10 +59,9 @@ module NgrokAPI
         @tunnel = @attrs['tunnel']
         @edge = @attrs['edge']
         @upstream_url = @attrs['upstream_url']
-        @upstream_proto = @attrs['upstream_proto']
+        @upstream_protocol = @attrs['upstream_protocol']
         @url = @attrs['url']
         @principal = @attrs['principal']
-        @principal_id = @attrs['principal_id']
         @traffic_policy = @attrs['traffic_policy']
         @bindings = @attrs['bindings']
         @tunnel_session = @attrs['tunnel_session']
