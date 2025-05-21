@@ -566,6 +566,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#kubernetes_operators-instance_method" title="#kubernetes_operators (instance method)">#<strong>kubernetes_operators</strong>  &#x21d2; NgrokAPI::Services::KubernetesOperatorsClient </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>KubernetesOperators is used by the Kubernetes Operator to register and manage its own resource, as well as for users to see active kubernetes clusters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#reserved_addrs-instance_method" title="#reserved_addrs (instance method)">#<strong>reserved_addrs</strong>  &#x21d2; NgrokAPI::Services::ReservedAddrsClient </a>
     
 
@@ -1046,19 +1070,19 @@
       <pre class="lines">
 
 
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230</pre>
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_backends'>backends</span>
   <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1228,16 +1252,6 @@
       <pre class="lines">
 
 
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
 252
 253
 254
@@ -1255,10 +1269,20 @@
 266
 267
 268
-269</pre>
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 242</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 252</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edge_modules'>edge_modules</span>
   <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1308,18 +1332,18 @@
       <pre class="lines">
 
 
-232
-233
-234
-235
-236
-237
-238
-239
-240</pre>
+242
+243
+244
+245
+246
+247
+248
+249
+250</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 232</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 242</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edges'>edges</span>
   <span class='id identifier rubyid_ns'>ns</span> <span class='op'>=</span> <span class='const'>OpenStruct</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1642,6 +1666,60 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="kubernetes_operators-instance_method">
+  
+    #<strong>kubernetes_operators</strong>  &#x21d2; <tt><span class='object_link'><a href="Services/KubernetesOperatorsClient.html" title="NgrokAPI::Services::KubernetesOperatorsClient (class)">NgrokAPI::Services::KubernetesOperatorsClient</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>KubernetesOperators is used by the Kubernetes Operator to register and manage its own resource, as well as for users to see active kubernetes clusters.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Services/KubernetesOperatorsClient.html" title="NgrokAPI::Services::KubernetesOperatorsClient (class)">NgrokAPI::Services::KubernetesOperatorsClient</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_kubernetes_operators'>kubernetes_operators</span>
+  <span class='ivar'>@_kubernetes_operators</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/KubernetesOperatorsClient.html" title="NgrokAPI::Services::KubernetesOperatorsClient (class)">KubernetesOperatorsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/KubernetesOperatorsClient.html#initialize-instance_method" title="NgrokAPI::Services::KubernetesOperatorsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="reserved_addrs-instance_method">
   
     #<strong>reserved_addrs</strong>  &#x21d2; <tt><span class='object_link'><a href="Services/ReservedAddrsClient.html" title="NgrokAPI::Services::ReservedAddrsClient (class)">NgrokAPI::Services::ReservedAddrsClient</a></span></tt> 
@@ -1680,12 +1758,12 @@
       <pre class="lines">
 
 
-147
-148
-149</pre>
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 157</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reserved_addrs'>reserved_addrs</span>
   <span class='ivar'>@_reserved_addrs</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/ReservedAddrsClient.html" title="NgrokAPI::Services::ReservedAddrsClient (class)">ReservedAddrsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/ReservedAddrsClient.html#initialize-instance_method" title="NgrokAPI::Services::ReservedAddrsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1734,12 +1812,12 @@
       <pre class="lines">
 
 
-158
-159
-160</pre>
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 168</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reserved_domains'>reserved_domains</span>
   <span class='ivar'>@_reserved_domains</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/ReservedDomainsClient.html" title="NgrokAPI::Services::ReservedDomainsClient (class)">ReservedDomainsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/ReservedDomainsClient.html#initialize-instance_method" title="NgrokAPI::Services::ReservedDomainsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1788,12 +1866,12 @@
       <pre class="lines">
 
 
-167
-168
-169</pre>
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssh_certificate_authorities'>ssh_certificate_authorities</span>
   <span class='ivar'>@_ssh_certificate_authorities</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/SSHCertificateAuthoritiesClient.html" title="NgrokAPI::Services::SSHCertificateAuthoritiesClient (class)">SSHCertificateAuthoritiesClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/SSHCertificateAuthoritiesClient.html#initialize-instance_method" title="NgrokAPI::Services::SSHCertificateAuthoritiesClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1842,12 +1920,12 @@
       <pre class="lines">
 
 
-176
-177
-178</pre>
+186
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 186</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssh_credentials'>ssh_credentials</span>
   <span class='ivar'>@_ssh_credentials</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/SSHCredentialsClient.html" title="NgrokAPI::Services::SSHCredentialsClient (class)">SSHCredentialsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/SSHCredentialsClient.html#initialize-instance_method" title="NgrokAPI::Services::SSHCredentialsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1896,12 +1974,12 @@
       <pre class="lines">
 
 
-186
-187
-188</pre>
+196
+197
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 196</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssh_host_certificates'>ssh_host_certificates</span>
   <span class='ivar'>@_ssh_host_certificates</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/SSHHostCertificatesClient.html" title="NgrokAPI::Services::SSHHostCertificatesClient (class)">SSHHostCertificatesClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/SSHHostCertificatesClient.html#initialize-instance_method" title="NgrokAPI::Services::SSHHostCertificatesClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -1950,12 +2028,12 @@
       <pre class="lines">
 
 
-196
-197
-198</pre>
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 206</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssh_user_certificates'>ssh_user_certificates</span>
   <span class='ivar'>@_ssh_user_certificates</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/SSHUserCertificatesClient.html" title="NgrokAPI::Services::SSHUserCertificatesClient (class)">SSHUserCertificatesClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/SSHUserCertificatesClient.html#initialize-instance_method" title="NgrokAPI::Services::SSHUserCertificatesClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2004,12 +2082,12 @@
       <pre class="lines">
 
 
-208
-209
-210</pre>
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 218</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tls_certificates'>tls_certificates</span>
   <span class='ivar'>@_tls_certificates</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/TLSCertificatesClient.html" title="NgrokAPI::Services::TLSCertificatesClient (class)">TLSCertificatesClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/TLSCertificatesClient.html#initialize-instance_method" title="NgrokAPI::Services::TLSCertificatesClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2112,12 +2190,12 @@
       <pre class="lines">
 
 
-217
-218
-219</pre>
+227
+228
+229</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/client.rb', line 227</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tunnels'>tunnels</span>
   <span class='ivar'>@_tunnels</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services.html" title="NgrokAPI::Services (module)">Services</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Services/TunnelsClient.html" title="NgrokAPI::Services::TunnelsClient (class)">TunnelsClient</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Services/TunnelsClient.html#initialize-instance_method" title="NgrokAPI::Services::TunnelsClient#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='ivar'>@client</span><span class='rparen'>)</span>
@@ -2132,9 +2210,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Oct 24 20:57:22 2024 by
+  Generated on Wed May 21 15:21:33 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.5).
+  0.9.36 (ruby-3.3.7).
 </div>
 
     </div>

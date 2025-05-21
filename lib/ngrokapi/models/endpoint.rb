@@ -27,15 +27,15 @@ module NgrokAPI
         :tunnel,
         :edge,
         :upstream_url,
-        :upstream_proto,
+        :upstream_protocol,
         :url,
         :principal,
-        :principal_id,
         :traffic_policy,
         :bindings,
         :tunnel_session,
         :uri,
-        :name
+        :name,
+        :pooling_enabled
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -60,10 +60,9 @@ module NgrokAPI
         @tunnel = @attrs['tunnel']
         @edge = @attrs['edge']
         @upstream_url = @attrs['upstream_url']
-        @upstream_proto = @attrs['upstream_proto']
+        @upstream_protocol = @attrs['upstream_protocol']
         @url = @attrs['url']
         @principal = @attrs['principal']
-        @principal_id = @attrs['principal_id']
         @traffic_policy = @attrs['traffic_policy']
         @bindings = @attrs['bindings']
         @tunnel_session = @attrs['tunnel_session']
@@ -71,6 +70,7 @@ module NgrokAPI
           @uri = URI(@attrs['uri'])
         end
         @name = @attrs['name']
+        @pooling_enabled = @attrs['pooling_enabled']
       end
 
       def ==(other)
@@ -94,20 +94,23 @@ module NgrokAPI
         traffic_policy: nil,
         description: nil,
         metadata: nil,
-        bindings: nil
+        bindings: nil,
+        pooling_enabled: False
       )
         @url = url if url
         @traffic_policy = traffic_policy if traffic_policy
         @description = description if description
         @metadata = metadata if metadata
         @bindings = bindings if bindings
+        @pooling_enabled = pooling_enabled if pooling_enabled
         @client.update(
           id: @id,
           url: url,
           traffic_policy: traffic_policy,
           description: description,
           metadata: metadata,
-          bindings: bindings
+          bindings: bindings,
+          pooling_enabled: pooling_enabled
         )
       end
 

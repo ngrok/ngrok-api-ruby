@@ -28,19 +28,22 @@ RSpec.describe NgrokAPI::Models::Endpoint do
       new_description = 'New description'
       new_metadata = 'New metadata'
       new_bindings = 'New bindings'
+      new_pooling_enabled = 'New pooling_enabled'
       expect(@endpoint.client).to receive(:update)
       @endpoint.update(
         url: new_url,
         traffic_policy: new_traffic_policy,
         description: new_description,
         metadata: new_metadata,
-        bindings: new_bindings
+        bindings: new_bindings,
+        pooling_enabled: new_pooling_enabled
       )
       expect(@endpoint.url).to eq new_url
       expect(@endpoint.traffic_policy).to eq new_traffic_policy
       expect(@endpoint.description).to eq new_description
       expect(@endpoint.metadata).to eq new_metadata
       expect(@endpoint.bindings).to eq new_bindings
+      expect(@endpoint.pooling_enabled).to eq new_pooling_enabled
     end
   end
 
