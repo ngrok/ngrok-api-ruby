@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: NgrokAPI::Services::VaultsClient
+  
+    &mdash; Documentation by YARD 0.9.36
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "NgrokAPI::Services::VaultsClient";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (V)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Services.html" title="NgrokAPI::Services (module)">Services</a></span></span>
+     &raquo; 
+    <span class="title">VaultsClient</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: NgrokAPI::Services::VaultsClient
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">NgrokAPI::Services::VaultsClient</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/ngrokapi/services/vaults_client.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Vaults is an api service for securely storing and managing sensitive data such as secrets, credentials, and tokens.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults">ngrok.com/docs/api#api-vaults</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="PATH-constant" class="">PATH =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The API path for the requests</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="LIST_PROPERTY-constant" class="">LIST_PROPERTY =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>The List Property from the resulting API for list calls</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vaults</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#client-instance_method" title="#client (instance method)">#<strong>client</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute client.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">#<strong>create</strong>(name: &quot;&quot;, metadata: &quot;&quot;, description: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Vault </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new Vault.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create!-instance_method" title="#create! (instance method)">#<strong>create!</strong>(name: &quot;&quot;, metadata: &quot;&quot;, description: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Vault </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new Vault Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete-instance_method" title="#delete (instance method)">#<strong>delete</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Empty </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete a Vault.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete!-instance_method" title="#delete! (instance method)">#<strong>delete!</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Empty </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delete a Vault Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get-instance_method" title="#get (instance method)">#<strong>get</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Vault </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get a Vault by ID.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get!-instance_method" title="#get! (instance method)">#<strong>get!</strong>(id: &quot;&quot;)  &#x21d2; NgrokAPI::Models::Vault </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get a Vault by ID Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(client:)  &#x21d2; VaultsClient </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of VaultsClient.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; NgrokAPI::Models::Listable </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List all Vaults owned by account.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#list!-instance_method" title="#list! (instance method)">#<strong>list!</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; NgrokAPI::Models::Listable </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List all Vaults owned by account Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(id: &quot;&quot;, name: nil, metadata: nil, description: nil)  &#x21d2; NgrokAPI::Models::Vault </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing Vault by ID.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update!-instance_method" title="#update! (instance method)">#<strong>update!</strong>(id: &quot;&quot;, name: nil, metadata: nil, description: nil)  &#x21d2; NgrokAPI::Models::Vault </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update an existing Vault by ID Throws an exception if API error.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(client:)  &#x21d2; <tt><span class='object_link'><a href="" title="NgrokAPI::Services::VaultsClient (class)">VaultsClient</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of VaultsClient.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='label'>client:</span><span class='rparen'>)</span>
+  <span class='ivar'>@client</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="client-instance_method">
+  
+    #<strong>client</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute client.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span>
+  <span class='ivar'>@client</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="create-instance_method">
+  
+    #<strong>create</strong>(name: &quot;&quot;, metadata: &quot;&quot;, description: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new Vault</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-create">ngrok.com/docs/api#api-vaults-create</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Arbitrary user-defined metadata for this Vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>description of Vault</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Vault.html#initialize-instance_method" title="NgrokAPI::Models::Vault#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="create!-instance_method">
+  
+    #<strong>create!</strong>(name: &quot;&quot;, metadata: &quot;&quot;, description: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a new Vault Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-create">ngrok.com/docs/api#api-vaults-create</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Arbitrary user-defined metadata for this Vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>description of Vault</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Vault.html#initialize-instance_method" title="NgrokAPI::Models::Vault#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete-instance_method">
+  
+    #<strong>delete</strong>(id: &quot;&quot;)  &#x21d2; <tt>NgrokAPI::Models::Empty</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete a Vault</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-delete">ngrok.com/docs/api#api-vaults-delete</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a resource identifier</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NgrokAPI::Models::Empty</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123
+124
+125
+126
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete!-instance_method">
+  
+    #<strong>delete!</strong>(id: &quot;&quot;)  &#x21d2; <tt>NgrokAPI::Models::Empty</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delete a Vault Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-delete">ngrok.com/docs/api#api-vaults-delete</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a resource identifier</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NgrokAPI::Models::Empty</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139
+140
+141
+142
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get-instance_method">
+  
+    #<strong>get</strong>(id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get a Vault by ID</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-get">ngrok.com/docs/api#api-vaults-get</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a resource identifier</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159
+160</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Vault.html#initialize-instance_method" title="NgrokAPI::Models::Vault#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get!-instance_method">
+  
+    #<strong>get!</strong>(id: &quot;&quot;)  &#x21d2; <tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get a Vault by ID Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-get">ngrok.com/docs/api#api-vaults-get</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a resource identifier</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 170</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Vault.html#initialize-instance_method" title="NgrokAPI::Models::Vault#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list-instance_method">
+  
+    #<strong>list</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List all Vaults owned by account</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-list">ngrok.com/docs/api#api-vaults-list</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>before_id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>limit</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>optional and mutually exclusive from before_id and limit</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 189</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+    <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
+    <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
+    <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
+    <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::VaultsClient::PATH (constant)">PATH</a></span></span>
+  <span class='rparen'>)</span>
+
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
+    <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::VaultsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
+    <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list!-instance_method">
+  
+    #<strong>list!</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List all Vaults owned by account Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-list">ngrok.com/docs/api#api-vaults-list</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>before_id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>limit</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>optional and mutually exclusive from before_id and limit</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+    <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
+    <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
+    <span class='label'>danger:</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
+    <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::VaultsClient::PATH (constant)">PATH</a></span></span>
+  <span class='rparen'>)</span>
+
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">Listable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Listable.html#initialize-instance_method" title="NgrokAPI::Models::Listable#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span>
+    <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='comma'>,</span>
+    <span class='label'>list_property:</span> <span class='const'><span class='object_link'><a href="#LIST_PROPERTY-constant" title="NgrokAPI::Services::VaultsClient::LIST_PROPERTY (constant)">LIST_PROPERTY</a></span></span><span class='comma'>,</span>
+    <span class='label'>klass:</span> <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span><span class='comma'>,</span>
+    <span class='label'>danger:</span> <span class='kw'>true</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>(id: &quot;&quot;, name: nil, metadata: nil, description: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update an existing Vault by ID</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-update">ngrok.com/docs/api#api-vaults-update</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>identifier for Vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Arbitrary user-defined metadata for this Vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>description of Vault</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>name:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Vault.html#initialize-instance_method" title="NgrokAPI::Models::Vault#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update!-instance_method">
+  
+    #<strong>update!</strong>(id: &quot;&quot;, name: nil, metadata: nil, description: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update an existing Vault by ID Throws an exception if API error.</p>
+
+<p><a href="https://ngrok.com/docs/api#api-vaults-update">ngrok.com/docs/api#api-vaults-update</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>identifier for Vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Arbitrary user-defined metadata for this Vault</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>string</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>description of Vault</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">NgrokAPI::Models::Vault</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>result from the API request</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/vaults_client.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>name:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/vaults/%{id}</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+    <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Vault.html" title="NgrokAPI::Models::Vault (class)">Vault</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Vault.html#initialize-instance_method" title="NgrokAPI::Models::Vault#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Tue Aug  5 20:14:59 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.3.8).
+</div>
+
+    </div>
+  </body>
+</html>
