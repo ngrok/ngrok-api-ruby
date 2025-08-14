@@ -26,6 +26,7 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:bindings] = "New bindings"
+      data[:pooling_enabled] = "New pooling_enabled"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(endpoint_result)
       result = @endpoints_client.create(
@@ -34,7 +35,8 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
         traffic_policy: "New traffic_policy",
         description: "New description",
         metadata: "New metadata",
-        bindings: "New bindings"
+        bindings: "New bindings",
+        pooling_enabled: "New pooling_enabled"
       )
       expect(result.class).to eq(NgrokAPI::Models::Endpoint)
     end
@@ -52,6 +54,7 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:bindings] = "New bindings"
+      data[:pooling_enabled] = "New pooling_enabled"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(endpoint_result)
       result = @endpoints_client.create(
@@ -60,7 +63,8 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
         traffic_policy: "New traffic_policy",
         description: "New description",
         metadata: "New metadata",
-        bindings: "New bindings"
+        bindings: "New bindings",
+        pooling_enabled: "New pooling_enabled"
       )
       expect(result.class).to eq(NgrokAPI::Models::Endpoint)
       # expect(result.id).to eq(endpoint_result["id"])
@@ -122,6 +126,7 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:bindings] = "New bindings"
+      data[:pooling_enabled] = "New pooling_enabled"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(endpoint_result)
       result = @endpoints_client.update(
@@ -130,7 +135,8 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
         traffic_policy: "New traffic_policy",
         description: "New description",
         metadata: "New metadata",
-        bindings: "New bindings"
+        bindings: "New bindings",
+        pooling_enabled: "New pooling_enabled"
       )
       expect(result.class).to eq(NgrokAPI::Models::Endpoint)
     end
@@ -148,6 +154,7 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
       data[:description] = "New description"
       data[:metadata] = "New metadata"
       data[:bindings] = "New bindings"
+      data[:pooling_enabled] = "New pooling_enabled"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(endpoint_result)
       result = @endpoints_client.update(
@@ -156,7 +163,8 @@ RSpec.describe NgrokAPI::Services::EndpointsClient do
         traffic_policy: "New traffic_policy",
         description: "New description",
         metadata: "New metadata",
-        bindings: "New bindings"
+        bindings: "New bindings",
+        pooling_enabled: "New pooling_enabled"
       )
       expect(result.class).to eq(NgrokAPI::Models::Endpoint)
       # expect(result.id).to eq(endpoint_result["id"])

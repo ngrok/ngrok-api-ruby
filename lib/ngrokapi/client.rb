@@ -160,6 +160,15 @@ module NgrokAPI
     end
 
     ##
+    # Secrets is an api service for securely storing and managing sensitive data such
+    # as secrets, credentials, and tokens.
+    #
+    # @return [NgrokAPI::Services::SecretsClient]
+    def secrets
+      @_secrets ||= NgrokAPI::Services::SecretsClient.new(client: @client)
+    end
+
+    ##
     # An SSH Certificate Authority is a pair of an SSH Certificate and its private
     #  key that can be used to sign other SSH host and user certificates.
     #
@@ -216,6 +225,15 @@ module NgrokAPI
     # @return [NgrokAPI::Services::TunnelsClient]
     def tunnels
       @_tunnels ||= NgrokAPI::Services::TunnelsClient.new(client: @client)
+    end
+
+    ##
+    # Vaults is an api service for securely storing and managing sensitive data such
+    # as secrets, credentials, and tokens.
+    #
+    # @return [NgrokAPI::Services::VaultsClient]
+    def vaults
+      @_vaults ||= NgrokAPI::Services::VaultsClient.new(client: @client)
     end
 
     def backends

@@ -905,6 +905,59 @@ def ip_restriction_results
   }
 end
 
+def kubernetes_operator_binding_create_result
+  {
+  }
+end
+
+def kubernetes_operator_binding_result
+  {
+  }
+end
+
+def kubernetes_operator_binding_update_result
+  {
+  }
+end
+
+def kubernetes_operator_cert_result
+  {
+  }
+end
+
+def kubernetes_operator_deployment_result
+  {
+  }
+end
+
+def kubernetes_operator_deployment_update_result
+  {
+  }
+end
+
+def kubernetes_operator_result
+  {
+    "id" => "ko_1rV3S8JZQ9vZ2J5Z8Z8Z8Z8Z8Z8",
+    "uri" => "https://api.ngrok.com/kubernetes_operators/ko_1rV3S8JZQ9vZ2J5Z8Z8Z8Z8Z8Z",
+  }
+end
+
+def kubernetes_operator_results
+  {
+    "operators" => [
+      kubernetes_operator_result,
+    ],
+    "uri" => "https://api.ngrok.com/kubernetes_operators",
+    "next_page_uri" => nil,
+  }
+end
+
+def kubernetes_operators_get_bound_endpoints_input
+  {
+    "id" => kubernetes_operator_result["id"],
+  }
+end
+
 def ref_result
   {
   }
@@ -1535,6 +1588,70 @@ def weighted_backend_results
       weighted_backend_result,
     ],
     "uri" => "https://api.ngrok.com/backends/weighted",
+    "next_page_uri" => nil,
+  }
+end
+
+def secret_result
+  {
+    "id" => "secret_2y0arDtaBNqxT0gSw2pfBObOjgc",
+    "uri" => "https://api.ngrok.com.lan/vault_secrets/secret_2y0arDtaBNqxT0gSw2pfBObOjgc",
+    "name" => "foooooo-updated",
+    "description" => "Updated secret after rotation",
+    "metadata" => "env=prod,rotation=2025",
+    "created_at" => "2025-06-03T18:09:00Z",
+    "updated_at" => "2025-06-03T19:00:00Z",
+    "created_by" => {
+      "id" => "usr_2xVG4dWulHzHrt5TxxoQRvrLOF3",
+      "uri" => "",
+    },
+    "last_updated_by" => {
+      "id" => "usr_2xVG4dWulHzHrt5TxxoQRvrLOF3",
+      "uri" => "",
+    },
+    "vault" => {
+      "id" => "vault_2y0YkHvDtItsU4xNJpBPGx8EW2K",
+      "uri" => "https://api.ngrok.com.lan/vaults/vault_2y0YkHvDtItsU4xNJpBPGx8EW2K",
+    },
+  }
+end
+
+def secret_results
+  {
+    "secrets" => [
+      secret_result,
+    ],
+    "uri" => "https://api.ngrok.com.lan/vault_secrets",
+    "next_page_uri" => nil,
+  }
+end
+
+def vault_result
+  {
+    "id" => "vault_2xxf3F5QAzvG3OZYm7xyZ2Nhpkb",
+    "uri" => "https://api.ngrok.com.lan/vaults/vault_2xxf3F5QAzvG3OZYm7xyZ2Nhpkb",
+    "name" => "foo-renamed",
+    "description" => "Updated vault for prod environment",
+    "metadata" => "env=prod,team=secops",
+    "created_at" => "2025-06-02T17:14:03Z",
+    "updated_at" => "2025-06-03T10:25:00Z",
+    "created_by" => {
+      "id" => "usr_2xVG4dWulHzHrt5TxxoQRvrLOF3",
+      "uri" => "",
+    },
+    "last_updated_by" => {
+      "id" => "usr_2xVG4dWulHzHrt5TxxoQRvrLOF3",
+      "uri" => "",
+    },
+  }
+end
+
+def vault_results
+  {
+    "vaults" => [
+      vault_result,
+    ],
+    "uri" => "https://api.ngrok.com.lan/vaults",
     "next_page_uri" => nil,
   }
 end
