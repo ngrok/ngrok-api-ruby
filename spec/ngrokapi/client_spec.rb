@@ -116,6 +116,12 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
+  describe "#secrets" do
+    it "returns an instance of the SecretsClient" do
+      expect(@client.secrets.class).to eq(NgrokAPI::Services::SecretsClient)
+    end
+  end
+
   describe "#ssh_certificate_authorities" do
     it "returns an instance of the SSHCertificateAuthoritiesClient" do
       expect(@client.ssh_certificate_authorities.class).to eq(NgrokAPI::Services::SSHCertificateAuthoritiesClient)
@@ -149,6 +155,12 @@ RSpec.describe NgrokAPI::Client do
   describe "#tunnels" do
     it "returns an instance of the TunnelsClient" do
       expect(@client.tunnels.class).to eq(NgrokAPI::Services::TunnelsClient)
+    end
+  end
+
+  describe "#vaults" do
+    it "returns an instance of the VaultsClient" do
+      expect(@client.vaults.class).to eq(NgrokAPI::Services::VaultsClient)
     end
   end
 
