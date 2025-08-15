@@ -207,7 +207,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create-instance_method" title="#create (instance method)">#<strong>create</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+      <a href="#create-instance_method" title="#create (instance method)">#<strong>create</strong>(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; NgrokAPI::Models::Endpoint </a>
     
 
     
@@ -231,7 +231,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create!-instance_method" title="#create! (instance method)">#<strong>create!</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+      <a href="#create!-instance_method" title="#create! (instance method)">#<strong>create!</strong>(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; NgrokAPI::Models::Endpoint </a>
     
 
     
@@ -377,7 +377,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; NgrokAPI::Models::Listable </a>
+      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>(before_id: nil, limit: nil, ids: [], urls: [], url: nil)  &#x21d2; NgrokAPI::Models::Listable </a>
     
 
     
@@ -401,7 +401,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#list!-instance_method" title="#list! (instance method)">#<strong>list!</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; NgrokAPI::Models::Listable </a>
+      <a href="#list!-instance_method" title="#list! (instance method)">#<strong>list!</strong>(before_id: nil, limit: nil, ids: [], urls: [], url: nil)  &#x21d2; NgrokAPI::Models::Listable </a>
     
 
     
@@ -425,7 +425,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; NgrokAPI::Models::Endpoint </a>
     
 
     
@@ -449,7 +449,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update!-instance_method" title="#update! (instance method)">#<strong>update!</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; NgrokAPI::Models::Endpoint </a>
+      <a href="#update!-instance_method" title="#update! (instance method)">#<strong>update!</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; NgrokAPI::Models::Endpoint </a>
     
 
     
@@ -575,7 +575,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="create-instance_method">
   
-    #<strong>create</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+    #<strong>create</strong>(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
   
 
   
@@ -603,8 +603,6 @@
         <span class='type'>(<tt>string</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
-      
       
         &mdash;
         <div class='inline'>
@@ -621,12 +619,10 @@
         <span class='type'>(<tt>string</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
-      
       
         &mdash;
         <div class='inline'>
-<p>whether the endpoint is <code>ephemeral</code> (served directly by an agent-initiated tunnel) or <code>edge</code> (served by an edge) or <code>cloud (represents a cloud endpoint)</code></p>
+<p>Type of endpoint. Only ‘cloud’ is currently supported (represents a cloud endpoint). Defaults to ‘cloud’ if not specified.</p>
 </div>
       
     </li>
@@ -638,8 +634,6 @@
       
         <span class='type'>(<tt>string</tt>)</span>
       
-      
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
       
       
         &mdash;
@@ -703,6 +697,19 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>pooling_enabled</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>False</tt>)</em>
+      
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -730,7 +737,6 @@
       <pre class="lines">
 
 
-37
 38
 39
 40
@@ -743,12 +749,14 @@
 47
 48
 49
-50</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='label'>url:</span><span class='comma'>,</span> <span class='label'>type:</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>pooling_enabled:</span> <span class='const'>False</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
   <span class='rbrace'>}</span>
@@ -759,6 +767,7 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:pooling_enabled</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span> <span class='kw'>if</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -770,7 +779,7 @@
       <div class="method_details ">
   <h3 class="signature " id="create!-instance_method">
   
-    #<strong>create!</strong>(url: &quot;&quot;, type: &quot;&quot;, traffic_policy: &quot;&quot;, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+    #<strong>create!</strong>(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
   
 
   
@@ -798,8 +807,6 @@
         <span class='type'>(<tt>string</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
-      
       
         &mdash;
         <div class='inline'>
@@ -816,12 +823,10 @@
         <span class='type'>(<tt>string</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
-      
       
         &mdash;
         <div class='inline'>
-<p>whether the endpoint is <code>ephemeral</code> (served directly by an agent-initiated tunnel) or <code>edge</code> (served by an edge) or <code>cloud (represents a cloud endpoint)</code></p>
+<p>Type of endpoint. Only ‘cloud’ is currently supported (represents a cloud endpoint). Defaults to ‘cloud’ if not specified.</p>
 </div>
       
     </li>
@@ -833,8 +838,6 @@
       
         <span class='type'>(<tt>string</tt>)</span>
       
-      
-        <em class="default">(defaults to: <tt>&quot;&quot;</tt>)</em>
       
       
         &mdash;
@@ -898,6 +901,19 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>pooling_enabled</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>False</tt>)</em>
+      
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -925,9 +941,6 @@
       <pre class="lines">
 
 
-65
-66
-67
 68
 69
 70
@@ -938,12 +951,16 @@
 75
 76
 77
-78</pre>
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 68</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>type:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>url:</span><span class='comma'>,</span> <span class='label'>type:</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>pooling_enabled:</span> <span class='const'>False</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
   <span class='rbrace'>}</span>
@@ -954,6 +971,7 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:pooling_enabled</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span> <span class='kw'>if</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1030,16 +1048,16 @@
       <pre class="lines">
 
 
-230
-231
-232
-233
-234
-235
-236</pre>
+246
+247
+248
+249
+250
+251
+252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 230</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 246</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1121,16 +1139,16 @@
       <pre class="lines">
 
 
-246
-247
-248
-249
-250
-251
-252</pre>
+262
+263
+264
+265
+266
+267
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 246</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 262</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete!'>delete!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1212,18 +1230,18 @@
       <pre class="lines">
 
 
-140
-141
-142
-143
-144
-145
-146
-147
-148</pre>
+152
+153
+154
+155
+156
+157
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1307,18 +1325,18 @@
       <pre class="lines">
 
 
-158
-159
-160
-161
-162
-163
-164
-165
-166</pre>
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get!'>get!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1337,7 +1355,7 @@
       <div class="method_details ">
   <h3 class="signature " id="list-instance_method">
   
-    #<strong>list</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt> 
+    #<strong>list</strong>(before_id: nil, limit: nil, ids: [], urls: [], url: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt> 
   
 
   
@@ -1385,6 +1403,32 @@
   
     <li>
       
+        <span class='name'>ids</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>[]</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>urls</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>[]</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>url</span>
       
       
@@ -1428,12 +1472,6 @@
       <pre class="lines">
 
 
-89
-90
-91
-92
-93
-94
 95
 96
 97
@@ -1442,15 +1480,25 @@
 100
 101
 102
-103</pre>
+103
+104
+105
+106
+107
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 95</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ids:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>urls:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
+    <span class='label'>ids:</span> <span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span>
+    <span class='label'>urls:</span> <span class='id identifier rubyid_urls'>urls</span><span class='comma'>,</span>
     <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
     <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::EndpointsClient::PATH (constant)">PATH</a></span></span>
   <span class='rparen'>)</span>
@@ -1470,7 +1518,7 @@
       <div class="method_details ">
   <h3 class="signature " id="list!-instance_method">
   
-    #<strong>list!</strong>(before_id: nil, limit: nil, url: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt> 
+    #<strong>list!</strong>(before_id: nil, limit: nil, ids: [], urls: [], url: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Listable.html" title="NgrokAPI::Models::Listable (class)">NgrokAPI::Models::Listable</a></span></tt> 
   
 
   
@@ -1518,6 +1566,32 @@
   
     <li>
       
+        <span class='name'>ids</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>[]</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>urls</span>
+      
+      
+        <span class='type'>(<tt>List&lt;string&gt;</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>[]</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>url</span>
       
       
@@ -1561,31 +1635,35 @@
       <pre class="lines">
 
 
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
 125
 126
 127
 128
 129
 130
-131</pre>
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 125</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>ids:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>urls:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
+    <span class='label'>ids:</span> <span class='id identifier rubyid_ids'>ids</span><span class='comma'>,</span>
+    <span class='label'>urls:</span> <span class='id identifier rubyid_urls'>urls</span><span class='comma'>,</span>
     <span class='label'>danger:</span> <span class='kw'>true</span><span class='comma'>,</span>
     <span class='label'>url:</span> <span class='id identifier rubyid_url'>url</span><span class='comma'>,</span>
     <span class='label'>path:</span> <span class='const'><span class='object_link'><a href="#PATH-constant" title="NgrokAPI::Services::EndpointsClient::PATH (constant)">PATH</a></span></span>
@@ -1607,7 +1685,7 @@
       <div class="method_details ">
   <h3 class="signature " id="update-instance_method">
   
-    #<strong>update</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+    #<strong>update</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
   
 
   
@@ -1735,6 +1813,19 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>pooling_enabled</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>False</tt>)</em>
+      
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -1762,25 +1853,26 @@
       <pre class="lines">
 
 
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193</pre>
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 193</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>pooling_enabled:</span> <span class='const'>False</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1791,6 +1883,7 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:pooling_enabled</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span> <span class='kw'>if</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1802,7 +1895,7 @@
       <div class="method_details ">
   <h3 class="signature " id="update!-instance_method">
   
-    #<strong>update!</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
+    #<strong>update!</strong>(id: &quot;&quot;, url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)  &#x21d2; <tt><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">NgrokAPI::Models::Endpoint</a></span></tt> 
   
 
   
@@ -1930,6 +2023,19 @@
       
     </li>
   
+    <li>
+      
+        <span class='name'>pooling_enabled</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>False</tt>)</em>
+      
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -1957,25 +2063,26 @@
       <pre class="lines">
 
 
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221</pre>
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/endpoints_client.rb', line 223</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>traffic_policy:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>bindings:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>pooling_enabled:</span> <span class='const'>False</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/endpoints/%{id}</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid_replacements'>replacements</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>id:</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span>
@@ -1986,6 +2093,7 @@
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_description'>description</span> <span class='kw'>if</span> <span class='id identifier rubyid_description'>description</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:metadata</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span> <span class='kw'>if</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:bindings</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_bindings'>bindings</span> <span class='kw'>if</span> <span class='id identifier rubyid_bindings'>bindings</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:pooling_enabled</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span> <span class='kw'>if</span> <span class='id identifier rubyid_pooling_enabled'>pooling_enabled</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_patch'>patch</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span> <span class='op'>%</span> <span class='id identifier rubyid_replacements'>replacements</span><span class='comma'>,</span> <span class='label'>data:</span> <span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span class='label'>danger:</span> <span class='kw'>true</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../../NgrokAPI.html" title="NgrokAPI (module)">NgrokAPI</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models.html" title="NgrokAPI::Models (module)">Models</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Models/Endpoint.html" title="NgrokAPI::Models::Endpoint (class)">Endpoint</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="../Models/Endpoint.html#initialize-instance_method" title="NgrokAPI::Models::Endpoint#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='label'>client:</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='label'>attrs:</span> <span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1999,9 +2107,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Oct 24 20:57:26 2024 by
+  Generated on Thu Aug 14 22:44:18 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.5).
+  0.9.36 (ruby-3.3.8).
 </div>
 
     </div>
