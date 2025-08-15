@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ngrok-api (0.24.0)
+    ngrok-api (0.25.0)
 
 GEM
   remote: https://rubygems.org/
