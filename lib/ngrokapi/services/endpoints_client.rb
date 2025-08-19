@@ -86,18 +86,22 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
-      # @param [List<string>] ids
-      # @param [List<string>] urls
+      # @param [List<string>] id
+      # @param [List<string>] url
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-list
-      def list(before_id: nil, limit: nil, ids: [], urls: [], url: nil)
+      def list(
+        before_id: nil,
+        limit: nil,
+        id: [],
+        url: nil
+      )
         result = @client.list(
           before_id: before_id,
           limit: limit,
-          ids: ids,
-          urls: urls,
+          id: id,
           url: url,
           path: PATH
         )
@@ -116,18 +120,22 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
-      # @param [List<string>] ids
-      # @param [List<string>] urls
+      # @param [List<string>] id
+      # @param [List<string>] url
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-list
-      def list!(before_id: nil, limit: nil, ids: [], urls: [], url: nil)
+      def list!(
+        before_id: nil,
+        limit: nil,
+        id: [],
+        url: nil
+      )
         result = @client.list(
           before_id: before_id,
           limit: limit,
-          ids: ids,
-          urls: urls,
+          id: id,
           danger: true,
           url: url,
           path: PATH

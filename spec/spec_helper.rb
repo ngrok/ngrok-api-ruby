@@ -1655,3 +1655,9 @@ def vault_results
     "next_page_uri" => nil,
   }
 end
+
+def vaults_get_secrets_by_vault_input
+  {
+    "id" => vault_result["id"],
+  }
+end
