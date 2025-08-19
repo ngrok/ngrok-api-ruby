@@ -954,12 +954,20 @@
 107
 108
 109
-110</pre>
+110
+111
+112
+113
+114</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/application_sessions_client.rb', line 96</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>url:</span> <span class='kw'>nil</span>
+<span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1073,10 +1081,6 @@
       <pre class="lines">
 
 
-122
-123
-124
-125
 126
 127
 128
@@ -1089,12 +1093,24 @@
 135
 136
 137
-138</pre>
+138
+139
+140
+141
+142
+143
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/application_sessions_client.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/application_sessions_client.rb', line 126</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span>
+  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>url:</span> <span class='kw'>nil</span>
+<span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1121,7 +1137,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 14 22:44:24 2025 by
+  Generated on Tue Aug 19 21:35:28 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.8).
 </div>

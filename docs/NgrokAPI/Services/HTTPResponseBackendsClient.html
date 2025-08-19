@@ -1386,12 +1386,20 @@
 141
 142
 143
-144</pre>
+144
+145
+146
+147
+148</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/http_response_backends_client.rb', line 130</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>url:</span> <span class='kw'>nil</span>
+<span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1503,10 +1511,6 @@
       <pre class="lines">
 
 
-153
-154
-155
-156
 157
 158
 159
@@ -1519,12 +1523,24 @@
 166
 167
 168
-169</pre>
+169
+170
+171
+172
+173
+174
+175
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/http_response_backends_client.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/http_response_backends_client.rb', line 157</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span>
+  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>url:</span> <span class='kw'>nil</span>
+<span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1697,23 +1713,23 @@
       <pre class="lines">
 
 
-181
-182
-183
-184
-185
-186
-187
-188
 189
 190
 191
 192
 193
-194</pre>
+194
+195
+196
+197
+198
+199
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/http_response_backends_client.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/http_response_backends_client.rb', line 189</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>body:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>status_code:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/http_response/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1885,23 +1901,23 @@
       <pre class="lines">
 
 
-206
-207
-208
-209
-210
-211
-212
-213
 214
 215
 216
 217
 218
-219</pre>
+219
+220
+221
+222
+223
+224
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/http_response_backends_client.rb', line 206</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/http_response_backends_client.rb', line 214</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>body:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>headers:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>status_code:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/backends/http_response/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1927,7 +1943,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 14 22:44:24 2025 by
+  Generated on Tue Aug 19 21:35:29 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.8).
 </div>

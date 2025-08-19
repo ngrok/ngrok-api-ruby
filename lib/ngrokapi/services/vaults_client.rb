@@ -178,6 +178,81 @@ module NgrokAPI
       end
 
       ##
+      # Get Secrets by Vault ID
+      #
+      # @param [string] id a resource identifier
+      # @param [string] before_id
+      # @param [string] limit
+      # @param [string] url optional and mutually exclusive from before_id and limit
+      # @return [NgrokAPI::Models::Listable] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-vaults-get-secrets-by-vault
+      def get_secrets_by_vault(
+        id: "",
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
+        path = '/vaults/%{id}/secrets'
+        replacements = {
+          id: id,
+        }
+        result = @client.list(
+          id: id,
+          before_id: before_id,
+          limit: limit,
+          url: url,
+          path: path % replacements
+        )
+
+        NgrokAPI::Models::Listable.new(
+          client: self,
+          attrs: result,
+          list_property: 'secrets',
+          klass: NgrokAPI::Models::Secret
+        )
+      end
+
+      ##
+      # Get Secrets by Vault ID
+      # Throws an exception if API error.
+      #
+      # @param [string] id a resource identifier
+      # @param [string] before_id
+      # @param [string] limit
+      # @param [string] url optional and mutually exclusive from before_id and limit
+      # @return [NgrokAPI::Models::Listable] result from the API request
+      #
+      # https://ngrok.com/docs/api#api-vaults-get-secrets-by-vault
+      def get_secrets_by_vault!(
+        id: "",
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
+        path = '/vaults/%{id}/secrets'
+        replacements = {
+          id: id,
+        }
+        result = @client.list(
+          id: id,
+          before_id: before_id,
+          limit: limit,
+          danger: true,
+          url: url,
+          path: path % replacements
+        )
+
+        NgrokAPI::Models::Listable.new(
+          client: self,
+          attrs: result,
+          list_property: 'secrets',
+          klass: NgrokAPI::Models::Secret,
+          danger: true
+        )
+      end
+
+      ##
       # List all Vaults owned by account
       #
       # @param [string] before_id
@@ -186,7 +261,11 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-vaults-list
-      def list(before_id: nil, limit: nil, url: nil)
+      def list(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -212,7 +291,11 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-vaults-list
-      def list!(before_id: nil, limit: nil, url: nil)
+      def list!(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
         result = @client.list(
           before_id: before_id,
           limit: limit,

@@ -1390,12 +1390,20 @@
 161
 162
 163
-164</pre>
+164
+165
+166
+167
+168</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_policy_rules_client.rb', line 150</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
+  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>url:</span> <span class='kw'>nil</span>
+<span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1509,10 +1517,6 @@
       <pre class="lines">
 
 
-176
-177
-178
-179
 180
 181
 182
@@ -1525,12 +1529,24 @@
 189
 190
 191
-192</pre>
+192
+193
+194
+195
+196
+197
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_policy_rules_client.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_policy_rules_client.rb', line 180</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span><span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>url:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list!'>list!</span><span class='lparen'>(</span>
+  <span class='label'>before_id:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>limit:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>url:</span> <span class='kw'>nil</span>
+<span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_list'>list</span><span class='lparen'>(</span>
     <span class='label'>before_id:</span> <span class='id identifier rubyid_before_id'>before_id</span><span class='comma'>,</span>
     <span class='label'>limit:</span> <span class='id identifier rubyid_limit'>limit</span><span class='comma'>,</span>
@@ -1669,21 +1685,21 @@
       <pre class="lines">
 
 
-204
-205
-206
-207
-208
-209
-210
-211
 212
 213
 214
-215</pre>
+215
+216
+217
+218
+219
+220
+221
+222
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_policy_rules_client.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_policy_rules_client.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>cidr:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_policy_rules/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1819,21 +1835,21 @@
       <pre class="lines">
 
 
-228
-229
-230
-231
-232
-233
-234
-235
 236
 237
 238
-239</pre>
+239
+240
+241
+242
+243
+244
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_policy_rules_client.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/ngrokapi/services/ip_policy_rules_client.rb', line 236</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update!'>update!</span><span class='lparen'>(</span><span class='label'>id:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>description:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>metadata:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>cidr:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/ip_policy_rules/%{id}</span><span class='tstring_end'>&#39;</span></span>
@@ -1857,7 +1873,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Aug 14 22:44:21 2025 by
+  Generated on Tue Aug 19 21:35:25 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.8).
 </div>
