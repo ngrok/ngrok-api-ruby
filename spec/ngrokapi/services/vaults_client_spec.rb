@@ -174,6 +174,21 @@ RSpec.describe NgrokAPI::Services::VaultsClient do
     end
   end
 
+  describe "#get_secrets_by_vault" do
+    it "will make a call to list (a GET request) and return a NgrokAPI::Models::Listable" do
+      path = '/vaults/%{id}/secrets'
+      replacements = {
+        id: vaults_get_secrets_by_vault_input["id"],
+      }
+      path = path % replacements
+      expect(@client).to receive(:list).
+        and_return(secret_results)
+      url = base_url + path + "?before_id=" + api_key_result["id"] + "&limit=1"
+      result = @vaults_client.get_secrets_by_vault(url: url)
+      expect(result.class).to eq(NgrokAPI::Models::Listable)
+    end
+  end
+
   describe "#list" do
     it "will make a call to list (a GET request) and return a NgrokAPI::Models::Listable" do
       expect(@client).to receive(:list).

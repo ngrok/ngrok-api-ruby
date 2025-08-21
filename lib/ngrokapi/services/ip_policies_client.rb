@@ -143,7 +143,11 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-list
-      def list(before_id: nil, limit: nil, url: nil)
+      def list(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
         result = @client.list(
           before_id: before_id,
           limit: limit,
@@ -169,7 +173,11 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
       # https://ngrok.com/docs/api#api-ip-policies-list
-      def list!(before_id: nil, limit: nil, url: nil)
+      def list!(
+        before_id: nil,
+        limit: nil,
+        url: nil
+      )
         result = @client.list(
           before_id: before_id,
           limit: limit,
