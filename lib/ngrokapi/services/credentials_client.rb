@@ -36,7 +36,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-create
-      def create(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "", precomputed_token: nil)
+      def create(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "", precomputed_token: nil, scim_user_id: "")
         path = '/credentials'
         replacements = {
         }
@@ -63,7 +63,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Credential] result from the API request
       #
       # https://ngrok.com/docs/api#api-credentials-create
-      def create!(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "", precomputed_token: nil)
+      def create!(description: "", metadata: "", acl: [], owner_id: nil, owner_email: "", precomputed_token: nil, scim_user_id: "")
         path = '/credentials'
         replacements = {
         }
@@ -147,6 +147,7 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -154,11 +155,13 @@ module NgrokAPI
       def list(
         before_id: nil,
         limit: nil,
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
+          filter: filter,
           url: url,
           path: PATH
         )
@@ -177,6 +180,7 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -184,11 +188,13 @@ module NgrokAPI
       def list!(
         before_id: nil,
         limit: nil,
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
+          filter: filter,
           danger: true,
           url: url,
           path: PATH

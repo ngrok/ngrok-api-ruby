@@ -1661,3 +1661,24 @@ def vaults_get_secrets_by_vault_input
     "id" => vault_result["id"],
   }
 end
+
+def service_user_result
+  {
+    "id" => "bot_2feR0haVZwmcFwgfEc1UPQwIaIQ",
+    "uri" => "https://api.ngrok.com/service_users/bot_2feR0haVZwmcFwgfEc1UPQwIaIQ",
+    "name" => "new new service user from API",
+    "active" => true,
+    "created_at" => "2024-04-26T19:22:15Z",
+    "token" => nil,
+  }
+end
+
+def service_user_results
+  {
+    "service_users" => [
+      service_user_result,
+    ],
+    "uri" => "https://api.ngrok.com/service_users",
+    "next_page_uri" => "https://api.ngrok.com/service_users?before_id=bot_2feR0ilITzTz046nJryEWY2XTrd&limit=1",
+  }
+end

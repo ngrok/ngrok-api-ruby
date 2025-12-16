@@ -95,7 +95,7 @@ module NgrokAPI
         description: nil,
         metadata: nil,
         bindings: nil,
-        pooling_enabled: False
+        pooling_enabled: nil
       )
         @url = url if url
         @traffic_policy = traffic_policy if traffic_policy

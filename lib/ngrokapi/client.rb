@@ -168,6 +168,10 @@ module NgrokAPI
       @_secrets ||= NgrokAPI::Services::SecretsClient.new(client: @client)
     end
 
+    def service_users
+      @_service_users ||= NgrokAPI::Services::ServiceUsersClient.new(client: @client)
+    end
+
     ##
     # An SSH Certificate Authority is a pair of an SSH Certificate and its private
     #  key that can be used to sign other SSH host and user certificates.

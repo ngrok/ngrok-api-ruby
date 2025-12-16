@@ -33,7 +33,8 @@ RSpec.describe NgrokAPI::Services::SSHCredentialsClient do
         acl: "New acl",
         public_key: "New public_key",
         owner_id: "New owner_id",
-        owner_email: "New owner_email"
+        owner_email: "New owner_email",
+        scim_user_id: "New scim_user_id"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHCredential)
     end
@@ -58,7 +59,8 @@ RSpec.describe NgrokAPI::Services::SSHCredentialsClient do
         acl: "New acl",
         public_key: "New public_key",
         owner_id: "New owner_id",
-        owner_email: "New owner_email"
+        owner_email: "New owner_email",
+        scim_user_id: "New scim_user_id"
       )
       expect(result.class).to eq(NgrokAPI::Models::SSHCredential)
       # expect(result.id).to eq(ssh_credential_result["id"])

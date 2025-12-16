@@ -1,4 +1,7 @@
 <!-- Code generated for API Clients. DO NOT EDIT. -->
+## 0.28.0
+* Add support for CEL filtering when listing resources.
+
 ## 0.27.0
 * Change endpoint filtering query parameters to `id` and `url`.
 * Add support for getting secrets by vault.

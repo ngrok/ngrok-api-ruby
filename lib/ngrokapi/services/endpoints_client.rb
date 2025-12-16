@@ -35,7 +35,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Endpoint] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-create
-      def create(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)
+      def create(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: nil)
         path = '/endpoints'
         replacements = {
         }
@@ -65,7 +65,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Endpoint] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-create
-      def create!(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)
+      def create!(url:, type:, traffic_policy:, description: nil, metadata: nil, bindings: nil, pooling_enabled: nil)
         path = '/endpoints'
         replacements = {
         }
@@ -88,6 +88,7 @@ module NgrokAPI
       # @param [string] limit
       # @param [List<string>] id
       # @param [List<string>] url
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -96,12 +97,14 @@ module NgrokAPI
         before_id: nil,
         limit: nil,
         id: [],
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
           id: id,
+          filter: filter,
           url: url,
           path: PATH
         )
@@ -122,6 +125,7 @@ module NgrokAPI
       # @param [string] limit
       # @param [List<string>] id
       # @param [List<string>] url
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -130,12 +134,14 @@ module NgrokAPI
         before_id: nil,
         limit: nil,
         id: [],
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
           id: id,
+          filter: filter,
           danger: true,
           url: url,
           path: PATH
@@ -198,7 +204,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Endpoint] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-update
-      def update(id: "", url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)
+      def update(id: "", url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: nil)
         path = '/endpoints/%{id}'
         replacements = {
           id: id,
@@ -228,7 +234,7 @@ module NgrokAPI
       # @return [NgrokAPI::Models::Endpoint] result from the API request
       #
       # https://ngrok.com/docs/api#api-endpoints-update
-      def update!(id: "", url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: False)
+      def update!(id: "", url: nil, traffic_policy: nil, description: nil, metadata: nil, bindings: nil, pooling_enabled: nil)
         path = '/endpoints/%{id}'
         replacements = {
           id: id,

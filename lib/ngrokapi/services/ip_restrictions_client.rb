@@ -147,6 +147,7 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -154,11 +155,13 @@ module NgrokAPI
       def list(
         before_id: nil,
         limit: nil,
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
+          filter: filter,
           url: url,
           path: PATH
         )
@@ -177,6 +180,7 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -184,11 +188,13 @@ module NgrokAPI
       def list!(
         before_id: nil,
         limit: nil,
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
+          filter: filter,
           danger: true,
           url: url,
           path: PATH

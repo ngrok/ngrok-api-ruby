@@ -121,7 +121,7 @@ module NgrokAPI
       end
 
       ##
-      # Get detailed information about an SSH User Certficate
+      # Get detailed information about an SSH User Certificate
       #
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::SSHUserCertificate] result from the API request
@@ -138,7 +138,7 @@ module NgrokAPI
       end
 
       ##
-      # Get detailed information about an SSH User Certficate
+      # Get detailed information about an SSH User Certificate
       # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
