@@ -29,10 +29,11 @@ module NgrokAPI
       # @param [string] metadata Arbitrary user-defined metadata for this Secret
       # @param [string] description description of Secret
       # @param [string] vault_id unique identifier of the referenced vault
+      # @param [string] vault_name name of the referenced vault
       # @return [NgrokAPI::Models::Secret] result from the API request
       #
       # https://ngrok.com/docs/api#api-secrets-create
-      def create(name: "", value: "", metadata: "", description: "", vault_id:)
+      def create(name: "", value: "", metadata: "", description: "", vault_id: "", vault_name: "")
         path = '/vault_secrets'
         replacements = {
         }
@@ -42,6 +43,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:description] = description if description
         data[:vault_id] = vault_id if vault_id
+        data[:vault_name] = vault_name if vault_name
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::Secret.new(client: self, attrs: result)
       end
@@ -55,10 +57,11 @@ module NgrokAPI
       # @param [string] metadata Arbitrary user-defined metadata for this Secret
       # @param [string] description description of Secret
       # @param [string] vault_id unique identifier of the referenced vault
+      # @param [string] vault_name name of the referenced vault
       # @return [NgrokAPI::Models::Secret] result from the API request
       #
       # https://ngrok.com/docs/api#api-secrets-create
-      def create!(name: "", value: "", metadata: "", description: "", vault_id:)
+      def create!(name: "", value: "", metadata: "", description: "", vault_id: "", vault_name: "")
         path = '/vault_secrets'
         replacements = {
         }
@@ -68,6 +71,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:description] = description if description
         data[:vault_id] = vault_id if vault_id
+        data[:vault_name] = vault_name if vault_name
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::Secret.new(client: self, attrs: result)
       end
@@ -194,6 +198,7 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -201,11 +206,13 @@ module NgrokAPI
       def list(
         before_id: nil,
         limit: nil,
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
+          filter: filter,
           url: url,
           path: PATH
         )
@@ -224,6 +231,7 @@ module NgrokAPI
       #
       # @param [string] before_id
       # @param [string] limit
+      # @param [string] filter
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -231,11 +239,13 @@ module NgrokAPI
       def list!(
         before_id: nil,
         limit: nil,
+        filter: nil,
         url: nil
       )
         result = @client.list(
           before_id: before_id,
           limit: limit,
+          filter: filter,
           danger: true,
           url: url,
           path: PATH

@@ -32,7 +32,8 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
         acl: "New acl",
         owner_id: "New owner_id",
         owner_email: "New owner_email",
-        precomputed_token: "New precomputed_token"
+        precomputed_token: "New precomputed_token",
+        scim_user_id: "New scim_user_id"
       )
       expect(result.class).to eq(NgrokAPI::Models::Credential)
     end
@@ -56,7 +57,8 @@ RSpec.describe NgrokAPI::Services::CredentialsClient do
         acl: "New acl",
         owner_id: "New owner_id",
         owner_email: "New owner_email",
-        precomputed_token: "New precomputed_token"
+        precomputed_token: "New precomputed_token",
+        scim_user_id: "New scim_user_id"
       )
       expect(result.class).to eq(NgrokAPI::Models::Credential)
       # expect(result.id).to eq(credential_result["id"])

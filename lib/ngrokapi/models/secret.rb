@@ -18,7 +18,8 @@ module NgrokAPI
         :metadata,
         :created_by,
         :last_updated_by,
-        :vault
+        :vault,
+        :vault_name
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -35,6 +36,7 @@ module NgrokAPI
         @created_by = @attrs['created_by']
         @last_updated_by = @attrs['last_updated_by']
         @vault = @attrs['vault']
+        @vault_name = @attrs['vault_name']
       end
 
       def ==(other)

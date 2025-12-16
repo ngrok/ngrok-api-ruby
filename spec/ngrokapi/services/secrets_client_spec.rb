@@ -25,6 +25,7 @@ RSpec.describe NgrokAPI::Services::SecretsClient do
       data[:metadata] = "New metadata"
       data[:description] = "New description"
       data[:vault_id] = "New vault_id"
+      data[:vault_name] = "New vault_name"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(secret_result)
       result = @secrets_client.create(
@@ -32,7 +33,8 @@ RSpec.describe NgrokAPI::Services::SecretsClient do
         value: "New value",
         metadata: "New metadata",
         description: "New description",
-        vault_id: "New vault_id"
+        vault_id: "New vault_id",
+        vault_name: "New vault_name"
       )
       expect(result.class).to eq(NgrokAPI::Models::Secret)
     end
@@ -49,6 +51,7 @@ RSpec.describe NgrokAPI::Services::SecretsClient do
       data[:metadata] = "New metadata"
       data[:description] = "New description"
       data[:vault_id] = "New vault_id"
+      data[:vault_name] = "New vault_name"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(secret_result)
       result = @secrets_client.create(
@@ -56,7 +59,8 @@ RSpec.describe NgrokAPI::Services::SecretsClient do
         value: "New value",
         metadata: "New metadata",
         description: "New description",
-        vault_id: "New vault_id"
+        vault_id: "New vault_id",
+        vault_name: "New vault_name"
       )
       expect(result.class).to eq(NgrokAPI::Models::Secret)
       # expect(result.id).to eq(secret_result["id"])

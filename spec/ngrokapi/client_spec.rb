@@ -122,6 +122,12 @@ RSpec.describe NgrokAPI::Client do
     end
   end
 
+  describe "#service_users" do
+    it "returns an instance of the ServiceUsersClient" do
+      expect(@client.service_users.class).to eq(NgrokAPI::Services::ServiceUsersClient)
+    end
+  end
+
   describe "#ssh_certificate_authorities" do
     it "returns an instance of the SSHCertificateAuthoritiesClient" do
       expect(@client.ssh_certificate_authorities.class).to eq(NgrokAPI::Services::SSHCertificateAuthoritiesClient)

@@ -113,7 +113,7 @@ module NgrokAPI
       end
 
       ##
-      # Get detailed information about an SSH Host Certficate
+      # Get detailed information about an SSH Host Certificate
       #
       # @param [string] id a resource identifier
       # @return [NgrokAPI::Models::SSHHostCertificate] result from the API request
@@ -130,7 +130,7 @@ module NgrokAPI
       end
 
       ##
-      # Get detailed information about an SSH Host Certficate
+      # Get detailed information about an SSH Host Certificate
       # Throws an exception if API error.
       #
       # @param [string] id a resource identifier
