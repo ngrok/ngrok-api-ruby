@@ -20,7 +20,8 @@ module NgrokAPI
         :certificate,
         :certificate_management_policy,
         :certificate_management_status,
-        :acme_challenge_cname_target
+        :acme_challenge_cname_target,
+        :resolves_to
 
       def initialize(client: nil, attrs: {})
         @client = client
@@ -39,6 +40,7 @@ module NgrokAPI
         @certificate_management_policy = @attrs['certificate_management_policy']
         @certificate_management_status = @attrs['certificate_management_status']
         @acme_challenge_cname_target = @attrs['acme_challenge_cname_target']
+        @resolves_to = @attrs['resolves_to']
       end
 
       def ==(other)

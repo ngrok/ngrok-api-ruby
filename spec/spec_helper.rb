@@ -1056,6 +1056,11 @@ def reserved_domain_cert_ns_target_result
   }
 end
 
+def reserved_domain_resolves_to_entry_result
+  {
+  }
+end
+
 def ssh_certificate_authority_result
   {
     "id" => "sshca_1rV5FT4Uy4JaYbMnSyKS3p0xE4f",
