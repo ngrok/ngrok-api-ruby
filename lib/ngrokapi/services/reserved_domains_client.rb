@@ -32,10 +32,11 @@ module NgrokAPI
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @param [List<ReservedDomainResolvesToEntry>] resolves_to DNS resolver targets configured for the reserved domain, or empty for "global" resolution.
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
-      def create(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, error_redirect_url: nil)
+      def create(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, error_redirect_url: nil, resolves_to: nil)
         path = '/reserved_domains'
         replacements = {
         }
@@ -46,6 +47,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        data[:resolves_to] = resolves_to if resolves_to
         result = @client.post(path % replacements, data: data)
         NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
@@ -60,10 +62,11 @@ module NgrokAPI
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @param [List<ReservedDomainResolvesToEntry>] resolves_to DNS resolver targets configured for the reserved domain, or empty for "global" resolution.
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-create
-      def create!(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, error_redirect_url: nil)
+      def create!(name: "", domain: "", region: "", description: "", metadata: "", http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, error_redirect_url: nil, resolves_to: nil)
         path = '/reserved_domains'
         replacements = {
         }
@@ -74,6 +77,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        data[:resolves_to] = resolves_to if resolves_to
         result = @client.post(path % replacements, data: data, danger: true)
         NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
@@ -147,9 +151,9 @@ module NgrokAPI
       ##
       # List all reserved domains on this account.
       #
-      # @param [string] before_id
-      # @param [string] limit
-      # @param [string] filter
+      # @param [string] before_id Expects a resource ID as its input. Returns earlier entries in the result set, sorted by ID.
+      # @param [string] limit Constrains the number of results in the dataset. See the `API Overview <https://ngrok.com/docs/api/index#pagination>`_ for details.
+      # @param [string] filter A CEL expression to filter the list results. Supports logical and comparison operators to match on fields such as ``id``, ``metadata``, ``created_at``, and more. See ngrok API Filtering for syntax and field details: `https://ngrok.com/docs/api/api-filtering <https://ngrok.com/docs/api/api-filtering>`_.
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -180,9 +184,9 @@ module NgrokAPI
       # List all reserved domains on this account.
       # Throws an exception if API error.
       #
-      # @param [string] before_id
-      # @param [string] limit
-      # @param [string] filter
+      # @param [string] before_id Expects a resource ID as its input. Returns earlier entries in the result set, sorted by ID.
+      # @param [string] limit Constrains the number of results in the dataset. See the `API Overview <https://ngrok.com/docs/api/index#pagination>`_ for details.
+      # @param [string] filter A CEL expression to filter the list results. Supports logical and comparison operators to match on fields such as ``id``, ``metadata``, ``created_at``, and more. See ngrok API Filtering for syntax and field details: `https://ngrok.com/docs/api/api-filtering <https://ngrok.com/docs/api/api-filtering>`_.
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -219,10 +223,11 @@ module NgrokAPI
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @param [List<ReservedDomainResolvesToEntry>] resolves_to DNS resolver targets configured for the reserved domain, or empty for "global" resolution.
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil, error_redirect_url: nil)
+      def update(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil, error_redirect_url: nil, resolves_to: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -232,6 +237,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        data[:resolves_to] = resolves_to if resolves_to
         result = @client.patch(path % replacements, data: data)
         NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end
@@ -245,10 +251,11 @@ module NgrokAPI
       # @param [string] metadata arbitrary user-defined machine-readable data of this reserved domain. Optional, max 4096 bytes.
       # @param [string] certificate_id ID of a user-uploaded TLS certificate to use for connections to targeting this domain. Optional, mutually exclusive with ``certificate_management_policy``.
       # @param [ReservedDomainCertPolicy] certificate_management_policy configuration for automatic management of TLS certificates for this domain, or null if automatic management is disabled. Optional, mutually exclusive with ``certificate_id``.
+      # @param [List<ReservedDomainResolvesToEntry>] resolves_to DNS resolver targets configured for the reserved domain, or empty for "global" resolution.
       # @return [NgrokAPI::Models::ReservedDomain] result from the API request
       #
       # https://ngrok.com/docs/api#api-reserved-domains-update
-      def update!(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil, error_redirect_url: nil)
+      def update!(id: "", description: nil, metadata: nil, http_endpoint_configuration_id: nil, https_endpoint_configuration_id: nil, certificate_id: nil, certificate_management_policy: nil, region: nil, error_redirect_url: nil, resolves_to: nil)
         path = '/reserved_domains/%{id}'
         replacements = {
           id: id,
@@ -258,6 +265,7 @@ module NgrokAPI
         data[:metadata] = metadata if metadata
         data[:certificate_id] = certificate_id if certificate_id
         data[:certificate_management_policy] = certificate_management_policy if certificate_management_policy
+        data[:resolves_to] = resolves_to if resolves_to
         result = @client.patch(path % replacements, data: data, danger: true)
         NgrokAPI::Models::ReservedDomain.new(client: self, attrs: result)
       end

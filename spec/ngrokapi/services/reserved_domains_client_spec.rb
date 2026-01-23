@@ -26,6 +26,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       data[:metadata] = "New metadata"
       data[:certificate_id] = "New certificate_id"
       data[:certificate_management_policy] = "New certificate_management_policy"
+      data[:resolves_to] = "New resolves_to"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(reserved_domain_result)
       result = @reserved_domains_client.create(
@@ -38,7 +39,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
         certificate_management_policy: "New certificate_management_policy",
-        error_redirect_url: "New error_redirect_url"
+        error_redirect_url: "New error_redirect_url",
+        resolves_to: "New resolves_to"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
     end
@@ -56,6 +58,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       data[:metadata] = "New metadata"
       data[:certificate_id] = "New certificate_id"
       data[:certificate_management_policy] = "New certificate_management_policy"
+      data[:resolves_to] = "New resolves_to"
       expect(@client).to receive(:post).with(path % replacements, data: data).
         and_return(reserved_domain_result)
       result = @reserved_domains_client.create(
@@ -68,7 +71,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         https_endpoint_configuration_id: "New https_endpoint_configuration_id",
         certificate_id: "New certificate_id",
         certificate_management_policy: "New certificate_management_policy",
-        error_redirect_url: "New error_redirect_url"
+        error_redirect_url: "New error_redirect_url",
+        resolves_to: "New resolves_to"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
       # expect(result.id).to eq(reserved_domain_result["id"])
@@ -170,6 +174,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       data[:metadata] = "New metadata"
       data[:certificate_id] = "New certificate_id"
       data[:certificate_management_policy] = "New certificate_management_policy"
+      data[:resolves_to] = "New resolves_to"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(reserved_domain_result)
       result = @reserved_domains_client.update(
@@ -181,7 +186,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         certificate_id: "New certificate_id",
         certificate_management_policy: "New certificate_management_policy",
         region: "New region",
-        error_redirect_url: "New error_redirect_url"
+        error_redirect_url: "New error_redirect_url",
+        resolves_to: "New resolves_to"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
     end
@@ -198,6 +204,7 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
       data[:metadata] = "New metadata"
       data[:certificate_id] = "New certificate_id"
       data[:certificate_management_policy] = "New certificate_management_policy"
+      data[:resolves_to] = "New resolves_to"
       expect(@client).to receive(:patch).with(path % replacements, data: data).
         and_return(reserved_domain_result)
       result = @reserved_domains_client.update(
@@ -209,7 +216,8 @@ RSpec.describe NgrokAPI::Services::ReservedDomainsClient do
         certificate_id: "New certificate_id",
         certificate_management_policy: "New certificate_management_policy",
         region: "New region",
-        error_redirect_url: "New error_redirect_url"
+        error_redirect_url: "New error_redirect_url",
+        resolves_to: "New resolves_to"
       )
       expect(result.class).to eq(NgrokAPI::Models::ReservedDomain)
       # expect(result.id).to eq(reserved_domain_result["id"])

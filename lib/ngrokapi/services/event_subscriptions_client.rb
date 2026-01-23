@@ -134,9 +134,9 @@ module NgrokAPI
       ##
       # List this Account's Event Subscriptions.
       #
-      # @param [string] before_id
-      # @param [string] limit
-      # @param [string] filter
+      # @param [string] before_id Expects a resource ID as its input. Returns earlier entries in the result set, sorted by ID.
+      # @param [string] limit Constrains the number of results in the dataset. See the `API Overview <https://ngrok.com/docs/api/index#pagination>`_ for details.
+      # @param [string] filter A CEL expression to filter the list results. Supports logical and comparison operators to match on fields such as ``id``, ``metadata``, ``created_at``, and more. See ngrok API Filtering for syntax and field details: `https://ngrok.com/docs/api/api-filtering <https://ngrok.com/docs/api/api-filtering>`_.
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
@@ -167,9 +167,9 @@ module NgrokAPI
       # List this Account's Event Subscriptions.
       # Throws an exception if API error.
       #
-      # @param [string] before_id
-      # @param [string] limit
-      # @param [string] filter
+      # @param [string] before_id Expects a resource ID as its input. Returns earlier entries in the result set, sorted by ID.
+      # @param [string] limit Constrains the number of results in the dataset. See the `API Overview <https://ngrok.com/docs/api/index#pagination>`_ for details.
+      # @param [string] filter A CEL expression to filter the list results. Supports logical and comparison operators to match on fields such as ``id``, ``metadata``, ``created_at``, and more. See ngrok API Filtering for syntax and field details: `https://ngrok.com/docs/api/api-filtering <https://ngrok.com/docs/api/api-filtering>`_.
       # @param [string] url optional and mutually exclusive from before_id and limit
       # @return [NgrokAPI::Models::Listable] result from the API request
       #
